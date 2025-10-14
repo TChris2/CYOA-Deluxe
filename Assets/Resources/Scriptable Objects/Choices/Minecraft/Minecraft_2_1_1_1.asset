@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Minecraft_2_1_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 13
+  choice: DLC Island Sucks! Next Town!
+  vid: {fileID: 32900000, guid: 7029dc6e08cf8454d97a27600df60aad, type: 3}
+  choiceState: 0
+  vidEndTime: 0
+  hasComplete: 0
+  nextChoiceIDs: 0e000000100000000f000000
+  objs:
+  - objID: Minecraft_2_1_1_1B1
+    popupTime: 72
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  - objID: Minecraft_2_1_1_1B2
+    popupTime: 80
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  achieveIDs: 
