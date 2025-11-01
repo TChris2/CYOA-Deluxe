@@ -15,12 +15,13 @@ MonoBehaviour:
   choiceID: 25
   choice: Diamond Sword
   vid: {fileID: 32900000, guid: 45fe58be52e47b34d815c63972a951ed, type: 3}
+  thumbnail: {fileID: 21300000, guid: 521f159f75e9b6b408058554140bd0dd, type: 3}
   choiceState: 0
   vidEndTime: 0
   hasComplete: 0
   nextChoiceIDs: 1a0000001b000000
   objs:
-  - objID: BOTW_1_1_1_2B1
+  - obj: {fileID: 2518979021591781705, guid: 22afd57c1096ca44696f315ac0f4f487, type: 3}
     popupTime: 10
     objType: 0
     childPopupDelay: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Duck_1_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 62
+  choice: 'Stay Where You Are '
+  vid: {fileID: 32900000, guid: 0cce9ad0161ccce43ba7c354342e5bc2, type: 3}
+  thumbnail: {fileID: 0}
+  choiceState: 2
+  vidEndTime: 41
+  hasComplete: 0
+  nextChoiceIDs: 
+  objs: []
+  achieveIDs: 

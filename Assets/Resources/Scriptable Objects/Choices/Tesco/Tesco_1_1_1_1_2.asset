@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Tesco_1_1_1_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 49
+  choice: Enter Through The Door
+  vid: {fileID: 32900000, guid: f0d92f2423823c742ad34cae8aef3720, type: 3}
+  thumbnail: {fileID: 0}
+  choiceState: 3
+  vidEndTime: 97
+  hasComplete: 0
+  nextChoiceIDs: 
+  objs: []
+  achieveIDs: 

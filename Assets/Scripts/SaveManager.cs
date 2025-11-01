@@ -4,7 +4,6 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using UnityEngine;
-using UnityEngine.Video;
 
 public class SaveManager : MonoBehaviour
 {
@@ -27,9 +26,10 @@ public class SaveManager : MonoBehaviour
     // Loads choice info from scriptable object
     public void LoadSOData()
     {
+        // Clears dictionary per each load
         choiceDict.Clear();
 
-        Debug.LogWarning("Loading Scriptable Object Data");
+        // Debug.LogWarning("Loading Scriptable Object Data");
         ChoiceInfoSO[] choiceArr;
 
         choiceArr = Resources.LoadAll<ChoiceInfoSO>("Scriptable Objects/Choices");
@@ -47,7 +47,7 @@ public class SaveManager : MonoBehaviour
                 continue;
             }
             
-            ChoiceInfo newChoice = new ChoiceInfo(choice.choiceID, choice.choice, choice.ExportVid(), choice.choiceState, choice.vidEndTime, choice.hasComplete,
+            ChoiceInfo newChoice = new ChoiceInfo(choice.choiceID, choice.choice, choice.vid, choice.thumbnail, choice.choiceState, choice.vidEndTime, choice.hasComplete,
                 choice.nextChoiceIDs, choice.objs);
             choiceDict.Add(choice.choiceID, newChoice);
         }
@@ -56,26 +56,49 @@ public class SaveManager : MonoBehaviour
     // Loads choice info from JSON
     public void LoadJSONData()
     {
+        // Clears dictionary per each load
         choiceDict.Clear();
         
-        Debug.LogWarning("Loading JSON Data");
+        LoadSOData();
+        
+        // Debug.LogWarning("Loading JSON Data");
         var json = File.ReadAllText(filePath);
-
-        choiceDict = JsonConvert.DeserializeObject<Dictionary<ChoiceID, ChoiceInfo>>(json, new JsonSerializerSettings
-            { Converters = { new StringEnumConverter() }});
+        
+        // Loads choice save data
+        List<ChoiceSaveData> loadedInfo = JsonConvert.DeserializeObject<List<ChoiceSaveData>>(json, new JsonSerializerSettings
+            { Converters = { new StringEnumConverter() } });
+        
+        // Updates ChoiceInfo with current player progress
+        foreach (var entry in loadedInfo)
+        {
+            if (choiceDict.TryGetValue(entry.choiceID, out ChoiceInfo info))
+            {
+                info.hasComplete = entry.hasComplete;
+            }
+            else
+            {
+                // Debug.LogWarning($"ChoiceID {entry.choiceID} not found in ScriptableObjects!");
+            }
+        }
     }
 
     // Save any object to JSON
     public void SaveData()
     {
-        // Debug.Log("Saving Data");
+        List<ChoiceSaveData> saveList = new List<ChoiceSaveData>();
+
+        // Creates list of a simplified version of the ChoiceInfo class
+        foreach (var pair in choiceDict)
+            saveList.Add(new ChoiceSaveData(pair.Key, pair.Value.choice, pair.Value.hasComplete));
+
         var settings = new JsonSerializerSettings
         {
             Formatting = Formatting.Indented,
             Converters = { new StringEnumConverter() }
         };
 
-        var json = JsonConvert.SerializeObject(choiceDict, settings);
+        // Debug.Log("Saving Data");
+        var json = JsonConvert.SerializeObject(saveList, settings);
 
         // Debug.Log(json);
 

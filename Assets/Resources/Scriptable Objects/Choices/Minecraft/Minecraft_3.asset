@@ -15,12 +15,13 @@ MonoBehaviour:
   choiceID: 17
   choice: Build
   vid: {fileID: 32900000, guid: 1e20cf56f5dfcb742af604eee9d25933, type: 3}
+  thumbnail: {fileID: 21300000, guid: dbd60c19d120fa84799bdeb5d4b02630, type: 3}
   choiceState: 0
   vidEndTime: 0
   hasComplete: 0
   nextChoiceIDs: 1200000013000000
   objs:
-  - objID: Minecraft_3B1
+  - obj: {fileID: 2518979021591781705, guid: 6f2ddb61dda1d30459c5afbf1995ddbb, type: 3}
     popupTime: 130
     objType: 0
     childPopupDelay: 0

@@ -15,12 +15,13 @@ MonoBehaviour:
   choiceID: 10
   choice: Survival
   vid: {fileID: 32900000, guid: 6ad4672aa48389043a0bdd3489f37573, type: 3}
+  thumbnail: {fileID: 21300000, guid: 358f55231753f0944b635417de8c1699, type: 3}
   choiceState: 0
   vidEndTime: 0
   hasComplete: 0
   nextChoiceIDs: 0b00000010000000
   objs:
-  - objID: Minecraft_2B1
+  - obj: {fileID: 2518979021591781705, guid: ffb3ea6f40b97734e8956f7ce62a2902, type: 3}
     popupTime: 48
     objType: 0
     childPopupDelay: 0

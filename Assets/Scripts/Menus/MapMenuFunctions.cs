@@ -2,20 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 // Functionality for the map menu
 public class MapMenuFunctions : MonoBehaviour
 {
-    // Content of the map menu
-    [SerializeField]
-    private RectTransform mapContent;
-    // Slider for controlling the zoom of the map menu
-    [SerializeField]
-    private Slider zoomSlider;
-    // Stores the default scale of the map menu
-    Vector3 defaultScale;
     // Override to access everything the map menu without already completing it
     public bool completeOverride;
+    // Stores the default scale of the map menu
+    [SerializeField]
+    private Transform mapContent;
+    [SerializeField]
+    private GameObject wyaIcon;
+    // Keeps track of instantiate icons 
+    private GameObject wyaIconStorage;
     // Canvas groups
     [HideInInspector]
     public CanvasGroup mapMenu;
@@ -26,6 +26,17 @@ public class MapMenuFunctions : MonoBehaviour
     SaveManager sm;
     ButtonManager bm;
     InputMenu iMenu;
+    [Header("Side Bar Choice Info")]
+    [SerializeField]
+    private TMP_Text choiceLabel;
+    [SerializeField]
+    private Image choiceCheckmark;
+    [SerializeField]
+    private Image choiceLabelBG;
+    [SerializeField]
+    private Image choiceThumbnail;
+    [SerializeField]
+    private TMP_Text choicesCompletedLabel;
 
 
     void Start()
@@ -34,24 +45,8 @@ public class MapMenuFunctions : MonoBehaviour
         mapMenu = GetComponent<CanvasGroup>();
         sm = GameObject.Find("SaveManager").GetComponent<SaveManager>();
 
-        // Stores default scale
-        defaultScale = mapContent.localScale;
-
         // Adds LoadChoiceMap function to each map button
         AddMapBtnFunctions();
-    }
-
-    // Resets zoom of map menu to default
-    public void ResetZoom()
-    {
-        mapContent.localScale = defaultScale;
-        zoomSlider.value = defaultScale.x;
-    }
-
-    // Controls zoom of map menu
-    public void SetZoom()
-    {
-        mapContent.localScale = new Vector3(zoomSlider.value, zoomSlider.value, 1f);
     }
 
     // Load choice from the map
@@ -62,9 +57,6 @@ public class MapMenuFunctions : MonoBehaviour
         // Loads choice use button manager if the player is already in the main scene   
         if (SceneManager.GetActiveScene().name == "Main Game Video")
         {
-            // Gets necessary components from the current scene if the script does not already have it
-            GetSceneComps();
-
             // Closes map and pause screen menus
             if (inMapMenu)
                 CloseMapMenu();
@@ -87,7 +79,7 @@ public class MapMenuFunctions : MonoBehaviour
     void AddMapBtnFunctions()
     {
         // Gets all the choice buttons on the map
-        Button[] mapBtns = mapContent.GetComponentsInChildren<Button>();
+        Button[] mapBtns = gameObject.GetComponentsInChildren<Button>();
 
         // Adds function to each button
         foreach (Button btn in mapBtns)
@@ -95,17 +87,20 @@ public class MapMenuFunctions : MonoBehaviour
             if (System.Enum.TryParse(btn.gameObject.name, out ChoiceID choiceID))
             {
                 btn.onClick.AddListener(() => LoadChoiceMap(btn.gameObject.name, true));
-            }
-        }
-    }
 
-    // Gets necessary components from the current scene if the script does not already have it
-    void GetSceneComps()
-    {
-        if (!bm || !iMenu)
-        {
-            bm = GameObject.Find("Local UI").GetComponent<ButtonManager>();
-            iMenu = bm.GetComponent<InputMenu>();
+                // Adds EventTrigger for pointer enter
+                var trigger = btn.gameObject.AddComponent<EventTrigger>();
+                var entry = new EventTrigger.Entry();
+                entry.eventID = EventTriggerType.PointerEnter;
+                entry.callback.AddListener((data) =>
+                {
+                    if (sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))
+                    {
+                        DisplayChoiceInfo(choice, btn.GetComponent<Image>().color);
+                    }
+                });
+                trigger.triggers.Add(entry);
+            }
         }
     }
 
@@ -113,7 +108,7 @@ public class MapMenuFunctions : MonoBehaviour
     void UpdateMapBtns()
     {
         // Gets all the choice buttons on the map
-        Button[] mapBtns = mapContent.GetComponentsInChildren<Button>();
+        Button[] mapBtns = gameObject.GetComponentsInChildren<Button>();
 
 
         foreach (Button btn in mapBtns)
@@ -125,102 +120,64 @@ public class MapMenuFunctions : MonoBehaviour
                 if (sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))
                 {
                     TMP_Text text = btn.GetComponentInChildren<TMP_Text>();
+                    Image checkmark = btn.transform.Find("Checkmark").GetComponent<Image>();
 
                     if (choice.hasComplete || completeOverride)
                     {
-                        int completedChoices = 0;
-
-                        // Debug.Log($"Current Choice {choice.choiceID}");
-
-                        foreach (ChoiceID id in choice.nextChoiceIDs)
-                        {
-                            if (sm.choiceDict.TryGetValue(id, out ChoiceInfo nextChoice))
-                            {
-                                // Debug.Log($"Next Choice {nextChoice.choiceID} {nextChoice.hasComplete}");
-                                if (nextChoice.hasComplete)
-                                    completedChoices += 1;
-                            }
-                        }
-
-                        // If the player has completed all the available choices the text will be displayed in complete style
-                        string style = completedChoices == choice.nextChoiceIDs.Length ? "Complete" : "Normal";
-
                         btn.interactable = true;
-                        text.text = $"<style=\"{style}\">{completedChoices}/{choice.nextChoiceIDs.Length}</style>";
+
+                        // If the player has completed all the available choices the choice will be displayed as complete
+                        var (isComplete, completedChoices) = CheckChoiceCompletion(choice);
+
+                        checkmark.enabled = isComplete;
                     }
                     // If the player has not gotten to that choice yet the button is disabled
                     else
                     {
                         btn.interactable = false;
-                        text.text = "";
+                        checkmark.enabled = false;
+                        // text.text = "";
                     }
                 }
             }
         }
     }
 
-    // Centers on the choice the player is currently at
-    void CenterMapItem()
+    // Checks if the player has completed all the choices for a choice
+    (bool, int) CheckChoiceCompletion(ChoiceInfo choice)
     {
-        string choiceID;
+        // Debug.Log($"Current Choice {choice.choiceID}");
 
-        // If the player is in the game it centers the choice on the current on the player is on
-        if (SceneManager.GetActiveScene().name == "Main Game Video")
+        int completedChoices = 0;
+
+        foreach (ChoiceID id in choice.nextChoiceIDs)
         {
-            // Gets necessary components from the current scene if the script does not already have it
-            GetSceneComps();
-
-            choiceID = bm.currentChoice.choiceID.ToString();
-
-            if (choiceID == ChoiceID.Retry_.ToString())
-                choiceID = ChoiceID.Start_.ToString();
-        }
-        // If in main menu centers it on the start choice
-        else
-            choiceID = ChoiceID.Start_.ToString();
-
-        // Debug.Log($"In {SceneManager.GetActiveScene().name} searching for {choiceID}");
-
-        Transform mapItem = mapContent.Find(choiceID);
-        // If the player is at the end of a path
-        if (!mapItem)
-        {
-            string[] parts = choiceID.Split('_');
-
-            string prevChoice = string.Join("_", parts, 0, parts.Length - 1);;
-
-            if (parts.Length == 2)
-                prevChoice = $"{prevChoice}_";
-
-            // Debug.Log($"{choiceID} not found, searching for prev choice {prevChoice}");
-
-            // Searches instead for the previous choice
-            mapItem = mapContent.Find(prevChoice);
+            if (sm.choiceDict.TryGetValue(id, out ChoiceInfo nextChoice))
+            {
+                // Debug.Log($"Next Choice {nextChoice.choiceID} {nextChoice.hasComplete}");
+                if (nextChoice.hasComplete)
+                    completedChoices += 1;
+            }
         }
 
-        ScrollRect scrollRect = mapContent.GetComponentInParent<ScrollRect>();
-        if (!scrollRect) return;
+        return (completedChoices == choice.nextChoiceIDs.Length, completedChoices);
+    }
 
-        RectTransform viewport = scrollRect.viewport;
-        RectTransform itemRect = mapItem.GetComponent<RectTransform>();
+    // Displays the info on the sidebar of what choice the player is currently highlighting
+    void DisplayChoiceInfo(ChoiceInfo choice, Color color)
+    {
+        // Debug.Log($"Displaying choice {choice.choiceID}");
+        choiceLabel.text = choice.choice;
 
-        // Position of item relative to content
-        Vector3 itemLocalPos = mapContent.InverseTransformPoint(itemRect.position);
-        Vector3 viewportLocalPos = mapContent.InverseTransformPoint(viewport.position);
+        var (isComplete, completedChoices) = CheckChoiceCompletion(choice);
+        choiceCheckmark.enabled = isComplete;
 
-        // Difference between item center and viewport center
-        Vector3 offset = viewportLocalPos - itemLocalPos;
+        choiceLabelBG.color = color;
 
-        // Move content by this offset
-        Vector3 newPos = mapContent.localPosition + offset;
+        choiceThumbnail.sprite = choice.thumbnail;
 
-        // Optional: clamp so content doesn’t scroll too far
-        Vector2 minPos = viewport.rect.size * 0.5f - mapContent.rect.size * 0.5f;
-        Vector2 maxPos = -minPos;
-        newPos.x = Mathf.Clamp(newPos.x, minPos.x, maxPos.x);
-        newPos.y = Mathf.Clamp(newPos.y, minPos.y, maxPos.y);
-
-        mapContent.localPosition = newPos;
+        string style = isComplete ? "Complete" : "Normal";
+        choicesCompletedLabel.text = $"Choices Completed: <style=\"{style}\">{completedChoices}/{choice.nextChoiceIDs.Length}</style>";
     }
 
     // Opens Map Menu
@@ -230,13 +187,79 @@ public class MapMenuFunctions : MonoBehaviour
         prevMenu = menu;
         prevMenu.interactable = false;
 
+        // Gets necessary components from the current scene if the script does not already have it
+        if (!bm || !iMenu)
+        {
+            bm = GameObject.Find("Local UI").GetComponent<ButtonManager>();
+            iMenu = bm.GetComponent<InputMenu>();
+        }
+
         // Updates map menu buttons based on player progression
         UpdateMapBtns();
-        // Resets zoom slider
-        zoomSlider.value = 1;
 
-        // Centers on the choice the player is currently at
-        CenterMapItem();
+        string choiceID;
+
+        // Delete the previous wyaIcon
+        if (wyaIconStorage)
+            Destroy(wyaIconStorage);
+
+        // If the player is in the game it centers the choice on the current on the player is on
+        if (SceneManager.GetActiveScene().name == "Main Game Video")
+            choiceID = bm.currentChoice.choiceID.ToString();
+        // If in main menu centers it on the start choice
+        else
+            choiceID = ChoiceID.Start_.ToString();
+
+        // Converts option which are essentially the same vid to the one displayed on the map
+        switch (choiceID)
+        {
+            case "Retry_":
+                choiceID = "Start_";
+                break;
+        }
+
+        Button[] mapBtns = mapContent.GetComponentsInChildren<Button>(true);
+        Button targetBtn = null;
+
+        foreach (Button btn in mapBtns)
+        {
+            if (btn.gameObject.name == choiceID)
+            {
+                targetBtn = btn;
+                break;
+            }
+        }
+
+        ChoiceInfo mapChoice = bm.currentChoice;
+
+        // If at the end of a path
+        if (targetBtn == null)
+        {
+            string[] parts = choiceID.Split('_');
+            string prevChoice = string.Join("_", parts, 0, parts.Length - 1);
+
+            if (parts.Length == 2)
+                prevChoice = $"{prevChoice}_";
+
+            foreach (Button btn in mapBtns)
+            {
+                if (btn.gameObject.name == prevChoice)
+                {
+                    targetBtn = btn;
+                    break;
+                }
+            }
+
+            sm.choiceDict.TryGetValue(System.Enum.TryParse(prevChoice, out ChoiceID id) ? id : default, out mapChoice);
+        }
+
+        Color btnColor = targetBtn.GetComponent<Image>().color;
+        
+        // Spawns wya icon at current choice
+        wyaIconStorage = Instantiate(wyaIcon, new Vector2(targetBtn.transform.position.x, targetBtn.transform.position.y + 57.5f),
+            Quaternion.identity, targetBtn.transform);
+
+        DisplayChoiceInfo(mapChoice, btnColor);
 
         // Opens map menu
         MenuOpenClose(mapMenu, true);

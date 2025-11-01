@@ -20,7 +20,8 @@ MonoBehaviour:
   hasComplete: 0
   nextChoiceIDs: 090000000a00000011000000
   objs:
-  - objID: Minecraft_
+  - obj: {fileID: 2518979021591781705, guid: 0a9025b6b66da6146888d1031d55da7a, type: 3}
+    objID: Minecraft_
     popupTime: 36
     objType: 0
     childPopupDelay: 0

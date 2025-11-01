@@ -15,17 +15,18 @@ MonoBehaviour:
   choiceID: 13
   choice: DLC Island Sucks! Next Town!
   vid: {fileID: 32900000, guid: 7029dc6e08cf8454d97a27600df60aad, type: 3}
+  thumbnail: {fileID: 21300000, guid: cc31683539505204d8c5e0c76a25ac25, type: 3}
   choiceState: 0
   vidEndTime: 0
   hasComplete: 0
   nextChoiceIDs: 0e000000100000000f000000
   objs:
-  - objID: Minecraft_2_1_1_1B1
+  - obj: {fileID: 2518979021591781705, guid: 07f0cb2b1f21c114cb425c834990f811, type: 3}
     popupTime: 72
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  - objID: Minecraft_2_1_1_1B2
+  - obj: {fileID: 2518979021591781705, guid: 80553824bfe99f3499962b8b2a4e97fa, type: 3}
     popupTime: 80
     objType: 0
     childPopupDelay: 0

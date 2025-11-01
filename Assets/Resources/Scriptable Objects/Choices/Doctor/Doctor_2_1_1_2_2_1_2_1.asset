@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Doctor_2_1_1_2_2_1_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 102
+  choice: Fight Again
+  vid: {fileID: 32900000, guid: 150e647bd17c8c3429e32671f2deb3a1, type: 3}
+  thumbnail: {fileID: 21300000, guid: d37cef26ec9d3ce449d3ec35bf454f92, type: 3}
+  choiceState: 0
+  vidEndTime: 0
+  hasComplete: 0
+  nextChoiceIDs: 64000000
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: 5c4b96a72b99f974b9f58402fda9eda1, type: 3}
+    popupTime: 20
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  achieveIDs: 

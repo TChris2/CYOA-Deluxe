@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Race_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 78
+  choice: Shoot Crumpet and Cupcake
+  vid: {fileID: 32900000, guid: 66a1da35235ac6943bcdff89405ef115, type: 3}
+  thumbnail: {fileID: 21300000, guid: 81ac19f61b9a4df42a6de88085710a6e, type: 3}
+  choiceState: 0
+  vidEndTime: 0
+  hasComplete: 0
+  nextChoiceIDs: 4a0000004b000000
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: 74d81655e2c2e13409953fa8392c2c62, type: 3}
+    popupTime: 30
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  achieveIDs: 

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Race_1
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 72
+  choice: Use It
+  vid: {fileID: 32900000, guid: fcb2bc1130dc4034b9c7678e01355e9d, type: 3}
+  thumbnail: {fileID: 21300000, guid: 4009c3a835ed7704fbcb62015552bf3a, type: 3}
+  choiceState: 0
+  vidEndTime: 0
+  hasComplete: 0
+  nextChoiceIDs: 490000004c000000
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: a561fc73bd34c9941881fb1fca7b5f23, type: 3}
+    popupTime: 17
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  achieveIDs: 

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Tesco_1_1_1_1_1_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 48
+  choice: 'Go Further? '
+  vid: {fileID: 32900000, guid: 58b80eec33edd9d4a893b0f5ed5c32c7, type: 3}
+  thumbnail: {fileID: 0}
+  choiceState: 0
+  vidEndTime: 0
+  hasComplete: 0
+  nextChoiceIDs: 2f000000
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: 809cd563984606c4a92d042906bebb5d, type: 3}
+    popupTime: 24
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  achieveIDs: 

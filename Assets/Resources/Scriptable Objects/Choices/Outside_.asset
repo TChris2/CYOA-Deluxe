@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Outside_
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 40
+  choice: Go Outside
+  vid: {fileID: 32900000, guid: 86109b3b0112c6a4fbed9b9d93f708d5, type: 3}
+  thumbnail: {fileID: 21300000, guid: 71b393c953a221d488af9fa0bd5b88b2, type: 3}
+  choiceState: 0
+  vidEndTime: 0
+  hasComplete: 0
+  nextChoiceIDs: 290000003b000000
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: 0f451bcf7d0485d43958a2c23c8b8454, type: 3}
+    popupTime: 64.2
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  achieveIDs: 

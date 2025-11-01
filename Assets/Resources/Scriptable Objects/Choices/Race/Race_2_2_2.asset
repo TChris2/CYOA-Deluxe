@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Race_2_2_2
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 81
+  choice: Roll For Luck!
+  vid: {fileID: 32900000, guid: 35ed7542b4d31ea4ebafdbbab74f1b86, type: 3}
+  thumbnail: {fileID: 0}
+  choiceState: 2
+  vidEndTime: 65
+  hasComplete: 0
+  nextChoiceIDs: 
+  objs: []
+  achieveIDs: 

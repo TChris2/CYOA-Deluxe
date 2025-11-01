@@ -15,12 +15,13 @@ MonoBehaviour:
   choiceID: 23
   choice: Bullet Time Bounce
   vid: {fileID: 32900000, guid: 132703923cbd9da45896e121640833d7, type: 3}
+  thumbnail: {fileID: 21300000, guid: 2f2f8e6c1d0764545b55fb9ecf0a39c8, type: 3}
   choiceState: 0
   vidEndTime: 0
   hasComplete: 0
   nextChoiceIDs: 18000000190000001c000000
   objs:
-  - objID: BOTW_1_1_1B1
+  - obj: {fileID: 2518979021591781705, guid: d3c9b492af82da44089354778387de78, type: 3}
     popupTime: 21
     objType: 0
     childPopupDelay: 0

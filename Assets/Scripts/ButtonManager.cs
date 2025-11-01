@@ -122,7 +122,7 @@ public class ButtonManager : MonoBehaviour
                 }
 
                 // Sets video to the player
-                videoPlay.clip = currentChoice.ExportVid();
+                videoPlay.clip = currentChoice.vid;
                 videoPlay.time = 0;
 
                 // Marks the choice as completed
@@ -135,22 +135,6 @@ public class ButtonManager : MonoBehaviour
                     // Starts a coroutine for each object
                     foreach (ObjectInfo obj in currentChoice.objs)
                     {
-                        // Checks if it already has the object stored
-                        if (obj.CheckObject())
-                        {
-                            // Debug.Log("Object Detected");
-                        }
-                        // Loads the objects the if it does not
-                        else
-                        {
-                            // Debug.Log("No object detected, loading object from resources");
-                            string idString = obj.objID.ToString();
-                            string[] parts = idString.Split('_');
-
-                            // Debug.Log($"Buttons/Choices/{parts[0]}/{idString}");
-                            obj.SetObject(Resources.Load<GameObject>($"Buttons/Choices/{parts[0]}/{idString}"));
-                        } 
-
                         // Spawns object
                         coroutines.Add(StartCoroutine(SpawnObject(obj)));
                     }
@@ -162,7 +146,7 @@ public class ButtonManager : MonoBehaviour
 
                 // Skips to first choice if enabled
                     if (isSkipping)
-                        GetSkipTime();
+                        GetSkipTime(currentChoice);
 
                 // Debug.Log("Playing vid");
                 videoPlay.Play();
@@ -199,7 +183,7 @@ public class ButtonManager : MonoBehaviour
         // Debug.Log("In object spawn coroutine");
 
         // Spawns object
-        GameObject gameObj = Instantiate(obj.ExportObject(), objHolder.transform);
+        GameObject gameObj = Instantiate(obj.obj, objHolder.transform);
 
         // Adds function to the buttons
         switch (obj.objType)
@@ -308,18 +292,18 @@ public class ButtonManager : MonoBehaviour
             else
             {
                 // Debug.Log($"Skip - SkipVidTime");
-                GetSkipTime();
+                SkipVidTime(GetSkipTime(currentChoice));
             }
         }
     }
 
     // Gets skip timestamp for vid
-    void GetSkipTime()
+    float GetSkipTime(ChoiceInfo choice)
     {
         float choiceTime = float.PositiveInfinity;
 
         // Finds the first choice in the vid
-        foreach (ObjectInfo obj in currentChoice.objs)
+        foreach (ObjectInfo obj in choice.objs)
         {
             if (obj.objType == ObjectType.ChoiceBtn)
             {
@@ -332,7 +316,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         // Skips to the timestamp in the vid
-        SkipVidTime(choiceTime);
+        return choiceTime;
     }
 
     // Skips to the selected timestamp in the vid

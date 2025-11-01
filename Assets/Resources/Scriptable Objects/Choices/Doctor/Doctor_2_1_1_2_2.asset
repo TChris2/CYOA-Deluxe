@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Doctor_2_1_1_2_2
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: 97
+  choice: Join
+  vid: {fileID: 32900000, guid: 69b89b2891bc8184d8371ca67b981f92, type: 3}
+  thumbnail: {fileID: 21300000, guid: ebbc0e02ddf8f1f4a9ea51ac11346cb8, type: 3}
+  choiceState: 0
+  vidEndTime: 0
+  hasComplete: 0
+  nextChoiceIDs: 6200000068000000
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: 0139e72f9ae26ad4e9bd531289517cfc, type: 3}
+    popupTime: 39
+    objType: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  achieveIDs: 

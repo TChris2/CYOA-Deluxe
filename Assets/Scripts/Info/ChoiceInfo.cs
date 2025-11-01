@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -12,8 +13,9 @@ public class ChoiceInfo
     [Tooltip("Choice")]
     public string choice;
     [Tooltip("Vid assciated with choice")]
-    [SerializeField]
-    private VideoClip vid;
+    public VideoClip vid;
+    [Tooltip("Shot of the video which will be displayed in the map menu")]
+    public Sprite thumbnail;
     [Tooltip("State of choice")]
     public ChoiceState choiceState;
     [Tooltip("Time when the retry menu pops up if the choice is a gameover or ending")]
@@ -36,12 +38,13 @@ public class ChoiceInfo
     // Exports vid to be used in scripts
     public VideoClip ExportVid() { return vid; }
 
-    public ChoiceInfo(ChoiceID choiceID, string choice, VideoClip vid, ChoiceState choiceState, float vidEndTime, bool hasComplete, ChoiceID[] nextChoiceIDs,
+    public ChoiceInfo(ChoiceID choiceID, string choice, VideoClip vid, Sprite thumbnail, ChoiceState choiceState, float vidEndTime, bool hasComplete, ChoiceID[] nextChoiceIDs,
         ObjectInfo[] objs)
     {
         this.choiceID = choiceID;
         this.choice = choice;
         this.vid = vid;
+        this.thumbnail = thumbnail;
         this.choiceState = choiceState;
         this.vidEndTime = vidEndTime;
         this.hasComplete = hasComplete;
@@ -55,9 +58,8 @@ public class ChoiceInfo
 public class ObjectInfo
 {
     // The object spawned
-    private GameObject obj;
-    [Tooltip("Id of the object")]
-    public string objID;
+    [Tooltip("Object spawned")]
+    public GameObject obj;
     [Tooltip("Time when the object will popup onscreen")]
     public float popupTime;
     [Tooltip("Type of object")]
@@ -66,17 +68,23 @@ public class ObjectInfo
     public float childPopupDelay;
     [Tooltip("Time when the object will despawn, if it is set 0 the object will not despawn")]
     public float despawnTime;
-
-    // Checks if the entry already has its object assigned to it or not
-    public bool CheckObject() { if (obj) { return true; } else { return false; } }
-
-    // Sets object to the entry
-    public void SetObject(GameObject newObj) { obj = newObj; }
-
-    // Exports object to be used in scripts
-    public GameObject ExportObject() { return obj; }
 }
 
+// Simplified version of the class used to save the vital information to json
+[System.Serializable]
+public class ChoiceSaveData
+{
+    public ChoiceID choiceID;
+    public string choice;
+    public bool hasComplete;
+
+    public ChoiceSaveData(ChoiceID choiceID, string choice, bool hasComplete)
+    {
+        this.choiceID = choiceID;
+        this.choice = choice;
+        this.hasComplete = hasComplete;
+    }
+}
 
 // State of choice
 public enum ChoiceState
@@ -96,5 +104,7 @@ public enum ObjectType
     // Default - Choice btn
     ChoiceBtn,
     // Hidden Btn
-    SecretBtn
+    SecretBtn,
+    // Miscellaneous Objects
+    Miscellaneous,
 }

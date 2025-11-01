@@ -7,7 +7,7 @@ using UnityEngine;
 public class AchievementInfo
 {
     // IDs for achievements
-    public AchievementID choiceID;
+    public AchievementID achieveID;
     // Name of the achievement   
     public string achievement;
     // Description of the achievement, describes the unlock condition

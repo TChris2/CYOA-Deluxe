@@ -12,8 +12,9 @@ public class ChoiceInfoSO : ScriptableObject
     [Tooltip("Choice")]
     public string choice;
     [Tooltip("Vid assciated with choice")]
-    [SerializeField]
-    private VideoClip vid;
+    public VideoClip vid;
+    [Tooltip("Shot of the video which will be displayed in the map menu")]
+    public Sprite thumbnail;
     [Tooltip("State of choice")]
     public ChoiceState choiceState;
     [Tooltip("Time when the retry menu pops up if the choice is a gameover or ending")]
@@ -26,8 +27,4 @@ public class ChoiceInfoSO : ScriptableObject
     public ObjectInfo[] objs;
     [Tooltip("Ids of any achievments related to the choice")]
     public AchievementID[] achieveIDs;
-
-
-    // Exports vid to be used in scripts
-    public VideoClip ExportVid() { return vid; }
 }

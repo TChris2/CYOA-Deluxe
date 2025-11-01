@@ -20,7 +20,8 @@ MonoBehaviour:
   hasComplete: 0
   nextChoiceIDs: 180000001e000000
   objs:
-  - objID: BOTW_1_1_2B1
+  - obj: {fileID: 2518979021591781705, guid: 85404adf236d2284aa10fe614acf911a, type: 3}
+    objID: BOTW_1_1_2B1
     popupTime: 21
     objType: 0
     childPopupDelay: 0

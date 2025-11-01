@@ -4,7 +4,7 @@ public enum ChoiceID
     Start_,
     Retry_,
     Finale_,
-// ----- Portal Choices -----
+    // ----- Portal Choices -----
     // Enter The Portal
     Portal_,
     // Unity
@@ -15,7 +15,7 @@ public enum ChoiceID
     Portal_1_2,
     // Source Engine
     Portal_2,
-// ----- Minecraft Choices -----
+    // ----- Minecraft Choices -----
     // Minecraft
     Minecraft_,
     // Creative
@@ -40,7 +40,7 @@ public enum ChoiceID
     Minecraft_3_1,
     // Build Something
     Minecraft_3_2,
-// ----- BOTW Choices -----
+    // ----- BOTW Choices -----
     // Breath of The Wild
     BOTW_,
     // Yes
@@ -81,10 +81,10 @@ public enum ChoiceID
     BOTW_2_2_1,
     // PARRY!
     BOTW_2_2_1_1,
-// ----- Outside Choices -----
+    // ----- Outside Choices -----
     // Go Outside
     Outside_,
-// ----- Tesco Choices -----
+    // ----- Tesco Choices -----
     // Snack Time!
     Tesco_,
     // Enter Tesco
@@ -121,9 +121,9 @@ public enum ChoiceID
     Tesco_1_2_1,
     // Walk On A Wet Floor?
     Tesco_1_2_1_1,
-// ----- Duck Choices -----
+    // ----- Duck Choices -----
     // Duck Time!
-    Ducks_,
+    Duck_,
     // Leave Them To It
     Duck_1,
     // Stay On Route
@@ -146,7 +146,7 @@ public enum ChoiceID
     Duck_1_3_1,
     // Go Back To Traffic
     Duck_1_3_2,
-// ----- Race Choices -----
+    // ----- Race Choices -----
     // Follow The Racers
     Race_,
     // Use It
@@ -169,7 +169,7 @@ public enum ChoiceID
     Race_2_2_1,
     // Roll For Luck!
     Race_2_2_2,
-// ----- Doctor Choices -----
+    // ----- Doctor Choices -----
     // Investigate The Box
     Doctor_,
     // Wait
@@ -218,6 +218,8 @@ public enum ChoiceID
     Doctor_2_1_1_2_2_2,
     // Run Away
     Doctor_2_1_2,
+    // Run Somewhere Else
+    Doctor_2_1_2_1,
     // Do Nothing
     Doctor_2_2,
 }

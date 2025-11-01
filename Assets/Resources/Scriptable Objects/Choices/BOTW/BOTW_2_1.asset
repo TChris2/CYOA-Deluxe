@@ -15,12 +15,13 @@ MonoBehaviour:
   choiceID: 35
   choice: Take Sword
   vid: {fileID: 32900000, guid: ed355bc874bde71448167c6ee716e79b, type: 3}
+  thumbnail: {fileID: 21300000, guid: f2067fbcc57e09f43b32f5a68c5b4537, type: 3}
   choiceState: 0
   vidEndTime: 0
   hasComplete: 0
   nextChoiceIDs: 2400000026000000
   objs:
-  - objID: BOTW_2_1B1
+  - obj: {fileID: 2518979021591781705, guid: 8de4d422a83724a4eb083a51f152afbf, type: 3}
     popupTime: 7
     objType: 0
     childPopupDelay: 0

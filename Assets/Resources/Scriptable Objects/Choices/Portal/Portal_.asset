@@ -15,12 +15,13 @@ MonoBehaviour:
   choiceID: 3
   choice: Enter The Portal
   vid: {fileID: 32900000, guid: a6d5cf90f1c737043be016da7868d431, type: 3}
+  thumbnail: {fileID: 21300000, guid: 5eb0fe47cb00ed94891d1954af40198b, type: 3}
   choiceState: 0
   vidEndTime: 0
   hasComplete: 0
   nextChoiceIDs: 04000000070000000800000014000000
   objs:
-  - objID: Portal_B1
+  - obj: {fileID: 5481914700774974952, guid: e7a02f1957a98fa4584a126e3f85e339, type: 3}
     popupTime: 12
     objType: 0
     childPopupDelay: 0
