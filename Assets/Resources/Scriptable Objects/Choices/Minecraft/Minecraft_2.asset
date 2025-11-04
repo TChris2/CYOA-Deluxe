@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Minecraft_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 10
+  choiceID: Minecraft_2
   choice: Survival
   vid: {fileID: 32900000, guid: 6ad4672aa48389043a0bdd3489f37573, type: 3}
-  thumbnail: {fileID: 21300000, guid: 358f55231753f0944b635417de8c1699, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 0b00000010000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: ffb3ea6f40b97734e8956f7ce62a2902, type: 3}
     popupTime: 48
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 358f55231753f0944b635417de8c1699, type: 3}
+  nextChoiceIDs:
+  - Minecraft_2_1
+  - Minecraft_2_2
+  achieveIDs: []

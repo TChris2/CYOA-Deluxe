@@ -17,7 +17,7 @@ public class ButtonManager : MonoBehaviour
     public ChoiceInfo currentChoice;
     // Store prev choice id
     [SerializeField]
-    private ChoiceID prevChoice;
+    private string prevChoice;
     // Skipping in vids
     [SerializeField]
     private Animator fadeTextAni;
@@ -36,6 +36,7 @@ public class ButtonManager : MonoBehaviour
     [HideInInspector]
     public SaveManager sm;
     List<Coroutine> coroutines = new List<Coroutine>();
+    // Debug stuff
     [SerializeField]
     private TMP_InputField timeInput;
     [SerializeField]
@@ -55,6 +56,7 @@ public class ButtonManager : MonoBehaviour
         LoadChoice(id);
     }
 
+    // Loads player's previous choice
     public void LoadPrevChoice()
     {
         // Debug.Log($"LoadPrevChoice - prevChoice {prevChoice.ToString()}"); 
@@ -62,10 +64,14 @@ public class ButtonManager : MonoBehaviour
     }
     
 
-    // Loads choice infor
+    // Loads choice info
     public void LoadChoice(string id)
     {
+        // Trims empty space from id
+        id = id.Trim();
+
         Debug.Log($"LoadChoice started with the id {id}");
+        
         // Stores prev choice, only stores prev choice in normal gameplay
         if (!isDebugSkipping && currentChoice != null)
             prevChoice = currentChoice.choiceID;
@@ -101,61 +107,53 @@ public class ButtonManager : MonoBehaviour
         }
 
         // Attempts to get choice info
-        if (System.Enum.TryParse(id, out ChoiceID choiceID))
+        if (sm.choiceDict.TryGetValue(id, out currentChoice))
         {
-            if (sm.choiceDict.TryGetValue(choiceID, out currentChoice))
+            // Checks to see if the dict already has the video loaded
+            if (currentChoice.vid)
             {
-                // Checks to see if the dict already has the video loaded
-                if (currentChoice.CheckVid())
-                {
-                    // Debug.Log("Video detected");
-                }
-                // Gets vid if the video is not already loaded
-                else
-                {
-                    // Debug.Log("No video detected, loading vid from resources");
-                    string idString = currentChoice.choiceID.ToString();
-                    string[] parts = idString.Split('_');
-
-                    // Debug.Log($"Videos/{parts[0]}/{idString}");
-                    currentChoice.SetVid(Resources.Load<VideoClip>($"Videos/{parts[0]}/{idString}"));
-                }
-
-                // Sets video to the player
-                videoPlay.clip = currentChoice.vid;
-                videoPlay.time = 0;
-
-                // Marks the choice as completed
-                currentChoice.hasComplete = true;
-
-                // The choice has any objects
-                if (currentChoice.objs != null)
-                {
-                    // Debug.Log($"Loading {currentChoice.choice}'s objects");
-                    // Starts a coroutine for each object
-                    foreach (ObjectInfo obj in currentChoice.objs)
-                    {
-                        // Spawns object
-                        coroutines.Add(StartCoroutine(SpawnObject(obj)));
-                    }
-                }
-
-                // Opens Retry Menu variant of the pause menu at ending or gameover
-                if (currentChoice.choiceState == ChoiceState.GameOver || currentChoice.choiceState == ChoiceState.Ending)
-                    coroutines.Add(StartCoroutine(RetryMenuPopup(currentChoice.vidEndTime)));
-
-                // Skips to first choice if enabled
-                    if (isSkipping)
-                        GetSkipTime(currentChoice);
-
-                // Debug.Log("Playing vid");
-                videoPlay.Play();
+                // Debug.Log("Video detected");
             }
+            // Gets vid if the video is not already loaded
             else
-                Debug.LogWarning($"ChoiceID '{id}' not found in dictionary");
+            {
+                Debug.Log("No video detected");
+            }
+
+            // Sets video to the player
+            videoPlay.clip = currentChoice.vid;
+            videoPlay.time = 0;
+
+            // Marks the choice as completed
+            currentChoice.hasComplete = true;
+
+            // The choice has any objects
+            if (currentChoice.objs != null)
+            {
+                // Debug.Log($"Loading {currentChoice.choice}'s objects");
+                // Starts a coroutine for each object
+                foreach (ObjectInfo obj in currentChoice.objs)
+                {
+                    // Spawns object
+                    coroutines.Add(StartCoroutine(SpawnObject(obj)));
+                }
+            }
+
+            // Opens Retry Menu variant of the pause menu at ending or gameover
+            if (currentChoice.choiceState.Contains(ChoiceState.GameOver) || currentChoice.choiceState.Contains(ChoiceState.Ending))
+                coroutines.Add(StartCoroutine(RetryMenuPopup(currentChoice.vidEndTime)));
+
+            // Skips to first choice if enabled
+            if (isSkipping)
+                GetSkipTime(currentChoice);
+
+            // Debug.Log("Playing vid");
+            videoPlay.Play();
         }
         else
-            Debug.LogError($"Invalid ChoiceID string: {id}, returning default");
+        {
+            Debug.Log($"ID - {id} - not found in the system when checking in LoadChoice()");
+        }
     }
 
     private IEnumerator RetryMenuPopup(float timestamp)
@@ -194,14 +192,19 @@ public class ButtonManager : MonoBehaviour
 
                 foreach (Button btn in choiceBtns)
                 {
-                    if (System.Enum.TryParse(btn.gameObject.name, out ChoiceID choiceID))
+                    // Only checks objects with potential of being an id
+                    if (btn.gameObject.name.Contains("_"))
                     {
                         // Debug.Log($"{btn.gameObject.name} {(sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))}");
-                        if (sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))
+                        if (sm.choiceDict.ContainsKey(btn.gameObject.name))
                         {
-                            string choiceIDString = choiceID.ToString();
+                            string choiceIDString = btn.gameObject.name;
 
                             btn.onClick.AddListener(() => LoadChoice(choiceIDString));
+                        }
+                        else
+                        {
+                            Debug.Log($"ID - {btn.gameObject.name} - not found in the system when checking in SpawnObject()");
                         }
                     }
                 }
@@ -257,13 +260,15 @@ public class ButtonManager : MonoBehaviour
         yield return new WaitForSeconds(objDespawnTime);
         Destroy(gameObj);
     }
-    
+
+    // Debug Test
     public void LoadTestChoice()
     {
         string id = testInput.text != "" ? testInput.text : "Start_";
         LoadChoice(id);
     }
 
+    // Debug Time
     public void SetVidTime()
     {   
         // Defaults to zero if input is empty
@@ -280,7 +285,7 @@ public class ButtonManager : MonoBehaviour
     public void Skip()
     {
         // Debug.Log($"Skip - !iMenu.isPaused {!iMenu.isPaused} && videoPlay.isPlaying {videoPlay.isPlaying} && !choiceVisable {!choiceVisable} && currentChoice.choiceState == ChoiceState.Choice {currentChoice.choiceState == ChoiceState.Choice}");
-        if (!iMenu.isPaused && videoPlay.isPlaying && !choiceVisable && currentChoice.choiceState == ChoiceState.Choice)
+        if (!iMenu.isPaused && videoPlay.isPlaying && !choiceVisable && currentChoice.choiceState.Contains(ChoiceState.Choice))
         {
             // If the skip text is visable on screen
             if (skipText.color.a == 0)

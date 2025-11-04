@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: BOTW_1_2_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 33
+  choiceID: BOTW_1_2_1
   choice: Bullet Time Bounce
   vid: {fileID: 32900000, guid: a9313a4ffa7323f46b2cc8dba1a3e4c9, type: 3}
-  choiceState: 2
+  choiceState: 02000000
   vidEndTime: 35
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

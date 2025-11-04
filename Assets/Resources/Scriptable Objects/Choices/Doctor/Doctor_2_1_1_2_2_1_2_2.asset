@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Doctor_2_1_1_2_2_1_2_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 103
+  choiceID: Doctor_2_1_1_2_2_1_2_2
   choice: Use Super Bell
   vid: {fileID: 32900000, guid: 87971ae8fef04ec4a9de768da5a0bd2f, type: 3}
-  thumbnail: {fileID: 0}
-  choiceState: 2
+  choiceState: 02000000
   vidEndTime: 8
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

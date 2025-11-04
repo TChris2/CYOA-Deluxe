@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Stores achievement info
-[System.Serializable]
-public class AchievementInfo
+[CreateAssetMenu(fileName = "AchievementInfo", menuName = "Scriptable Objects/AchievementInfo")]
+public class AchievementInfo : ScriptableObject
 {
     // IDs for achievements
-    public AchievementID achieveID;
+    public string achieveID;
     // Name of the achievement   
     public string achievement;
     // Description of the achievement, describes the unlock condition
@@ -27,10 +27,4 @@ public enum AchievementState
     Hidden,
     // Player has unlocked the conditions for the achievement
     Unlocked
-}
-
-// List of Achievement ids
-public enum AchievementID
-{
-    None
 }

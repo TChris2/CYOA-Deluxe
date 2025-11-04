@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Portal_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 5
+  choiceID: Portal_1_1
   choice: Get The Hell Outta Here
   vid: {fileID: 32900000, guid: d650a1b0d973e2442bbf332218720a49, type: 3}
-  choiceState: 3
+  choiceState: 03000000
   vidEndTime: 32
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

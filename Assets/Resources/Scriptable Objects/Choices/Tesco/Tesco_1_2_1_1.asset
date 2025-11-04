@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Tesco_1_2_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 58
+  choiceID: Tesco_1_2_1_1
   choice: Walk On A Wet Floor?
   vid: {fileID: 32900000, guid: fd6efeeac4fe852498fe7f2b4e4aab8f, type: 3}
-  thumbnail: {fileID: 0}
-  choiceState: 2
+  choiceState: 03000000
   vidEndTime: 73
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

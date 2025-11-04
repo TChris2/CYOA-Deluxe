@@ -7,15 +7,15 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    private string filePath;
-    public Dictionary<ChoiceID, ChoiceInfo> choiceDict = new Dictionary<ChoiceID, ChoiceInfo>();
+    private string choiceFilePath;
+    public Dictionary<string, ChoiceInfo> choiceDict = new Dictionary<string, ChoiceInfo>();
 
     void Awake()
     {
-        filePath = Path.Combine(Application.persistentDataPath, "ChoiceState.json");
+        choiceFilePath = Path.Combine(Application.persistentDataPath, "ChoiceState.json");
 
         // Loads data from scriptable objects if the JSON file does not exist
-        if (!File.Exists(filePath))
+        if (!File.Exists(choiceFilePath))
             LoadSOData();
         // Loads data from JSON file if it already exists
         else
@@ -30,25 +30,41 @@ public class SaveManager : MonoBehaviour
         choiceDict.Clear();
 
         // Debug.LogWarning("Loading Scriptable Object Data");
-        ChoiceInfoSO[] choiceArr;
+        ChoiceInfo[] choiceArr;
 
-        choiceArr = Resources.LoadAll<ChoiceInfoSO>("Scriptable Objects/Choices");
+        choiceArr = Resources.LoadAll<ChoiceInfo>("Scriptable Objects/Choices");
         AddChoiceDictInfo(choiceArr);
     }
 
     // Adds info obtained from choice info arrays into the dictionary
-    void AddChoiceDictInfo(ChoiceInfoSO[] choiceArr)
+    void AddChoiceDictInfo(ChoiceInfo[] choiceArr)
     {
-        foreach (ChoiceInfoSO choice in choiceArr)
+        foreach (ChoiceInfo choice in choiceArr)
         {
             if (choiceDict.ContainsKey(choice.choiceID))
             {
                 Debug.LogWarning($"Duplicate ChoiceID detected, {choice.choiceID} in {choice.choice}");
                 continue;
             }
-            
-            ChoiceInfo newChoice = new ChoiceInfo(choice.choiceID, choice.choice, choice.vid, choice.thumbnail, choice.choiceState, choice.vidEndTime, choice.hasComplete,
-                choice.nextChoiceIDs, choice.objs);
+
+            ChoiceInfo newChoice = ScriptableObject.CreateInstance<ChoiceInfo>();
+
+            newChoice.choiceID = choice.choiceID.Trim();
+            newChoice.choice = choice.choice.Trim();
+            newChoice.vid = choice.vid;
+            newChoice.choiceState = choice.choiceState;
+            newChoice.vidEndTime = choice.vidEndTime;
+            newChoice.hasComplete = choice.hasComplete;
+            newChoice.objs = choice.objs;
+            newChoice.mapName = choice.mapName.Trim();
+            newChoice.thumbnail = choice.thumbnail;
+            newChoice.nextChoiceIDs = choice.nextChoiceIDs;
+            foreach (string id in newChoice.nextChoiceIDs)
+                id.Trim();
+            newChoice.achieveIDs = choice.achieveIDs;
+            foreach (string id in newChoice.achieveIDs)
+                id.Trim();
+
             choiceDict.Add(choice.choiceID, newChoice);
         }
     }
@@ -62,7 +78,7 @@ public class SaveManager : MonoBehaviour
         LoadSOData();
         
         // Debug.LogWarning("Loading JSON Data");
-        var json = File.ReadAllText(filePath);
+        var json = File.ReadAllText(choiceFilePath);
         
         // Loads choice save data
         List<ChoiceSaveData> loadedInfo = JsonConvert.DeserializeObject<List<ChoiceSaveData>>(json, new JsonSerializerSettings
@@ -89,7 +105,7 @@ public class SaveManager : MonoBehaviour
 
         // Creates list of a simplified version of the ChoiceInfo class
         foreach (var pair in choiceDict)
-            saveList.Add(new ChoiceSaveData(pair.Key, pair.Value.choice, pair.Value.hasComplete));
+            saveList.Add(new ChoiceSaveData(pair.Key, pair.Value.choice, pair.Value.mapName, pair.Value.hasComplete));
 
         var settings = new JsonSerializerSettings
         {
@@ -102,7 +118,7 @@ public class SaveManager : MonoBehaviour
 
         // Debug.Log(json);
 
-        File.WriteAllText(filePath, json);
+        File.WriteAllText(choiceFilePath, json);
     }
 
     private void OnDisable()

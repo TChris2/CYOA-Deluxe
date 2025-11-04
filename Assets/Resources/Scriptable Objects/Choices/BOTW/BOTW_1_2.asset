@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: BOTW_1_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 32
+  choiceID: BOTW_1_2
   choice: Steal Apple
   vid: {fileID: 32900000, guid: a0bb1907520184c44a8abcf5e57dee52, type: 3}
-  thumbnail: {fileID: 21300000, guid: 49dd5bd52e2bad8418c5a8f3815c6075, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 21000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 19c28a0bb343b214fadc253480e3fba5, type: 3}
     popupTime: 13
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 49dd5bd52e2bad8418c5a8f3815c6075, type: 3}
+  nextChoiceIDs:
+  - BOTW_1_2_1
+  achieveIDs: []

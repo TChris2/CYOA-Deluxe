@@ -14844,18 +14844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Button
   videoPlay: {fileID: 1852848390718937451}
-  currentChoice:
-    choiceID: 0
-    choice: 
-    vid: {fileID: 0}
-    thumbnail: {fileID: 0}
-    choiceState: 0
-    vidEndTime: 0
-    hasComplete: 0
-    nextChoiceIDs: 
-    objs: []
-    achieveIDs: 
-  prevChoice: 0
+  currentChoice: {fileID: 0}
+  prevChoice: 
   fadeTextAni: {fileID: 1522935295}
   objHolder: {fileID: 551295210}
   choiceVisable: 0

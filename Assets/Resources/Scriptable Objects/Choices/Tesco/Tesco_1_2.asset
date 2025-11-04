@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Tesco_1_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 56
+  choiceID: Tesco_1_2
   choice: Ignore The Cashier
   vid: {fileID: 32900000, guid: a8a63a160eecf444082037038fa8461c, type: 3}
-  thumbnail: {fileID: 21300000, guid: dda198469fb29474190fd71efa21a62e, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 2c00000039000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: a97286c4343e849479bbff76bafca938, type: 3}
     popupTime: 20
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: dda198469fb29474190fd71efa21a62e, type: 3}
+  nextChoiceIDs:
+  - Tesco_1_1_1
+  - Tesco_1_2_1
+  achieveIDs: []

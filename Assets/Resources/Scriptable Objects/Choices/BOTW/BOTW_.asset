@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: BOTW_
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 20
+  choiceID: BOTW_
   choice: Breath of The Wild
   vid: {fileID: 32900000, guid: 9f0243c907ad75640a5878610c1de956, type: 3}
-  thumbnail: {fileID: 21300000, guid: eb23e5629d3b8be42bd6614bf9337dcf, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 1500000022000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 4dd2162bd13759946bb79616bf9a779b, type: 3}
     popupTime: 44
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: eb23e5629d3b8be42bd6614bf9337dcf, type: 3}
+  nextChoiceIDs:
+  - BOTW_1
+  - BOTW_2
+  achieveIDs: []

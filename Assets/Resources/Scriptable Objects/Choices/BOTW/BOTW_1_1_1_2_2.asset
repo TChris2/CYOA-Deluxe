@@ -12,18 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: BOTW_1_1_1_2_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 27
+  choiceID: BOTW_1_1_1_2_2
   choice: Respawn
   vid: {fileID: 32900000, guid: be2364c00ba181443b7e440c0d6aa796, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 090000000a00000011000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 0a9025b6b66da6146888d1031d55da7a, type: 3}
-    objID: Minecraft_
     popupTime: 36
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs:
+  - Minecraft_1
+  - Minecraft_2
+  - Minecraft_3
+  achieveIDs: []

@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Doctor_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 83
+  choiceID: Doctor_1
   choice: Wait
   vid: {fileID: 32900000, guid: 932f424276f8bdf4398a4452686cc7ca, type: 3}
-  thumbnail: {fileID: 21300000, guid: f2f9e7b354e1e6f41943335781dfac7a, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 5400000055000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 128d8c7e0952852459c7d23c04ad3e43, type: 3}
     popupTime: 32
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: f2f9e7b354e1e6f41943335781dfac7a, type: 3}
+  nextChoiceIDs:
+  - Doctor_1_1
+  - Doctor_1_2
+  achieveIDs: []

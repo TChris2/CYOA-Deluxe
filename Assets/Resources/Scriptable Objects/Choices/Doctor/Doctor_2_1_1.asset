@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Doctor_2_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 93
+  choiceID: Doctor_2_1_1
   choice: Jump Out of The Window
   vid: {fileID: 32900000, guid: b8bd9c0f9266bbc4c8e1a090c1bdf4a8, type: 3}
-  thumbnail: {fileID: 21300000, guid: dcab98c17d0d6e749a7b2a6906e38b28, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 5e0000005f000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 571cf71c6deb74b4aa039c240c501a88, type: 3}
     popupTime: 35
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: dcab98c17d0d6e749a7b2a6906e38b28, type: 3}
+  nextChoiceIDs:
+  - Doctor_2_1_1_1
+  - Doctor_2_1_1_2
+  achieveIDs: []

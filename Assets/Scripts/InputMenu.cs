@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Menu input functions
 public class InputMenu : MonoBehaviour
 {
     [SerializeField]
@@ -14,6 +15,7 @@ public class InputMenu : MonoBehaviour
 
     void Start()
     {
+        // Get necessary components
         mMenuF = GameObject.Find("Map Menu").GetComponent<MapMenuFunctions>();
     }
 
@@ -42,8 +44,10 @@ public class InputMenu : MonoBehaviour
             isPaused = pMenu.alpha == 1 ? true : false;
             // Debug.Log(isPaused);
 
+            // Pauses the game and opens the pause menu
             if (!isPaused)
                 Pause();
+            // Resumes the game
             else
                 Resume();
         }
@@ -113,6 +117,7 @@ public class InputMenu : MonoBehaviour
         */
     }
 
+    // Opens the retry menu
     public void OpenRetryMenu()
     {
         isRetryMenu = true;

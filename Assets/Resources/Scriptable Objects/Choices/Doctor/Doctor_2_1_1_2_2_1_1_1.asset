@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Doctor_2_1_1_2_2_1_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 100
+  choiceID: Doctor_2_1_1_2_2_1_1_1
   choice: Go Through The Passage
   vid: {fileID: 32900000, guid: cf8ac038b6799ce43908d4bb559a39d6, type: 3}
-  thumbnail: {fileID: 0}
-  choiceState: 3
+  choiceState: 03000000
   vidEndTime: 36
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

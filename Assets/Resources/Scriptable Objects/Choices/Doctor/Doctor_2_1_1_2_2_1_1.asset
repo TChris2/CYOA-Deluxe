@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Doctor_2_1_1_2_2_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 99
+  choiceID: Doctor_2_1_1_2_2_1_1
   choice: Go With Ivy
   vid: {fileID: 32900000, guid: 7bda316ea4c78044392c0cda28989d1b, type: 3}
-  thumbnail: {fileID: 21300000, guid: 88befb65636bfe443aa623fe60d70da0, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 64000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 5c4b96a72b99f974b9f58402fda9eda1, type: 3}
     popupTime: 29
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 88befb65636bfe443aa623fe60d70da0, type: 3}
+  nextChoiceIDs:
+  - Doctor_2_1_1_2_2_1_1_1
+  achieveIDs: []

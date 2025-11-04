@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: BOTW_1_1_1_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 25
+  choiceID: BOTW_1_1_1_2
   choice: Diamond Sword
   vid: {fileID: 32900000, guid: 45fe58be52e47b34d815c63972a951ed, type: 3}
-  thumbnail: {fileID: 21300000, guid: 521f159f75e9b6b408058554140bd0dd, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 1a0000001b000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 22afd57c1096ca44696f315ac0f4f487, type: 3}
     popupTime: 10
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 521f159f75e9b6b408058554140bd0dd, type: 3}
+  nextChoiceIDs:
+  - BOTW_1_1_1_2_1
+  - BOTW_1_1_1_2_2
+  achieveIDs: []

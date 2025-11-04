@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Tesco_1_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 44
+  choiceID: Tesco_1_1_1
   choice: Go To Vegetables & Fruits Section?
   vid: {fileID: 32900000, guid: 4eb1b4ddcf8a18147ac321fb401bfead, type: 3}
-  thumbnail: {fileID: 21300000, guid: bdec61f3c58735e4482c687152fef8c7, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 2d00000032000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: fe49fada987d63542b4a77c9f4576b2b, type: 3}
     popupTime: 20
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: bdec61f3c58735e4482c687152fef8c7, type: 3}
+  nextChoiceIDs:
+  - Tesco_1_1_1_1
+  - Tesco_1_1_1_2
+  achieveIDs: []

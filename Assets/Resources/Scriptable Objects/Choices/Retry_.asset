@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Retry_
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfo
-  choiceID: 1
-  choice: Start
+  choiceID: Retry_
+  choice: Retry
   vid: {fileID: 32900000, guid: c6e5bb210162f6b4a970d3b95b98fdbd, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 0300000028000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 1dc53727bc496da43ae052c5ebdc5f0b, type: 3}
-    objID: Start_B1
     popupTime: 53
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: a5a00d2ad8615ea4fac9bb7bf33f71a2, type: 3}
+  nextChoiceIDs:
+  - Portal_
+  - Outside_
+  achieveIDs: []

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Minecraft_3_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 19
+  choiceID: Minecraft_3_2
   choice: Build Something
   vid: {fileID: 32900000, guid: 7ca20efa0b692d145b7877d6a79b5499, type: 3}
-  choiceState: 3
+  choiceState: 02000000
   vidEndTime: 75
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

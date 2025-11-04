@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Minecraft_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 9
+  choiceID: Minecraft_1
   choice: Creative
   vid: {fileID: 32900000, guid: 088c6bb7c045c3a46913796c1c817c5d, type: 3}
-  choiceState: 3
+  choiceState: 03000000
   vidEndTime: 45
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Race_
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 71
+  choiceID: Race_
   choice: Follow The Racers
   vid: {fileID: 32900000, guid: 799ae19fb782e314eb010edb0c4bd937, type: 3}
-  thumbnail: {fileID: 21300000, guid: 7e5c6c25dbab24c4cbac737e64f88270, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 480000004d000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 91451f6ee15c2794cbefd6c5fef94007, type: 3}
     popupTime: 54
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 7e5c6c25dbab24c4cbac737e64f88270, type: 3}
+  nextChoiceIDs:
+  - Race_1
+  - Race_2
+  achieveIDs: []

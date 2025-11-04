@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Duck_1_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 66
+  choiceID: Duck_1_2
   choice: Take The Back Roads
   vid: {fileID: 32900000, guid: 3212899b8993cb14f9f00b0bb0510c3e, type: 3}
-  thumbnail: {fileID: 21300000, guid: 17c054c85ea8e18438ac234a59d0c120, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 520000003c000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: b9161d8bdd25aff44bc8cc29c3aa278b, type: 3}
     popupTime: 50
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 17c054c85ea8e18438ac234a59d0c120, type: 3}
+  nextChoiceIDs:
+  - Doctor_
+  - Duck_1
+  achieveIDs: []

@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Minecraft_2_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 12
+  choiceID: Minecraft_2_1_1
   choice: Buzz Off, IBR! Next Town!
   vid: {fileID: 32900000, guid: bf779c837ec87a144b10fddc67281bec, type: 3}
-  thumbnail: {fileID: 21300000, guid: 002ee70ff99273b46a7ea70883aba683, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 0d00000010000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 8a6baeae6a198af47bcc427b43eb2a0f, type: 3}
     popupTime: 72
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 002ee70ff99273b46a7ea70883aba683, type: 3}
+  nextChoiceIDs:
+  - Minecraft_2_1_1_1
+  - Minecraft_2_2
+  achieveIDs: []

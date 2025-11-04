@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Duck_1_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 62
+  choiceID: Duck_1_1_1
   choice: 'Stay Where You Are '
   vid: {fileID: 32900000, guid: 0cce9ad0161ccce43ba7c354342e5bc2, type: 3}
-  thumbnail: {fileID: 0}
-  choiceState: 2
+  choiceState: 02000000
   vidEndTime: 41
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Minecraft_2_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 16
+  choiceID: Minecraft_2_2
   choice: Move Into This Town!
   vid: {fileID: 32900000, guid: 0a56b2a535e5a034097f23d64f09fc6c, type: 3}
-  choiceState: 3
+  choiceState: 02000000
   vidEndTime: 47.5
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

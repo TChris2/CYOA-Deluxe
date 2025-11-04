@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Tesco_
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 41
+  choiceID: Tesco_
   choice: Snack Time!
   vid: {fileID: 32900000, guid: ab24f6a23a56fd74c9b6b9afb0c980a8, type: 3}
-  thumbnail: {fileID: 21300000, guid: 20baa528fadb4ba488dca6974a5008b9, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 2a000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 9d23f4f15868fd84e908f7dd05c5081f, type: 3}
     popupTime: 70
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 20baa528fadb4ba488dca6974a5008b9, type: 3}
+  nextChoiceIDs:
+  - Tesco_1
+  achieveIDs: []

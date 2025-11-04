@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Duck_1_3_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 69
+  choiceID: Duck_1_3_1
   choice: 'Join Them '
   vid: {fileID: 32900000, guid: 691dc3c77e86dd04dba19c24bf589559, type: 3}
-  thumbnail: {fileID: 0}
-  choiceState: 2
+  choiceState: 02000000
   vidEndTime: 75
   hasComplete: 0
-  nextChoiceIDs: 
   objs: []
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 0}
+  nextChoiceIDs: []
+  achieveIDs: []

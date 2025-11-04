@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &-5953328034700728201
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TextMeshPro/Sprite
+  m_Shader: {fileID: 4800000, guid: cf81c85f95fe47e1a27f6ae460cf182c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 92e8d1b13abe3c74ab2ae1cdcd9cc6d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _CullMode: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+  m_Name: RTGame General Sprites
+  m_EditorClassIdentifier: 
+  hashCode: 2092411529
+  material: {fileID: -5953328034700728201}
+  materialHashCode: 0
+  m_Version: 1.1.0
+  m_FaceInfo:
+    m_FaceIndex: 0
+    m_FamilyName: 
+    m_StyleName: 
+    m_PointSize: 0
+    m_Scale: 0
+    m_UnitsPerEM: 0
+    m_LineHeight: 0
+    m_AscentLine: 0
+    m_CapLine: 0
+    m_MeanLine: 0
+    m_Baseline: 0
+    m_DescentLine: 0
+    m_SuperscriptOffset: 0
+    m_SuperscriptSize: 0
+    m_SubscriptOffset: 0
+    m_SubscriptSize: 0
+    m_UnderlineOffset: 0
+    m_UnderlineThickness: 0
+    m_StrikethroughOffset: 0
+    m_StrikethroughThickness: 0
+    m_TabWidth: 0
+  spriteSheet: {fileID: 0}
+  m_SpriteCharacterTable: []
+  m_SpriteGlyphTable: []
+  spriteInfoList: []
+  fallbackSpriteAssets:
+  - {fileID: 11400000, guid: 9969a47bccbe37c48adf312068c9b30b, type: 2}
+  - {fileID: 11400000, guid: 3819aa63d74d2264dab4b52fb16fbd49, type: 2}
+  - {fileID: 11400000, guid: 1e8b2d9aca11a7a408c4b0e14639bad7, type: 2}
+  - {fileID: 11400000, guid: 4de43f97e1bb9404ebf299701500eccc, type: 2}
+  - {fileID: 11400000, guid: 39afa9db616608449a32b62f0f89f312, type: 2}
+  - {fileID: 11400000, guid: 940f263b1c62a0c4fae244420e581cbc, type: 2}
+  - {fileID: 11400000, guid: 396e5e0f0e4f57842b2e061094daaf88, type: 2}
+  - {fileID: 11400000, guid: 1af6d2c1415c5f246b2686d509ba8c0d, type: 2}
+  - {fileID: 11400000, guid: dfea54ebed439e34aa07b83c56331f24, type: 2}
+  - {fileID: 11400000, guid: 3adee9f0e879f584d833aae798044157, type: 2}
+  - {fileID: 11400000, guid: e82a5e51f0782134585af11150424931, type: 2}
+  - {fileID: 11400000, guid: 887bcaa4296c5fe48b8147397bb7f895, type: 2}
+  - {fileID: 11400000, guid: d23846e576a37d8489c51f1428e6c6c9, type: 2}
+  - {fileID: 11400000, guid: ed73c8f23b707ba4db43b6771997561b, type: 2}
+  - {fileID: 11400000, guid: 1146c31bbe521234c80786921381d93c, type: 2}
+  - {fileID: 11400000, guid: 9cfde9859c92637499cd283d68dd4236, type: 2}
+  - {fileID: 11400000, guid: 70901b06bd6c362498d186c2991a1160, type: 2}
+  - {fileID: 11400000, guid: 11f795160bb03b1478fa2ac6e279724e, type: 2}
+  - {fileID: 11400000, guid: 13f1676b830909d4b856267de558e416, type: 2}
+  - {fileID: 11400000, guid: 75b843ce8bce2eb40b1c94d04ee3b3c5, type: 2}
+  - {fileID: 11400000, guid: 17f80557a48a63049aabde5ad67e5db4, type: 2}
+  - {fileID: 11400000, guid: 2f2cdebbc7a2120409a644be814c8bdf, type: 2}
+  - {fileID: 11400000, guid: 221b4d67b6960bb489dff0445ea2d4b4, type: 2}
+  - {fileID: 11400000, guid: 43e44d9353cbc234b9bea11855950dc2, type: 2}

@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
   m_Name: Race_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
-  choiceID: 73
+  choiceID: Race_1_1
   choice: Play It Safe
   vid: {fileID: 32900000, guid: 794eba40e0a1f984794d6f94fef3da1d, type: 3}
-  thumbnail: {fileID: 21300000, guid: d35d1ce64f0069546b33ee241a5cf280, type: 3}
-  choiceState: 0
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
-  nextChoiceIDs: 490000004c000000
   objs:
   - obj: {fileID: 2518979021591781705, guid: 74d81655e2c2e13409953fa8392c2c62, type: 3}
     popupTime: 24
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
-  achieveIDs: 
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: d35d1ce64f0069546b33ee241a5cf280, type: 3}
+  nextChoiceIDs:
+  - Race_1_1_1
+  - Race_1_1_2
+  achieveIDs: []
