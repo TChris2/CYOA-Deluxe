@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: BOTW_2_1
   choice: Take Sword
-  vid: {fileID: 32900000, guid: ed355bc874bde71448167c6ee716e79b, type: 3}
+  vid: {fileID: 32900000, guid: e08f4b31f3cbc184592ff258121127f2, type: 3}
   choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0

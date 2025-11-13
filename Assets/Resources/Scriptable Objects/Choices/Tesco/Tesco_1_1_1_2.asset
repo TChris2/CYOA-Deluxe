@@ -16,7 +16,7 @@ MonoBehaviour:
   choice: Grab Snacks and Leave?
   vid: {fileID: 32900000, guid: 433482b5677ade74d81d4b35869964bd, type: 3}
   choiceState: 03000000
-  vidEndTime: 58
+  vidEndTime: 58.6
   hasComplete: 0
   objs: []
   mapName: 

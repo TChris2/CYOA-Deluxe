@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Doctor_1_1
   choice: Wait Some More
-  vid: {fileID: 32900000, guid: 8fd7a10438258da48aa066fd451c7a81, type: 3}
+  vid: {fileID: 32900000, guid: 0f521e03ff0be8c4c8250379efca263d, type: 3}
   choiceState: 02000000
   vidEndTime: 29
   hasComplete: 0

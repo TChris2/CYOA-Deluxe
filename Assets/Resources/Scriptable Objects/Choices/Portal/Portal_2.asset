@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfo
   choiceID: Portal_2
   choice: Source Engine
-  vid: {fileID: 32900000, guid: 4774b62298f0b4244b84bd015acb1b54, type: 3}
+  vid: {fileID: 32900000, guid: 8f1d60d3c0e9f514c9c285ee096f76f1, type: 3}
   choiceState: 02000000
   vidEndTime: 30
   hasComplete: 0

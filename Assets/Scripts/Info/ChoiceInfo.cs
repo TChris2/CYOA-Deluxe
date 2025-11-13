@@ -33,6 +33,9 @@ public class ChoiceInfo : ScriptableObject
     public List<string> nextChoiceIDs;
     [Tooltip("Ids of achievements related to the choice\nCounts toward choice completion when displayed in the map menu")]
     public List<string> achieveIDs;
+    // Flags whether the info display in its menu needs to be updated
+    [HideInInspector]
+    public bool updateDisplay = true;
 }
 
 // Stores info on buttons spawned during the choice vid

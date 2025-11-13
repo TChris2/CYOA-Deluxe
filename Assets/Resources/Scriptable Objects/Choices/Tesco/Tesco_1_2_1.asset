@@ -20,7 +20,7 @@ MonoBehaviour:
   hasComplete: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: bdbc81b9232df904cbf15ac830138d60, type: 3}
-    popupTime: 20
+    popupTime: 15.2
     objType: 0
     childPopupDelay: 0
     despawnTime: 0

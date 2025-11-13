@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: BOTW_
   choice: Breath of The Wild
-  vid: {fileID: 32900000, guid: 9f0243c907ad75640a5878610c1de956, type: 3}
+  vid: {fileID: 32900000, guid: 7f67d8817c874ac44bb83132a8ecd1ff, type: 3}
   choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0

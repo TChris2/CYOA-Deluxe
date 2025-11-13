@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: BOTW_2_1_1
   choice: Stasis
-  vid: {fileID: 32900000, guid: 67653a104add2df47b3938b46e44629a, type: 3}
+  vid: {fileID: 32900000, guid: 7db9749945dd4fc4e885c0fd071e9f40, type: 3}
   choiceState: 02000000
   vidEndTime: 37
   hasComplete: 0

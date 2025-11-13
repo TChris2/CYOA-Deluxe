@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Tesco_1_2_1_1
   choice: Walk On A Wet Floor?
-  vid: {fileID: 32900000, guid: fd6efeeac4fe852498fe7f2b4e4aab8f, type: 3}
+  vid: {fileID: 32900000, guid: 60f2e3133f79d834c99ed6ecbec8c8d5, type: 3}
   choiceState: 03000000
   vidEndTime: 73
   hasComplete: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Portal_1
   choice: Unity
-  vid: {fileID: 32900000, guid: ba187fe4fbeb9754cb9bd6e3fa8d5be8, type: 3}
+  vid: {fileID: 32900000, guid: 5b9a36b5ddd62894088b478acf7b27a8, type: 3}
   choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0

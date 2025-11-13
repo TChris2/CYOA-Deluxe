@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Tesco_1_1_1
   choice: Go To Vegetables & Fruits Section?
-  vid: {fileID: 32900000, guid: 4eb1b4ddcf8a18147ac321fb401bfead, type: 3}
+  vid: {fileID: 32900000, guid: 0dcd054977b412041895eacca7a752b6, type: 3}
   choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: fe49fada987d63542b4a77c9f4576b2b, type: 3}
-    popupTime: 20
+    popupTime: 8.4
     objType: 0
     childPopupDelay: 0
     despawnTime: 0

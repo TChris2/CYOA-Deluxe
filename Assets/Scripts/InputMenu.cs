@@ -3,20 +3,33 @@ using UnityEngine;
 // Menu input functions
 public class InputMenu : MonoBehaviour
 {
+    // Canvasgroups
     [SerializeField]
     private CanvasGroup pMenu;
     [SerializeField]
     private CanvasGroup dMenu;
     public bool isPaused;
-    MapMenuFunctions mMenuF;
+    public bool isRetryMenu;
     [SerializeField]
     private Animator pMenuAni;
-    public bool isRetryMenu;
+    // Scripts
+    private ButtonManager bm;
+    [HideInInspector]
+    public PauseMenuFunctions pMenuF;
+    MapMenuFunctions mMenuF;
+    AchieveMenuFunctions achieveMenuF;
+    // Override to access everything in a menu without already completing it
+    public bool completeOverride;
 
     void Start()
     {
         // Get necessary components
+        pMenuF = GameObject.Find("Pause Menu").GetComponent<PauseMenuFunctions>();
         mMenuF = GameObject.Find("Map Menu").GetComponent<MapMenuFunctions>();
+        achieveMenuF = GameObject.Find("Achievement Menu").GetComponent<AchieveMenuFunctions>();
+        bm = GetComponent<ButtonManager>();
+        // Intially sets override depending on whether the debug menu is interactable or not
+        completeOverride = dMenu.interactable;
     }
 
     // Opens Debug Menu
@@ -27,12 +40,12 @@ public class InputMenu : MonoBehaviour
         if (!dMenu.interactable)
         {
             MenuOpenClose(dMenu, true);
-            mMenuF.completeOverride = true;
+            completeOverride = true;
         }
         else
         {
             MenuOpenClose(dMenu, false);
-            mMenuF.completeOverride = false;
+            completeOverride = false;
         }
     }
 
@@ -45,7 +58,7 @@ public class InputMenu : MonoBehaviour
             // Debug.Log(isPaused);
 
             // Pauses the game and opens the pause menu
-            if (!isPaused)
+            if (!isPaused && (bm.canBePaused || completeOverride))
                 Pause();
             // Resumes the game
             else
@@ -75,13 +88,21 @@ public class InputMenu : MonoBehaviour
     public void Resume()
     {
         // Debug.Log("Attempting to resume game");
-        // Closes additional menus player is in currently
+        // Closes the menu player is in currently
         if (!pMenu.interactable)
-            CloseMenus();
+            CloseMenu();
         // Resumes the game
         else
         {
             // Debug.Log("Resuming game");
+
+            // If settings menu is open at the time
+            if (pMenuF.settingsMenu.interactable)
+            {
+                // Debug.Log("Closing Settings Menu");
+                mMenuF.MenuOpenClose(pMenuF.settingsMenu, false);
+            }
+
             // Closes the pause screen
             MenuOpenClose(pMenu, false);
 
@@ -91,30 +112,36 @@ public class InputMenu : MonoBehaviour
         }
     }
 
-    // Closes additionals menu player is in currently
-    void CloseMenus()
+    // Close every open menu
+    public void CloseAllMenus()
     {
+        // Debug.Log("Closing all menus");
         if (mMenuF.mapMenu.interactable)
         {
             // Debug.Log("Closing Map Menu");
             mMenuF.CloseMapMenu();
         }
-
-        /*
-        // Closes sub type menu of sub option menu
-        if (subOpMenuBtns.isSubTypeMenuOpen)
+        if (achieveMenuF.achieveMenu.interactable)
         {
-            // Debug.Log("Closing Sub Type Menu");
-            subOpMenuBtns.CloseSubTypeMenu();
+            // Debug.Log("Closing Achievement Menu");
+            achieveMenuF.CloseAchieveMenu();
         }
+    }
 
-        // Closes sub option menu yes no screen
-        else if (subOpMenuBtns.ynScreen.interactable)
+    // Closes the menu player is in currently
+    void CloseMenu()
+    {
+        // Debug.Log("Closing a menu");
+        if (mMenuF.mapMenu.interactable)
         {
-            // Debug.Log("Closing Sub Option Menu Yes No Screen");
-            subOpMenuBtns.CloseSubOpMenu();
+            // Debug.Log("Closing Map Menu");
+            mMenuF.CloseMapMenu();
         }
-        */
+        else if (achieveMenuF.achieveMenu.interactable)
+        {
+            // Debug.Log("Closing Achievement Menu");
+            achieveMenuF.CloseAchieveMenu();
+        }
     }
 
     // Opens the retry menu

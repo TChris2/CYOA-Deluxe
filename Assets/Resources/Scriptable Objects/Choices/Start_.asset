@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfo
   choiceID: Start_
   choice: Start
-  vid: {fileID: 32900000, guid: a98a2eb00bcd6b64b9fb6dff182759e5, type: 3}
+  vid: {fileID: 32900000, guid: da8b3893b4344f349844beccfb475b14, type: 3}
   choiceState: 00000000
   vidEndTime: 0
   hasComplete: 1

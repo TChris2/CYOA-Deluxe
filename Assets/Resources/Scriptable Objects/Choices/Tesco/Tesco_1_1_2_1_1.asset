@@ -16,7 +16,7 @@ MonoBehaviour:
   choice: Inspect The Wall?
   vid: {fileID: 32900000, guid: 60cd775326eeb9946abd64ca5c41211e, type: 3}
   choiceState: 02000000
-  vidEndTime: 43
+  vidEndTime: 43.2
   hasComplete: 0
   objs: []
   mapName: 

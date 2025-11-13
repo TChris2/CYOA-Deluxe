@@ -7,11 +7,10 @@ using UnityEngine.EventSystems;
 // Functionality for the map menu
 public class MapMenuFunctions : MonoBehaviour
 {
-    // Override to access everything the map menu without already completing it
-    public bool completeOverride;
-    // Stores the default scale of the map menu
+    // Main contents of the map menu
     [SerializeField]
-    private Transform mapContent;
+    private Transform mapContents;
+    // Prefab of the wya icon
     [SerializeField]
     private GameObject wyaIcon;
     // Keeps track of instantiate icons 
@@ -65,7 +64,7 @@ public class MapMenuFunctions : MonoBehaviour
         {
             // Gets necessary components from the current scene if the script does not already have it
             GetComponents();
-            
+
             // Closes the map menu
             if (inMapMenu)
                 CloseMapMenu();
@@ -126,28 +125,44 @@ public class MapMenuFunctions : MonoBehaviour
     void UpdateMapBtns()
     {
         // Gets all the choice buttons on the map
-        Button[] mapBtns = gameObject.GetComponentsInChildren<Button>();
+        Button[] mapBtns = mapContents.GetComponentsInChildren<Button>();
 
         foreach (Button btn in mapBtns)
         {
-            // Only checks objects with potential of being an id
+            // Only checks buttons with potential of being an id
             if (btn.gameObject.name.Contains("_"))
             {
                 if (sm.choiceDict.TryGetValue(btn.gameObject.name, out ChoiceInfo choice))
                 {
+                    // Skips updating the choice map btn if the player has already 100% the choice
+                    if (!choice.updateDisplay)
+                    {
+                        // Debug.Log($"ChoiceID {choice.choiceID} is fully complete, skipping updating map btn");
+                        continue;
+                    }
+
                     // Gets the checkmark image from the button
                     Image checkmark = btn.transform.Find("Checkmark").GetComponent<Image>();
-
+                    
                     // Checks if the player has completed the choice or has the debug menu enabled
-                    if (choice.hasComplete || completeOverride)
+                    if (choice.hasComplete || iMenu.completeOverride)
                     {
                         // Enables the button
                         btn.interactable = true;
 
-                        // If the player has completed all the available choices the choice will be displayed as complete
-                        var (isComplete, completedChoices) = CheckChoiceCompletion(choice);
+                        // Checks if the player have 100% the choice
+                        var (isFullyComplete, _) = CheckChoiceCompletion(choice);
 
-                        checkmark.enabled = isComplete;
+                        // If the player has 100% the choice, it will mark it as fully complete
+                        if (isFullyComplete)
+                        {
+                            choice.updateDisplay = false;
+                            checkmark.enabled = true;
+                        }
+                        else
+                        {
+                            checkmark.enabled = false;
+                        }
                     }
                     // If the player has not gotten to that choice yet the button is disabled
                     else
@@ -186,8 +201,31 @@ public class MapMenuFunctions : MonoBehaviour
             }
         }
 
+        // Checks whether the player has completed all the achievements tied to that choice
+        bool achieveComplete = false;
+        if (choice.achieveIDs.Count > 0)
+        {
+            foreach (string id in choice.achieveIDs)
+            {
+                if (sm.achieveDict.TryGetValue(id, out AchievementInfo achievement))
+                {
+                    if (achievement.hasUnlocked)
+                        achieveComplete = true;
+                }
+                else
+                {
+                    // Debug.Log($"AchieveID {id} not found in system in CheckChoiceCompletion()");
+                }
+            }
+        }
+        else
+        {
+            // Debug.Log($"No achievements found for ChoiceID {choice.choiceID} in CheckChoiceCompletion()");
+            achieveComplete = true; 
+        }
+
         // If the player has completed all the nextChoiceIDs it returns true, alongside the total of completed choices
-        return (completedChoices == choice.nextChoiceIDs.Count, completedChoices);
+        return (completedChoices == choice.nextChoiceIDs.Count && achieveComplete, completedChoices);
     }
 
     // Displays the info on the sidebar of what choice the player is currently highlighting
@@ -234,9 +272,23 @@ public class MapMenuFunctions : MonoBehaviour
         // Gets necessary components from the current scene if the script does not already have it
         GetComponents();
 
+        // Closes settings menu if opened
+        if (iMenu.pMenuF.settingsMenu.interactable)
+            MenuOpenClose(iMenu.pMenuF.settingsMenu, false);
+
         // Updates map menu buttons based on player progression
         UpdateMapBtns();
 
+        // Displays which choice the player is currently at
+        DisplayWya();
+
+        // Opens map menu
+        MenuOpenClose(mapMenu, true);
+    }
+
+    // Displays which choice the player is currently at
+    void DisplayWya()
+    {
         string choiceID;
 
         // If the player is in the game it centers the choice on the current on the player is on
@@ -259,7 +311,7 @@ public class MapMenuFunctions : MonoBehaviour
             Destroy(wyaIconStorage);
 
         // Gets position of the new wyaIcon
-        Button[] mapBtns = mapContent.GetComponentsInChildren<Button>(true);
+        Button[] mapBtns = mapContents.GetComponentsInChildren<Button>(true);
         Button targetBtn = null;
 
         foreach (Button btn in mapBtns)
@@ -273,40 +325,45 @@ public class MapMenuFunctions : MonoBehaviour
 
         ChoiceInfo mapChoice = bm.currentChoice;
 
-        // If at the end of a path it insteads searches for the previous choice
         if (targetBtn == null)
         {
             string[] parts = choiceID.Split('_');
             string prevChoice = string.Join("_", parts, 0, parts.Length - 1);
 
-            if (parts.Length == 2)
-                prevChoice = $"{prevChoice}_";
-        
-            foreach (Button btn in mapBtns)
+            // If at the end of a path it insteads searches for the previous choice
+            while (targetBtn == null)
             {
-                if (btn.gameObject.name == prevChoice)
-                {
-                    targetBtn = btn;
-                    break;
-                }
-            }
+                // Debug.Log($"prevChoice {prevChoice}");
 
-            sm.choiceDict.TryGetValue(prevChoice, out mapChoice);
-            if (!mapChoice)
-            {
-                Debug.Log($"ID - {prevChoice} - not found in the system when checking in OpenMapMenu()");
+                if (parts.Length == 2)
+                    prevChoice = $"{prevChoice}_";
+
+                foreach (Button btn in mapBtns)
+                {
+                    if (btn.gameObject.name == prevChoice)
+                    {
+                        targetBtn = btn;
+                        break;
+                    }
+                }
+
+                sm.choiceDict.TryGetValue(prevChoice, out mapChoice);
+                if (!mapChoice)
+                {
+                    Debug.Log($"ID - {prevChoice} - not found in the system when checking in OpenMapMenu()");
+                }
+
+                parts = prevChoice.Split('_');
+                prevChoice = string.Join("_", parts, 0, parts.Length - 1);
             }
         }
 
         // Spawns wya icon at current choice
         wyaIconStorage = Instantiate(wyaIcon, new Vector2(targetBtn.transform.position.x, targetBtn.transform.position.y + 57.5f),
             Quaternion.identity, targetBtn.transform);
-
+        
         // Displays the current choice
         DisplayChoiceInfo(mapChoice, targetBtn.GetComponent<Image>().color);
-
-        // Opens map menu
-        MenuOpenClose(mapMenu, true);
     }
 
     // Closes map menu

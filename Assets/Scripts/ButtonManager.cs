@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using TMPro;
-using NUnit.Framework.Internal;
-using Unity.VisualScripting;
 
 // NOTE TO SELF WHEN WORKING ON MAP MOVE SCRIPT OVER TO MAIN CANVAS AND CREATE SHORT SCRIPTS WHICH IS ESSENTIALLY JUST START FUNCTION
 // AND SENDS ID AND VIDEOPLAYER INFO
@@ -16,8 +14,7 @@ public class ButtonManager : MonoBehaviour
     // Displays current choice
     public ChoiceInfo currentChoice;
     // Store prev choice id
-    [SerializeField]
-    private string prevChoice;
+    public string prevChoice;
     // Skipping in vids
     [SerializeField]
     private Animator fadeTextAni;
@@ -36,11 +33,12 @@ public class ButtonManager : MonoBehaviour
     [HideInInspector]
     public SaveManager sm;
     List<Coroutine> coroutines = new List<Coroutine>();
-    // Debug stuff
+    // Debug menu
     [SerializeField]
     private TMP_InputField timeInput;
     [SerializeField]
     private TMP_InputField testInput;
+    public bool canBePaused;
 
     void Start()
     {
@@ -62,7 +60,7 @@ public class ButtonManager : MonoBehaviour
         // Debug.Log($"LoadPrevChoice - prevChoice {prevChoice.ToString()}"); 
         LoadChoice(prevChoice.ToString());
     }
-    
+
 
     // Loads choice info
     public void LoadChoice(string id)
@@ -70,8 +68,10 @@ public class ButtonManager : MonoBehaviour
         // Trims empty space from id
         id = id.Trim();
 
+        canBePaused = false;
+
         Debug.Log($"LoadChoice started with the id {id}");
-        
+
         // Stores prev choice, only stores prev choice in normal gameplay
         if (!isDebugSkipping && currentChoice != null)
             prevChoice = currentChoice.choiceID;
@@ -109,23 +109,10 @@ public class ButtonManager : MonoBehaviour
         // Attempts to get choice info
         if (sm.choiceDict.TryGetValue(id, out currentChoice))
         {
-            // Checks to see if the dict already has the video loaded
-            if (currentChoice.vid)
-            {
-                // Debug.Log("Video detected");
-            }
-            // Gets vid if the video is not already loaded
-            else
+            if (!currentChoice.vid)
             {
                 Debug.Log("No video detected");
             }
-
-            // Sets video to the player
-            videoPlay.clip = currentChoice.vid;
-            videoPlay.time = 0;
-
-            // Marks the choice as completed
-            currentChoice.hasComplete = true;
 
             // The choice has any objects
             if (currentChoice.objs != null)
@@ -140,12 +127,41 @@ public class ButtonManager : MonoBehaviour
             }
 
             // Opens Retry Menu variant of the pause menu at ending or gameover
-            if (currentChoice.choiceState.Contains(ChoiceState.GameOver) || currentChoice.choiceState.Contains(ChoiceState.Ending))
+            if ((currentChoice.choiceState.Contains(ChoiceState.GameOver) || currentChoice.choiceState.Contains(ChoiceState.Ending))
+                && !currentChoice.choiceState.Contains(ChoiceState.Choice))
                 coroutines.Add(StartCoroutine(RetryMenuPopup(currentChoice.vidEndTime)));
+
+            // If the choice contains any achieveIDs to see if has to update its achieveState
+            if (currentChoice.achieveIDs.Count > 0)
+            {
+                foreach (string achieveID in currentChoice.achieveIDs)
+                {
+                    if (sm.achieveDict.TryGetValue(achieveID, out AchievementInfo achievement))
+                    {
+                        if (!achievement.hasUnlocked && achievement.achieveState == AchievementState.Locked)
+                        {
+                            achievement.achieveState = AchievementState.Hidden;
+                            achievement.updateDisplay = true;
+                        }
+                    }
+                    else
+                    {
+                        // Debug.Log($"AchieveID {id} not found in system in LoadChoice()");
+                    }
+                }
+            }
+            else
+            {
+                // Debug.Log($"No achievements found for ChoiceID {currentChoice.choiceID} in LoadChoice()");
+            }
 
             // Skips to first choice if enabled
             if (isSkipping)
                 GetSkipTime(currentChoice);
+
+            // Sets video to the player
+            videoPlay.clip = currentChoice.vid;
+            videoPlay.time = 0;
 
             // Debug.Log("Playing vid");
             videoPlay.Play();
@@ -156,6 +172,7 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    // Popups retry menu
     private IEnumerator RetryMenuPopup(float timestamp)
     {
         // Debug.Log($"Retry menu will popup in {timestamp}s");
@@ -166,16 +183,14 @@ public class ButtonManager : MonoBehaviour
             yield return null;
         }
 
-        if (videoPlay.time <= timestamp + 1)
-        {
-            // Debug.Log("Openning retry menu");
-            iMenu.OpenRetryMenu();
-        }
-        else
-            Debug.Log($"Time excedded not popping up retry menu {videoPlay.time}");
+        // Marks the choice as completed when the player gets to a retry menu
+        currentChoice.hasComplete = true;
+
+        // Debug.Log("Openning retry menu");
+        iMenu.OpenRetryMenu();
     }
 
-    // Spawns object at the specific timecode
+    // Spawns object at the specific time
     public IEnumerator SpawnObject(ObjectInfo obj)
     {
         // Debug.Log("In object spawn coroutine");
@@ -192,19 +207,20 @@ public class ButtonManager : MonoBehaviour
 
                 foreach (Button btn in choiceBtns)
                 {
+                    string objName = btn.gameObject.name.Trim();
                     // Only checks objects with potential of being an id
-                    if (btn.gameObject.name.Contains("_"))
+                    if (objName.Contains("_"))
                     {
-                        // Debug.Log($"{btn.gameObject.name} {(sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))}");
-                        if (sm.choiceDict.ContainsKey(btn.gameObject.name))
+                        // Debug.Log($"{objName} {(sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))}");
+                        if (sm.choiceDict.ContainsKey(objName))
                         {
-                            string choiceIDString = btn.gameObject.name;
+                            string choiceIDString = objName;
 
                             btn.onClick.AddListener(() => LoadChoice(choiceIDString));
                         }
                         else
                         {
-                            Debug.Log($"ID - {btn.gameObject.name} - not found in the system when checking in SpawnObject()");
+                            Debug.Log($"ID - {objName} - not found in the system when checking in SpawnObject()");
                         }
                     }
                 }
@@ -224,6 +240,13 @@ public class ButtonManager : MonoBehaviour
             // Debug.Log(videoPlay.time);
             yield return null;
         }
+
+        // Marks the choice as completed once the player gets to a choice
+        if (obj.objType == ObjectType.ChoiceBtn)
+            currentChoice.hasComplete = true;
+
+        if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed))
+            canBePaused = true;
 
         // Spawns object within timestamp
         if (videoPlay.time <= obj.popupTime + 1)
@@ -285,7 +308,8 @@ public class ButtonManager : MonoBehaviour
     public void Skip()
     {
         // Debug.Log($"Skip - !iMenu.isPaused {!iMenu.isPaused} && videoPlay.isPlaying {videoPlay.isPlaying} && !choiceVisable {!choiceVisable} && currentChoice.choiceState == ChoiceState.Choice {currentChoice.choiceState == ChoiceState.Choice}");
-        if (!iMenu.isPaused && videoPlay.isPlaying && !choiceVisable && currentChoice.choiceState.Contains(ChoiceState.Choice))
+        if (!iMenu.isPaused && videoPlay.isPlaying && !choiceVisable && currentChoice.choiceState.Contains(ChoiceState.Choice)
+            && !(currentChoice.choiceState.Contains(ChoiceState.GameOver) || currentChoice.choiceState.Contains(ChoiceState.Ending)))
         {
             // If the skip text is visable on screen
             if (skipText.color.a == 0)
@@ -333,7 +357,7 @@ public class ButtonManager : MonoBehaviour
         // Debug.Log("Skipping time in vid");
 
         // Disables text
-            fadeTextAni.Play("Invisible Text");
+        fadeTextAni.Play("Invisible Text");
         // Sets time in the vid
         videoPlay.time = timestamp;
     }
