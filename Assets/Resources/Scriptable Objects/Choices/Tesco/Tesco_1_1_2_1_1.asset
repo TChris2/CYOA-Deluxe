@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Tesco_1_1_2_1_1
   choice: Inspect The Wall?
   vid: {fileID: 32900000, guid: 60cd775326eeb9946abd64ca5c41211e, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
   vidEndTime: 43.2
   hasComplete: 0
   objs: []
@@ -23,3 +23,4 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  updateDisplay: 1

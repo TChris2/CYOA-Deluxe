@@ -13,13 +13,20 @@ MonoBehaviour:
   m_Name: Doctor_2_1_2_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Doctor_2_1_2_1
-  choice: Run Somewhere Else
-  vid: {fileID: 32900000, guid: 50fb0f0a0e3ccda44bf1a61e99c45c87, type: 3}
+  choice: Observe Surroundings
+  vid: {fileID: 32900000, guid: b198945421bffa946b8dd8c7d316c8dd, type: 3}
   choiceState: 03000000
-  vidEndTime: 31
+  vidEndTime: 198
   hasComplete: 0
-  objs: []
+  objs:
+  - obj: {fileID: 7709538928818179221, guid: 7c13e242e4a9e5748bcacd481a5130fe, type: 3}
+    popupTime: 0
+    objType: 1
+    childPopupDelay: 0
+    despawnTime: 4
   mapName: 
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 09000000
+  updateDisplay: 1

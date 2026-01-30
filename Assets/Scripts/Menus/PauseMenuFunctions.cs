@@ -23,13 +23,13 @@ public class PauseMenuFunctions : MonoBehaviour
     {
         // Gets comps
         pauseMenu = GetComponent<CanvasGroup>();
-        MapMenuFunctions mapMenuF = GameObject.Find("Map Menu").GetComponent<MapMenuFunctions>();
-        AchieveMenuFunctions achieveMenuF = GameObject.Find("Achievement Menu").GetComponent<AchieveMenuFunctions>();
-        ButtonManager bm = GameObject.Find("Local UI").GetComponent<ButtonManager>();
+        MapMenuFunctions mapMenuF = FindAnyObjectByType<MapMenuFunctions>();
+        AchieveMenuFunctions achieveMenuF = FindAnyObjectByType<AchieveMenuFunctions>();
+        GameManager gm = FindAnyObjectByType<GameManager>();
 
         // Adds functions to the buttons
         // Retry options
-        RetryBtn.onClick.AddListener(() => { bm.iMenu.Resume(); bm.LoadPrevChoice(); });
+        RetryBtn.onClick.AddListener(() => { gm.iMenu.Resume(); gm.LoadPrevChoice(); });
         RetryStartBtn.onClick.AddListener(() => mapMenuF.LoadChoiceMap("Retry_", false));
         // Map menu
         MapBtn.onClick.AddListener(() => mapMenuF.OpenMapMenu(pauseMenu));

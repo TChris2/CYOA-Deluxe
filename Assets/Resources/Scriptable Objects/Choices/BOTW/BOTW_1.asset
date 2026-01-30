@@ -30,3 +30,4 @@ MonoBehaviour:
   - BOTW_1_1
   - BOTW_1_2
   achieveIDs: []
+  updateDisplay: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: BOTW_1_2_1
   choice: Bullet Time Bounce
   vid: {fileID: 32900000, guid: a9313a4ffa7323f46b2cc8dba1a3e4c9, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
   vidEndTime: 35
   hasComplete: 0
   objs: []
@@ -23,3 +23,4 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  updateDisplay: 1

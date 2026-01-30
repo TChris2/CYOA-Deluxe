@@ -18,8 +18,15 @@ MonoBehaviour:
   choiceState: 02000000
   vidEndTime: 75
   hasComplete: 0
-  objs: []
+  objs:
+  - obj: {fileID: 7709538928818179221, guid: 9ffe3b0585199074d8a972e4f71ca3af, type: 3}
+    popupTime: 0
+    objType: 1
+    childPopupDelay: 0
+    despawnTime: 4
   mapName: 
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 0a000000
+  updateDisplay: 1

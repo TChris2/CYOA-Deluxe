@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1512876745680337656}
   m_Layer: 5
   m_Name: Doctor_2_1_2B1
-  m_TagString: Delete
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Run Somewhere Else
+  m_text: Observe Surroundings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 657faf108b170b5459aa1a0081ad36e9, type: 2}
   m_sharedMaterial: {fileID: -2131455095172227241, guid: 657faf108b170b5459aa1a0081ad36e9, type: 2}
@@ -209,7 +209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1008516234809981990
@@ -304,7 +304,7 @@ Animator:
   m_GameObject: {fileID: 8968733577352124549}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53c0df767790f0c4d873ed49d65146e6, type: 2}
+  m_Controller: {fileID: 22100000, guid: a1f4f924a3a19c7489a7f116988d483e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

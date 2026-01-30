@@ -15,11 +15,18 @@ MonoBehaviour:
   choiceID: Tesco_1_1_2_2
   choice: 'Walk On A Wet Floor? '
   vid: {fileID: 32900000, guid: 1157beb7881495f4681e0bdc5f97e063, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
   vidEndTime: 87.3
   hasComplete: 0
-  objs: []
+  objs:
+  - obj: {fileID: 7709538928818179221, guid: 83e5a107f880ce847955c8248ea6a542, type: 3}
+    popupTime: 0
+    objType: 1
+    childPopupDelay: 0
+    despawnTime: 4
   mapName: 
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 08000000
+  updateDisplay: 1

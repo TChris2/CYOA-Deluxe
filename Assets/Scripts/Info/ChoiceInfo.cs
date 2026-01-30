@@ -23,6 +23,8 @@ public class ChoiceInfo : ScriptableObject
     public bool hasComplete;
     [Tooltip("Objects spawned during the choice")]
     public List<ObjectInfo> objs;
+    [Header("Stat Tracking")]
+    public List<string> weaponsUsed;
     // Map menu info
     [Header("Map Menu")]
     [Tooltip("Name of the choice displayed in the map menu\nDefaults to the choice string if left empty")]
@@ -33,6 +35,8 @@ public class ChoiceInfo : ScriptableObject
     public List<string> nextChoiceIDs;
     [Tooltip("Ids of achievements related to the choice\nCounts toward choice completion when displayed in the map menu")]
     public List<string> achieveIDs;
+    [Tooltip("Ids of letters related to the choice\nCounts toward choice completion when displayed in the map menu")]
+    public List<LetterID> letterIDs;
     // Flags whether the info display in its menu needs to be updated
     [HideInInspector]
     public bool updateDisplay = true;

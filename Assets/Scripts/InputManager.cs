@@ -9,19 +9,19 @@ public class InputManager : MonoBehaviour
     public PlayerInput playerInput;
     public PlayerInput.MenuActions menu;
     InputMenu iMenu;
-    ButtonManager bm;
+    GameManager gm;
 
     void Awake()
     {
         playerInput = new PlayerInput();
         menu = playerInput.Menu;
         iMenu = GetComponent<InputMenu>();
-        bm = GetComponent<ButtonManager>();
+        gm = GetComponent<GameManager>();
 
         // Assigns functions to each action
         menu.PauseMenu.performed += ctx => iMenu.PauseMenu();
         menu.DebugMenu.performed += ctx => iMenu.DebugMenu();
-        menu.Skip.performed += ctx => bm.Skip();
+        menu.Skip.performed += ctx => gm.Skip();
     }
 
     private void OnEnable()

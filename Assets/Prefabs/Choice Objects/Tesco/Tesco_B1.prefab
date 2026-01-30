@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1512876745680337656}
   m_Layer: 5
   m_Name: Tesco_B1
-  m_TagString: Delete
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -381,7 +381,7 @@ Animator:
   m_GameObject: {fileID: 8968733577352124549}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a866956a8e394643a077ff82c62b0b3, type: 2}
+  m_Controller: {fileID: 22100000, guid: 16c23ff1b75f4b44487d150e1087977f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

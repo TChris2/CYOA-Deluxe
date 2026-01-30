@@ -20,7 +20,7 @@ MonoBehaviour:
   hasComplete: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: d3c9b492af82da44089354778387de78, type: 3}
-    popupTime: 22
+    popupTime: 21.3
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
@@ -31,3 +31,4 @@ MonoBehaviour:
   - BOTW_1_1_1_2
   - BOTW_1_1_1_3
   achieveIDs: []
+  updateDisplay: 1

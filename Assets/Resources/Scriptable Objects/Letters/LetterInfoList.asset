@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e087d7a64d9c54599e0262490d69d3, type: 3}
+  m_Name: LetterInfoList
+  m_EditorClassIdentifier: Assembly-CSharp::LetterInfoList
+  letters:
+  - letterID: 0
+    letter: z
+    hasObtained: 0
+  - letterID: 1
+    letter: U
+    hasObtained: 0
+  - letterID: 2
+    letter: 9
+    hasObtained: 0
+  - letterID: 3
+    letter: v
+    hasObtained: 0
+  - letterID: 4
+    letter: g
+    hasObtained: 0
+  - letterID: 5
+    letter: A
+    hasObtained: 0
+  - letterID: 6
+    letter: w
+    hasObtained: 0
+  - letterID: 7
+    letter: J
+    hasObtained: 0
+  - letterID: 8
+    letter: T
+    hasObtained: 0
+  - letterID: 9
+    letter: c
+    hasObtained: 0
+  - letterID: 10
+    letter: 4
+    hasObtained: 0

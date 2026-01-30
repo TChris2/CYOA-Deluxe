@@ -13,12 +13,20 @@ public class SaveManager : MonoBehaviour
     public Dictionary<string, ChoiceInfo> choiceDict = new Dictionary<string, ChoiceInfo>();
     // AchievementInfo dictionary
     public Dictionary<string, AchievementInfo> achieveDict = new Dictionary<string, AchievementInfo>();
+    // LetterInfo dictionary
+    public Dictionary<LetterID, LetterInfo> letterDict = new Dictionary<LetterID, LetterInfo>();
+    public Stats stats;
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        
         // Adds filepaths to json files
         filePaths.Add(Path.Combine(Application.persistentDataPath, "Choices.json"));
         filePaths.Add(Path.Combine(Application.persistentDataPath, "Achievements.json"));
+        filePaths.Add(Path.Combine(Application.persistentDataPath, "Letters.json"));
+        filePaths.Add(Path.Combine(Application.persistentDataPath, "Stats.json"));
+
 
         // Checks to make sure all filepaths exist
         bool filePathExist = true;
@@ -42,21 +50,28 @@ public class SaveManager : MonoBehaviour
 
     }
 
-    // Loads choice info from scriptable object
+    // Loads scriptable object information
     public void LoadSOData()
     {
+        Debug.Log("Loading SO Data");
         // Clears dictionaries per each load
         choiceDict.Clear();
         achieveDict.Clear();
+        letterDict.Clear();
+        // Resets stats
+        stats.Reset();
 
         // Debug.LogWarning("Loading Scriptable Object Data");
         ChoiceInfo[] choiceArr;
         AchievementInfo[] achieveArr;
+        LetterInfoList letterList;
 
         choiceArr = Resources.LoadAll<ChoiceInfo>("Scriptable Objects/Choices");
         AddChoiceDictInfo(choiceArr);
         achieveArr = Resources.LoadAll<AchievementInfo>("Scriptable Objects/Achievements");
         AddAchieveDictInfo(achieveArr);
+        letterList = Resources.Load<LetterInfoList>("Scriptable Objects/Letters/LetterInfoList");
+        AddLetterDictInfo(letterList);
     }
 
     // Adds info obtained from choice info arrays into the dictionary
@@ -72,6 +87,7 @@ public class SaveManager : MonoBehaviour
             }
 
             ChoiceInfo newChoice = ScriptableObject.CreateInstance<ChoiceInfo>();
+            
             // Trims strings to remove empty space
             newChoice.choiceID = choice.choiceID.Trim();
             newChoice.choice = choice.choice.Trim();
@@ -80,6 +96,9 @@ public class SaveManager : MonoBehaviour
             newChoice.vidEndTime = choice.vidEndTime;
             newChoice.hasComplete = choice.hasComplete;
             newChoice.objs = choice.objs;
+            newChoice.weaponsUsed = choice.weaponsUsed;
+            foreach (string id in newChoice.weaponsUsed)
+                id.Trim();
             newChoice.mapName = choice.mapName.Trim();
             newChoice.thumbnail = choice.thumbnail;
             newChoice.nextChoiceIDs = choice.nextChoiceIDs;
@@ -88,6 +107,7 @@ public class SaveManager : MonoBehaviour
             newChoice.achieveIDs = choice.achieveIDs;
             foreach (string id in newChoice.achieveIDs)
                 id.Trim();
+            newChoice.letterIDs = choice.letterIDs;
 
             // Adds ChoiceInfo to the list
             choiceDict.Add(choice.choiceID, newChoice);
@@ -113,7 +133,8 @@ public class SaveManager : MonoBehaviour
             newAchievement.achieveState = achievement.achieveState;
             newAchievement.hasUnlocked = achievement.hasUnlocked;
             newAchievement.description = achievement.description.Trim();
-            newAchievement.choiceIDs = achievement.choiceIDs;
+            foreach (string id in achievement.choiceIDs)
+                id.Trim();
             foreach (string id in achievement.choiceIDs)
                 id.Trim();
             newAchievement.icon = achievement.icon;
@@ -124,12 +145,36 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    // Adds info obtained from letter info into the dictionary
+    void AddLetterDictInfo(LetterInfoList letterList)
+    {
+        foreach (LetterInfo letter in letterList.letters)
+        {
+            // Checks for duplicate ids
+            if (letterDict.ContainsKey(letter.letterID))
+            {
+                Debug.LogWarning($"Duplicate LetterID detected, {letter.letterID} in {letter.letter}");
+                continue;
+            }
+
+            LetterInfo newLetter = new LetterInfo(letter.letterID, letter.letter, letter.hasObtained);
+            // Trims strings to remove empty space
+            newLetter.letterID = letter.letterID;
+            newLetter.letter = letter.letter.Trim();
+            newLetter.hasObtained = letter.hasObtained;
+
+            // Adds AchievementInfo to the list
+            letterDict.Add(newLetter.letterID, newLetter);
+        }
+    }
+
     // Loads choice info from JSON
     public void LoadJSONData()
     {
         // Clears dictionaries per each load
         choiceDict.Clear();
         achieveDict.Clear();
+        letterDict.Clear();
         
         LoadSOData();
         
@@ -163,17 +208,40 @@ public class SaveManager : MonoBehaviour
         // Updates AchievementInfo with current player progress
         foreach (var entry in loadedAchieveInfo)
         {
-            if (achieveDict.TryGetValue(entry.achieveID, out AchievementInfo achievement))
+            if (achieveDict.TryGetValue(entry.achieveID, out AchievementInfo info))
             {
-                achievement.hasUnlocked = entry.hasUnlocked;
-                achievement.achievement = entry.achievement;
+                info.hasUnlocked = entry.hasUnlocked;
+                info.achievement = entry.achievement;
             }
             else
             {
                 // Debug.LogWarning($"AchieveID {entry.achieveID} not found in ScriptableObjects!");
             }
         }
-        
+
+        // Debug.LogWarning("Loading Letter JSON Data");
+        json = File.ReadAllText(filePaths[2]);
+
+        // Loads letter save data
+        Dictionary<string, LetterInfo> loadedLetterInfo = JsonConvert.DeserializeObject<Dictionary<string, LetterInfo>>(json,
+            new JsonSerializerSettings { Converters = { new StringEnumConverter() } });
+
+        // Updates LetterInfo with current player progress
+        foreach (var kvp in loadedLetterInfo)
+        {
+            if (letterDict.TryGetValue(kvp.Value.letterID, out LetterInfo info))
+            {
+                info.hasObtained = kvp.Value.hasObtained;
+            }
+            else
+            {
+                // Debug.LogWarning($"LetterID {kvp.Value.letterID} not found in ScriptableObjects!");
+            }
+        }
+
+        json = File.ReadAllText(filePaths[3]);
+        stats = JsonConvert.DeserializeObject<Stats>(json,
+            new JsonSerializerSettings { Converters = { new StringEnumConverter() } });
     }
 
     // Saves info to JSON
@@ -202,6 +270,16 @@ public class SaveManager : MonoBehaviour
         // Debug.Log("Saving Achievement Data");
         json = JsonConvert.SerializeObject(saveAchieveList, settings);
         File.WriteAllText(filePaths[1], json);
+        
+        // Saves LetterInfo
+        // Debug.Log("Saving Letter Data");
+        json = JsonConvert.SerializeObject(letterDict, settings);
+        File.WriteAllText(filePaths[2], json);
+
+        // Saves Stats
+        // Debug.Log("Saving Stats Data");
+        json = JsonConvert.SerializeObject(stats, settings);
+        File.WriteAllText(filePaths[3], json);
     }
 
     private void OnDisable()

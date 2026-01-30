@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-// Pops up achievement onscreen
+// Pops up achievement onscreen and display their info in the achievement menu
 public class AchievementPopup : MonoBehaviour
 {
     // Queue of achievements to display onscreen

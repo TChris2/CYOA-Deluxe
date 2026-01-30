@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1512876745680337656}
   m_Layer: 5
   m_Name: Doctor_2_1B1
-  m_TagString: Delete
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,7 +441,7 @@ Animator:
   m_GameObject: {fileID: 8333801326425610788}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53c0df767790f0c4d873ed49d65146e6, type: 2}
+  m_Controller: {fileID: 22100000, guid: a1f4f924a3a19c7489a7f116988d483e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -585,7 +585,7 @@ Animator:
   m_GameObject: {fileID: 8968733577352124549}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53c0df767790f0c4d873ed49d65146e6, type: 2}
+  m_Controller: {fileID: 22100000, guid: a1f4f924a3a19c7489a7f116988d483e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

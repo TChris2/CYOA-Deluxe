@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: BOTW_1_1_2_1
   choice: 'Diamond Sword '
-  vid: {fileID: 32900000, guid: f82eb412875b7f04f8052b207c0a6ab0, type: 3}
+  vid: {fileID: 32900000, guid: b93463c1f38a0364b9a6addea40faf45, type: 3}
   choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: ca7e287e534cff245a709a787617e450, type: 3}
-    popupTime: 10
+    popupTime: 5.37
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
@@ -30,3 +30,4 @@ MonoBehaviour:
   - BOTW_1_1_1_2_2
   - BOTW_1_1_2_1_1
   achieveIDs: []
+  updateDisplay: 1

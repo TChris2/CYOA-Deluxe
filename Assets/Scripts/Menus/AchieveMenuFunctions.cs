@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 // Functionality for the achievement menu
 public class AchieveMenuFunctions : MonoBehaviour
@@ -22,7 +23,7 @@ public class AchieveMenuFunctions : MonoBehaviour
     {
         // Gets comps
         achieveMenu = GetComponent<CanvasGroup>();
-        sm = GameObject.Find("SaveManager").GetComponent<SaveManager>();
+        sm = FindAnyObjectByType<SaveManager>();
     }
 
     // Updates achievement displays depending on the progress the player has made
@@ -38,10 +39,10 @@ public class AchieveMenuFunctions : MonoBehaviour
             if (sm.achieveDict.TryGetValue(achieveDisplay.gameObject.name, out AchievementInfo achievement))
             {
                 // Only updates the display when achievement needs to be updated or when the override is enabled
-                if (achievement.updateDisplay || iMenu.completeOverride)
+                if (achievement.updateDisplay || iMenu && iMenu.completeOverride)
                 {
                     // If the override is enabled it will display the achievement at full completion
-                    if (iMenu.completeOverride)
+                    if (iMenu && iMenu.completeOverride)
                     {
                         achieveDisplay.DisplayInfo(achievement.icon, achievement.achievement, achievement.description);
                         achieveDisplay.popupIcon.color = Color.HSVToRGB(0, 0, 100);
@@ -92,7 +93,7 @@ public class AchieveMenuFunctions : MonoBehaviour
     {
         if (!iMenu)
         {
-            iMenu = GameObject.Find("Local UI").GetComponent<InputMenu>();
+            iMenu = FindAnyObjectByType<InputMenu>();
         }
     }
 
@@ -103,12 +104,15 @@ public class AchieveMenuFunctions : MonoBehaviour
         prevMenu = menu;
         prevMenu.interactable = false;
 
-        // Gets necessary components from the current scene if the script does not already have it
-        GetComponents();
+        if (SceneManager.GetActiveScene().name == "Main Game Video")
+        {
+            // Gets necessary components from the current scene if the script does not already have it
+            GetComponents();
 
-        // Closes settings menu if opened
-        if (iMenu.pMenuF.settingsMenu.interactable)
-            MenuOpenClose(iMenu.pMenuF.settingsMenu, false);
+            // Closes settings menu if opened
+            if (iMenu.pMenuF.settingsMenu.interactable)
+                MenuOpenClose(iMenu.pMenuF.settingsMenu, false);
+        }
 
         // Updates achievement menu buttons based on player progression
         UpdateAchievements();

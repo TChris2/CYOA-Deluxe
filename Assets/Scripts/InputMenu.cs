@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+
 
 // Menu input functions
 public class InputMenu : MonoBehaviour
@@ -6,14 +8,13 @@ public class InputMenu : MonoBehaviour
     // Canvasgroups
     [SerializeField]
     private CanvasGroup pMenu;
-    [SerializeField]
-    private CanvasGroup dMenu;
+    public CanvasGroup dMenu;
     public bool isPaused;
     public bool isRetryMenu;
     [SerializeField]
     private Animator pMenuAni;
     // Scripts
-    private ButtonManager bm;
+    private GameManager gm;
     [HideInInspector]
     public PauseMenuFunctions pMenuF;
     MapMenuFunctions mMenuF;
@@ -21,15 +22,24 @@ public class InputMenu : MonoBehaviour
     // Override to access everything in a menu without already completing it
     public bool completeOverride;
 
-    void Start()
+    void Awake()
     {
         // Get necessary components
-        pMenuF = GameObject.Find("Pause Menu").GetComponent<PauseMenuFunctions>();
-        mMenuF = GameObject.Find("Map Menu").GetComponent<MapMenuFunctions>();
-        achieveMenuF = GameObject.Find("Achievement Menu").GetComponent<AchieveMenuFunctions>();
-        bm = GetComponent<ButtonManager>();
+        pMenuF = FindAnyObjectByType<PauseMenuFunctions>();
+        mMenuF = FindAnyObjectByType<MapMenuFunctions>();
+        achieveMenuF = FindAnyObjectByType<AchieveMenuFunctions>();
+        gm = GetComponent<GameManager>();
         // Intially sets override depending on whether the debug menu is interactable or not
         completeOverride = dMenu.interactable;
+
+        if (dMenu.interactable)
+            StartCoroutine(StartVidTimer());
+    }
+
+    IEnumerator StartVidTimer()
+    {
+        yield return null;
+        StartCoroutine(gm.GetVidTime());
     }
 
     // Opens Debug Menu
@@ -40,6 +50,7 @@ public class InputMenu : MonoBehaviour
         if (!dMenu.interactable)
         {
             MenuOpenClose(dMenu, true);
+            StartCoroutine(gm.GetVidTime());
             completeOverride = true;
         }
         else
@@ -58,7 +69,7 @@ public class InputMenu : MonoBehaviour
             // Debug.Log(isPaused);
 
             // Pauses the game and opens the pause menu
-            if (!isPaused && (bm.canBePaused || completeOverride))
+            if (!isPaused && (gm.canBePaused || completeOverride))
                 Pause();
             // Resumes the game
             else
@@ -87,14 +98,14 @@ public class InputMenu : MonoBehaviour
     // Resumes the game if the player is not in a sub menu
     public void Resume()
     {
-        // Debug.Log("Attempting to resume game");
+        Debug.Log("Attempting to resume game");
         // Closes the menu player is in currently
         if (!pMenu.interactable)
             CloseMenu();
         // Resumes the game
         else
         {
-            // Debug.Log("Resuming game");
+            Debug.Log("Resuming game");
 
             // If settings menu is open at the time
             if (pMenuF.settingsMenu.interactable)

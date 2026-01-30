@@ -6,17 +6,17 @@ public class AchievementTesco_1 : MonoBehaviour
     void Awake()
     {
         // Get initial components
-        SaveManager sm = GameObject.Find("SaveManager").GetComponent<SaveManager>();
+        SaveManager sm = FindAnyObjectByType<SaveManager>();
 
         AchievementInfo achievement;
         // Only runs remaining code if the player has not already unlocked the achievement
         if (sm.achieveDict.TryGetValue("Tesco_1", out achievement) && !achievement.hasUnlocked)
         {
             // Gets remaining scripts
-            ButtonManager bm = GameObject.Find("Local UI").GetComponent<ButtonManager>();
+            GameManager gm = FindAnyObjectByType<GameManager>();
 
             // Checks the previous choices the player has made to ensure they have not left the loop
-            switch (bm.prevChoice)
+            switch (gm.prevChoice)
             {
                 // Start of the loop
                 case "Tesco_1_1_1_1_1_1":
