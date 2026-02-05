@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Duck_1_3_2
   choice: Go Back To Traffic
   vid: {fileID: 32900000, guid: bf3ae3d9f52f63743889fe4b3e1106fb, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
   vidEndTime: 37
   hasComplete: 0
   objs: []
@@ -23,3 +23,6 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed: []
+  updateDisplay: 1

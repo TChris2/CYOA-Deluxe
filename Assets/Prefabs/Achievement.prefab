@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 8233130653491179246}
   - component: {fileID: 2519491425573859854}
   - component: {fileID: 3954516268555256948}
-  - component: {fileID: 4544183708377465455}
+  - component: {fileID: 269698943162991899}
   m_Layer: 5
   m_Name: Achievement
   m_TagString: Untagged
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4544183708377465455
+--- !u!114 &269698943162991899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,10 +299,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6990351008973199426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dfea3d3edd1933438fecb946f13ceb1, type: 3}
+  m_Script: {fileID: 11500000, guid: daa0c038f3150ff418741c574bfc7a35, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AchievementPopup
-  achieveQueue: []
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementInfoDisplay
   popupIcon: {fileID: 6894376448102347534}
   popupLabel: {fileID: 1628954213682439761}
   popupDesc: {fileID: 1957172943274500867}

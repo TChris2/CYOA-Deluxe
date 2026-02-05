@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Duck_1_3_1
   choice: 'Join Them '
   vid: {fileID: 32900000, guid: 691dc3c77e86dd04dba19c24bf589559, type: 3}
-  choiceState: 02000000
+  choiceState: 03000000
   vidEndTime: 75
   hasComplete: 0
   objs:
@@ -28,5 +28,6 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
-  letterIDs: 0a000000
+  letterIDs: 
+  weaponsUsed: []
   updateDisplay: 1

@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 // Functionality for the achievement menu
@@ -9,47 +7,67 @@ public class AchieveMenuFunctions : MonoBehaviour
     // Stores the default scale of the achievement menu
     [SerializeField]
     private Transform achieveContents;
-    // Canvas groups
-    [HideInInspector]
-    public CanvasGroup achieveMenu;
-    // Stores the canvas group of the previous menu
-    [HideInInspector]
-    public CanvasGroup prevMenu;
+    [SerializeField]
+    private GameObject achievementDisplay;
+    CanvasGroup achieveMenu;
     // Scripts
     SaveManager sm;
     InputMenu iMenu;
-
+    
     void Start()
     {
-        // Gets comps
+        // Gets components
         achieveMenu = GetComponent<CanvasGroup>();
         sm = FindAnyObjectByType<SaveManager>();
+        iMenu = FindAnyObjectByType<InputMenu>();
+
+        // Loads all achievements stored in memory
+        LoadAchievements();
+    }
+
+    // Loads all achievements stored in memory
+    void LoadAchievements()
+    {
+        // Instantiates each achievement into the menu
+        foreach(AchievementInfo achievement in sm.achieveDict.Values)
+        {
+            GameObject achieveDisplay = Instantiate(achievementDisplay, achieveContents);
+            achieveDisplay.name = achievement.achieveID;
+        }
     }
 
     // Updates achievement displays depending on the progress the player has made
     void UpdateAchievements()
     {
+        // Debug.Log("Updating Achievements");
+
         // Gets all the achievement displays in the menu
-        AchievementPopup[] achieveDisplays = achieveContents.GetComponentsInChildren<AchievementPopup>();
+        AchievementInfoDisplay[] achieveDisplays = achieveContents.GetComponentsInChildren<AchievementInfoDisplay>();
 
         // Checks each display
-        foreach (AchievementPopup achieveDisplay in achieveDisplays)
+        foreach (AchievementInfoDisplay achieveDisplay in achieveDisplays)
         {
             // Checks to make sure display has an id that's in the system
             if (sm.achieveDict.TryGetValue(achieveDisplay.gameObject.name, out AchievementInfo achievement))
             {
                 // Only updates the display when achievement needs to be updated or when the override is enabled
-                if (achievement.updateDisplay || iMenu && iMenu.completeOverride)
+                if (achievement.updateDisplay || iMenu.completeOverride)
                 {
+                    // Debug.Log($"Updating Achievement {achievement.achieveID}");
+
                     // If the override is enabled it will display the achievement at full completion
-                    if (iMenu && iMenu.completeOverride)
+                    if (iMenu.completeOverride)
                     {
                         achieveDisplay.DisplayInfo(achievement.icon, achievement.achievement, achievement.description);
                         achieveDisplay.popupIcon.color = Color.HSVToRGB(0, 0, 100);
+                        // Allows game to update the achievement back to its proper status
+                        achievement.updateDisplay = true;
                     }
                     // Normal updating procedure
                     else
                     {
+                        // Debug.Log(achievement.achieveState);
+
                         // Checks the achievement's state to see how much info should be displayed
                         switch (achievement.achieveState)
                         {
@@ -88,51 +106,26 @@ public class AchieveMenuFunctions : MonoBehaviour
         }
     }
 
-    // Gets necessary components from the current scene if the script does not already have it
-    void GetComponents()
-    {
-        if (!iMenu)
-        {
-            iMenu = FindAnyObjectByType<InputMenu>();
-        }
-    }
-
     // Opens achievement Menu
-    public void OpenAchieveMenu(CanvasGroup menu)
+    public void OpenAchieveMenu()
     {
-        // Stores previous menu and disables it
-        prevMenu = menu;
-        prevMenu.interactable = false;
+        // Adds menu to menu list
+        iMenu.openMenus.Add(achieveMenu);
 
-        if (SceneManager.GetActiveScene().name == "Main Game Video")
+        // Disables previous menu
+        iMenu.openMenus[iMenu.openMenus.Count - 2].interactable = false;
+        
+        if (SceneManager.GetActiveScene().name == "Main Game")
         {
-            // Gets necessary components from the current scene if the script does not already have it
-            GetComponents();
-
             // Closes settings menu if opened
             if (iMenu.pMenuF.settingsMenu.interactable)
-                MenuOpenClose(iMenu.pMenuF.settingsMenu, false);
+                iMenu.MenuOpenClose(iMenu.pMenuF.settingsMenu, false);
         }
 
         // Updates achievement menu buttons based on player progression
         UpdateAchievements();
 
         // Opens achievement menu
-        MenuOpenClose(achieveMenu, true);
-    }
-
-    // Closes achievement menu
-    public void CloseAchieveMenu()
-    {
-        prevMenu.interactable = true;
-        MenuOpenClose(achieveMenu, false);
-    }
-
-    // Opens or closes selected menus
-    public void MenuOpenClose(CanvasGroup menu, bool isOpen)
-    {
-        menu.interactable = isOpen;
-        menu.alpha = isOpen ? 1 : 0;
-        menu.blocksRaycasts = isOpen;
+        iMenu.MenuOpenClose(iMenu.openMenus[iMenu.openMenus.Count - 1], true);
     }
 }

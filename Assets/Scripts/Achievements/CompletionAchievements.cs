@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-// Achievements which are completed once a player completes a certian choice
+// Achievements which are completed once a player completes a specific choice
 public class CompletionAchievements : MonoBehaviour
 {
     [SerializeField]

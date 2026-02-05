@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LetterInfoList", menuName = "Scriptable Objects/LetterInfoList")]
 public class LetterInfoList : ScriptableObject
 {
-    [Tooltip("List of Letter information")]
+    [Tooltip("List of letter information")]
     public List<LetterInfo> letters;
 }
 

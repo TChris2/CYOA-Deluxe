@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Portal_2
   choice: Source Engine
   vid: {fileID: 32900000, guid: 8f1d60d3c0e9f514c9c285ee096f76f1, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
   vidEndTime: 30
   hasComplete: 0
   objs:
@@ -28,5 +28,6 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
-  letterIDs: 03000000
+  letterIDs: 
+  weaponsUsed: []
   updateDisplay: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Minecraft_3_1
   choice: Keep Exploring
   vid: {fileID: 32900000, guid: 8b4c2348980d8314eb20a03140113370, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
   vidEndTime: 136
   hasComplete: 0
   objs: []
@@ -23,3 +23,8 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed:
+  - Bomb
+  - Cell Phone
+  updateDisplay: 1

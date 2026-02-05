@@ -28,4 +28,8 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: 99a873ef6d0e7a2409b40f4ae7176ca0, type: 3}
   nextChoiceIDs:
   - Duck_1
+  - Race_1
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed: []
+  updateDisplay: 1

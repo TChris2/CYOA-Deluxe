@@ -30,3 +30,6 @@ MonoBehaviour:
   - Portal_1_1
   - Portal_1_2
   achieveIDs: []
+  letterIDs: 05000000
+  weaponsUsed: []
+  updateDisplay: 1

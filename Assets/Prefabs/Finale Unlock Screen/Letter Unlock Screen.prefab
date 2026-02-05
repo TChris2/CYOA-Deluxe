@@ -596,7 +596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9
+  m_text: U
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c18e787ea7d7ee4187a6183acc29797, type: 2}
   m_sharedMaterial: {fileID: -3199686423248862034, guid: 0c18e787ea7d7ee4187a6183acc29797, type: 2}
@@ -5805,7 +5805,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d15322ef8e7e66b4583e096f9283d4b0, type: 3}
   particleExplode: {fileID: 2228549788266273899}
   sfxDelay: -0.2
-  canvas: {fileID: 693299667377108527}
+  letterIcon: {fileID: 693299667377108527}
 --- !u!82 &3796009430193967925
 AudioSource:
   m_ObjectHideFlags: 0

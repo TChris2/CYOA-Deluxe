@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using System.Collections;
 using System.Collections.Generic;
 
 // Functionality for the map menu
@@ -17,12 +16,7 @@ public class MapMenuFunctions : MonoBehaviour
     private GameObject wyaIcon;
     // Keeps track of instantiate icons 
     private GameObject wyaIconStorage;
-    // Canvas groups
-    [HideInInspector]
-    public CanvasGroup mapMenu;
-    // Stores the canvas group of the previous menu
-    [HideInInspector]
-    public CanvasGroup prevMenu;
+    CanvasGroup mapMenu;
     // Scripts
     SaveManager sm;
     GameManager gm;
@@ -34,6 +28,10 @@ public class MapMenuFunctions : MonoBehaviour
     private CanvasGroup portalMap;
     [SerializeField]
     private CanvasGroup outsideMap;
+    [SerializeField]
+    private Button portalMapBtn;
+    [SerializeField]
+    private Button outsideMapbtn;
     [Header("Side Bar Choice Info")]
     // Choice name
     [SerializeField]
@@ -53,11 +51,12 @@ public class MapMenuFunctions : MonoBehaviour
 
     void Start()
     {
-        // Gets comps
+        // Gets components
         mapMenu = GetComponent<CanvasGroup>();
         sm = FindAnyObjectByType<SaveManager>();
+        iMenu = FindAnyObjectByType<InputMenu>();
 
-        // Adds LoadChoiceMap function to each map button
+        // Adds LoadChoiceMap and DisplayInfo functions to each map button
         AddMapBtnFunctions();
     }
 
@@ -67,24 +66,31 @@ public class MapMenuFunctions : MonoBehaviour
         LoadChoiceMap("Start_", false);
     }
 
-    // Load choice from the map
+    // Load choice from the map menu
     public void LoadChoiceMap(string id, bool inMapMenu)
     {
         // Allows the player to immediately skip to the start of the that choice's choices 
         // gm.isSkipping = true;
 
         // Loads choice use button manager if the player is already in the main scene   
-        if (SceneManager.GetActiveScene().name == "Main Game Video")
+        if (SceneManager.GetActiveScene().name == "Main Game")
         {
             // Gets necessary components from the current scene if the script does not already have it
             GetComponents();
 
             // Closes the map menu
             if (inMapMenu)
-                CloseMapMenu();
+                iMenu.CloseMenu();
 
             // Closes the pause menu and resumes the game
             iMenu.Resume();
+
+            // If the skip text is visable on screen when selection is made
+            if (gm.skipText.color.a != 0)
+            {
+                // Debug.Log($"Skip - Text Popup");
+                gm.fadeTextAni.Play("Invisible Text");
+            }
             
             // Loads choice with selected id
             gm.LoadChoice(id);
@@ -94,12 +100,12 @@ public class MapMenuFunctions : MonoBehaviour
         {
             // Closes the map menu
             if (inMapMenu)
-                CloseMapMenu();
+                iMenu.CloseMenu();
                 
             // Saves the chosen id to be loaded at start by button manager
             PlayerPrefs.SetString("Current ChoiceID", id);
             // Loads scene
-            SceneManager.LoadScene("Main Game Video");
+            SceneManager.LoadScene("Main Game");
         }
     }
 
@@ -153,7 +159,7 @@ public class MapMenuFunctions : MonoBehaviour
         {
             // Only checks buttons with potential of being an id
             if (btn.gameObject.name.Contains("_"))
-            {
+            {   
                 if (sm.choiceDict.TryGetValue(btn.gameObject.name, out ChoiceInfo choice))
                 {
                     // Skips updating the choice map btn if the player has already 100% the choice
@@ -167,7 +173,7 @@ public class MapMenuFunctions : MonoBehaviour
                     Image checkmark = btn.transform.Find("Checkmark").GetComponent<Image>();
                     
                     // Checks if the player has completed the choice or has the debug menu enabled
-                    if (choice.hasComplete || iMenu && iMenu.completeOverride)
+                    if (choice.hasComplete || iMenu.completeOverride)
                     {
                         // Enables the button
                         btn.interactable = true;
@@ -178,7 +184,8 @@ public class MapMenuFunctions : MonoBehaviour
                         // If the player has 100% the choice, it will mark it as fully complete
                         if (isFullyComplete)
                         {
-                            choice.updateDisplay = false;
+                            if (!iMenu.completeOverride)
+                                choice.updateDisplay = false;
                             checkmark.enabled = true;
                         }
                         else
@@ -293,35 +300,36 @@ public class MapMenuFunctions : MonoBehaviour
         choiceThumbnail.sprite = choice.thumbnail;
 
         // Changes the text's style depending on whether the player has completed all the next choices
-        string style = isComplete ? "Complete" : "Normal";
+        string style = completedChoices == choice.nextChoiceIDs.Count ? "Complete" : "Normal";
         choicesCompletedLabel.text = $"Choices Completed: <style=\"{style}\">{completedChoices}/{choice.nextChoiceIDs.Count}</style>";
     }
 
     // Gets necessary components from the current scene if the script does not already have it
     void GetComponents()
     {
-        if (!gm || !iMenu)
+        if (!gm)
         {
             gm = FindAnyObjectByType<GameManager>();
-            iMenu = gm.GetComponent<InputMenu>();
         }
     }
 
     // Opens Map Menu
-    public void OpenMapMenu(CanvasGroup menu)
+    public void OpenMapMenu()
     {
-        // Stores previous menu and disables it
-        prevMenu = menu;
-        prevMenu.interactable = false;
+        // Adds menu to menu list
+        iMenu.openMenus.Add(mapMenu);
 
-        if (SceneManager.GetActiveScene().name == "Main Game Video")
+        // Disables previous menu
+        iMenu.openMenus[iMenu.openMenus.Count - 2].interactable = false;
+
+        if (SceneManager.GetActiveScene().name == "Main Game")
         {
             // Gets necessary components from the current scene if the script does not already have it
             GetComponents();
 
             // Closes settings menu if opened
             if (iMenu.pMenuF.settingsMenu.interactable)
-                MenuOpenClose(iMenu.pMenuF.settingsMenu, false);
+                iMenu.MenuOpenClose(iMenu.pMenuF.settingsMenu, false);
         }
         
         // Updates map menu buttons based on player progression
@@ -331,7 +339,7 @@ public class MapMenuFunctions : MonoBehaviour
         DisplayWya();
 
         // Opens map menu
-        MenuOpenClose(mapMenu, true);
+        iMenu.MenuOpenClose(iMenu.openMenus[iMenu.openMenus.Count - 1], true);
     }
 
     // Displays which choice the player is currently at
@@ -340,7 +348,7 @@ public class MapMenuFunctions : MonoBehaviour
         string choiceID;
 
         // If the player is in the game it centers the choice on the current on the player is on
-        if (SceneManager.GetActiveScene().name == "Main Game Video")
+        if (SceneManager.GetActiveScene().name == "Main Game")
             choiceID = gm.currentChoice.choiceID;
         // If in main menu centers it on the start choice
         else
@@ -353,10 +361,6 @@ public class MapMenuFunctions : MonoBehaviour
                 choiceID = "Start_";
                 break;
         }
-
-        // Delete the previous wyaIcon
-        if (wyaIconStorage)
-            Destroy(wyaIconStorage);
 
         // Gets position of the new wyaIcon
         Button[] mapBtns = mapContents.GetComponentsInChildren<Button>(true);
@@ -409,13 +413,25 @@ public class MapMenuFunctions : MonoBehaviour
             }
         }
 
-        // Spawns wya icon at current choice
-        wyaIconStorage = Instantiate(wyaIcon, new Vector2(targetBtn.transform.position.x, targetBtn.transform.position.y + 57.5f),
-            Quaternion.identity, targetBtn.transform);
+        // Places or spawns wyaIcon at target position
+        if (wyaIconStorage)
+        {
+            // Debug.Log("Changing wya icon's position");
+            wyaIconStorage.transform.position = new Vector2(targetBtn.transform.position.x, targetBtn.transform.position.y + 57.5f);
+            // Sets as parent of target so it does not show up in both menus
+            wyaIconStorage.transform.SetParent(targetBtn.transform, true);
+        }
+        else
+        {
+            // Debug.Log("Spawning wya icon");
+            wyaIconStorage = Instantiate(wyaIcon, new Vector2(targetBtn.transform.position.x, targetBtn.transform.position.y + 57.5f),
+                Quaternion.identity, targetBtn.transform);       
+        }
         
         // Displays the current choice
         DisplayChoiceInfo(mapChoice, targetBtn.GetComponent<Image>().color);
 
+        // Opens route map where the player is currently
         OpenRouteMap(mapChoice.choiceID);
     }
 
@@ -426,20 +442,28 @@ public class MapMenuFunctions : MonoBehaviour
 
         choiceID = $"{choiceID}_";
 
-        // Opens portal map
-        if (outsideMaps.Contains(choiceID))
-        {
-            MenuOpenClose(portalMap, false);
-            MenuOpenClose(outsideMap, true);
-        }
         // Opens outside map
+        if (outsideMaps.Contains(choiceID) || !sm.choiceDict["Portal_"].hasComplete && sm.choiceDict["Outside_"].hasComplete)
+        {
+            // Debug.Log("Opening Outside map");
+            iMenu.MenuOpenClose(portalMap, false);
+            iMenu.MenuOpenClose(outsideMap, true);
+        }
+        // Opens portal map
         else
         {
-            MenuOpenClose(outsideMap, false);
-            MenuOpenClose(portalMap, true);
+            // Debug.Log("Opening Portal map");
+            iMenu.MenuOpenClose(outsideMap, false);
+            iMenu.MenuOpenClose(portalMap, true);
         }
+        
+        portalMapBtn.interactable = sm.choiceDict["Portal_"].hasComplete || iMenu.completeOverride;
+        portalMapBtn.GetComponentInChildren<TMP_Text>().enabled = portalMapBtn.interactable;
+        outsideMapbtn.interactable = sm.choiceDict["Outside_"].hasComplete || iMenu.completeOverride;
+        outsideMapbtn.GetComponentInChildren<TMP_Text>().enabled = outsideMapbtn.interactable;
     }
 
+    // Checking map for choice button position
     Button MapBtnCheck(string choiceID,Button[] mapBtns)
     {
         foreach (Button btn in mapBtns)
@@ -447,20 +471,5 @@ public class MapMenuFunctions : MonoBehaviour
                 return btn;
 
         return null;
-    }
-
-    // Closes map menu
-    public void CloseMapMenu()
-    {
-        prevMenu.interactable = true;
-        MenuOpenClose(mapMenu, false);
-    }
-
-    // Opens or closes selected menus
-    public void MenuOpenClose(CanvasGroup menu, bool isOpen)
-    {
-        menu.interactable = isOpen;
-        menu.alpha = isOpen ? 1 : 0;
-        menu.blocksRaycasts = isOpen;
     }
 }

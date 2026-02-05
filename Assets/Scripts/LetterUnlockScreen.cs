@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+// Controls the popup's sfx of the letter in the finale unlock screen
 public class LetterUnlockScreen : MonoBehaviour
 {
     [SerializeField]
@@ -10,36 +11,54 @@ public class LetterUnlockScreen : MonoBehaviour
     [SerializeField]
     private float sfxDelay;
     [SerializeField]
-    private Canvas canvas;
+    private Canvas letterIcon;
+    Animator animator;
+    AudioSource audioSource;
+    ParticleSystemForceField forceField;
+
+    void Awake()
+    {
+        animator = GetComponentInParent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        forceField = GetComponentInChildren<ParticleSystemForceField>();
+    }
     
+    // Plays the sfx after the object is enabled
     void OnEnable()
     {
         StartCoroutine(PlaySFX());
     }
 
+    // Plays the sfx animation
     IEnumerator PlaySFX()
     {
-        AudioSource audioSource = GetComponent<AudioSource>();
+        forceField.enabled = true;
 
         yield return new WaitForSeconds(.2f);
 
+        // Plays charging sfx
         audioSource.clip = sfx[0];
         audioSource.Play();
 
         yield return new WaitForSeconds(particleExplode.main.startDelay.constant + sfxDelay);
 
+        // Plays explosion sfx
         audioSource.clip = sfx[1];
         audioSource.Play();
-        GetComponentInChildren<ParticleSystemForceField>().enabled = false;
+        // Disables force field to prevent it from interferring with explosion particles
+        forceField.enabled = false;
 
         yield return new WaitForSeconds(.1f);
-        canvas.sortingOrder = 2;
 
-        Animator animator = GetComponentInParent<Animator>();
+        // Puts letter icon above particle layer when playing popup animation
+        letterIcon.sortingOrder = 2;
+
+        // Plays popup animation
         animator.Play("Letter Popup");
 
         yield return new WaitForSeconds(particleExplode.main.duration + particleExplode.main.startLifetime.constantMax);
         
-        canvas.sortingOrder = 1;
+        // Sets it back to the regular layer after animation plays
+        letterIcon.sortingOrder = 1;
     }
 }

@@ -35,4 +35,6 @@ MonoBehaviour:
   - Doctor_2_1_2_1
   - Doctor_2_1_2_2
   achieveIDs: []
+  letterIDs: 09000000
+  weaponsUsed: []
   updateDisplay: 1

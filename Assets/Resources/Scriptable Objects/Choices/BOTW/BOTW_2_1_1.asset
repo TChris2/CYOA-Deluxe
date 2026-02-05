@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: BOTW_2_1_1
   choice: Stasis
   vid: {fileID: 32900000, guid: 7db9749945dd4fc4e885c0fd071e9f40, type: 3}
-  choiceState: 0200000003000000
+  choiceState: 03000000
   vidEndTime: 37
   hasComplete: 0
   objs: []
@@ -23,4 +23,7 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed:
+  - Diamond Sword
   updateDisplay: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Race_1_2
   choice: Use Shortcut
   vid: {fileID: 32900000, guid: 625d3eb7295ded44b8575340d1f5e65c, type: 3}
-  choiceState: 02000000
+  choiceState: 03000000
   vidEndTime: 30
   hasComplete: 0
   objs:
@@ -29,4 +29,5 @@ MonoBehaviour:
   nextChoiceIDs: []
   achieveIDs: []
   letterIDs: 07000000
+  weaponsUsed: []
   updateDisplay: 1

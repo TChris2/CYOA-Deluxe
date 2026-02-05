@@ -30,3 +30,6 @@ MonoBehaviour:
   - Duck_1_1_2_1
   - Duck_1_1_2_2
   achieveIDs: []
+  letterIDs: 02000000
+  weaponsUsed: []
+  updateDisplay: 1

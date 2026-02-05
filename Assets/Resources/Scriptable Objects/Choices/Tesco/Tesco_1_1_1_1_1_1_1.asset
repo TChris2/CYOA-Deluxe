@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Tesco_1_1_1_1_1_1_1
   choice: 'Go Further? '
   vid: {fileID: 32900000, guid: 58b80eec33edd9d4a893b0f5ed5c32c7, type: 3}
-  choiceState: 0000000003000000
+  choiceState: 00000000
   vidEndTime: 0
   hasComplete: 0
   objs:
@@ -24,9 +24,11 @@ MonoBehaviour:
     objType: 0
     childPopupDelay: 0
     despawnTime: 0
+  weaponsUsed: []
   mapName: 
   thumbnail: {fileID: 0}
   nextChoiceIDs:
   - Tesco_1_1_1_1_1_1
   achieveIDs: []
-  isFullyComplete: 0
+  letterIDs: 
+  updateDisplay: 1

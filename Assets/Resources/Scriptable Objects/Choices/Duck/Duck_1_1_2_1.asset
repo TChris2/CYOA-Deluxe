@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Duck_1_1_2_1
   choice: Turn Back
   vid: {fileID: 32900000, guid: 9880b385fb5da9f43bc71ff0f005002a, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
   vidEndTime: 68
   hasComplete: 0
   objs: []
@@ -23,3 +23,6 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed: []
+  updateDisplay: 1

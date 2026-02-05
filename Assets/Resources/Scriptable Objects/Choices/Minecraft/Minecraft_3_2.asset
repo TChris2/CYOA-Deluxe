@@ -15,11 +15,14 @@ MonoBehaviour:
   choiceID: Minecraft_3_2
   choice: Build Something
   vid: {fileID: 32900000, guid: 7ca20efa0b692d145b7877d6a79b5499, type: 3}
-  choiceState: 02000000
+  choiceState: 03000000
   vidEndTime: 75
   hasComplete: 0
   objs: []
+  weaponsUsed: []
   mapName: 
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  updateDisplay: 1

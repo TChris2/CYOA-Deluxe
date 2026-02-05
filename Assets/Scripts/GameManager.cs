@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using TMPro;
-using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -17,32 +15,34 @@ public class GameManager : MonoBehaviour
     public ChoiceInfo currentChoice;
     // Store prev choice id
     public string prevChoice;
+    // Determines when the game can be paused in normal gameplay
+    public bool canBePaused;
     // Skipping in vids
     [SerializeField]
-    private Animator fadeTextAni;
-    TMP_Text skipText;
+    public Animator fadeTextAni;
+    [HideInInspector]
+    public TMP_Text skipText;
     [SerializeField]
     private GameObject objHolder;
     // Used to determine when a choice is visable on screen
     [HideInInspector]
     public bool choiceVisable;
+    // If enabled skips directly to the choice in LoadChoice()
     [HideInInspector]
     public bool isSkipping;
+    // When enabled prevents certain info from being stored when skipping in debug mode
     bool isDebugSkipping;
     // Scripts
-    [HideInInspector]
-    public InputMenu iMenu;
-    [HideInInspector]
-    public SaveManager sm;
+    InputMenu iMenu;
+    SaveManager sm;
     List<Coroutine> coroutines = new List<Coroutine>();
-    // Debug menu
+    [Header("Debug Menu")]
     [SerializeField]
     private TMP_InputField timeInput;
     [SerializeField]
     private TMP_InputField testInput;
     [SerializeField]
     private TMP_Text currentTime;
-    public bool canBePaused;
     [Header("Finale Unlock Screen")]
     // Checks to see if the finale screen has been opened by the player during this session
     [SerializeField]
@@ -64,21 +64,21 @@ public class GameManager : MonoBehaviour
     [Header("Finale")]
     [SerializeField]
     private VideoClip[] finaleVids;
-    [SerializeField]
-    private bool isFinale;
-    [Header("Stats Page")]
+    public bool isFinale;
+    [Header("Finale Stats Page")]
     [SerializeField]
     private Animator statsAni;
     [SerializeField]
     private List<TMP_Text> statsText;
-
+    [SerializeField]
+    private AudioSource statsAudioSource;
 
     void Start()
     {
         // Gets components
         sm = FindAnyObjectByType<SaveManager>();
         skipText = fadeTextAni.GetComponent<TMP_Text>();
-        iMenu = GetComponent<InputMenu>();
+        iMenu = FindAnyObjectByType<InputMenu>();
 
         // Loads current choice id
         string id = PlayerPrefs.GetString("Current ChoiceID", "Start_");
@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
             sm.stats.playTime += Time.deltaTime;
     }
 
+    // Resets Game Manager variables
     public void ResetLocalVars()
     {
         unlockScreenOpened = false;
@@ -140,20 +141,13 @@ public class GameManager : MonoBehaviour
         if (iMenu.isRetryMenu)
         {
             iMenu.isRetryMenu = false;
-            iMenu.Resume();
         }
 
         // Stops vids
         videoPlay.Stop();
 
-        // Clears existing coroutines to spawn objects
-        if (coroutines.Count > 0)
-        {
-            foreach (Coroutine c in coroutines)
-                if (c != null)
-                    StopCoroutine(c);
-            coroutines.Clear();
-        }
+        // Clears any coroutines from the previous choice
+        ClearCoroutines();
 
         // Deletes existing buttons in object holder
         if (objHolder.transform.childCount > 0)
@@ -165,6 +159,12 @@ public class GameManager : MonoBehaviour
         // Attempts to get choice info
         if (sm.choiceDict.TryGetValue(id, out currentChoice))
         {
+            if (currentChoice.choiceID == "Finale_")
+            {
+                PlayFinale();
+                return;
+            }
+
             if (!currentChoice.vid)
             {
                 Debug.Log("No video detected");
@@ -183,8 +183,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Opens Retry Menu variant of the pause menu at ending or gameover
-            if ((currentChoice.choiceState.Contains(ChoiceState.GameOver) || currentChoice.choiceState.Contains(ChoiceState.Ending))
-                && !currentChoice.choiceState.Contains(ChoiceState.Choice))
+            if (currentChoice.vidEndTime > 0)
                 coroutines.Add(StartCoroutine(RetryMenuPopup(currentChoice.vidEndTime)));
 
             // If the choice contains any achieveIDs to see if has to update its achieveState
@@ -210,12 +209,6 @@ public class GameManager : MonoBehaviour
             {
                 // Debug.Log($"No achievements found for ChoiceID {currentChoice.choiceID} in LoadChoice()");
             }
-            
-            if (currentChoice.choiceState.Contains(ChoiceState.GameOver))
-            {
-                // Debug.Log("Death Detected");
-                sm.stats.deaths += 1;
-            } 
 
             // If the choice contains any weapon stat tracking
             if (currentChoice.weaponsUsed.Count > 0)
@@ -255,9 +248,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Displays current time in vid
     public IEnumerator GetVidTime()
     {
-        while (iMenu.dMenu.interactable)
+        yield return null;
+
+        while (iMenu.completeOverride && videoPlay != null)
         {
             currentTime.text = videoPlay.time.ToString("0.00");
             yield return null;
@@ -277,6 +273,13 @@ public class GameManager : MonoBehaviour
 
         // Marks the choice as completed when the player gets to a retry menu
         currentChoice.hasComplete = true;
+
+        // Counts deaths if choice has ChoiceState GameOver
+        if (currentChoice.choiceState.Contains(ChoiceState.GameOver))
+        {
+            // Debug.Log($"Death Detected in {currentChoice.choiceID}");
+            sm.stats.deaths += 1;
+        } 
 
         // Debug.Log("Openning retry menu");
         iMenu.OpenRetryMenu();
@@ -319,6 +322,7 @@ public class GameManager : MonoBehaviour
                     }
                 }
                 break;
+            // Function for secret buttons
             case ObjectType.SecretBtn:
                 Button secretBtn = gameObj.GetComponentInChildren<Button>();
 
@@ -326,12 +330,14 @@ public class GameManager : MonoBehaviour
                 if (LetterID.TryParse(secretBtn.name, true, out LetterID id) &&
                     sm.letterDict.TryGetValue(id, out LetterInfo letter))
                 {
+                    // Deletes object if it has alreadby obtained
                     if (letter.hasObtained)
                     {
                         Debug.Log($"LetterID {letter.letterID} - {letter.letter} has already been obtained, deleting object");
                         Destroy(gameObj);
                         yield break;
                     }
+                    // Adds functionality unlock screen functionality
                     else
                     {
                         secretBtn.onClick.AddListener(() => {StartCoroutine(FinaleUnlockScreen(letter));
@@ -345,6 +351,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        // Disables every object in the parent spawned object
         foreach (Transform child in gameObj.transform)
         {
             child.gameObject.SetActive(false);
@@ -357,7 +364,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        // Spawns object within timestamp
+        // Displays object within timestamp
         if (videoPlay.time <= obj.popupTime + 1)
         {
             // Debug.Log($"Popping up {obj.objType} {obj.objID}");
@@ -370,7 +377,8 @@ public class GameManager : MonoBehaviour
                 choiceVisable = true;
             }
 
-            if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed))
+            // Allows the game to be paused when it reaches a non timed choice
+            if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed) && obj.objType == ObjectType.ChoiceBtn)
                 canBePaused = true;
 
             foreach (Transform child in gameObj.transform)
@@ -411,10 +419,12 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Opening Finale unlock screen with letter {unlockedLetter.letterID} - {unlockedLetter.letter}");
         LetterInfo letter;
         GameObject unlockedLetterIcon = null;
+        GameObject unlockedLetterParticles = null;
 
         // Pauses the current video
         videoPlay.Pause();
 
+        // Gets letter icons
         if (letterIcons == null)
             letterIcons = letterIconsGroup.GetComponentsInChildren<Animator>(true);
 
@@ -425,10 +435,14 @@ public class GameManager : MonoBehaviour
         foreach (Animator letterIcon in letterIcons)
         {
             // Debug.Log(letterIcon.name);
+
+            GameObject letterParticles = letterIcon.transform.Find("Particles").gameObject;
+
             // Stores unlocked icon
             if (letterIcon.name == unlockedLetter.letterID.ToString())
             {
                 unlockedLetterIcon = letterIcon.gameObject;
+                unlockedLetterParticles = letterParticles;
             }
             // Checks to see which letters have already been obtained
             if (!unlockScreenOpened && LetterID.TryParse(letterIcon.name, true, out LetterID id) &&
@@ -439,10 +453,13 @@ public class GameManager : MonoBehaviour
                 {
                     // Debug.Log($"LetterID {letter.letterID} - {letter.letter} has already been obtained, activating object");
                     letterIcon.gameObject.SetActive(true);
+                    letterParticles.SetActive(false);
+
                     // Starts bob animation at a random point so they are all not synchronized & disables particles system
                     letterIcon.GetComponent<Animator>().Play("Letter Bob", 0, UnityEngine.Random.value);
                     letterCount += 1;
                 }
+                // Disables letter icon if it has not already been obtained
                 else
                 {
                     // Debug.Log($"LetterID {letter.letterID} - {letter.letter} has not been obtained, deactivating object");
@@ -465,11 +482,13 @@ public class GameManager : MonoBehaviour
         // Debug.Log("Enabling Object");
 
         unlockedLetterIcon.SetActive(true); 
+        unlockedLetterParticles.SetActive(true);
         unlockedLetter.hasObtained = true;
         letterCount += 1;
 
         yield return new WaitForSeconds(10f);
 
+        // If the player has not collected every letter
         if (letterCount < sm.letterDict.Count)
         {
             StartCoroutine(TextPopIn($"<size=280>{sm.letterDict.Count - letterCount} Remain", .3f));
@@ -480,73 +499,78 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(6f);
             
+            // Returns player back to main game and unpauses the video player
             finaleUnlockScreen.alpha = 0;
             finaleUnlockLabel.maxVisibleCharacters = 0;
             videoPlay.Play();
         }
+        // If the player has collected every letter
         else
         {
             yield return new WaitForSeconds(2f);
 
+            // Disables main group of letters
             letterIconsGroup.SetActive(false);
 
             yield return new WaitForSeconds(2f);
 
+            // Plays finale unlocking animation
             letterCircleGroup.SetActive(true);
         }
     }
 
+    // Starts finale from letterCircleGroup Animator
     public IEnumerator StartFinale()
     {
-        Debug.Log("Finale Started");
-        isFinale = true;
+        // Debug.Log("Finale Started");
         videoPlay.Stop();
-        videoPlay.clip = finaleVids[0];
-        videoPlay.time = 0;
-        videoPlay.loopPointReached += PopUpStats;
+
+        PlayFinale();
 
         finaleUnlockScreen.alpha = 0;
-        
-        videoPlay.Play();
         
         yield return null;
     }
 
+    // Plays first part of the finale
+    void PlayFinale()
+    {
+        isFinale = true;
+        // Clears any coroutines from the previous choice
+        ClearCoroutines();
+        videoPlay.clip = finaleVids[0];
+        videoPlay.time = 0;
+        // Displays stats after video finishes
+        videoPlay.loopPointReached += PopUpStats;
+        videoPlay.Play();
+    }
+
     void PopUpStats(VideoPlayer vp)
     {
+        // Removes listener after it is done
         videoPlay.loopPointReached -= PopUpStats;
         
         StartCoroutine(ShowStats());
     }
 
+    // Shows stats on screen
     IEnumerator ShowStats()
     {
-        Debug.Log("Show Stats");
+        // Debug.Log("Show Stats");
+        // Marks the finale as complete
+        sm.choiceDict["Finale_"].hasComplete = true;
 
-        if (!sm.stats.weaponDict.ContainsKey("Boots"))
-            sm.stats.weaponDict["Boots"] = 1;
-
-        statsText[0].text = sm.stats.gameMode;
-        statsText[1].text = sm.stats.mostUsedMon;
-        statsText[2].text = sm.stats.mostUsedMove;
-        statsText[3].text = sm.stats.weaponDict.OrderByDescending(kvp => kvp.Value).FirstOrDefault().Key.ToString();
-        statsText[4].text = sm.stats.weaponDict["Boots"].ToString();
-        statsText[5].text = sm.stats.deaths.ToString();
-        var (choicesCompleted, choicesCompletedTotal) = sm.stats.ChoicesCompleted(sm.choiceDict);
-        statsText[6].text = $"{choicesCompleted}/{choicesCompletedTotal}";
-        var (endingsCompleted, endingsCompletedTotal) = sm.stats.EndingsCompleted(sm.choiceDict);
-        statsText[7].text = $"{endingsCompleted}/{endingsCompletedTotal}";
-        statsText[8].text = sm.stats.Completion(sm.choiceDict, sm.achieveDict);
-        TimeSpan time = TimeSpan.FromSeconds(sm.stats.playTime);
-        statsText[9].text = $"{time.TotalHours:00}:{time.Minutes:00}:{time.Seconds:00}";
+        // Displays stats
+        sm.stats.DisplayStats(statsText, sm);
 
         yield return new WaitForSeconds(2f);
 
+        // Plays stats fade in animation
         statsAni.Play("Fade In");
-
-        // Add code for yeild return for music here to auto play post credits
+        statsAudioSource.Play();
     }
     
+    // Closes stat screen from button
     public void CloseStats()
     {
         statsAni.Play("Fade Out");
@@ -554,23 +578,27 @@ public class GameManager : MonoBehaviour
         StartCoroutine(PlayPostCredits());
     }
 
+    // Plays the post credits scene
     IEnumerator PlayPostCredits()
     {
         yield return new WaitForSeconds(3f);
-        
+        statsAudioSource.Stop();
         videoPlay.Stop();
         videoPlay.clip = finaleVids[1];
         videoPlay.time = 0;
+        // Returns player to the title screen after post credits scene finishes
         videoPlay.loopPointReached += ReturnToTitleScreen;
         
         videoPlay.Play();
     }
 
+    // Goes back to the title screen
     void ReturnToTitleScreen(VideoPlayer vp)
     {
         SceneManager.LoadScene("Title Screen");
     }
 
+    // Pops Finale Unlock Screen text onscreen
     IEnumerator TextPopIn(string text, float delay)
     {
         finaleUnlockLabel.maxVisibleCharacters = 0;
@@ -595,6 +623,8 @@ public class GameManager : MonoBehaviour
     // Debug Test
     public void LoadTestChoice()
     {
+        if (iMenu.isRetryMenu)
+            iMenu.Resume();
         string id = testInput.text != "" ? testInput.text : "Start_";
         LoadChoice(id);
     }
@@ -602,6 +632,8 @@ public class GameManager : MonoBehaviour
     // Debug Time
     public void SetVidTime()
     {   
+        if (iMenu.isRetryMenu)
+            iMenu.Resume();
         // Defaults to zero if input is empty
         if (!float.TryParse(timeInput.text, out float timestamp))
             timestamp = 0;
@@ -620,10 +652,9 @@ public class GameManager : MonoBehaviour
     {
         // Debug.Log("Skip()");
         // Debug.Log($"Skip - !iMenu.isPaused {!iMenu.isPaused} && videoPlay.isPlaying {videoPlay.isPlaying} && !choiceVisable {!choiceVisable} && currentChoice.choiceState == ChoiceState.Choice {currentChoice.choiceState}");
-        if (!iMenu.isPaused && !isFinale && videoPlay.isPlaying && !choiceVisable && currentChoice.choiceState.Contains(ChoiceState.Choice)
-            && !(currentChoice.choiceState.Contains(ChoiceState.GameOver) || currentChoice.choiceState.Contains(ChoiceState.Ending)))
+        if (!iMenu.isPaused && !isFinale && videoPlay.isPlaying && !choiceVisable && currentChoice.choiceState.Contains(ChoiceState.Choice))
         {
-            // If the skip text is visable on screen
+            // If the skip text is not visable on screen
             if (skipText.color.a == 0)
             {
                 // Debug.Log($"Skip - Text Popup");
@@ -674,5 +705,17 @@ public class GameManager : MonoBehaviour
         fadeTextAni.Play("Invisible Text");
         // Sets time in the vid
         videoPlay.time = timestamp;
+    }
+
+    // Clears any coroutines from the previous choice
+    void ClearCoroutines()
+    {
+        if (coroutines.Count > 0)
+        {
+            foreach (Coroutine c in coroutines)
+                if (c != null)
+                    StopCoroutine(c);
+            coroutines.Clear();
+        }
     }
 }

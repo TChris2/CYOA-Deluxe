@@ -28,5 +28,7 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
-  letterIDs: 06000000
+  letterIDs: 
+  weaponsUsed:
+  - Stand
   updateDisplay: 1

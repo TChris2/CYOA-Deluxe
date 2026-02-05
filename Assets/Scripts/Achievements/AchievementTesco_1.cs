@@ -22,7 +22,7 @@ public class AchievementTesco_1 : MonoBehaviour
                 case "Tesco_1_1_1_1_1_1":
                     // Sets the intial value
                     PlayerPrefs.SetInt("Achievement - Tesco Loop", 1);
-                    Debug.Log($"Loop vids played - {PlayerPrefs.GetInt("Achievement - Tesco Loop", 0) + 1}");
+                    Debug.Log($"Achievement Tesco_1 - Loop vids played - {PlayerPrefs.GetInt("Achievement - Tesco Loop", 0) + 1}");
                     break;
                 // If the player continues the loop
                 case "Tesco_1_1_1_1_1_1_1":

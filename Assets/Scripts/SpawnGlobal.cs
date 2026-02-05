@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Spawns GlobalObjects if it has not been detected in Main Game
 public class SpawnGlobal : MonoBehaviour
 {
     [SerializeField]
@@ -7,7 +8,7 @@ public class SpawnGlobal : MonoBehaviour
 
     void Awake()
     {
-        if (!FindAnyObjectByType<SaveManager>())
+        if (!SaveManager.instance)
         {
             // Debug.Log("SaveManager not found, spawning Global Objects");
             Instantiate(GlobalObjects);

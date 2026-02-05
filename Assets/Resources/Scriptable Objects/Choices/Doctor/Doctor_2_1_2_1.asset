@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Doctor_2_1_2_1
   choice: Observe Surroundings
   vid: {fileID: 32900000, guid: b198945421bffa946b8dd8c7d316c8dd, type: 3}
-  choiceState: 03000000
+  choiceState: 0300000002000000
   vidEndTime: 198
   hasComplete: 0
   objs:
@@ -28,5 +28,6 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
-  letterIDs: 09000000
+  letterIDs: 
+  weaponsUsed: []
   updateDisplay: 1

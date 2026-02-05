@@ -7,18 +7,33 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
+    public static SaveManager instance;
     // Store file paths of files being saved across multiple sessions
-    private List<string> filePaths = new List<string>();
+    [HideInInspector]
+    public List<string> filePaths = new List<string>();
     // ChoiceInfo dictionary
     public Dictionary<string, ChoiceInfo> choiceDict = new Dictionary<string, ChoiceInfo>();
     // AchievementInfo dictionary
     public Dictionary<string, AchievementInfo> achieveDict = new Dictionary<string, AchievementInfo>();
     // LetterInfo dictionary
     public Dictionary<LetterID, LetterInfo> letterDict = new Dictionary<LetterID, LetterInfo>();
+    // Current player stats
     public Stats stats;
 
     void Awake()
     {
+        // Deletes object if an instance already exists
+        if (instance != null && instance != this)
+        {
+            // Disables scripts with Start functions to prevent them from causing issues
+            GetComponentInChildren<MapMenuFunctions>().enabled = false;
+            GetComponentInChildren<AchieveMenuFunctions>().enabled = false;
+            Destroy(gameObject);
+            return;
+        }
+
+        // Saves instance
+        instance = this;
         DontDestroyOnLoad(gameObject);
         
         // Adds filepaths to json files
@@ -53,7 +68,7 @@ public class SaveManager : MonoBehaviour
     // Loads scriptable object information
     public void LoadSOData()
     {
-        Debug.Log("Loading SO Data");
+        // Debug.Log("Loading SO Data");
         // Clears dictionaries per each load
         choiceDict.Clear();
         achieveDict.Clear();
@@ -61,7 +76,6 @@ public class SaveManager : MonoBehaviour
         // Resets stats
         stats.Reset();
 
-        // Debug.LogWarning("Loading Scriptable Object Data");
         ChoiceInfo[] choiceArr;
         AchievementInfo[] achieveArr;
         LetterInfoList letterList;
@@ -171,14 +185,15 @@ public class SaveManager : MonoBehaviour
     // Loads choice info from JSON
     public void LoadJSONData()
     {
+        // Debug.Log("Loading Choice JSON Data");
         // Clears dictionaries per each load
         choiceDict.Clear();
         achieveDict.Clear();
         letterDict.Clear();
         
+        // Intially loads SO data to get static info
         LoadSOData();
         
-        // Debug.LogWarning("Loading Choice JSON Data");
         var json = File.ReadAllText(filePaths[0]);
         
         // Loads choice save data
@@ -210,8 +225,8 @@ public class SaveManager : MonoBehaviour
         {
             if (achieveDict.TryGetValue(entry.achieveID, out AchievementInfo info))
             {
+                info.achieveState = entry.achieveState;
                 info.hasUnlocked = entry.hasUnlocked;
-                info.achievement = entry.achievement;
             }
             else
             {
@@ -239,6 +254,7 @@ public class SaveManager : MonoBehaviour
             }
         }
 
+        // Loads stat save data
         json = File.ReadAllText(filePaths[3]);
         stats = JsonConvert.DeserializeObject<Stats>(json,
             new JsonSerializerSettings { Converters = { new StringEnumConverter() } });
@@ -284,6 +300,7 @@ public class SaveManager : MonoBehaviour
 
     private void OnDisable()
     {
-        SaveData();
+        if (instance == this)
+            SaveData();
     }
 }

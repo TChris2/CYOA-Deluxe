@@ -30,4 +30,7 @@ MonoBehaviour:
   - BOTW_1_1
   - BOTW_1_2
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed:
+  - Boots
   updateDisplay: 1

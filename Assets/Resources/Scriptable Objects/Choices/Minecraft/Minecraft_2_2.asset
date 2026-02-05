@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Minecraft_2_2
   choice: Move Into This Town!
   vid: {fileID: 32900000, guid: 0a56b2a535e5a034097f23d64f09fc6c, type: 3}
-  choiceState: 02000000
+  choiceState: 03000000
   vidEndTime: 47.5
   hasComplete: 0
   objs: []
@@ -23,3 +23,6 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed: []
+  updateDisplay: 1

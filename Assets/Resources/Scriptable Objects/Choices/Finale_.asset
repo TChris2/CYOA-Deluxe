@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Finale_
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfo
   choiceID: Finale_
-  choice: 
+  choice: Finale
   vid: {fileID: 0}
   choiceState: 03000000
   vidEndTime: 0
   hasComplete: 0
   objs: []
-  weaponsUsed: []
   mapName: True Ending
   thumbnail: {fileID: 21300000, guid: 0914e51d4e3eb74459301f1ec2b8061d, type: 3}
   nextChoiceIDs: []
   achieveIDs: []
   letterIDs: 
+  weaponsUsed: []
   updateDisplay: 1

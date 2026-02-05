@@ -30,3 +30,7 @@ MonoBehaviour:
   - Race_1_1
   - Race_1_2
   achieveIDs: []
+  letterIDs: 07000000
+  weaponsUsed:
+  - Green Shell
+  updateDisplay: 1

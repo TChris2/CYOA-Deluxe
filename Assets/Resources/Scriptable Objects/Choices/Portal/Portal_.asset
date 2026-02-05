@@ -37,5 +37,6 @@ MonoBehaviour:
   - Minecraft_
   - BOTW_
   achieveIDs: []
-  letterIDs: 01000000
+  letterIDs: 0100000003000000
+  weaponsUsed: []
   updateDisplay: 1

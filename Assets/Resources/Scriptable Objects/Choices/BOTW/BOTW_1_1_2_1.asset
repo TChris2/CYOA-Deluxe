@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: BOTW_1_1_2_1
   choice: 'Diamond Sword '
   vid: {fileID: 32900000, guid: b93463c1f38a0364b9a6addea40faf45, type: 3}
-  choiceState: 00000000
+  choiceState: 0000000002000000
   vidEndTime: 0
   hasComplete: 0
   objs:
@@ -30,4 +30,7 @@ MonoBehaviour:
   - BOTW_1_1_1_2_2
   - BOTW_1_1_2_1_1
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed:
+  - Diamond Sword
   updateDisplay: 1

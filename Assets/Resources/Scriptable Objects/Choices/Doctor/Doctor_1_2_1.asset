@@ -15,7 +15,7 @@ MonoBehaviour:
   choiceID: Doctor_1_2_1
   choice: 'The Spire '
   vid: {fileID: 32900000, guid: d61af69908a255d4fb4d7480f13f69d9, type: 3}
-  choiceState: 02000000
+  choiceState: 00000000
   vidEndTime: 32
   hasComplete: 0
   objs: []
@@ -23,3 +23,6 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed: []
+  updateDisplay: 1

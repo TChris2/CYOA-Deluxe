@@ -23,3 +23,7 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed:
+  - Bullet Bill
+  updateDisplay: 1

@@ -30,3 +30,7 @@ MonoBehaviour:
   - Race_1
   - Race_2
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed:
+  - GLA
+  updateDisplay: 1

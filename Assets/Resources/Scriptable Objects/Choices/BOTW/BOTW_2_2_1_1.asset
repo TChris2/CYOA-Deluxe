@@ -27,6 +27,7 @@ MonoBehaviour:
   mapName: 
   thumbnail: {fileID: 0}
   nextChoiceIDs: []
-  achieveIDs:
-  - BOTW_1
+  achieveIDs: []
+  letterIDs: 
+  weaponsUsed: []
   updateDisplay: 1

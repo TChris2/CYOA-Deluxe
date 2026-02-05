@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
@@ -23,20 +22,21 @@ public class ChoiceInfo : ScriptableObject
     public bool hasComplete;
     [Tooltip("Objects spawned during the choice")]
     public List<ObjectInfo> objs;
-    [Header("Stat Tracking")]
-    public List<string> weaponsUsed;
     // Map menu info
     [Header("Map Menu")]
     [Tooltip("Name of the choice displayed in the map menu\nDefaults to the choice string if left empty")]
     public string mapName;
     [Tooltip("Screenshot of the video which will be displayed in the map menu")]
     public Sprite thumbnail;
+    [Header("Stat Tracking")]
     [Tooltip("Ids of next choices the player can make from the current choice\nUsed to display completed choices in the map menu")]
     public List<string> nextChoiceIDs;
     [Tooltip("Ids of achievements related to the choice\nCounts toward choice completion when displayed in the map menu")]
     public List<string> achieveIDs;
     [Tooltip("Ids of letters related to the choice\nCounts toward choice completion when displayed in the map menu")]
     public List<LetterID> letterIDs;
+    [Tooltip("Ids of weapons used during the choice")]
+    public List<string> weaponsUsed;
     // Flags whether the info display in its menu needs to be updated
     [HideInInspector]
     public bool updateDisplay = true;

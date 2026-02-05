@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 8235458216770460414}
   - component: {fileID: 8168901975475317048}
   m_Layer: 5
-  m_Name: Duck_1_3_2
+  m_Name: Duck_1_3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -29,3 +29,7 @@ MonoBehaviour:
   nextChoiceIDs:
   - BOTW_1_2_1
   achieveIDs: []
+  letterIDs: 
+  weaponsUsed:
+  - Fists
+  updateDisplay: 1

@@ -28,8 +28,7 @@ MonoBehaviour:
     popupTime: 0
     objType: 1
     childPopupDelay: 0
-    despawnTime: 4
-  weaponsUsed: []
+    despawnTime: 5
   mapName: 
   thumbnail: {fileID: 21300000, guid: a5a00d2ad8615ea4fac9bb7bf33f71a2, type: 3}
   nextChoiceIDs:
@@ -37,4 +36,5 @@ MonoBehaviour:
   - Outside_
   achieveIDs: []
   letterIDs: 00000000
+  weaponsUsed: []
   updateDisplay: 1
