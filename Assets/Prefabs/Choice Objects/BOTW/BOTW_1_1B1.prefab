@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6598227512584358981}
   m_Layer: 5
   m_Name: BOTW_1_1_2
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 5246103561283642882}
   m_Layer: 5
   m_Name: BOTW_1_1_1
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

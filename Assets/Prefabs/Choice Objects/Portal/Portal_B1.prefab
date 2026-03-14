@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1735535347346164898}
   m_Layer: 5
   m_Name: Minecraft_
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 3765298670175478981}
   m_Layer: 5
   m_Name: Portal_1
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 9210822196435690248}
   m_Layer: 5
   m_Name: Portal_2
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 1613299170781433359}
   m_Layer: 5
   m_Name: BOTW_
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

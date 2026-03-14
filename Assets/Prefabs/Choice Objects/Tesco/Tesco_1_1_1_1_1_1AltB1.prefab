@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d355c0c6003d7514199f5c40f61cbe2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementTesco_1
+  achievementInfo: {fileID: 11400000, guid: e6a044ee720190d408166e6aa4979526, type: 2}
 --- !u!1 &3591746344678219033
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_VerticalAlignment: 8192
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -200,7 +202,7 @@ GameObject:
   - component: {fileID: 8168901975475317048}
   m_Layer: 5
   m_Name: Tesco_1_1_1_1_1_1_1Alt
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

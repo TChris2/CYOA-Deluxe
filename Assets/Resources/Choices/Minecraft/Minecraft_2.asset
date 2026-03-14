@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Minecraft_2
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: Minecraft_2
+  choice: Survival
+  vid: {fileID: 32900000, guid: 6ad4672aa48389043a0bdd3489f37573, type: 3}
+  choiceState: 00000000
+  vidEndTime: 0
+  hasComplete: 0
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: ffb3ea6f40b97734e8956f7ce62a2902, type: 3}
+    popupTime: 48
+    isSkippable: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 358f55231753f0944b635417de8c1699, type: 3}
+  nextChoices:
+  - {fileID: 11400000, guid: c90172093e9e6e2488c1f18abad7dc95, type: 2}
+  - {fileID: 11400000, guid: c851cb88bd8e0894ca9468bff4f89be9, type: 2}
+  achievements: []
+  letterIDs: 
+  weaponsUsed: []
+  updateDisplay: 1

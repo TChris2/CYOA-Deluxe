@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 1130755294816257478}
   m_Layer: 5
   m_Name: l5
-  m_TagString: Untagged
+  m_TagString: Secret Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

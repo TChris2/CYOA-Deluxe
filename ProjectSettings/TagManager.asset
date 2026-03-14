@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Delete
   - Particles
+  - Choice Button
+  - Secret Button
   layers:
   - Default
   - TransparentFX

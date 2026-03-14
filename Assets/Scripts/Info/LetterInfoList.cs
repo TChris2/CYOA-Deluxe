@@ -20,11 +20,18 @@ public class LetterInfo
     [Tooltip("Whether the player has obtained the letter or not")]
     public bool hasObtained;
 
+    // Adds info to new instance of LetterInfo
     public LetterInfo(LetterID letterID, string letter, bool hasObtained)
     {
         this.letterID = letterID;
         this.letter = letter;
         this.hasObtained = hasObtained;
+    }
+
+    // Trims strings of empty space    
+    void OnValidate()
+    {
+        letter.Trim();
     }
 }
 

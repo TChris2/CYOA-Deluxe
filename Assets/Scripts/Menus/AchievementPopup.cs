@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 // Pops up achievement onscreen and display their info in the achievement menu
-public class AchievementPopup : MonoBehaviour
+public class AchievementPopup : AchievementInfoDisplay
 {
     // Queue of achievements to display onscreen
     [SerializeField]
@@ -14,7 +14,6 @@ public class AchievementPopup : MonoBehaviour
     {
         // Gets components
         Animator popupAni = GetComponent<Animator>();
-        AchievementInfoDisplay achieveDisplay = GetComponent<AchievementInfoDisplay>();
 
         // Adds achievement to the queue
         achieveQueue.Add(achievement);
@@ -28,7 +27,7 @@ public class AchievementPopup : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Displays achievement info
-        achieveDisplay.DisplayInfo(achievement.icon, achievement.achievement, achievement.description);
+        DisplayInfo(achievement.icon, achievement.achievement, achievement.description);
 
         popupAni.Play("Popup");
     }

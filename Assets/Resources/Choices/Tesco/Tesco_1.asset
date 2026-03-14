@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e6461f2e3f3e438e8641e0deec3eb, type: 3}
+  m_Name: Tesco_1
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
+  choiceID: Tesco_1
+  choice: Enter Tesco
+  vid: {fileID: 32900000, guid: fa899ce363217184caf962ca5588f9c2, type: 3}
+  choiceState: 00000000
+  vidEndTime: 0
+  hasComplete: 0
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: d16b3388d6a679b47ab225eafc89abf3, type: 3}
+    popupTime: 14.8
+    isSkippable: 0
+    childPopupDelay: 0
+    despawnTime: 0
+  mapName: 
+  thumbnail: {fileID: 21300000, guid: 7ce9f860d0028154ea6098afb154f64d, type: 3}
+  nextChoices:
+  - {fileID: 11400000, guid: 217140be943e9df44bc73dd782660ad0, type: 2}
+  - {fileID: 11400000, guid: dc5f29ae40e51f14cadc7f0d70d3d507, type: 2}
+  achievements: []
+  letterIDs: 
+  weaponsUsed: []
+  updateDisplay: 1

@@ -80,11 +80,11 @@ public class SaveManager : MonoBehaviour
         AchievementInfo[] achieveArr;
         LetterInfoList letterList;
 
-        choiceArr = Resources.LoadAll<ChoiceInfo>("Scriptable Objects/Choices");
+        choiceArr = Resources.LoadAll<ChoiceInfo>("Choices");
         AddChoiceDictInfo(choiceArr);
-        achieveArr = Resources.LoadAll<AchievementInfo>("Scriptable Objects/Achievements");
+        achieveArr = Resources.LoadAll<AchievementInfo>("Achievements");
         AddAchieveDictInfo(achieveArr);
-        letterList = Resources.Load<LetterInfoList>("Scriptable Objects/Letters/LetterInfoList");
+        letterList = Resources.Load<LetterInfoList>("Letters/LetterInfoList");
         AddLetterDictInfo(letterList);
     }
 
@@ -101,30 +101,10 @@ public class SaveManager : MonoBehaviour
             }
 
             ChoiceInfo newChoice = ScriptableObject.CreateInstance<ChoiceInfo>();
-            
-            // Trims strings to remove empty space
-            newChoice.choiceID = choice.choiceID.Trim();
-            newChoice.choice = choice.choice.Trim();
-            newChoice.vid = choice.vid;
-            newChoice.choiceState = choice.choiceState;
-            newChoice.vidEndTime = choice.vidEndTime;
-            newChoice.hasComplete = choice.hasComplete;
-            newChoice.objs = choice.objs;
-            newChoice.weaponsUsed = choice.weaponsUsed;
-            foreach (string id in newChoice.weaponsUsed)
-                id.Trim();
-            newChoice.mapName = choice.mapName.Trim();
-            newChoice.thumbnail = choice.thumbnail;
-            newChoice.nextChoiceIDs = choice.nextChoiceIDs;
-            foreach (string id in newChoice.nextChoiceIDs)
-                id.Trim();
-            newChoice.achieveIDs = choice.achieveIDs;
-            foreach (string id in newChoice.achieveIDs)
-                id.Trim();
-            newChoice.letterIDs = choice.letterIDs;
+            newChoice.AddInfo(choice);
 
             // Adds ChoiceInfo to the list
-            choiceDict.Add(choice.choiceID, newChoice);
+            choiceDict.Add(newChoice.choiceID, newChoice);
         }
     }
 
@@ -141,21 +121,10 @@ public class SaveManager : MonoBehaviour
             }
 
             AchievementInfo newAchievement = ScriptableObject.CreateInstance<AchievementInfo>();
-            // Trims strings to remove empty space
-            newAchievement.achieveID = achievement.achieveID.Trim();
-            newAchievement.achievement = achievement.achievement.Trim();
-            newAchievement.achieveState = achievement.achieveState;
-            newAchievement.hasUnlocked = achievement.hasUnlocked;
-            newAchievement.description = achievement.description.Trim();
-            foreach (string id in achievement.choiceIDs)
-                id.Trim();
-            foreach (string id in achievement.choiceIDs)
-                id.Trim();
-            newAchievement.icon = achievement.icon;
-            newAchievement.updateDisplay = achievement.updateDisplay;
+            newAchievement.AddInfo(achievement);
 
             // Adds AchievementInfo to the list
-            achieveDict.Add(achievement.achieveID, newAchievement);
+            achieveDict.Add(newAchievement.achieveID, newAchievement);
         }
     }
 
@@ -172,10 +141,6 @@ public class SaveManager : MonoBehaviour
             }
 
             LetterInfo newLetter = new LetterInfo(letter.letterID, letter.letter, letter.hasObtained);
-            // Trims strings to remove empty space
-            newLetter.letterID = letter.letterID;
-            newLetter.letter = letter.letter.Trim();
-            newLetter.hasObtained = letter.hasObtained;
 
             // Adds AchievementInfo to the list
             letterDict.Add(newLetter.letterID, newLetter);

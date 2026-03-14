@@ -20,13 +20,31 @@ public class AchievementInfo : ScriptableObject
     [Header("Achievement Menu")]
     [Tooltip("Description of the achievement")]
     public string description;
-    [Tooltip("ChoiceIDs tied to the achievement\nIf the player has already completed any of theses ids it will display the unlock condition for the achievement if the AchievementState is set to Locked or Hidden")]
-    public List<String> choiceIDs;
     [Tooltip("Icon of the achievement which is displayed in the achievement menu and in the achievement popup")]
     public Sprite icon;
     // Flags whether the info display in its menu needs to be updated
     [HideInInspector]
     public bool updateDisplay = true;
+
+    // Adds info to new instance of AchievementInfo
+    public void AddInfo(AchievementInfo achievementInfo)
+    {
+        achieveID = achievementInfo.achieveID;
+        achievement = achievementInfo.achievement;
+        achieveState = achievementInfo.achieveState;
+        hasUnlocked = achievementInfo.hasUnlocked;
+        description = achievementInfo.description;
+        icon = achievementInfo.icon;
+        updateDisplay = achievementInfo.updateDisplay;
+    }
+
+    // Trims strings of empty space    
+    void OnValidate()
+    {
+        achieveID.Trim();
+        achievement.Trim();
+        description.Trim();
+    }
 }
 
 // Simplified version of the class used to save the vital information to json

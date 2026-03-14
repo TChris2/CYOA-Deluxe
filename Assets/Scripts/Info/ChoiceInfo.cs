@@ -30,9 +30,9 @@ public class ChoiceInfo : ScriptableObject
     public Sprite thumbnail;
     [Header("Stat Tracking")]
     [Tooltip("Ids of next choices the player can make from the current choice\nUsed to display completed choices in the map menu")]
-    public List<string> nextChoiceIDs;
+    public List<ChoiceInfo> nextChoices;
     [Tooltip("Ids of achievements related to the choice\nCounts toward choice completion when displayed in the map menu")]
-    public List<string> achieveIDs;
+    public List<AchievementInfo> achievements;
     [Tooltip("Ids of letters related to the choice\nCounts toward choice completion when displayed in the map menu")]
     public List<LetterID> letterIDs;
     [Tooltip("Ids of weapons used during the choice")]
@@ -40,6 +40,35 @@ public class ChoiceInfo : ScriptableObject
     // Flags whether the info display in its menu needs to be updated
     [HideInInspector]
     public bool updateDisplay = true;
+
+    // Adds info to new instance of ChoiceInfo
+    public void AddInfo(ChoiceInfo choiceInfo)
+    {
+        choiceID = choiceInfo.choiceID;
+        choice = choiceInfo.choice;
+        vid = choiceInfo.vid;
+        choiceState = choiceInfo.choiceState;
+        vidEndTime = choiceInfo.vidEndTime;
+        hasComplete = choiceInfo.hasComplete;
+        objs = choiceInfo.objs;
+        mapName = choiceInfo.mapName;
+        thumbnail = choiceInfo.thumbnail;
+        nextChoices = choiceInfo.nextChoices;
+        achievements = choiceInfo.achievements;
+        letterIDs = choiceInfo.letterIDs;
+        weaponsUsed = choiceInfo.weaponsUsed;
+    }
+
+    // Trims strings of empty space    
+    void OnValidate()
+    {
+        choiceID.Trim();
+        choice.Trim();
+        mapName.Trim();
+        if (weaponsUsed.Count != 0)
+            for (int i = 0; i < weaponsUsed.Count; i++)
+                weaponsUsed[i].Trim();
+    }
 }
 
 // Stores info on buttons spawned during the choice vid
@@ -50,8 +79,8 @@ public class ObjectInfo
     public GameObject obj;
     [Tooltip("Time when the object will popup onscreen")]
     public float popupTime;
-    [Tooltip("Type of object")]
-    public ObjectType objType;
+    [Tooltip("Determines if an object can be skipped or not when using Skip")]
+    public bool isSkippable;
     [Tooltip("Delay when child objects of the object popup onscreen between each other")]
     public float childPopupDelay;
     [Tooltip("Time when the object will despawn\nIf set 0 the object will not despawn")]
@@ -85,16 +114,8 @@ public enum ChoiceState
     // Current choice leads to a game over
     GameOver,
     // Current choice leads to an ending
-    Ending
-}
-
-// Type of object
-public enum ObjectType
-{
-    // Default - Choice btn
-    ChoiceBtn,
-    // Hidden Btn
-    SecretBtn,
-    // Miscellaneous Objects
-    Other,
+    Ending,
+    // Not a proper choice, used primarily for tracking stats of ChoiceTimed do nothing options,
+    // if choiceID with this state is loaded it will load the choice before it 
+    Reference
 }

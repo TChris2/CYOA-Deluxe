@@ -64,7 +64,8 @@ public class InputMenu : MonoBehaviour
         }
         else
         {
-            // Debug.Log("Retry menu is currently open, cannot open pause menu");
+            if (openMenus.Count > 1)
+                CloseMenu();
         }
     }
 

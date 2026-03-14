@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 8854782776184612706}
   m_Layer: 5
   m_Name: BOTW_1_1_1_3
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 179050277931252633}
   m_Layer: 5
   m_Name: BOTW_1_1_1_2
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 6080688205925456006}
   m_Layer: 5
   m_Name: BOTW_1_1_1_1
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

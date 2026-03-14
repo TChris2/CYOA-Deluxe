@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 1119084231585488952}
   m_Layer: 5
   m_Name: Tesco_1_2_1_1
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 8168901975475317048}
   m_Layer: 5
   m_Name: Tesco_1_1_2_1
-  m_TagString: Untagged
+  m_TagString: Choice Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

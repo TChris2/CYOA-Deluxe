@@ -216,30 +216,30 @@ public class MapMenuFunctions : MonoBehaviour
         int completedChoices = 0;
 
         // Goes through each nextChoiceID store in the choice
-        foreach (string id in choice.nextChoiceIDs)
+        foreach (ChoiceInfo choiceInfo in choice.nextChoices)
         {
-            if (sm.choiceDict.TryGetValue(id, out ChoiceInfo nextChoice))
-            {
+            if (sm.choiceDict.ContainsKey(choiceInfo.choiceID))
+            {  
                 // Debug.Log($"Next Choice {nextChoice.choiceID} {nextChoice.hasComplete}");
-                if (nextChoice.hasComplete)
+                if (sm.choiceDict[choiceInfo.choiceID].hasComplete)
                     completedChoices += 1;
             }
             else
             {
-                Debug.Log($"ID - {id} - not found in the system when checking in CheckChoiceCompletion()");
+                Debug.Log($"ID - {choiceInfo.choiceID} - not found in the system when checking in CheckChoiceCompletion() for choice {choice.choiceID}");
             }
         }
 
         // Checks whether the player has completed all the achievements tied to that choice
         bool achieveComplete = true;
-        if (choice.achieveIDs.Count > 0)
+        if (choice.achievements.Count > 0)
         {
-            foreach (string id in choice.achieveIDs)
+            foreach (AchievementInfo achievementInfo in choice.achievements)
             {
-                if (sm.achieveDict.TryGetValue(id, out AchievementInfo achievement))
+                if (sm.achieveDict.ContainsKey(achievementInfo.achieveID))
                 {   
                     // Marks it false if the player has not completed all the achievements
-                    if (!achievement.hasUnlocked)
+                    if (!sm.achieveDict[achievementInfo.achieveID].hasUnlocked)
                         achieveComplete = false;
                 }
                 else
@@ -276,8 +276,8 @@ public class MapMenuFunctions : MonoBehaviour
             // Debug.Log($"No letters found for ChoiceID {choice.choiceID} in CheckChoiceCompletion()");
         }
 
-        // If the player has completed all the nextChoiceIDs it returns true, alongside the total of completed choices
-        return (completedChoices == choice.nextChoiceIDs.Count && achieveComplete && letterComplete, completedChoices);
+        // If the player has completed all the next choices it returns true, alongside the total of completed choices
+        return (completedChoices == choice.nextChoices.Count && achieveComplete && letterComplete, completedChoices);
     }
 
     // Displays the info on the sidebar of what choice the player is currently highlighting
@@ -300,8 +300,8 @@ public class MapMenuFunctions : MonoBehaviour
         choiceThumbnail.sprite = choice.thumbnail;
 
         // Changes the text's style depending on whether the player has completed all the next choices
-        string style = completedChoices == choice.nextChoiceIDs.Count ? "Complete" : "Normal";
-        choicesCompletedLabel.text = $"Choices Completed: <style=\"{style}\">{completedChoices}/{choice.nextChoiceIDs.Count}</style>";
+        string style = completedChoices == choice.nextChoices.Count ? "Complete" : "Normal";
+        choicesCompletedLabel.text = $"Choices Completed: <style=\"{style}\">{completedChoices}/{choice.nextChoices.Count}</style>";
     }
 
     // Gets necessary components from the current scene if the script does not already have it

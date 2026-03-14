@@ -1,26 +1,57 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-// Achievements which are completed once a player completes a specific choice
-public class CompletionAchievements : MonoBehaviour
+// Achievements which are completed once a player completes specific choices
+public class CompletionAchievements : Achievement
 {
     [SerializeField]
-    private string AchieveID;
-
+    private List<ChoiceInfo> choices = new List<ChoiceInfo>();
     [SerializeField]
     [Range(0f,20f)]
     private float popupOffset = 10f;
-    void Awake()
-    {
-        // Get initial components
-        SaveManager sm = FindAnyObjectByType<SaveManager>();
 
-        AchievementInfo achievement;
+    void Start()
+    {
+        GetComponents();
+
         // Only runs remaining code if the player has not already unlocked the achievement
-        if (sm.achieveDict.TryGetValue(AchieveID.Trim(), out achievement) && !achievement.hasUnlocked)
+        if (sm.achieveDict.ContainsKey(achieveID) && !sm.achieveDict[achieveID].hasUnlocked && CheckCompletion())
         {
-            StartCoroutine(AchievePopupDelay(achievement));
+            StartCoroutine(AchievePopupDelay(sm.achieveDict[achieveID]));
         }
+        else
+        {
+            if (sm.achieveDict[achieveID].hasUnlocked)
+            {
+                Debug.LogWarning($"Achievement {achieveID} has already been unlocked");
+            }
+        }
+    }
+
+    // Checks if all choices tied to the achievement have been completed
+    public bool CheckCompletion()
+    {
+        foreach (ChoiceInfo choice in choices)
+        {
+            string choiceID = choice.choiceID.Trim();
+            
+            if (sm.choiceDict.ContainsKey(choice.choiceID.Trim()))
+            {
+                if (!sm.choiceDict[choiceID].hasComplete)
+                {
+                    Debug.Log($"Player has not yet completed {choice.choiceID} for the achievement {achievementInfo.achieveID}");
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Error choice is {choice.choiceID} {choice.choiceID.Length} not in ChoiceDict");
+            }
+        }
+
+        // Debug.Log($"Player has completed all choices for the achievement {achievement.achieveID}");
+        return true;
     }
 
     // Waits until the user gets to the ending of the vid
@@ -35,15 +66,6 @@ public class CompletionAchievements : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log($"Achievement {achievement.achieveID} Unlocked!");
-        // Marked the achievement as unlocked
-        achievement.hasUnlocked = true;
-        // Tells the game that it needs to update its display in the achievements menu
-        achievement.updateDisplay = true;
-        // Changes the achievement's state from Hidden to Shown
-        achievement.achieveState = AchievementState.Shown;
-        // Tells the game to display the achievement popup on screen
-        AchievementPopup achievePopup = GameObject.Find("Achievement Popup").GetComponent<AchievementPopup>();
-        StartCoroutine(achievePopup.AchievePopup(achievement));
+        AchievementUnlock(achievement, true);
     }
 }

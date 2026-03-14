@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
         sm = FindAnyObjectByType<SaveManager>();
         skipText = fadeTextAni.GetComponent<TMP_Text>();
         iMenu = FindAnyObjectByType<InputMenu>();
+        videoPlay.prepareCompleted += PlayVid;
 
         // Loads current choice id
         string id = PlayerPrefs.GetString("Current ChoiceID", "Start_");
@@ -126,13 +127,13 @@ public class GameManager : MonoBehaviour
 
         canBePaused = false;
 
-        Debug.Log($"LoadChoice started with the id {id}");
+        Debug.Log($"Loading Choice {id}");
 
         // Stores prev choice, only stores prev choice in normal gameplay
         if (!isDebugSkipping && currentChoice != null)
             prevChoice = currentChoice.choiceID;
 
-        // Debug.Log($"LoadChoice - prevChoice {prevChoice.ToString()}"); 
+        // Debug.Log($"PrevChoice {prevChoice.ToString()}"); 
 
         // Disables at start of choice
         choiceVisable = false;
@@ -159,6 +160,25 @@ public class GameManager : MonoBehaviour
         // Attempts to get choice info
         if (sm.choiceDict.TryGetValue(id, out currentChoice))
         {
+            // If the loaded choice a reference, it will load the choice before it
+            if (currentChoice.choiceState.Contains(ChoiceState.Reference))
+            {
+                string[] parts = currentChoice.choiceID.Split('_');
+                string prevChoiceID = string.Join("_", parts, 0, parts.Length - 1);
+
+                if (sm.choiceDict.TryGetValue(prevChoiceID, out ChoiceInfo prevChoice))
+                {
+                    Debug.Log($"Current choice {currentChoice.choiceID} is a reference, loading {prevChoice.choiceID} instead");
+                    currentChoice = prevChoice;
+                }
+                else
+                {
+                    Debug.Log($"Error previous choice of reference choice {currentChoice.choiceID} does not exist");
+                }
+            }
+
+            currentChoice.hasComplete = true;
+
             if (currentChoice.choiceID == "Finale_")
             {
                 PlayFinale();
@@ -187,12 +207,13 @@ public class GameManager : MonoBehaviour
                 coroutines.Add(StartCoroutine(RetryMenuPopup(currentChoice.vidEndTime)));
 
             // If the choice contains any achieveIDs to see if has to update its achieveState
-            if (currentChoice.achieveIDs.Count > 0)
+            if (currentChoice.achievements.Count > 0)
             {
-                foreach (string achieveID in currentChoice.achieveIDs)
+                foreach (AchievementInfo achievementInfo in currentChoice.achievements)
                 {
-                    if (sm.achieveDict.TryGetValue(achieveID, out AchievementInfo achievement))
+                    if (sm.achieveDict.ContainsKey(achievementInfo.achieveID))
                     {
+                        AchievementInfo achievement = sm.achieveDict[achievementInfo.achieveID];
                         if (!achievement.hasUnlocked && achievement.achieveState == AchievementState.Locked)
                         {
                             achievement.achieveState = AchievementState.Hidden;
@@ -239,13 +260,19 @@ public class GameManager : MonoBehaviour
             videoPlay.clip = currentChoice.vid;
             videoPlay.time = 0;
 
-            // Debug.Log("Playing vid");
-            videoPlay.Play();
+            videoPlay.Prepare();
         }
         else
         {
             Debug.Log($"ID - {id} - not found in the system when checking in LoadChoice()");
+            LoadChoice("Start_");
         }
+    }
+
+    void PlayVid(VideoPlayer vp)
+    {
+        // Debug.Log("Playing vid");
+        vp.Play();
     }
 
     // Displays current time in vid
@@ -271,15 +298,29 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        // Marks the choice as completed when the player gets to a retry menu
-        currentChoice.hasComplete = true;
-
         // Counts deaths if choice has ChoiceState GameOver
         if (currentChoice.choiceState.Contains(ChoiceState.GameOver))
         {
             // Debug.Log($"Death Detected in {currentChoice.choiceID}");
             sm.stats.deaths += 1;
         } 
+
+        if (currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed))
+        {
+            if (sm.choiceDict.TryGetValue($"{currentChoice.choiceID}_1", out ChoiceInfo referenceChoice))
+            {
+                referenceChoice.hasComplete = true;
+                if (referenceChoice.choiceState.Contains(ChoiceState.GameOver))
+                {
+                    // Debug.Log($"Death Detected in reference choice {referenceChoice.choiceID}");
+                    sm.stats.deaths += 1;
+                }
+            }
+            else
+            {
+                // Debug.Log($"No reference choice detected in {currentChoice.choiceID}");
+            }
+        }
 
         // Debug.Log("Openning retry menu");
         iMenu.OpenRetryMenu();
@@ -293,18 +334,18 @@ public class GameManager : MonoBehaviour
         // Spawns object
         GameObject gameObj = Instantiate(obj.obj, objHolder.transform);
 
-        //Debug.Log($"{gameObj.name}'s object type is {obj.objType}");
-
-        // Adds function to the buttons
-        switch (obj.objType)
+        // Disables every object in the parent spawned object
+        foreach (Transform child in gameObj.transform)
         {
-            // Function for the choice buttons
-            case ObjectType.ChoiceBtn:
-                Button[] choiceBtns = gameObj.GetComponentsInChildren<Button>();
+            // Debug.Log($"{child.name} {child.tag}");
+            // Adds function to the buttons
+            switch (child.tag)
+            {
+                // Function for the choice buttons
+                case "Choice Button":
+                    Button choiceBtn = child.GetComponent<Button>();
 
-                foreach (Button btn in choiceBtns)
-                {
-                    string objName = btn.gameObject.name.Trim();
+                    string objName = choiceBtn.gameObject.name.Trim();
                     // Only checks objects with potential of being an id
                     if (objName.Contains("_"))
                     {
@@ -313,47 +354,46 @@ public class GameManager : MonoBehaviour
                         {
                             string choiceIDString = objName;
 
-                            btn.onClick.AddListener(() => LoadChoice(choiceIDString));
+                            if (child.GetComponent<RemoveChoice>() && sm.choiceDict[objName].hasComplete)
+                                child.GetComponent<RemoveChoice>().DeleteChoice();
+
+                            choiceBtn.onClick.AddListener(() => LoadChoice(choiceIDString));
                         }
                         else
                         {
                             Debug.Log($"ID - {objName} - not found in the system when checking in SpawnObject()");
                         }
                     }
-                }
-                break;
-            // Function for secret buttons
-            case ObjectType.SecretBtn:
-                Button secretBtn = gameObj.GetComponentInChildren<Button>();
+                    break;
+                // Function for secret buttons
+                case "Secret Button":
+                    Button secretBtn = child.GetComponent<Button>();
 
-                // checks to see if letter has already been obtained
-                if (LetterID.TryParse(secretBtn.name, true, out LetterID id) &&
-                    sm.letterDict.TryGetValue(id, out LetterInfo letter))
-                {
-                    // Deletes object if it has alreadby obtained
-                    if (letter.hasObtained)
+                    // checks to see if letter has already been obtained
+                    if (LetterID.TryParse(secretBtn.name, true, out LetterID id) &&
+                        sm.letterDict.TryGetValue(id, out LetterInfo letter))
                     {
-                        Debug.Log($"LetterID {letter.letterID} - {letter.letter} has already been obtained, deleting object");
-                        Destroy(gameObj);
-                        yield break;
+                        // Deletes object if it has alreadby obtained
+                        if (letter.hasObtained)
+                        {
+                            Debug.Log($"LetterID {letter.letterID} - {letter.letter} has already been obtained, deleting object");
+                            Destroy(gameObj);
+                            yield break;
+                        }
+                        // Adds functionality unlock screen functionality
+                        else
+                        {
+                            secretBtn.onClick.AddListener(() => {StartCoroutine(FinaleUnlockScreen(letter));
+                                Destroy(gameObj);});   
+                        }
                     }
-                    // Adds functionality unlock screen functionality
                     else
                     {
-                        secretBtn.onClick.AddListener(() => {StartCoroutine(FinaleUnlockScreen(letter));
-                            Destroy(gameObj);});   
+                        Debug.Log($"LetterID {secretBtn.name} not in system");
                     }
-                }
-                else
-                {
-                    Debug.Log($"LetterID {secretBtn.name} not in system");
-                }
-                break;
-        }
+                    break;
+            }
 
-        // Disables every object in the parent spawned object
-        foreach (Transform child in gameObj.transform)
-        {
             child.gameObject.SetActive(false);
         }
 
@@ -367,18 +407,15 @@ public class GameManager : MonoBehaviour
         // Displays object within timestamp
         if (videoPlay.time <= obj.popupTime + 1)
         {
-            // Debug.Log($"Popping up {obj.objType} {obj.objID}");
-
-            // Marks the choice as completed once the player gets to a choice
-            if (obj.objType == ObjectType.ChoiceBtn)
+            // Marks the choice as completed once the player gets to a object which cannot be skipped
+            if (!obj.isSkippable)
             {
-                currentChoice.hasComplete = true;
                 // Prevents skipping after the choice is on screen
                 choiceVisable = true;
             }
 
             // Allows the game to be paused when it reaches a non timed choice
-            if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed) && obj.objType == ObjectType.ChoiceBtn)
+            if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed) && !obj.isSkippable)
                 canBePaused = true;
 
             foreach (Transform child in gameObj.transform)
@@ -542,7 +579,7 @@ public class GameManager : MonoBehaviour
         videoPlay.time = 0;
         // Displays stats after video finishes
         videoPlay.loopPointReached += PopUpStats;
-        videoPlay.Play();
+        videoPlay.Prepare();
     }
 
     void PopUpStats(VideoPlayer vp)
@@ -589,7 +626,7 @@ public class GameManager : MonoBehaviour
         // Returns player to the title screen after post credits scene finishes
         videoPlay.loopPointReached += ReturnToTitleScreen;
         
-        videoPlay.Play();
+        videoPlay.Prepare();
     }
 
     // Goes back to the title screen
@@ -675,10 +712,10 @@ public class GameManager : MonoBehaviour
         // Debug.Log("GetSkipTime()");
         float choiceTime = float.PositiveInfinity;
 
-        // Finds the first choice in the vid
+        // Finds the first non skippable object in the vid
         foreach (ObjectInfo obj in choice.objs)
         {
-            if (obj.objType == ObjectType.ChoiceBtn)
+            if (!obj.isSkippable)
             {
                 if (obj.popupTime < choiceTime)
                 {
@@ -693,7 +730,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Skips to the selected timestamp in the vid
-    void SkipVidTime(float timestamp)
+    public void SkipVidTime(float timestamp)
     {
         // Debug.Log("SkipVidTime()");
         // Sets the bool to false after each use
