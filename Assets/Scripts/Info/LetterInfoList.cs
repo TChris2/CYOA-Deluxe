@@ -7,6 +7,13 @@ public class LetterInfoList : ScriptableObject
 {
     [Tooltip("List of letter information")]
     public List<LetterInfo> letters;
+
+    // Trims strings of empty space    
+    void OnValidate()
+    {
+        foreach (LetterInfo letter in letters)
+            letter.letter.Trim();
+    }
 }
 
 // Store letter information on whether the player collected the letter or not
@@ -26,12 +33,6 @@ public class LetterInfo
         this.letterID = letterID;
         this.letter = letter;
         this.hasObtained = hasObtained;
-    }
-
-    // Trims strings of empty space    
-    void OnValidate()
-    {
-        letter.Trim();
     }
 }
 

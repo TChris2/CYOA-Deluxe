@@ -20,14 +20,14 @@ MonoBehaviour:
   hasComplete: 0
   objs:
   - obj: {fileID: 7709538928818179221, guid: 9ffe3b0585199074d8a972e4f71ca3af, type: 3}
-    popupTime: 0
+    popupTime: 91.8
     isSkippable: 1
     childPopupDelay: 0
-    despawnTime: 4
+    despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

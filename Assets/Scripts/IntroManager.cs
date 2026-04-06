@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 using Unity.VisualScripting;
 
 public class IntroManager : MonoBehaviour
@@ -12,29 +12,12 @@ public class IntroManager : MonoBehaviour
     // Skips to title screen
     [SerializeField]
     private Animator fadeTextAni;
+    [SerializeField]
+    private Animator titleScreenAni;
     TMP_Text skipText;
     [SerializeField]
     private CanvasGroup intro;
-    [SerializeField]
-    private CanvasGroup titleScreen;
-    [Header("Title Screen Buttons")]
-    [SerializeField]
-    private Button playBtn;
-    [SerializeField]
-    private Button mapBtn;
-    [SerializeField]
-    private Button achieveBtn;
-    [Header("Delete Save Menu")]
-    [SerializeField]
-    private CanvasGroup deleteSaveMenu;
-    [SerializeField]
-    private Button openDeleteSaveBtn;
-    [SerializeField]
-    private Button exitDeleteSaveBtn;
-    [SerializeField]
-    private Button deleteSaveBtn;
-    // Scripts
-    InputMenu iMenu;
+    public float skipTime = 72.5f;
 
     void Start()
     {
@@ -45,38 +28,9 @@ public class IntroManager : MonoBehaviour
         skipText = fadeTextAni.GetComponent<TMP_Text>();
         videoPlay.loopPointReached += TitleScreen;
 
-        // Waits a frame before adding button functions to prevent getting components from the global objects which will be deleted
-        StartCoroutine(AddBtnFunctions());
-    }
-
-    // Adds functions to title screen buttons
-    IEnumerator AddBtnFunctions()
-    {
-        yield return null;
-
-        MapMenuFunctions mapMenuF = FindAnyObjectByType<MapMenuFunctions>();
-        AchieveMenuFunctions achieveMenuF = FindAnyObjectByType<AchieveMenuFunctions>();
-        SaveManager sm = FindAnyObjectByType<SaveManager>();
-        iMenu = FindAnyObjectByType<InputMenu>();
-        
-        playBtn.onClick.AddListener(() => mapMenuF.StartGame());
-        mapBtn.onClick.AddListener(() => mapMenuF.OpenMapMenu());
-        achieveBtn.onClick.AddListener(() => achieveMenuF.OpenAchieveMenu());
-        openDeleteSaveBtn.onClick.AddListener(() => OpenDeleteSaveMenu());
-        exitDeleteSaveBtn.onClick.AddListener(() => iMenu.CloseMenu());
-        deleteSaveBtn.onClick.AddListener(() => { sm.LoadSOData(); iMenu.CloseMenu(); });
-    }
-
-    // Opens delete save menu
-    void OpenDeleteSaveMenu()
-    {
-        iMenu.openMenus.Add(deleteSaveMenu);
-
-        // Disables previous menu
-        iMenu.openMenus[iMenu.openMenus.Count - 2].interactable = false;
-
-        // Opens achievement menu
-        iMenu.MenuOpenClose(iMenu.openMenus[iMenu.openMenus.Count - 1], true);
+        // If player is returning to title screen
+        if (PlayerPrefs.GetInt("Skip Intro", 0) == 1)
+            SkipVidTime(skipTime);
     }
 
     // Skips the intro
@@ -84,7 +38,7 @@ public class IntroManager : MonoBehaviour
     {
         // Debug.Log("Skip()");
         // Debug.Log($"videoPlay.isPlaying {videoPlay.isPlaying}");
-        if (videoPlay.isPlaying)
+        if (videoPlay.isPlaying && videoPlay.time < skipTime)
         {
             // If the skip text is visable on screen
             if (skipText.color.a == 0)
@@ -96,7 +50,7 @@ public class IntroManager : MonoBehaviour
             else
             {
                 // Debug.Log($"Skip - SkipVidTime");
-                SkipVidTime(9999);
+                SkipVidTime(skipTime);
             }
         }
     }
@@ -113,6 +67,8 @@ public class IntroManager : MonoBehaviour
 
         intro.alpha = 0;
         intro.blocksRaycasts = false;
+
+        titleScreenAni.Play("Intro Start");
     }
 
     // Skips to the selected timestamp in the vid
@@ -124,5 +80,12 @@ public class IntroManager : MonoBehaviour
         fadeTextAni.Play("Invisible Text");
         // Sets time in the vid
         videoPlay.time = timestamp;
+    }
+
+    void OnApplicationQuit()
+    {
+        // Resets Skip Intro's value
+        PlayerPrefs.SetInt("Skip Intro", 0);
+        PlayerPrefs.Save();
     }
 }

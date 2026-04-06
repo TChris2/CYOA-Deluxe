@@ -17,7 +17,5 @@ MonoBehaviour:
   achieveState: 0
   hasUnlocked: 0
   description: Parry the guardian blast
-  choiceIDs:
-  - BOTW_2_2_1_1
-  icon: {fileID: 21300000, guid: 6a837d9ca3b0c904a8ca39e55632ba4c, type: 3}
+  icon: {fileID: 21300000, guid: 79c848b731649634ead23a8a1c60e2b8, type: 3}
   updateDisplay: 1

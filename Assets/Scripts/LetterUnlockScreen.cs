@@ -33,6 +33,7 @@ public class LetterUnlockScreen : MonoBehaviour
     IEnumerator PlaySFX()
     {
         forceField.enabled = true;
+        letterIcon.overrideSorting = true;
 
         yield return new WaitForSeconds(.2f);
 
@@ -59,6 +60,6 @@ public class LetterUnlockScreen : MonoBehaviour
         yield return new WaitForSeconds(particleExplode.main.duration + particleExplode.main.startLifetime.constantMax);
         
         // Sets it back to the regular layer after animation plays
-        letterIcon.sortingOrder = 1;
+        letterIcon.overrideSorting = false;
     }
 }

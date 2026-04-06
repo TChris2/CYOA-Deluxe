@@ -5,6 +5,7 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public TMP_Text skipText;
     [SerializeField]
-    private GameObject objHolder;
+    private Transform objHolder;
     // Used to determine when a choice is visable on screen
     [HideInInspector]
     public bool choiceVisable;
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioSource statsAudioSource;
 
+    #region Main Game
     void Start()
     {
         // Gets components
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour
         skipText = fadeTextAni.GetComponent<TMP_Text>();
         iMenu = FindAnyObjectByType<InputMenu>();
         videoPlay.prepareCompleted += PlayVid;
+        videoPlay.prepareCompleted += LoadVidInfo;
 
         // Loads current choice id
         string id = PlayerPrefs.GetString("Current ChoiceID", "Start_");
@@ -147,16 +150,6 @@ public class GameManager : MonoBehaviour
         // Stops vids
         videoPlay.Stop();
 
-        // Clears any coroutines from the previous choice
-        ClearCoroutines();
-
-        // Deletes existing buttons in object holder
-        if (objHolder.transform.childCount > 0)
-        {
-            foreach (Transform child in objHolder.transform)
-                Destroy(child.gameObject);
-        }
-
         // Attempts to get choice info
         if (sm.choiceDict.TryGetValue(id, out currentChoice))
         {
@@ -189,22 +182,6 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("No video detected");
             }
-
-            // The choice has any objects
-            if (currentChoice.objs != null)
-            {
-                // Debug.Log($"Loading {currentChoice.choice}'s objects");
-                // Starts a coroutine for each object
-                foreach (ObjectInfo obj in currentChoice.objs)
-                {
-                    // Spawns object
-                    coroutines.Add(StartCoroutine(SpawnObject(obj)));
-                }
-            }
-
-            // Opens Retry Menu variant of the pause menu at ending or gameover
-            if (currentChoice.vidEndTime > 0)
-                coroutines.Add(StartCoroutine(RetryMenuPopup(currentChoice.vidEndTime)));
 
             // If the choice contains any achieveIDs to see if has to update its achieveState
             if (currentChoice.achievements.Count > 0)
@@ -269,6 +246,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Loads the time based info such as objects
+    void LoadVidInfo(VideoPlayer vp)
+    {
+        // Debug.Log("LoadVidInfo");
+        // Clears any coroutines from the previous choice
+        ClearPreviousInfo();
+
+        // Opens Retry Menu variant of the pause menu at ending or gameover
+        if (currentChoice.vidEndTime > 0)
+            coroutines.Add(StartCoroutine(RetryMenuPopup(currentChoice.vidEndTime)));
+
+        // The choice has any objects
+        if (currentChoice.objs != null)
+        {
+            // Debug.Log($"Loading {currentChoice.choice}'s objects");
+            // Starts a coroutine for each object
+            foreach (ObjectInfo obj in currentChoice.objs)
+            {
+                // Spawns object
+                coroutines.Add(StartCoroutine(SpawnObject(obj)));
+            }
+        }
+    }
+
     void PlayVid(VideoPlayer vp)
     {
         // Debug.Log("Playing vid");
@@ -301,7 +302,7 @@ public class GameManager : MonoBehaviour
         // Counts deaths if choice has ChoiceState GameOver
         if (currentChoice.choiceState.Contains(ChoiceState.GameOver))
         {
-            // Debug.Log($"Death Detected in {currentChoice.choiceID}");
+            Debug.Log($"Death Detected in {currentChoice.choiceID}");
             sm.stats.deaths += 1;
         } 
 
@@ -322,9 +323,70 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Debug.Log("Openning retry menu");
+        GeneralAchievementsCheck();
+
+        // Debug.Log("Opening retry menu");
         iMenu.OpenRetryMenu();
     }
+
+    #endregion
+    #region General Achievement Logic
+
+    // Checks if the player has met any of the requirements for the general achievements
+    void GeneralAchievementsCheck()
+    {
+        // Debug.Log("General Achievements Check");
+        int completed, total;
+
+        CheckAchievement("General_1", () => {
+            (completed, total) = sm.stats.FailsCompleted(sm.choiceDict);
+            return completed > 0;
+        });
+        CheckAchievement("General_2", () => {
+            (completed, total) = sm.stats.FailsCompleted(sm.choiceDict);
+            return completed == total;
+        });
+        CheckAchievement("General_3", () => {
+            (completed, total) = sm.stats.EndingsCompleted(sm.choiceDict);
+            return completed > 0;
+        });
+        CheckAchievement("General_4", () => {
+            (completed, total) = sm.stats.EndingsCompleted(sm.choiceDict);
+            return completed == total;
+        });
+        CheckAchievement("General_5", () => {
+            (completed, total) = sm.stats.ChoicesCompleted(sm.choiceDict);
+            return completed == total;
+        });
+        CheckAchievement("General_7", () => 
+            sm.stats.Completion(sm.choiceDict, sm.achieveDict) >= 100
+        );
+    }
+
+    // Checks if condition for the general achievement has been met
+    void CheckAchievement(string id, Func<bool> condition)
+    {
+        if (sm.achieveDict.TryGetValue(id, out AchievementInfo achievement) 
+            && !achievement.hasUnlocked && condition())
+                AchievementUnlock(achievement);
+    }   
+    
+    // Unlocks achievement and adds it to the achievement popup queue
+    void AchievementUnlock(AchievementInfo achievement)
+    {
+        Debug.Log($"Achievement {achievement.achieveID} Unlocked!");
+        // Marked the achievement as unlocked
+        achievement.hasUnlocked = true;
+        // Tells the game that it needs to update its display in the achievements menu
+        achievement.updateDisplay = true;
+        // Changes the achievement's state from Locked or Hidden to Shown
+        achievement.achieveState = AchievementState.Shown;
+        
+        StartCoroutine(sm.achievePopup.AchievePopup(achievement));
+    }
+
+    #endregion
+    #region Object Logic
 
     // Spawns object at the specific time
     public IEnumerator SpawnObject(ObjectInfo obj)
@@ -332,11 +394,19 @@ public class GameManager : MonoBehaviour
         // Debug.Log("In object spawn coroutine");
 
         // Spawns object
-        GameObject gameObj = Instantiate(obj.obj, objHolder.transform);
+        GameObject gameObj = Instantiate(obj.obj, objHolder);
 
         // Disables every object in the parent spawned object
         foreach (Transform child in gameObj.transform)
         {
+            // Deletes objects if they only appear in subsequent runs
+            if (obj.subsequentRunsOnly && !sm.achieveDict["General_3"].hasUnlocked)
+            {
+                // Debug.Log("Object only appears in subsequent runs, deleting object");
+                Destroy(gameObj);
+                yield break;
+            }
+
             // Debug.Log($"{child.name} {child.tag}");
             // Adds function to the buttons
             switch (child.tag)
@@ -373,7 +443,7 @@ public class GameManager : MonoBehaviour
                     if (LetterID.TryParse(secretBtn.name, true, out LetterID id) &&
                         sm.letterDict.TryGetValue(id, out LetterInfo letter))
                     {
-                        // Deletes object if it has alreadby obtained
+                        // Deletes object if it has already obtained
                         if (letter.hasObtained)
                         {
                             Debug.Log($"LetterID {letter.letterID} - {letter.letter} has already been obtained, deleting object");
@@ -383,6 +453,7 @@ public class GameManager : MonoBehaviour
                         // Adds functionality unlock screen functionality
                         else
                         {
+                            // Debug.Log($"Adding LetterID {letter.letterID} - {letter.letter}");
                             secretBtn.onClick.AddListener(() => {StartCoroutine(FinaleUnlockScreen(letter));
                                 Destroy(gameObj);});   
                         }
@@ -407,16 +478,17 @@ public class GameManager : MonoBehaviour
         // Displays object within timestamp
         if (videoPlay.time <= obj.popupTime + 1)
         {
-            // Marks the choice as completed once the player gets to a object which cannot be skipped
             if (!obj.isSkippable)
             {
                 // Prevents skipping after the choice is on screen
                 choiceVisable = true;
-            }
 
-            // Allows the game to be paused when it reaches a non timed choice
-            if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed) && !obj.isSkippable)
-                canBePaused = true;
+                // Allows the game to be paused when it reaches a non timed choice
+                if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed))
+                    canBePaused = true;
+
+                GeneralAchievementsCheck();
+            }
 
             foreach (Transform child in gameObj.transform)
             {
@@ -449,6 +521,9 @@ public class GameManager : MonoBehaviour
 
         Destroy(gameObj);
     }
+
+    #endregion
+    #region Finale
     
     // Opens finale unlock screen
     IEnumerator FinaleUnlockScreen(LetterInfo unlockedLetter)
@@ -513,6 +588,7 @@ public class GameManager : MonoBehaviour
 
         // Activates the screen alongside 3d objects
         finaleUnlockScreen.alpha = 1;
+        finaleUnlockScreen.blocksRaycasts = true;
 
         // Activates the newly unlocked letter
         yield return new WaitForSeconds(1f);
@@ -538,8 +614,12 @@ public class GameManager : MonoBehaviour
             
             // Returns player back to main game and unpauses the video player
             finaleUnlockScreen.alpha = 0;
+            finaleUnlockScreen.blocksRaycasts = false;
+
             finaleUnlockLabel.maxVisibleCharacters = 0;
-            videoPlay.Play();
+            // Plays the remaining video if it has not already finished
+            if (videoPlay.time < videoPlay.length - .2f)
+                videoPlay.Play();
         }
         // If the player has collected every letter
         else
@@ -565,6 +645,7 @@ public class GameManager : MonoBehaviour
         PlayFinale();
 
         finaleUnlockScreen.alpha = 0;
+        finaleUnlockScreen.blocksRaycasts = false;
         
         yield return null;
     }
@@ -573,32 +654,36 @@ public class GameManager : MonoBehaviour
     void PlayFinale()
     {
         isFinale = true;
-        // Clears any coroutines from the previous choice
-        ClearCoroutines();
+        ClearPreviousInfo();
         videoPlay.clip = finaleVids[0];
         videoPlay.time = 0;
         // Displays stats after video finishes
-        videoPlay.loopPointReached += PopUpStats;
+        videoPlay.loopPointReached += PopUpFinaleStats;
+        videoPlay.prepareCompleted -= LoadVidInfo;
         videoPlay.Prepare();
     }
 
-    void PopUpStats(VideoPlayer vp)
+    void PopUpFinaleStats(VideoPlayer vp)
     {
         // Removes listener after it is done
-        videoPlay.loopPointReached -= PopUpStats;
+        videoPlay.loopPointReached -= PopUpFinaleStats;
         
-        StartCoroutine(ShowStats());
+        StartCoroutine(ShowFinaleStats());
     }
 
     // Shows stats on screen
-    IEnumerator ShowStats()
+    IEnumerator ShowFinaleStats()
     {
         // Debug.Log("Show Stats");
         // Marks the finale as complete
         sm.choiceDict["Finale_"].hasComplete = true;
+        GeneralAchievementsCheck();
+
+        // Popups achievement for beating the finale
+        CheckAchievement("General_6", () => true);
 
         // Displays stats
-        sm.stats.DisplayStats(statsText, sm);
+        sm.stats.DisplayStatsAll(statsText, sm);
 
         yield return new WaitForSeconds(2f);
 
@@ -608,7 +693,7 @@ public class GameManager : MonoBehaviour
     }
     
     // Closes stat screen from button
-    public void CloseStats()
+    public void CloseFinaleStats()
     {
         statsAni.Play("Fade Out");
         
@@ -618,9 +703,9 @@ public class GameManager : MonoBehaviour
     // Plays the post credits scene
     IEnumerator PlayPostCredits()
     {
+        // Debug.Log("Playing Post Credits");
         yield return new WaitForSeconds(3f);
         statsAudioSource.Stop();
-        videoPlay.Stop();
         videoPlay.clip = finaleVids[1];
         videoPlay.time = 0;
         // Returns player to the title screen after post credits scene finishes
@@ -632,7 +717,11 @@ public class GameManager : MonoBehaviour
     // Goes back to the title screen
     void ReturnToTitleScreen(VideoPlayer vp)
     {
+        // Debug.Log("Returning to title screen");
         SceneManager.LoadScene("Title Screen");
+        // Resets Skip Intro's value
+        PlayerPrefs.SetInt("Skip Intro", 0); 
+        PlayerPrefs.Save();
     }
 
     // Pops Finale Unlock Screen text onscreen
@@ -656,6 +745,9 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
     }
+
+    #endregion
+    #region Skip & Debug
 
     // Debug Test
     public void LoadTestChoice()
@@ -744,8 +836,10 @@ public class GameManager : MonoBehaviour
         videoPlay.time = timestamp;
     }
 
-    // Clears any coroutines from the previous choice
-    void ClearCoroutines()
+    #endregion
+
+    // Clears any previous info such as coroutines or objects from the previous choice
+    void ClearPreviousInfo()
     {
         if (coroutines.Count > 0)
         {
@@ -754,5 +848,26 @@ public class GameManager : MonoBehaviour
                     StopCoroutine(c);
             coroutines.Clear();
         }
+
+        // Deletes existing buttons in object holder
+        if (objHolder.childCount > 0)
+        {
+            foreach (Transform child in objHolder)
+                Destroy(child.gameObject);
+        }
+
+        // If the skip text is visable on screen when selection is made
+        if (skipText.color.a != 0)
+        {
+            // Debug.Log($"Skip - Text Popup");
+            fadeTextAni.Play("Invisible Text");
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        // Resets Skip Intro's value
+        PlayerPrefs.SetInt("Skip Intro", 0);
+        PlayerPrefs.Save();
     }
 }

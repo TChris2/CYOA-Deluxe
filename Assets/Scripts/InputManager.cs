@@ -65,6 +65,7 @@ public class InputManager : MonoBehaviour
     {
         // Clears menu list per scene change
         iMenu.openMenus.Clear();
+        iMenu.smallMenu = null;
 
         // Title Screen
         if (scene.name == "Title Screen")
@@ -95,10 +96,9 @@ public class InputManager : MonoBehaviour
 
             // Gets local scripts
             iMenu.gm = FindAnyObjectByType<GameManager>();
-            iMenu.pMenuF = FindAnyObjectByType<PauseMenuFunctions>();
+            iMenu.pMenuF = FindAnyObjectByType<PauseMenu>();
             iMenu.dMenu = GameObject.Find("Debug Menu").GetComponent<CanvasGroup>();
             iMenu.pMenu = GameObject.Find("Pause Menu").GetComponent<CanvasGroup>();
-            iMenu.pMenuAni = iMenu.pMenu.GetComponent<Animator>();
 
             // Enables or disables debug based on whether debug was already enabled
             iMenu.DebugMenu();

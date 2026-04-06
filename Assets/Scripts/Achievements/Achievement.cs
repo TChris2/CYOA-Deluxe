@@ -29,9 +29,6 @@ public class Achievement : MonoBehaviour
         achievement.achieveState = AchievementState.Shown;
         // Tells the game whether to display the achievement popup on screen
         if (isPopup)
-        {
-            AchievementPopup achievePopup = GameObject.Find("Achievement Popup").GetComponent<AchievementPopup>();
-            StartCoroutine(achievePopup.AchievePopup(achievement));
-        }
-    }   
+            StartCoroutine(sm.achievePopup.AchievePopup(achievement));
+    }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tesco_1
   m_EditorClassIdentifier: Assembly-CSharp::AchievementInfo
   achieveID: Tesco_1
-  achievement: The End Is Never
+  achievement: The End Is Never The End Is Never
   achieveState: 0
   hasUnlocked: 0
   description: Go through the loop 10 times

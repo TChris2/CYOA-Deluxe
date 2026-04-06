@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using UnityEngine;
 
+// Handles saving and loading of data
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
@@ -19,6 +20,8 @@ public class SaveManager : MonoBehaviour
     public Dictionary<LetterID, LetterInfo> letterDict = new Dictionary<LetterID, LetterInfo>();
     // Current player stats
     public Stats stats;
+    [HideInInspector]
+    public AchievementPopup achievePopup;
 
     void Awake()
     {
@@ -26,8 +29,8 @@ public class SaveManager : MonoBehaviour
         if (instance != null && instance != this)
         {
             // Disables scripts with Start functions to prevent them from causing issues
-            GetComponentInChildren<MapMenuFunctions>().enabled = false;
-            GetComponentInChildren<AchieveMenuFunctions>().enabled = false;
+            GetComponentInChildren<MapMenu>().enabled = false;
+            GetComponentInChildren<AchievementMenu>().enabled = false;
             Destroy(gameObject);
             return;
         }
@@ -37,11 +40,7 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         // Adds filepaths to json files
-        filePaths.Add(Path.Combine(Application.persistentDataPath, "Choices.json"));
-        filePaths.Add(Path.Combine(Application.persistentDataPath, "Achievements.json"));
-        filePaths.Add(Path.Combine(Application.persistentDataPath, "Letters.json"));
-        filePaths.Add(Path.Combine(Application.persistentDataPath, "Stats.json"));
-
+        filePaths.Add(Path.Combine(Application.persistentDataPath, "SaveData.json"));
 
         // Checks to make sure all filepaths exist
         bool filePathExist = true;
@@ -63,6 +62,7 @@ public class SaveManager : MonoBehaviour
         else
             LoadJSONData();
 
+        achievePopup = FindAnyObjectByType<AchievementPopup>();
     }
 
     // Loads scriptable object information
@@ -161,12 +161,12 @@ public class SaveManager : MonoBehaviour
         
         var json = File.ReadAllText(filePaths[0]);
         
-        // Loads choice save data
-        List<ChoiceSaveData> loadedChoiceInfo = JsonConvert.DeserializeObject<List<ChoiceSaveData>>(json, new JsonSerializerSettings
+        // Loads save data
+        GameSaveData saveData = JsonConvert.DeserializeObject<GameSaveData>(json, new JsonSerializerSettings
             { Converters = { new StringEnumConverter() } });
-
+        
         // Updates ChoiceInfo with current player progress
-        foreach (var entry in loadedChoiceInfo)
+        foreach (ChoiceSaveData entry in saveData.choices)
         {
             if (choiceDict.TryGetValue(entry.choiceID, out ChoiceInfo info))
             {
@@ -178,15 +178,8 @@ public class SaveManager : MonoBehaviour
             }
         }
 
-        // Debug.LogWarning("Loading Achievement JSON Data");
-        json = File.ReadAllText(filePaths[1]);
-
-        // Loads achievement save data
-        List<AchievementSaveData> loadedAchieveInfo = JsonConvert.DeserializeObject<List<AchievementSaveData>>(json,
-            new JsonSerializerSettings { Converters = { new StringEnumConverter() } });
-
         // Updates AchievementInfo with current player progress
-        foreach (var entry in loadedAchieveInfo)
+        foreach (AchievementSaveData entry in saveData.achievements)
         {
             if (achieveDict.TryGetValue(entry.achieveID, out AchievementInfo info))
             {
@@ -199,19 +192,12 @@ public class SaveManager : MonoBehaviour
             }
         }
 
-        // Debug.LogWarning("Loading Letter JSON Data");
-        json = File.ReadAllText(filePaths[2]);
-
-        // Loads letter save data
-        Dictionary<string, LetterInfo> loadedLetterInfo = JsonConvert.DeserializeObject<Dictionary<string, LetterInfo>>(json,
-            new JsonSerializerSettings { Converters = { new StringEnumConverter() } });
-
         // Updates LetterInfo with current player progress
-        foreach (var kvp in loadedLetterInfo)
+        foreach (LetterInfo entry in saveData.letters)
         {
-            if (letterDict.TryGetValue(kvp.Value.letterID, out LetterInfo info))
+            if (letterDict.TryGetValue(entry.letterID, out LetterInfo info))
             {
-                info.hasObtained = kvp.Value.hasObtained;
+                info.hasObtained = entry.hasObtained;
             }
             else
             {
@@ -220,9 +206,7 @@ public class SaveManager : MonoBehaviour
         }
 
         // Loads stat save data
-        json = File.ReadAllText(filePaths[3]);
-        stats = JsonConvert.DeserializeObject<Stats>(json,
-            new JsonSerializerSettings { Converters = { new StringEnumConverter() } });
+        stats = saveData.stats;
     }
 
     // Saves info to JSON
@@ -230,37 +214,23 @@ public class SaveManager : MonoBehaviour
     {
         var settings = new JsonSerializerSettings { Formatting = Formatting.Indented, Converters = { new StringEnumConverter() } };
         
-        // Saves ChoiceInfo
-        List<ChoiceSaveData> saveChoiceList = new List<ChoiceSaveData>();
+        GameSaveData saveData = new GameSaveData();
 
-        // Creates list of a simplified version of the ChoiceInfo class
+        // Choice Info
         foreach (var pair in choiceDict)
-            saveChoiceList.Add(new ChoiceSaveData(pair.Key, pair.Value.choice, pair.Value.mapName, pair.Value.hasComplete));
-
-        // Debug.Log("Saving Choice Data");
-        var json = JsonConvert.SerializeObject(saveChoiceList, settings);
-        File.WriteAllText(filePaths[0], json);
-
-        // Saves AchievementInfo
-        List<AchievementSaveData> saveAchieveList = new List<AchievementSaveData>();
-
-        // Creates list of a simplified version of the AchievementInfo class
+        saveData.choices.Add(new ChoiceSaveData(pair.Key, pair.Value.hasComplete));
+        // Achievement Info
         foreach (var pair in achieveDict)
-            saveAchieveList.Add(new AchievementSaveData(pair.Key, pair.Value.achievement, pair.Value.achieveState, pair.Value.hasUnlocked));
+            saveData.achievements.Add(new AchievementSaveData(pair.Key, pair.Value.achieveState, pair.Value.hasUnlocked));
+        // Letter Info
+        foreach (var pair in letterDict)
+            saveData.letters.Add(new LetterInfo(pair.Key, pair.Value.letter, pair.Value.hasObtained));
+        // Stats
+        saveData.stats = stats;
 
-        // Debug.Log("Saving Achievement Data");
-        json = JsonConvert.SerializeObject(saveAchieveList, settings);
-        File.WriteAllText(filePaths[1], json);
-        
-        // Saves LetterInfo
-        // Debug.Log("Saving Letter Data");
-        json = JsonConvert.SerializeObject(letterDict, settings);
-        File.WriteAllText(filePaths[2], json);
-
-        // Saves Stats
-        // Debug.Log("Saving Stats Data");
-        json = JsonConvert.SerializeObject(stats, settings);
-        File.WriteAllText(filePaths[3], json);
+        // Saves all info to a single file
+        var json = JsonConvert.SerializeObject(saveData, settings);
+        File.WriteAllText(filePaths[0], json);
     }
 
     private void OnDisable()
@@ -268,4 +238,13 @@ public class SaveManager : MonoBehaviour
         if (instance == this)
             SaveData();
     }
+}
+
+// Stores all the data that needs to be saved
+public class GameSaveData
+{
+    public List<ChoiceSaveData> choices = new List<ChoiceSaveData>();
+    public List<AchievementSaveData> achievements = new List<AchievementSaveData>();
+    public List<LetterInfo> letters = new List<LetterInfo>();
+    public Stats stats;
 }

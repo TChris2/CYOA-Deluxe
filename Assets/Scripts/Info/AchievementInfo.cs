@@ -52,14 +52,12 @@ public class AchievementInfo : ScriptableObject
 public class AchievementSaveData
 {
     public string achieveID; 
-    public string achievement;
     public AchievementState achieveState;
     public bool hasUnlocked;
 
-    public AchievementSaveData(string achieveID, string achievement, AchievementState achieveState, bool hasUnlocked)
+    public AchievementSaveData(string achieveID, AchievementState achieveState, bool hasUnlocked)
     {
         this.achieveID = achieveID;
-        this.achievement = achievement;
         this.achieveState = achieveState;
         this.hasUnlocked = hasUnlocked;
     }

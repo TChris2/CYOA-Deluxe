@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Unlock conditions for the achievement Tesco_1 - The End Is Never
+// Unlock conditions for the achievement Tesco_1 - The End Is Never The End Is Never
 public class AchievementTesco_1 : Achievement
 {
     void Start()

@@ -81,6 +81,8 @@ public class ObjectInfo
     public float popupTime;
     [Tooltip("Determines if an object can be skipped or not when using Skip")]
     public bool isSkippable;
+    [Tooltip("If the object does not appear on the player's first complete run and only in subsequent ones")]
+    public bool subsequentRunsOnly;
     [Tooltip("Delay when child objects of the object popup onscreen between each other")]
     public float childPopupDelay;
     [Tooltip("Time when the object will despawn\nIf set 0 the object will not despawn")]
@@ -92,15 +94,11 @@ public class ObjectInfo
 public class ChoiceSaveData
 {
     public string choiceID;
-    public string choice;
-    public string mapName;
     public bool hasComplete;
 
-    public ChoiceSaveData(string choiceID, string choice, string mapName, bool hasComplete)
+    public ChoiceSaveData(string choiceID, bool hasComplete)
     {
         this.choiceID = choiceID;
-        this.choice = choice;
-        this.mapName = mapName;
         this.hasComplete = hasComplete;
     }
 }
