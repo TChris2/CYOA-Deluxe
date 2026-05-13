@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Portal_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 3.6
+    displayEndTime: 4.9
+    text: '<style="Subtitles_Person_RT">RT</style>: Whats that over there?'
+  - displayStartTime: 5.7
+    displayEndTime: 6.1
+    text: '<style="Subtitles_Person_RT">RT</style>: <i>What?</i>'
+  - displayStartTime: 8.1
+    displayEndTime: 8.9
+    text: '<style="Subtitles_Person_RT">RT</style>: What is that?'
+  - displayStartTime: 9.3
+    displayEndTime: 9.6
+    text: '<style="Subtitles_Person_RT">RT</style>: Hang on'
+  - displayStartTime: 12
+    displayEndTime: 12.4
+    text: '<style="Subtitles_Person_RT">RT</style>: What is-'
+  - displayStartTime: 13.7
+    displayEndTime: 14.8
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening over there?'
+  - displayStartTime: 15.8
+    displayEndTime: 16.1
+    text: <style="Subtitles_Format_()">Confused Irish Man Noises</style>
+  - displayStartTime: 18
+    displayEndTime: 20.5
+    text: '<style="Subtitles_Person_RT">RT</style>: OH WHY IS IT COMING CLOSER OH
+      GOD-'
+  - displayStartTime: 22.5
+    displayEndTime: 23.8
+    text: <style="Subtitles_Format_()">Irish Man Death SFX</style>
+  - displayStartTime: 28.6
+    displayEndTime: 29.6
+    text: 'Weather Alert: A meteor strike has-'

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Take The Back Roads
   vid: {fileID: 32900000, guid: 3212899b8993cb14f9f00b0bb0510c3e, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 8e4c6f59b1239534fad021acb82f2eaa, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: b9161d8bdd25aff44bc8cc29c3aa278b, type: 3}
     popupTime: 50
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Backroads
   thumbnail: {fileID: 21300000, guid: 17c054c85ea8e18438ac234a59d0c120, type: 3}
+  isOnMap: 1
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: e367455038465a241a99df0089669546, type: 2}
   - {fileID: 11400000, guid: 86bb57fce0875e84f82749bc02f748ed, type: 2}

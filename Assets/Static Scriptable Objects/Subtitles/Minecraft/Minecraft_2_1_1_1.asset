@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Minecraft_2_1_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.001
+    displayEndTime: 4.2
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t wanna do it... I don''t
+      wanna... I... Ah... AAAAAAH'
+  - displayStartTime: 5.268
+    displayEndTime: 7.268
+    text: '<style="Subtitles_Person_RT">RT</style>: Everyone stay calm!'
+  - displayStartTime: 7.691
+    displayEndTime: 10.893
+    text: <style="Subtitles_Format_()">Screams of Terror</style>
+  - displayStartTime: 11.869
+    displayEndTime: 13.292
+    text: '<style="Subtitles_Person_RT">RT</style>: That''s fantastic.'
+  - displayStartTime: 22.95
+    displayEndTime: 25.57
+    text: '<style="Subtitles_Person_RT">RT</style>: You wanna fight? You wanna fight?'
+  - displayStartTime: 25.57
+    displayEndTime: 26.835
+    text: '<style="Subtitles_Person_RT">RT</style>: No.'
+  - displayStartTime: 26.835
+    displayEndTime: 28.772
+    text: '<style="Subtitles_Person_RT">RT</style>: Y''know... If you want to go
+      for the hug, that''s o-'
+  - displayStartTime: 33.801
+    displayEndTime: 37.003
+    text: '<style="Subtitles_Person_RT">RT</style>: Y''know, back- back in my day,
+      son, uh...'
+  - displayStartTime: 37.003
+    displayEndTime: 41.012
+    text: '<style="Subtitles_Person_RT">RT</style>: We didn''t have the interwebs,
+      you know, you gotta understand that.'
+  - displayStartTime: 41.012
+    displayEndTime: 43.003
+    text: '<style="Subtitles_Person_RT">RT</style>: Uh- We used to tell ca- UUAAGGHH'
+  - displayStartTime: 44.751
+    displayEndTime: 46.655
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, I''m so proud of you!'
+  - displayStartTime: 47.297
+    displayEndTime: 48
+    text: '<style="Subtitles_Person_RT">RT</style>: I got- I got some burgers downstairs.'
+  - displayStartTime: 48
+    displayEndTime: 48.5
+    text: '<style="Subtitles_Person_RT">RT</style>: I got- I got some BURGERS downstairs.'
+  - displayStartTime: 48.5
+    displayEndTime: 49.388
+    text: '<style="Subtitles_Person_RT">RT</style>: I got- I got some burgers downstairs.'
+  - displayStartTime: 50.001
+    displayEndTime: 51.077
+    text: '<style="Subtitles_Person_RT">RT</style>: Um, y''know...'
+  - displayStartTime: 51.938
+    displayEndTime: 54.674
+    text: '<style="Subtitles_Person_RT">RT</style>: To celebrate. I thought it''d
+      be nice that your old man would whip up some Sloppy Joes, you know.'
+  - displayStartTime: 54.674
+    displayEndTime: 55.239
+    text: '<style="Subtitles_Person_RT">RT</style>: To celebrate. I thought it''d
+      be nice that your old man would whip up some SLOPPY JOES, you know.'
+  - displayStartTime: 55.239
+    displayEndTime: 55.88
+    text: '<style="Subtitles_Person_RT">RT</style>: To celebrate. I thought it''d
+      be nice that your old man would whip up some Sloppy Joes, you know.'
+  - displayStartTime: 62.357
+    displayEndTime: 65.598
+    text: '<style="Subtitles_Person_RT">RT</style>: OH! AH! OH NO, IT''S LAVA!'
+  - displayStartTime: 66.144
+    displayEndTime: 67.781
+    text: '<style="Subtitles_Person_RT">RT</style>: AH! NO!'
+  - displayStartTime: 73.158
+    displayEndTime: 73.658
+    text: '<style="Subtitles_Person_RT">RT</style>: (wait for it...)'
+  - displayStartTime: 79.032
+    displayEndTime: 80.556
+    text: <style="Subtitles_Format_()">Mysterious Noise</style>

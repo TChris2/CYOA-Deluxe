@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Minecraft_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.064
+    displayEndTime: 2.55
+    text: '<style="Subtitles_Person_RT">RT</style>: Let''s go, gamers! Are we ready
+      for a gamering day?'
+  - displayStartTime: 5.897
+    displayEndTime: 6.71
+    text: '<style="Subtitles_Person_RT">RT</style>: I slay...'
+  - displayStartTime: 7.737
+    displayEndTime: 8.764
+    text: '<style="Subtitles_Person_RT">RT</style>: ...AND I mine.'
+  - displayStartTime: 9.885
+    displayEndTime: 10.631
+    text: <style="Subtitles_Format_()">Offering Hmm</style>
+  - displayStartTime: 10.867
+    displayEndTime: 12.402
+    text: '<style="Subtitles_Person_RT">RT</style>: That''s a little- That''s a...'
+  - displayStartTime: 13.104
+    displayEndTime: 15.155
+    text: '<style="Subtitles_Person_RT">RT</style>: ...a little twisted, if you ask
+      me. I''m...'
+  - displayStartTime: 15.155
+    displayEndTime: 15.817
+    text: <style="Subtitles_Format_()">Understanding Hmm</style>
+  - displayStartTime: 17.051
+    displayEndTime: 17.907
+    text: <style="Subtitles_Format_()">Confident Hmm</style>
+  - displayStartTime: 18.151
+    displayEndTime: 19.486
+    text: '<style="Subtitles_Person_RT">RT</style>: What are you gonna spend the
+      money on?'
+  - displayStartTime: 21.001
+    displayEndTime: 22.436
+    text: '<style="Subtitles_Person_RT">RT</style>: What else are you gonna buy?'
+  - displayStartTime: 22.436
+    displayEndTime: 23.036
+    text: <style="Subtitles_Format_()">Annoyed Hmm</style>
+  - displayStartTime: 30.001
+    displayEndTime: 30.971
+    text: <size=96%><style="Subtitles_Format_[]">Horrifyingly graphic noises representing
+      the death of this poor villager</style>
+  - displayStartTime: 32.442
+    displayEndTime: 34.592
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh come on I''m gonna get you
+      now, I''m gonna get you now!'
+  - displayStartTime: 34.592
+    displayEndTime: 36.592
+    text: "<style=\"Subtitles_Person_RT\">RT</style>: Oh, you little s\u0336h\u0338i\u0336t\u0335!\u0334"
+  - displayStartTime: 36.961
+    displayEndTime: 40.224
+    text: "<style=\"Subtitles_Person_RT\">RT</style>: H\u0338o\u0337o\u0335 \u0338h\u0335o\u0338o\u0335!\u0335
+      \u0334H\u0338o\u0334o\u0337!\u0337 \u0337D\u0337\u0346\u034Ei\u0336\u0341\u0355d\u0335\u0314\u032Dn\u0334\u0341\u0332'\u0334\u0341\u035At\u0337\u0341\u035A
+      \u0338\u0360\u0318t\u0337\u0352\u0329h\u0338\u0310\u0331i\u0336\u033E\u0347n\u0334\u0314\u031Ck\u0338\u0360\u0330
+      \u0336\u033D\u032Ay\u0336\u0308\u0317o\u0334\u035D\u0329u\u0334\u030C\u0330
+      \u0336\u0358\u0323c\u0337\u0305\u033Co\u0336\u0308\u0323u\u0337\u0352\u0345l\u0335\u0311\u034Ed\u0337\u0306\u0339
+      \u0338\u031B\u032Ed\u0338\u033D\u0332o\u0334\u030E\u032Dd\u0338\u033D\u0339g\u0338\u034B\u032Ae\u0337\u033F\u0327
+      \u0337\u031A\u0349t\u0337\u033E\u033Ah\u0337\u0313\u0348a\u0338\u030D\u0347t\u0336\u0350\u0324
+      \u0337\u0341\u032Co\u0335\u0341\u033Bn\u0336\u0311\u033Be\u0337\u0314\u032E?\u0334\u0350\u032E"
+  - displayStartTime: 41.185
+    displayEndTime: 42
+    text: "<style=\"Subtitles_Person_RT\">RT</style>: O\u0337\u030C\u0319h\u0336\u0301\u0322
+      \u0338\u0306\u0323y\u0337\u0307\u0349e\u0337\u0300\u0359a\u0334\u030A\u032Bh\u0336\u035D\u0354!\u0338\u0310\u0325"
+  - displayStartTime: 43.052
+    displayEndTime: 46.215
+    text: "<style=\"Subtitles_Person_RT\">RT</style>: O\u0337\u035D\u0312\u0352\u0324\u032Dh\u0336\u0346\u035B\u032D,\u0336\u034C\u0320
+      \u0336\u0357\u030F\u032Ay\u0335\u030C\u031A\u032Do\u0337\u0302\u0325\u0322\u035Cu\u0336\u0302\u0315\u030A\u0354\u0328
+      \u0336\u0307\u035D\u0330g\u0335\u031B\u035D\u032C\u0316\u0324o\u0338\u0305\u035B\u0346\u032Ft\u0335\u0310\u033E\u0354\u033A
+      \u0335\u030E\u0302\u0341\u033Bi\u0335\u0301\u033F\u033Ct\u0338\u0301\u0311\u0321\u033A\u0331
+      \u0334\u0315\u030E\u035D\u035A\u0328i\u0337\u030A\u0319n\u0335\u0343\u0310\u033C\u0324\u0323
+      \u0336\u0341\u0305\u035Cf\u0337\u0352\u0346\u031A\u0328\u0355\u0330o\u0334\u030D\u034A\u031Er\u0336\u0306\u030C\u031E
+      \u0338\u0360\u0322\u0339\u0327y\u0335\u0350\u030F\u035D\u0319\u0325o\u0335\u030E\u0325u\u0334\u0342\u0320\u0359\u0329
+      \u0334\u0310\u0345\u0329\u032An\u0336\u0341\u0358\u0308\u0320\u032E\u0331o\u0334\u0340\u035D\u0344\u0326\u0355w\u0334\u033E\u0314\u0309\u0333\u0325\u034E,\u0336\u0303\u0317\u0316\u0345
+      \u0334\u0358\u0317\u035Ay\u0336\u0346\u0358\u0308\u033Co\u0337\u0308\u0340\u0340\u0348\u0325\u0317u\u0334\u030D\u0352\u030B\u0332\u0322'\u0334\u0306\u032F\u0354\u0354r\u0337\u033E\u0344\u0321\u0333e\u0336\u031A\u0311\u0344\u034E\u032A
+      \u0335\u034A\u033Bd\u0335\u0302\u030A\u031F\u0326o\u0338\u0304\u0319n\u0336\u0306\u0340\u0359\u0330\u0353e\u0334\u0311\u0350\u031D!\u0337\u034A\u0345\u032E\u033A"

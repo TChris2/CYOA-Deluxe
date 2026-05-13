@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Use Super Bell
   vid: {fileID: 32900000, guid: 87971ae8fef04ec4a9de768da5a0bd2f, type: 3}
   choiceState: 02000000
+  firstRunOnly: 0
   vidEndTime: 8.8
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 785885e4f837cdc44adb9377bab13de5, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

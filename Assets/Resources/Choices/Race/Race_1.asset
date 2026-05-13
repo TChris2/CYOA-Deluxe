@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Use It
   vid: {fileID: 32900000, guid: fcb2bc1130dc4034b9c7678e01355e9d, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: d2086330034bf7542a0b4f14cfa81ef3, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: a561fc73bd34c9941881fb1fca7b5f23, type: 3}
     popupTime: 17
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: Shortcut
   thumbnail: {fileID: 21300000, guid: 4009c3a835ed7704fbcb62015552bf3a, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 7733e3c3dd79db44a875192398ec9edd, type: 2}
   - {fileID: 11400000, guid: a784262ddef18fb49b5bd0149cc3cdb5, type: 2}

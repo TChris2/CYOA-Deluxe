@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Wait
   vid: {fileID: 32900000, guid: 932f424276f8bdf4398a4452686cc7ca, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 0e1d008b3e4ee2c47b88accb891678a4, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 128d8c7e0952852459c7d23c04ad3e43, type: 3}
     popupTime: 32
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Doctor
   thumbnail: {fileID: 21300000, guid: f2f9e7b354e1e6f41943335781dfac7a, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 87f1d2b6cfab97e42ae2eb8fabf6ec0a, type: 2}
   - {fileID: 11400000, guid: f23576b41327ea64685ca5c4d382ada5, type: 2}

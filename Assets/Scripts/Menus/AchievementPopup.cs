@@ -2,19 +2,27 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-// Pops up achievement onscreen and display their info in the achievement menu
+/// <summary>
+/// Pops up achievement onscreen and display their info in the achievement menu
+/// </summary>
 public class AchievementPopup : AchievementInfoDisplay
 {
     // Queue of achievements to display onscreen
     [SerializeField]
     private List<AchievementInfo> achieveQueue;
+    Animator popupAni;
 
-    // Pops the achievement popup onscreen
-    public IEnumerator AchievePopup(AchievementInfo achievement)
+    void Start()
     {
         // Gets components
-        Animator popupAni = GetComponent<Animator>();
+        popupAni = GetComponent<Animator>();
+    }
 
+    /// <summary>
+    /// Pops the achievement popup onscreen
+    /// </summary>
+    public IEnumerator AchievePopup(AchievementInfo achievement)
+    {
         // Adds achievement to the queue
         achieveQueue.Add(achievement);
 

@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 3
+    displayEndTime: 3.65
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Man: -to a hospital.'
+  - displayStartTime: 3.65
+    displayEndTime: 5.46
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Woman: A hospital? What
+      is it?'
+  - displayStartTime: 5.46
+    displayEndTime: 8.086
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Man: It''s a big building
+      with patients, that''s not important right now.'
+  - displayStartTime: 8.086
+    displayEndTime: 10.1
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Man: Tell the captain
+      I must speak to him.
+
+      Woman: Certainly.'
+  - displayStartTime: 10.1
+    displayEndTime: 10.86
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Woman: Certainly.'
+  - displayStartTime: 10.86
+    displayEndTime: 13.877
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Woman: Excuse me sir,
+      there''s been a little problem in the cockpit.'
+  - displayStartTime: 13.877
+    displayEndTime: 15.95
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Man: The cockpit?! What
+      is it?'
+  - displayStartTime: 16.1
+    displayEndTime: 18.2
+    text: '<style="Subtitles_Format_[]>Radio</style>
+
+      Woman: It''s a little
+      room in the front of the plane where the pilot sits-'
+  - displayStartTime: 18.65
+    displayEndTime: 20.7
+    text: <style="Subtitles_Format_[]>Engine Revving</style>
+  - displayStartTime: 20.927
+    displayEndTime: 26.154
+    text: '<style="Subtitles_Person_RT">RT</style>: Get that again. I just want to
+      tell you both good luck, we''re all counting on you-'
+  - displayStartTime: 26.05
+    displayEndTime: 31.45
+    text: <style="Subtitles_Format_[]>Loud Car Noises</style>
+  - displayStartTime: 31.695
+    displayEndTime: 32.8
+    text: '<style="Subtitles_Person_RT">RT</style>: "Which character is this?"
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Have yous not seen Airplane!?'
+  - displayStartTime: 32.8
+    displayEndTime: 34.5
+    text: '<style="Subtitles_Person_RT">RT</style>: Have yous not seen Airplane!?'
+  - displayStartTime: 35.75
+    displayEndTime: 36
+    text: '<style="Subtitles_Person_RT">RT</style>: Have you-'
+  - displayStartTime: 36.1
+    displayEndTime: 38.5
+    text: <style="Subtitles_Format_[]>You Guessed It, More Cars</style>
+  - displayStartTime: 38.5
+    displayEndTime: 40.3
+    text: '<style="Subtitles_Person_RT">RT</style>: -haven''t seen a COMEDY CLASSIC-'
+  - displayStartTime: 41.75
+    displayEndTime: 42.65
+    text: '<style="Subtitles_Person_RT">RT</style>: Are you kidding me right now-'
+  - displayStartTime: 42.65
+    displayEndTime: 43.25
+    text: '<style="Subtitles_Person_RT">RT</style>: AUGH!'
+  - displayStartTime: 43.25
+    displayEndTime: 45.854
+    text: <style="Subtitles_Format_()>Loud honking and general mayham</style>
+  - displayStartTime: 45.55
+    displayEndTime: 46.927
+    text: '<style="Subtitles_Person_RT">RT</style>: OOMPF!'
+  - displayStartTime: 46.927
+    displayEndTime: 49.3
+    text: '<style="Subtitles_Person_RT">RT</style>: Phew! What''s going on here?'
+  - displayStartTime: 50.5
+    displayEndTime: 51.5
+    text: <style="Subtitles_Format_()>Anime laugh</style>
+  - displayStartTime: 52.5
+    displayEndTime: 58
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t mean to brag, but they
+      used to call me <style="DriftKing">The Drift King</style> back in college you
+      know'

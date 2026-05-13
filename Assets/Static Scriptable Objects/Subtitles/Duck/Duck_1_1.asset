@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.01
+    displayEndTime: 1.828
+    text: '<style="Subtitles_Person_RT">RT</style>: Good things come to those who
+      wait.'
+  - displayStartTime: 1.828
+    displayEndTime: 5.106
+    text: '<style="Subtitles_Person_RT">RT</style>: Good-...Good things really come
+      to those who wait.'
+  - displayStartTime: 5.649
+    displayEndTime: 8.07
+    text: '<style="Subtitles_Person_RT">RT</style>: I need some good music for this
+      that''s not Comet Observatory.'
+  - displayStartTime: 8.07
+    displayEndTime: 16.08
+    text: <style="Subtitles_Format_()>Music</style>
+  - displayStartTime: 16.08
+    displayEndTime: 18.929
+    text: <Style="subtitles_format_[]>Look at Our Boy Go</Style>
+  - displayStartTime: 21.926
+    displayEndTime: 23.901
+    text: <style="Subtitles_Format_()><style="DriftKing">The Drift King</style> in
+      action</style>
+  - displayStartTime: 26.3
+    displayEndTime: 27.626
+    text: <Style="subtitles_format_[]>Wow</Style>
+  - displayStartTime: 29.223
+    displayEndTime: 29.723
+    text: "<Style=\"subtitles_format_[]>A Single RT Going Mach Speed Because Apparently
+      I Didn\u2019t Catch That in the Final Edit Whoops</Style>"
+  - displayStartTime: 37.5
+    displayEndTime: 40.51
+    text: <style="subtitles_format_()>Suspenseful Music</style>
+  - displayStartTime: 40.51
+    displayEndTime: 41.746
+    text: <style="subtitles_format_[]>Dad Snoring</style>
+  - displayStartTime: 41.746
+    displayEndTime: 46.45
+    text: 'Radio: Astrologists report that a devastating meteor will strike the city
+      in the near future.'
+  - displayStartTime: 46.781
+    displayEndTime: 50.392
+    text: 'Radio: Residents should seek shelter immediately if any is available.'
+  - displayStartTime: 50.6
+    displayEndTime: 51.759
+    text: '<style="Subtitles_Person_RT">RT</style>: How old am I?!'
+  - displayStartTime: 53.381
+    displayEndTime: 55.017
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh I don''t believe this!'
+  - displayStartTime: 55.57
+    displayEndTime: 64
+    text: <Style="subtitles_format_[]>Suspenseful Music While You Contemplate Your
+      Own Mortality</Style>
+  - displayStartTime: 76.24
+    displayEndTime: 78.159
+    text: <Style="subtitles_format_[]>Why Have You Waited This Long You Fool</Style>
+  - displayStartTime: 82.302
+    displayEndTime: 86.666
+    text: <Style="subtitles_format_[]>Daniel Screaming in Agony Because You Cannot
+      Decide</Style>
+  - displayStartTime: 86.666
+    displayEndTime: 88
+    text: <Style="subtitles_format_()>Loud rumbling (No Tumbling)</Style>
+  - displayStartTime: 86.666
+    displayEndTime: 88
+    text: <Style="subtitles_format_()>Loud rumbling (No Tumbling)</Style>
+  - displayStartTime: 88
+    displayEndTime: 89.95
+    text: <Style="subtitles_format_()>Orchestral Music</Style>
+  - displayStartTime: 95.7
+    displayEndTime: 97.6
+    text: <Style="subtitles_format_[]>People Screaming and Cheering</Style>
+  - displayStartTime: 97.6
+    displayEndTime: 98.5
+    text: <Style="subtitles_format_[]>BOOM</Style>
+  - displayStartTime: 99.1
+    displayEndTime: 103
+    text: <Style="subtitles_format_()>Wrong Answer Horn from the Price Is Right</Style>
+  - displayStartTime: 105.35
+    displayEndTime: 106.15
+    text: '<style="Subtitles_Person_RT">RT</style>: You''re too late!'
+  - displayStartTime: 106.9
+    displayEndTime: 108.2
+    text: '<style="Subtitles_Person_RT">RT</style>: You''re too late!'
+  - displayStartTime: 109.3
+    displayEndTime: 110.55
+    text: '<style="Subtitles_Person_RT">RT</style>: You didn''t make it in time.'
+  - displayStartTime: 112.8
+    displayEndTime: 114.75
+    text: '<style="Subtitles_Person_RT">RT</style>: There''s nothing here anymore
+      for you.'

@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Stores letter info
+/// <summary>
+/// Stores letter info in a list
+/// </summary>
 [CreateAssetMenu(fileName = "LetterInfoList", menuName = "Scriptable Objects/LetterInfoList")]
 public class LetterInfoList : ScriptableObject
 {
@@ -16,7 +18,9 @@ public class LetterInfoList : ScriptableObject
     }
 }
 
-// Store letter information on whether the player collected the letter or not
+/// <summary>
+/// Stores letter info
+/// </summary>
 [System.Serializable]
 public class LetterInfo
 {
@@ -27,7 +31,9 @@ public class LetterInfo
     [Tooltip("Whether the player has obtained the letter or not")]
     public bool hasObtained;
 
-    // Adds info to new instance of LetterInfo
+    /// <summary>
+    /// Adds info to new instance of LetterInfo
+    /// </summary>
     public LetterInfo(LetterID letterID, string letter, bool hasObtained)
     {
         this.letterID = letterID;

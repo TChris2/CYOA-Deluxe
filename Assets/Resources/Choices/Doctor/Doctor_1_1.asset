@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Wait Some More
   vid: {fileID: 32900000, guid: 0f521e03ff0be8c4c8250379efca263d, type: 3}
   choiceState: 02000000
+  firstRunOnly: 0
   vidEndTime: 29
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: d7163d4b507d3d0429d53c82b6545630, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

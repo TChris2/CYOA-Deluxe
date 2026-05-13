@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-// Functionality for the achievement menu
+/// <summary>
+/// Functionality for the Achievement menu
+/// </summary>
 public class AchievementMenu : MonoBehaviour
 {
     // Stores the default scale of the achievement menu
@@ -118,7 +120,9 @@ public class AchievementMenu : MonoBehaviour
         }
     }
 
-    // Opens achievement Menu
+    /// <summary>
+    /// Opens Achievement Menu
+    /// </summary>
     public void OpenAchieveMenu()
     {
         // Updates achievement menu buttons based on player progression

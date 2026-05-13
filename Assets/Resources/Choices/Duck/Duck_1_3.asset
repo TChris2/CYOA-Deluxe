@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Get Out and Walk
   vid: {fileID: 32900000, guid: cc5e6651558cae64aa82a316e57dc966, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: cc0fd6831b3bfb94ebcbe2646fdf2fa1, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 23b7c6f05aafe1a4bad4deb6a7d147ea, type: 3}
     popupTime: 39
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Back Alley
   thumbnail: {fileID: 21300000, guid: 0b7e5d6749d64c84dbf6af60c2bb0be8, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: b2968f6993c43a2418355c3daabbe2b2, type: 2}
   - {fileID: 11400000, guid: c77cbf5c33d5cfa4f9b5f69332ca5838, type: 2}

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Stay On Route
   vid: {fileID: 32900000, guid: 9c18153818cf04149aab09f6c2f15a54, type: 3}
   choiceState: 01000000
+  firstRunOnly: 0
   vidEndTime: 106.6
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 293fdd6102cb9f740a5a0f3b5863dcfa, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: cc1753beeca26be46b337f04e452175f, type: 3}
     popupTime: 55.7
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 31
-  mapName: 
+  mapName: The Meteor
   thumbnail: {fileID: 21300000, guid: 693ad9a3e25a1b743ba5e38a169cecb2, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 0e0bd460429f938498529d9560226081, type: 2}
   - {fileID: 11400000, guid: 9cbc77099da1b5d4f9740459fdcea61b, type: 2}

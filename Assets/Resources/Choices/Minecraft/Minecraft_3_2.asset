@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Build Something
   vid: {fileID: 32900000, guid: 7ca20efa0b692d145b7877d6a79b5499, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 75
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 1b5403bd15635974b9bbe34cf1eaa501, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

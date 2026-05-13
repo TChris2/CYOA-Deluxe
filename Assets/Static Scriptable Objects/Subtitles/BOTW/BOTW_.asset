@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: BOTW_
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.01
+    displayEndTime: 1.55
+    text: '<style="Subtitles_Person_RT">RT</style>: What is a Genshin Mean?'
+  - displayStartTime: 1.7
+    displayEndTime: 2.15
+    text: <Style="subtitles_format_()">Door Open SFX</style>
+  - displayStartTime: 2.2
+    displayEndTime: 3.3
+    text: '<style="Subtitles_Person_RT">RT</style>: <i>Geronimo</i>!'
+  - displayStartTime: 9.2
+    displayEndTime: 13.2
+    text: <Style="subtitles_format_[]">Irish Man Falling</style>
+  - displayStartTime: 13.45
+    displayEndTime: 14.95
+    text: '<style="Subtitles_Person_Zelda">Zelda</style>: Open your eyes.'
+  - displayStartTime: 15.6
+    displayEndTime: 16.85
+    text: <Style="subtitles_format_[]">Irish Man Rises</style>
+  - displayStartTime: 16.9
+    displayEndTime: 17.65
+    text: '<style="Subtitles_Person_RT">RT</style>: What''s that there?'
+  - displayStartTime: 21.15
+    displayEndTime: 22.6
+    text: '<style="Subtitles_Person_RT">RT</style>: I can''t believe this.'
+  - displayStartTime: 35.8
+    displayEndTime: 36.6
+    text: '<style="Subtitles_Person_RT">RT</style>: Look at that.'
+  - displayStartTime: 37.3
+    displayEndTime: 37.85
+    text: '<style="Subtitles_Person_RT">RT</style>: Wow!'
+  - displayStartTime: 38.4
+    displayEndTime: 39.95
+    text: '<style="Subtitles_Person_RT">RT</style>: There is just so much to take
+      in.'
+  - displayStartTime: 40.3
+    displayEndTime: 41.65
+    text: <Style="subtitles_format_[]">Korok Appears</style>

@@ -3,6 +3,9 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Functionality for the small Stats menu
+/// </summary>
 public class StatsMenu : MonoBehaviour
 {
     private CanvasGroup statsMenu;
@@ -26,7 +29,9 @@ public class StatsMenu : MonoBehaviour
         iMenu = FindAnyObjectByType<InputMenu>();
     }
     
-    // Open stats menu
+    /// <summary>
+    /// Opens Stats Menu
+    /// </summary>
     public void OpenStatsMenu()
     {
         if (!statsMenu.interactable)

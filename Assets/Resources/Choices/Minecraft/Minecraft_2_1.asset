@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Spawn Sucks. Next Town!
   vid: {fileID: 32900000, guid: 6c52d6f4c9d0cb941958bb5949ef9e3f, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 94a60eb53aaf63c41ab8be771c77d38b, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 5f77ab5c3d1e1944e83f8da89738f87f, type: 3}
     popupTime: 78
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: IBR
   thumbnail: {fileID: 21300000, guid: 8e05ee36a42cd3c44a759791a1845e20, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 9b2128c9d09142d4aa79d7ce691c14d8, type: 2}
   - {fileID: 11400000, guid: c851cb88bd8e0894ca9468bff4f89be9, type: 2}

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Go Left
   vid: {fileID: 32900000, guid: c7c700c5d3de8574fbdeca8cf00e1921, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 5a7f5ada5f7ea5d4b8cfef359c01525f, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 4dfda3841a459e74d9e2a8d9ebe6cae0, type: 3}
     popupTime: 23.1
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: b1f0ff7f945b0fa438c355272ec9c99f, type: 2}
   achievements: []

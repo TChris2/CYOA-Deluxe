@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Source Engine
   vid: {fileID: 32900000, guid: 8f1d60d3c0e9f514c9c285ee096f76f1, type: 3}
   choiceState: 0200000003000000
+  firstRunOnly: 0
   vidEndTime: 30
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 8ab1a9de1a42af346897ab72a2267015, type: 2}
   objs:
   - obj: {fileID: 7709538928818179221, guid: b84923cfd37cc034eac29de718bc19ce, type: 3}
     popupTime: 31.5
     isSkippable: 1
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices: []
   achievements: []
   letterIDs: 

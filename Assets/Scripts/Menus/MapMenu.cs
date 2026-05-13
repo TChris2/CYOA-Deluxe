@@ -1,11 +1,17 @@
+// #define DEBUG_MakeConnections
+
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.Video;
 
-// Functionality for the map menu
+/// <summary>
+/// Functionality for the map menu
+/// </summary>
 public class MapMenu : MonoBehaviour
 {
     // Main contents of the map menu
@@ -16,10 +22,12 @@ public class MapMenu : MonoBehaviour
     private GameObject wyaIcon;
     // Keeps track of instantiate icons 
     private GameObject wyaIconStorage;
-    CanvasGroup mapMenu;
+    [HideInInspector]
+    public CanvasGroup mapMenu;
     // Scripts
     SaveManager sm;
     GameManager gm;
+    TransitionManager tm;
     InputMenu iMenu;
     [Header("Map Menu")]
     HashSet<string> portalMaps = new HashSet<string> { "Portal_", "Minecraft_", "BOTW_" };
@@ -29,9 +37,11 @@ public class MapMenu : MonoBehaviour
     [SerializeField]
     private CanvasGroup outsideMap;
     [SerializeField]
-    private Button portalMapBtn;
+    private GameObject portalMapBtn;
     [SerializeField]
-    private Button outsideMapbtn;
+    private GameObject outsideMapbtn;
+    [SerializeField]
+    private GameObject startMapBtn;
     [Header("Side Bar Choice Info")]
     // Choice name
     [SerializeField]
@@ -48,27 +58,44 @@ public class MapMenu : MonoBehaviour
     // Displays how many of the next choices the player has already completed
     [SerializeField]
     private TMP_Text choicesCompletedLabel;
+    [SerializeField] 
+    private GameObject mapArrow;
+    [HideInInspector]
+    public bool inMapMenu;
+    // Checks to see if the map is ready to be interacted with
+    bool isMapReady;
 
     void Start()
     {
         // Gets components
         mapMenu = GetComponent<CanvasGroup>();
         sm = FindAnyObjectByType<SaveManager>();
+        tm = FindAnyObjectByType<TransitionManager>();
         iMenu = FindAnyObjectByType<InputMenu>();
 
         // Adds LoadChoiceMap and DisplayInfo functions to each map button
         AddMapBtnFunctions();
     }
 
-    // For Title Screen scene to start game
+    #region Loading Selected Map Choice
+
+    /// <summary>
+    /// For Title Screen scene to start game
+    /// </summary>
     public void StartGame()
     {
-        LoadChoiceMap("Start_", false);
+        PlayerPrefs.SetString("Current ChoiceID", "Start_");
+        tm.actionDelay = 2.5f;
+        tm.onTransition += () => tm.ChangeScene("Main Game");
+        tm.FadeOut(FadeType.PlainBlack);
     }
 
-    // Load choice from the map menu
-    public void LoadChoiceMap(string id, bool inMapMenu)
+    /// <summary>
+    /// Load choice from the map menu
+    /// </summary>
+    public void LoadChoiceMap(string id, bool inMenu)
     {
+        inMapMenu = inMenu;
         // Allows the player to immediately skip to the start of the that choice's choices 
         // gm.isSkipping = true;
 
@@ -78,42 +105,35 @@ public class MapMenu : MonoBehaviour
             // Gets necessary components from the current scene if the script does not already have it
             GetComponents();
 
-            // Closes the map menu
-            if (inMapMenu)
-                iMenu.CloseMenu();
-
             // Closes the pause menu and resumes the game
             iMenu.Resume();
-
-            // If the skip text is visable on screen when selection is made
-            if (gm.skipText.color.a != 0)
-            {
-                // Debug.Log($"Skip - Text Popup");
-                gm.fadeTextAni.Play("Invisible Text");
-            }
             
             // Loads choice with selected id
             gm.LoadChoice(id);
         }
         // If the player is in the main menu
-        else
+        else if (SceneManager.GetActiveScene().name == "Title Screen")
         {
-            // Closes the map menu
-            if (inMapMenu)
-                iMenu.CloseMenu();
-                
             // Saves the chosen id to be loaded at start by button manager
             PlayerPrefs.SetString("Current ChoiceID", id);
-            // Loads scene
             SceneManager.LoadScene("Main Game");
         }
     }
 
-    // Adds LoadChoiceMap function to each map button
+    #endregion
+    #region Initializing Map Btns 
+
+    /// <summary>
+    /// Adds LoadChoiceMap function to each map button
+    /// </summary>
     void AddMapBtnFunctions()
     {
         // Gets all the choice buttons on the map
         Button[] mapBtns = gameObject.GetComponentsInChildren<Button>();
+
+        #if DEBUG_MakeConnections
+            Vector2 startPos, endPos;
+        #endif
 
         // Adds function to each button
         foreach (Button btn in mapBtns)
@@ -122,7 +142,7 @@ public class MapMenu : MonoBehaviour
             if (btn.gameObject.name.Contains("_"))
             {
                 if (sm.choiceDict.TryGetValue(btn.gameObject.name, out ChoiceInfo choice))
-                {
+                {             
                     // Loads choice from the map
                     btn.onClick.AddListener(() => LoadChoiceMap(btn.gameObject.name, true));
 
@@ -133,13 +153,32 @@ public class MapMenu : MonoBehaviour
                     entry.callback.AddListener((data) =>
                     {
                         // Will displays the choice's information if the player has reached the choice
-                        if (btn.interactable)
+                        if (btn.interactable && isMapReady)
                         {
                             // Displays the choice's information
                             DisplayChoiceInfo(choice, btn.GetComponent<Image>().color);
                         }
                     });
                     trigger.triggers.Add(entry);
+
+                    #if DEBUG_MakeConnections
+                        if (choice.nextChoices.Count > 0)
+                        {
+                            foreach (ChoiceInfo nextChoice in choice.nextChoices)
+                            {
+                                // Find the matching button in mapBtns for this nextChoice
+                                Button nextBtn = System.Array.Find(mapBtns, b => b.gameObject.name == nextChoice.choiceID);
+
+                                if (nextBtn != null)
+                                {
+                                    startPos = btn.GetComponent<RectTransform>().position;
+                                    endPos = nextBtn.GetComponent<RectTransform>().position;
+
+                                    PlaceConnections(startPos, endPos, btn.transform.GetChild(1));
+                                }
+                            }
+                        }
+                    #endif
                 }
                 else
                 {
@@ -147,13 +186,56 @@ public class MapMenu : MonoBehaviour
                 }
             }
         }
+
+        #if DEBUG_MakeConnections
+            startPos = startMapBtn.GetComponent<RectTransform>().position;
+            endPos = outsideMapbtn.GetComponent<RectTransform>().position;
+
+            PlaceConnections(startPos, endPos, startMapBtn.transform.GetChild(1));
+            endPos = portalMapBtn.GetComponent<RectTransform>().position;
+            PlaceConnections(startPos, endPos, startMapBtn.transform.GetChild(1));
+        #endif
     }
 
-    // Updates map menu buttons to show which choices the player has completed
+    /// <summary>
+    /// Places connections for each of the choices
+    /// </summary>
+    public void PlaceConnections(Vector2 startPos, Vector2 endPos, Transform arrowHolder)
+    {
+        // Makes the arrows a child of the choice button
+        GameObject obj = Instantiate(mapArrow, arrowHolder);
+        RectTransform rt = obj.GetComponent<RectTransform>();
+
+        // Convert world positions into the button's local space
+        Vector2 startLocal = arrowHolder.InverseTransformPoint(startPos);
+        Vector2 endLocal = arrowHolder.InverseTransformPoint(endPos);
+
+        // Position at midpoint in local space
+        rt.anchoredPosition = (startLocal + endLocal) / 2f;
+
+        // Determines the length of the arrow
+        float distance = Vector2.Distance(startLocal, endLocal);
+        rt.sizeDelta = new Vector2(distance - 40, rt.sizeDelta.y);
+
+        // Rotates the arrow
+        Vector2 delta = endLocal - startLocal;
+        float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
+        rt.localRotation = Quaternion.Euler(0f, 0f, angle);
+
+        // Pivot centered
+        rt.pivot = new Vector2(0.5f, 0.5f);
+    }
+
+    #endregion
+    #region Loading Map Btns
+
+    /// <summary>
+    /// Updates map menu buttons to show which choices the player has completed
+    /// </summary>
     void UpdateMapBtns()
     {
         // Gets all the choice buttons on the map
-        Button[] mapBtns = mapContents.GetComponentsInChildren<Button>();
+        Button[] mapBtns = mapContents.GetComponentsInChildren<Button>(true);
 
         foreach (Button btn in mapBtns)
         {
@@ -176,7 +258,27 @@ public class MapMenu : MonoBehaviour
                     if (choice.hasComplete || iMenu.completeOverride)
                     {
                         // Enables the button
-                        btn.interactable = true;
+                        btn.gameObject.SetActive(true);
+                        
+                        // Updates connections to next choices
+                        if (choice.nextChoices.Count > 0)
+                        {
+                            // Gets all the next choices that are on the map
+                            if (choice.mapNextChoices.Count == 0)
+                            {
+                                choice.mapNextChoices = choice.nextChoices
+                                    .Where(c => sm.choiceDict.ContainsKey(c.choiceID) && sm.choiceDict[c.choiceID].isOnMap)
+                                    .Select(c => sm.choiceDict[c.choiceID])
+                                    .ToList();
+                            }
+                            
+                            // Checks to see which choices the player have complete or not
+                            for (int i = 0; i < choice.mapNextChoices.Count; i++)
+                            {
+                                bool isActive = choice.mapNextChoices[i].hasComplete || iMenu.completeOverride;
+                                btn.transform.GetChild(1).GetChild(i).gameObject.SetActive(isActive);
+                            }
+                        }
 
                         // Checks if the player have 100% the choice
                         var (isFullyComplete, _) = CheckChoiceCompletion(choice);
@@ -196,7 +298,7 @@ public class MapMenu : MonoBehaviour
                     // If the player has not gotten to that choice yet the button is disabled
                     else
                     {
-                        btn.interactable = false;
+                        btn.gameObject.SetActive(false);
                         checkmark.enabled = false;
                     }
                 }
@@ -206,9 +308,13 @@ public class MapMenu : MonoBehaviour
                 }
             }
         }
+
+        UpdateStartMapBtn();
     }
 
-    // Checks if the player has completed all the choices for a choice
+    /// <summary>
+    /// Checks if the player has completed all the choices for a choice
+    /// </summary>
     (bool, int) CheckChoiceCompletion(ChoiceInfo choice)
     {
         // Debug.Log($"Checking Choice {choice.choiceID}");
@@ -280,7 +386,9 @@ public class MapMenu : MonoBehaviour
         return (completedChoices == choice.nextChoices.Count && achieveComplete && letterComplete, completedChoices);
     }
 
-    // Displays the info on the sidebar of what choice the player is currently highlighting
+    /// <summary>
+    /// Displays the info on the sidebar of what choice the player is currently highlighting
+    /// </summary>
     void DisplayChoiceInfo(ChoiceInfo choice, Color color)
     {
         // Debug.Log($"Displaying choice {choice.choiceID}");
@@ -304,7 +412,12 @@ public class MapMenu : MonoBehaviour
         choicesCompletedLabel.text = $"Choices Completed: <style=\"{style}\">{completedChoices}/{choice.nextChoices.Count}</style>";
     }
 
-    // Gets necessary components from the current scene if the script does not already have it
+    #endregion
+    #region Opening Map Menu
+
+    /// <summary>
+    /// Gets necessary components from the current scene if the script does not already have it
+    /// </summary>
     void GetComponents()
     {
         if (!gm)
@@ -313,7 +426,9 @@ public class MapMenu : MonoBehaviour
         }
     }
 
-    // Opens Map Menu
+    /// <summary>
+    /// Opens Map Menu
+    /// </summary>
     public void OpenMapMenu()
     {
         if (SceneManager.GetActiveScene().name == "Main Game")
@@ -322,16 +437,18 @@ public class MapMenu : MonoBehaviour
             GetComponents();
         }
         
-        // Updates map menu buttons based on player progression
-        UpdateMapBtns();
-
         // Displays which choice the player is currently at
         DisplayWya();
+
+        // Updates map menu buttons based on player progression
+        UpdateMapBtns();
 
         iMenu.OpenRegularMenu(mapMenu);
     }
 
-    // Displays which choice the player is currently at
+    /// <summary>
+    /// Displays which choice the player is currently at
+    /// </summary>
     void DisplayWya()
     {
         string choiceID;
@@ -424,35 +541,52 @@ public class MapMenu : MonoBehaviour
         OpenRouteMap(mapChoice.choiceID);
     }
 
+    /// <summary>
+    /// Opens route map where the player is currently
+    /// </summary>
     void OpenRouteMap(string id)
     {
         string[] parts = id.Split('_');
         string choiceID = string.Join("_", parts, 0, 1);
 
         choiceID = $"{choiceID}_";
-
-        // Opens outside map
-        if (outsideMaps.Contains(choiceID) || !sm.choiceDict["Portal_"].hasComplete && sm.choiceDict["Outside_"].hasComplete)
-        {
-            // Debug.Log("Opening Outside map");
-            iMenu.MenuOpenClose(portalMap, false);
-            iMenu.MenuOpenClose(outsideMap, true);
-        }
-        // Opens portal map
-        else
-        {
-            // Debug.Log("Opening Portal map");
-            iMenu.MenuOpenClose(outsideMap, false);
-            iMenu.MenuOpenClose(portalMap, true);
-        }
         
-        portalMapBtn.interactable = sm.choiceDict["Portal_"].hasComplete || iMenu.completeOverride;
-        portalMapBtn.GetComponentInChildren<TMP_Text>().enabled = portalMapBtn.interactable;
-        outsideMapbtn.interactable = sm.choiceDict["Outside_"].hasComplete || iMenu.completeOverride;
-        outsideMapbtn.GetComponentInChildren<TMP_Text>().enabled = outsideMapbtn.interactable;
+        bool isPortalMapOpen = !outsideMaps.Contains(choiceID);
+
+        // Opens proper route map
+        iMenu.MenuOpenClose(portalMap, isPortalMapOpen);
+        iMenu.MenuOpenClose(outsideMap, !isPortalMapOpen);
+
+        // Pops button to the opposing map on screen
+        portalMapBtn.SetActive(sm.choiceDict["Portal_"].hasComplete || iMenu.completeOverride);
+        outsideMapbtn.SetActive(sm.choiceDict["Outside_"].hasComplete || iMenu.completeOverride);
+        
+        UpdateStartMapBtn();
     }
 
-    // Checking map for choice button position
+    /// <summary>
+    /// Updates the map arrows for Start_
+    /// </summary>
+    public void UpdateStartMapBtn()
+    {   
+        bool isPortalMapOpen = portalMap.interactable;
+        bool isPortalMapUnlocked = sm.choiceDict["Portal_"].hasComplete || iMenu.completeOverride;
+        bool isOutsideMapUnlocked = sm.choiceDict["Outside_"].hasComplete || iMenu.completeOverride;
+
+        // Updates Start_'s regular arrows
+        startMapBtn.transform.GetChild(1).GetChild(0).gameObject.SetActive(
+            isPortalMapOpen && isPortalMapUnlocked);
+        startMapBtn.transform.GetChild(1).GetChild(1).gameObject.SetActive(
+            !isPortalMapOpen && isOutsideMapUnlocked);
+
+        // Updates the arrows to the route map buttons
+        startMapBtn.transform.GetChild(1).GetChild(2).gameObject.SetActive(isPortalMapOpen && isOutsideMapUnlocked);
+        startMapBtn.transform.GetChild(1).GetChild(3).gameObject.SetActive(!isPortalMapOpen && isPortalMapUnlocked);
+    }
+
+    /// <summary>
+    /// Checking map for choice button
+    /// </summary>
     Button MapBtnCheck(string choiceID,Button[] mapBtns)
     {
         foreach (Button btn in mapBtns)
@@ -461,4 +595,13 @@ public class MapMenu : MonoBehaviour
 
         return null;
     }
+
+    // Updates whether the map is ready to be interacted with
+    // Used as an animation event
+    public void SetMapReady(int isReady)
+    {
+        isMapReady = isReady == 1 ? true : false;
+    }
+
+    #endregion
 }

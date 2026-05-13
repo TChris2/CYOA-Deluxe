@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Try Your Luck!
   vid: {fileID: 32900000, guid: dfbf01d42f753e3479f25d3e5a75e52c, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 39
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 4e1356b28d8f0cf42848144b991b9f55, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed:
   - Super Star

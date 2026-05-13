@@ -60,7 +60,7 @@ public class CompletionAchievements : Achievement
         // Gets remaining scripts
         GameManager gm = FindAnyObjectByType<GameManager>();
 
-        while (gm.videoPlay.time < gm.currentChoice.vidEndTime - popupOffset)
+        while (gm.videoPlayer.time < gm.currentChoice.vidEndTime - popupOffset)
         {
             // Debug.Log(videoPlay.time);
             yield return null;

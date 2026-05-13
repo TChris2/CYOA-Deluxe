@@ -52,7 +52,7 @@ public class LetterUnlockScreen : MonoBehaviour
         yield return new WaitForSeconds(.1f);
 
         // Puts letter icon above particle layer when playing popup animation
-        letterIcon.sortingOrder = 2;
+        letterIcon.sortingOrder = 4;
 
         // Plays popup animation
         animator.Play("Letter Popup");

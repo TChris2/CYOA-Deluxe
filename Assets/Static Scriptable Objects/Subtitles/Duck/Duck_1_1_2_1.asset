@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_1_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.8
+    displayEndTime: 5.52
+    text: '<style="Subtitles_Person_RT">Negative RT</style>: It''s best to just walk
+      away sometimes in life and you can''t handle this situation.'
+  - displayStartTime: 6.96
+    displayEndTime: 10.759
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m trying my best, I''m not
+      a flexible man.'
+  - displayStartTime: 11.191
+    displayEndTime: 13.044
+    text: '<style="Subtitles_Person_RT">RT</style>: I have gamer posture!'
+  - displayStartTime: 14.691
+    displayEndTime: 17.76
+    text: '<style="Subtitles_Person_RT">RT</style>: No. It''s not worth it. We-'
+  - displayStartTime: 17.76
+    displayEndTime: 22.457
+    text: <style="Subtitles_Format_[]>Large Footsteps</style>
+  - displayStartTime: 22.457
+    displayEndTime: 29.584
+    text: <style="Subtitles_Format_()>Duckzilla Roaring</style>
+  - displayStartTime: 29.688
+    displayEndTime: 31.8
+    text: '<style="Subtitles_Person_RT">RT</style>: The machine oh. <style="YOUTUBE"></style>
+      me!'
+  - displayStartTime: 31.8
+    displayEndTime: 34.65
+    text: <style="Subtitles_Format_()>Duckzilla Roaring</style>
+  - displayStartTime: 34.65
+    displayEndTime: 35.614
+    text: <style="Subtitles_Format_()>Car Engine Stuttering</style>
+  - displayStartTime: 35.45
+    displayEndTime: 38.122
+    text: '<style="Subtitles_Person_RT">RT</style>: Damn fangled Ikea bookcases.'
+  - displayStartTime: 38.122
+    displayEndTime: 43.52
+    text: '<style="Subtitles_Person_RT">RT</style>: How could the architectures be
+      so naive to try and construct machinations such as this?'
+  - displayStartTime: 43.52
+    displayEndTime: 47.301
+    text: '<style="Subtitles_Person_RT">RT</style>: If I could just specify the singularity,
+      we can-'
+  - displayStartTime: 47.782
+    displayEndTime: 48.282
+    text: <style="Subtitles_Format_()>Loud Crash</style>
+  - displayStartTime: 48.282
+    displayEndTime: 50
+    text: <style="Subtitles_Format_()>Car Alarm</style>
+  - displayStartTime: 50
+    displayEndTime: 52
+    text: <style="Subtitles_Format_()>Roaring in the Distance</style>
+  - displayStartTime: 59.36
+    displayEndTime: 67.3
+    text: <style="Subtitles_Format_()>Sonic Mania Game Over music</style>
+  - displayStartTime: 68.4
+    displayEndTime: 70.358
+    text: '<style="Subtitles_Person_RT">RT</style>: Don''t let your mind hold you
+      back!'
+  - displayStartTime: 70.358
+    displayEndTime: 72.948
+    text: '<style="Subtitles_Person_RT">RT</style>: You can do this, I have faith
+      in you'
+  - displayStartTime: 73.429
+    displayEndTime: 74.968
+    text: '<style="Subtitles_Person_RT">RT</style>: You just gotta believe...'

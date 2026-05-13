@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Go Further?
   vid: {fileID: 32900000, guid: 944eee9d513c53748917584af89874f5, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 8d0635f81d9173143abdd8238b736ec2, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 193fdc445c81a434f8ca7d204add0578, type: 3}
     popupTime: 20
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Door
   thumbnail: {fileID: 21300000, guid: 3f4047f4da8a40540a864613f848ffc2, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 1d3a2f1353ca6b6419428f9064973b40, type: 2}
   - {fileID: 11400000, guid: e62071322ee545c49843b13127846e5d, type: 2}

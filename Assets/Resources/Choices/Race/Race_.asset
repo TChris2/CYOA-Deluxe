@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Follow The Racers
   vid: {fileID: 32900000, guid: 799ae19fb782e314eb010edb0c4bd937, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 5b86536e2b05aeb419e0dba796d37f23, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 91451f6ee15c2794cbefd6c5fef94007, type: 3}
     popupTime: 54.2
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: Starting Line
   thumbnail: {fileID: 21300000, guid: 7e5c6c25dbab24c4cbac737e64f88270, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 7464394392f17e145a6a42714c27cb06, type: 2}
   - {fileID: 11400000, guid: 056db4312ef969646b003d34441289f0, type: 2}

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Take Apple
   vid: {fileID: 32900000, guid: cd4b13e2149288f47987d4ccd199d820, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 4db497756df000b4d865c51f36b21b30, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 803bd2fee06ba4b42a619c17aa419f0d, type: 3}
     popupTime: 13
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Cliff
   thumbnail: {fileID: 21300000, guid: 0a35e4d8a96680e4289a1160477d1a87, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 925d2273428c9cb428fdc2fd7c314f48, type: 2}
   achievements: []

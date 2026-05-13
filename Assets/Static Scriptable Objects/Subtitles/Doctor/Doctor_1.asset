@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.3
+    displayEndTime: 1.8
+    text: '<style="Subtitles_Person_RT">RT</style>: No!'
+  - displayStartTime: 6
+    displayEndTime: 6.5
+    text: '???: Hello?'
+  - displayStartTime: 6.5
+    displayEndTime: 7
+    text: '<style="Subtitles_Person_RT">RT</style>: Doctor.'
+  - displayStartTime: 18.669
+    displayEndTime: 20.195
+    text: '<style="Subtitles_Person_RT">RT</style>: What do you want me to do?'
+  - displayStartTime: 20.195
+    displayEndTime: 21.234
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: Well why don''t you
+      come on inside?'
+  - displayStartTime: 22.616
+    displayEndTime: 24.616
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: You might be pleasantly
+      surprised what it''s like in here!'
+  - displayStartTime: 24.681
+    displayEndTime: 25.757
+    text: '<style="Subtitles_Person_RT">RT</style>: You know you want it!'
+  - displayStartTime: 25.983
+    displayEndTime: 26.722
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: You might say'
+  - displayStartTime: 27.426
+    displayEndTime: 27.926
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: It''s'
+  - displayStartTime: 28.278
+    displayEndTime: 28.897
+    text: <size=150%>B I G G E R</size>
+  - displayStartTime: 29.335
+    displayEndTime: 30.55
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: On the inside!'
+  - displayStartTime: 30.55
+    displayEndTime: 32.206
+    text: '<style="Subtitles_Person_RT">RT</style>: We got some of that already...'

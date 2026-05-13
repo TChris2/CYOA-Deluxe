@@ -22,10 +22,13 @@ MonoBehaviour:
   - obj: {fileID: 2518979021591781705, guid: aab0b48215dd5ff4bafac2151e64eca8, type: 3}
     popupTime: 19
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices: []
   achievements: []
   letterIDs: 

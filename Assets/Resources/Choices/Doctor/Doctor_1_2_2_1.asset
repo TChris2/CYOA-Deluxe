@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Go Outside
   vid: {fileID: 32900000, guid: c05a71375ccb62849bda5a97fe1f1a5d, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 154
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: eebe7c25e297e0a479a0963988894ba2, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

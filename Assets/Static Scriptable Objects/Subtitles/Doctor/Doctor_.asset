@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.104
+    displayEndTime: 1.604
+    text: '<style="Subtitles_Person_RT">RT</style>: Hello?'
+  - displayStartTime: 3.983
+    displayEndTime: 5.983
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening right now?'
+  - displayStartTime: 7.612
+    displayEndTime: 8.574
+    text: '<style="Subtitles_Person_RT">RT</style>: What''s going on there?'
+  - displayStartTime: 17.146
+    displayEndTime: 17.646
+    text: '<style="Subtitles_Person_RT">RT</style>: What is-'
+  - displayStartTime: 18.881
+    displayEndTime: 20
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening over there?'
+  - displayStartTime: 21.081
+    displayEndTime: 21.581
+    text: '<style="Subtitles_Person_RT">RT</style>: What I-'
+  - displayStartTime: 21.081
+    displayEndTime: 21.581
+    text: <style="Subtitles_Formtat_()">Sigh</style>
+  - displayStartTime: 25.343
+    displayEndTime: 26.85
+    text: '<style="Subtitles_Person_RT">RT</style>: Do-Do you want to explain this?'

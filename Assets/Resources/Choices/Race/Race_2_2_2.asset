@@ -15,14 +15,18 @@ MonoBehaviour:
   choiceID: Race_2_2_2
   choice: Roll For Luck!
   vid: {fileID: 32900000, guid: 35ed7542b4d31ea4ebafdbbab74f1b86, type: 3}
-  choiceState: 02000000
+  choiceState: 0200000003000000
+  firstRunOnly: 0
   vidEndTime: 65
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 2fdc932391b711c4c998c9ae26c9bd58, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed:
   - Bullet Bill

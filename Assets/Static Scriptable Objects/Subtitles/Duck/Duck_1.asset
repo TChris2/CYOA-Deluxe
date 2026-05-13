@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.3
+    displayEndTime: 1.35
+    text: '<style="Subtitles_Person_RT">RT</style>: No, I''m good, I''m good.'
+  - displayStartTime: 1.75
+    displayEndTime: 2.85
+    text: '<style="Subtitles_Person_RT">RT</style>: I am not interested.'
+  - displayStartTime: 4.3
+    displayEndTime: 5.55
+    text: '<style="Subtitles_Person_RT">RT</style>: We need to get to a duck pond.'
+  - displayStartTime: 5.75
+    displayEndTime: 7.26
+    text: <style="Subtitles_Format_[]>Batman Transition Sound</style>
+  - displayStartTime: 7.26
+    displayEndTime: 11.5
+    text: '<style="Subtitles_Person_RT">RT</style>: I think the one, the one that
+      I''ve never been able to try, as like a meat just at all, is just duck.'
+  - displayStartTime: 11.95
+    displayEndTime: 12.75
+    text: '<style="Subtitles_Person_RT">RT</style>: I just can''t do it.'
+  - displayStartTime: 12.75
+    displayEndTime: 13.85
+    text: '<style="Subtitles_Person_RT">RT</style>: I love ducks too much.'
+  - displayStartTime: 15.1
+    displayEndTime: 15.55
+    text: '<style="Subtitles_Person_RT">RT</style>: Can''t do it.'
+  - displayStartTime: 17.55
+    displayEndTime: 21.153
+    text: '<style="Subtitles_Person_RT">RT</style>: You see you know how like Ghouldengo
+      is like a pokemon that''s made of gold coins'
+  - displayStartTime: 21.153
+    displayEndTime: 24.753
+    text: '<style="Subtitles_Person_RT">RT</style>: and you get a thousand of them
+      and then you get like cheesestring man?'
+  - displayStartTime: 25.606
+    displayEndTime: 27.666
+    text: '<style="Subtitles_Person_RT">RT</style>: I''d like to imagine it''s something
+      similar.'
+  - displayStartTime: 29.091
+    displayEndTime: 31.219
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh good lord what''s happening
+      here?'
+  - displayStartTime: 31.65
+    displayEndTime: 34.74
+    text: <style="Subtitles_Format_()>Traffic Noises</style>
+  - displayStartTime: 34.74
+    displayEndTime: 38.45
+    text: '<style="Subtitles_Person_RT">RT</style>: This city is incredibly noisy
+      I can barely hear myself think.'
+  - displayStartTime: 38.7
+    displayEndTime: 40.74
+    text: '<style="Subtitles_Person_RT">RT</style>: Would you <style="YOUTUBE"></style>
+      keep it down there?!'
+  - displayStartTime: 41.76
+    displayEndTime: 42.81
+    text: '<style="Subtitles_Person_RT">RT</style>: Be quiet!'
+  - displayStartTime: 43.728
+    displayEndTime: 47.45
+    text: '<style="Subtitles_Format_()>Loud honking</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      This is...I can''t, I can''t keep this up.'
+  - displayStartTime: 48.2
+    displayEndTime: 49.9
+    text: '<style="Subtitles_Format_()>Loud honking</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      I can''t keep this up. It''s too much.'
+  - displayStartTime: 50.25
+    displayEndTime: 51.55
+    text: '<style="Subtitles_Format_()>Loud honking</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Let''s see if we can try something else.'

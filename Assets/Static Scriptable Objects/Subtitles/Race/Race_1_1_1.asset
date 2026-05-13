@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Race_1_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.21
+    displayEndTime: 1.579
+    text: '<style="Subtitles_Person_RT">RT</style>: Little bit of a tricky one...'
+  - displayStartTime: 1.579
+    displayEndTime: 2.651
+    text: '<style="Subtitles_Person_RT">RT</style>: But not tricky to me.'
+  - displayStartTime: 11.268
+    displayEndTime: 13.778
+    text: '<style="Subtitles_Person_RT">RT</style>: You know they used to call me
+      <style="DriftKing">The Drift King</style> back in college.'
+  - displayStartTime: 33.836
+    displayEndTime: 34.336
+    text: '<style="Subtitles_Person_RT">RT</style>: I''M'
+  - displayStartTime: 34.336
+    displayEndTime: 34.836
+    text: '<style="Subtitles_Person_RT">RT</style>: I''M something'
+  - displayStartTime: 34.836
+    displayEndTime: 35.336
+    text: '<style="Subtitles_Person_RT">RT</style>: I''M something of a'
+  - displayStartTime: 35.336
+    displayEndTime: 35.836
+    text: '<style="Subtitles_Person_RT">RT</style>: I''M something of a DRIFT'
+  - displayStartTime: 35.836
+    displayEndTime: 37.378
+    text: '<style="Subtitles_Person_RT">RT</style>: I''M something of a DRIFT MONARCH.'
+  - displayStartTime: 37.378
+    displayEndTime: 38.612
+    text: '<style="Subtitles_Person_RT">RT</style>: Not just a drift pleb.'
+  - displayStartTime: 40.131
+    displayEndTime: 41.813
+    text: '<style="Subtitles_Person_RT">RT</style>: And what''re you gonna do?!'
+  - displayStartTime: 41.813
+    displayEndTime: 43.375
+    text: '<style="Subtitles_Person_RT">RT</style>: Try and outrun me?'
+  - displayStartTime: 43.375
+    displayEndTime: 44.547
+    text: '<style="Subtitles_Person_RT">RT</style>: Try and outDRIFT me?'
+  - displayStartTime: 44.547
+    displayEndTime: 46.655
+    text: '<style="Subtitles_Person_RT">RT</style>: Try and outSPEED me?!'
+  - displayStartTime: 46.655
+    displayEndTime: 48.655
+    text: '<style="Subtitles_Person_RT">RT</style>: YOU can''t keep up with my turns!'
+  - displayStartTime: 49.587
+    displayEndTime: 51.877
+    text: '<style="Subtitles_Person_RT">RT</style>: YOU can''t outrace ME!'
+  - displayStartTime: 52.562
+    displayEndTime: 53.384
+    text: '<style="Subtitles_Person_RT">RT</style>: THEY CALLED ME <style="DriftKing">THE</style>'
+  - displayStartTime: 53.384
+    displayEndTime: 53.892
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="DriftKing">DRIFT</style>'
+  - displayStartTime: 53.892
+    displayEndTime: 54.868
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="DriftKing">DRIFT KING</style>'
+  - displayStartTime: 54.868
+    displayEndTime: 56.424
+    text: '<style="Subtitles_Person_RT">RT</style>: BACK IN COLLEGE'
+  - displayStartTime: 57
+    displayEndTime: 59.579
+    text: '<style="Subtitles_Person_RT">RT</style>: AND YOU''LL NEVER OVERPASS ME!'
+  - displayStartTime: 60.03
+    displayEndTime: 62.103
+    text: 'Announcer: Congratulation!'

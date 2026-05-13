@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_1_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.01
+    displayEndTime: 1.019
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m sorry I''m gonna have to
+      stop.'
+  - displayStartTime: 1.019
+    displayEndTime: 1.519
+    text: '<style="Subtitles_Person_RT">RT</style>: Y-You...'
+  - displayStartTime: 1.519
+    displayEndTime: 2.062
+    text: '<style="Subtitles_Person_RT">RT</style>: You kinda...'
+  - displayStartTime: 2.062
+    displayEndTime: 3.292
+    text: '<style="Subtitles_Person_RT">RT</style>: You kinda bumming me out, man.'
+  - displayStartTime: 5.001
+    displayEndTime: 5.501
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t know what''s going on.'
+  - displayStartTime: 5.501
+    displayEndTime: 6.239
+    text: '<style="Subtitles_Person_RT">RT</style>: HAAAAAaaa-'
+  - displayStartTime: 10.831
+    displayEndTime: 11.616
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: There we go!'
+  - displayStartTime: 11.616
+    displayEndTime: 12.465
+    text: '<style="Subtitles_Person_RT">RT</style>: Wait wait WAIT WAIT'
+  - displayStartTime: 12.465
+    displayEndTime: 13.053
+    text: '<style="Subtitles_Person_RT">RT</style>: NO! PLEASE!'
+  - displayStartTime: 13.053
+    displayEndTime: 15.692
+    text: '<style="Subtitles_Person_RT">RT</style>: AWWWWwwwww god! Not again!'
+  - displayStartTime: 15.692
+    displayEndTime: 17.692
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: I expect you to die!'

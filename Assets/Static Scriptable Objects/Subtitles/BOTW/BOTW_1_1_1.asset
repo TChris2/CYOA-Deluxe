@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: BOTW_1_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.15
+    displayEndTime: 1.75
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, let me just take the escalator.'
+  - displayStartTime: 5.05
+    displayEndTime: 6.5
+    text: <Style="subtitles_format_[]">Suffering</style>
+  - displayStartTime: 6.5
+    displayEndTime: 7.2
+    text: <Style="subtitles_format_()">Korok Screaming</style>
+  - displayStartTime: 13.15
+    displayEndTime: 13.9
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m flyin.'
+  - displayStartTime: 16.4
+    displayEndTime: 16.65
+    text: '<style="Subtitles_Person_Ganon">Calamity Ganon</style>: Oh.'
+  - displayStartTime: 16.8
+    displayEndTime: 17.75
+    text: '<style="Subtitles_Person_Ganon">Calamity Ganon</style>: Try me'
+  - displayStartTime: 17.75
+    displayEndTime: 18.05
+    text: '<style="Subtitles_Person_Ganon">Calamity Ganon</style>: <style="Youtube"></style>!'
+  - displayStartTime: 19.55
+    displayEndTime: 20.8
+    text: '<style="Subtitles_Person_RT">RT</style>: What appears to be the problem?'

@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/VidTest.unity
     guid: 9974da3f21c0a5a43af9226199c4605f
+  - enabled: 0
+    path: Assets/Scenes/Transition.unity
+    guid: 143f0a03d8e8267408ec1429e6652ad0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4b6fdd8ed0f14e1499a6d75ac261dbd7, type: 3}
   m_UseUCBPForAssetBundles: 0

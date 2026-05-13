@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Race_2_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 29.42
+    displayEndTime: 30.4
+    text: '<style="Subtitles_Person_RT">RT</style>: I hate this.'
+  - displayStartTime: 32.8
+    displayEndTime: 33.8
+    text: '<style="Subtitles_Person_RT">RT</style>: That should be ME!'
+  - displayStartTime: 36.2
+    displayEndTime: 38.8
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m THE Drift King.'
+  - displayStartTime: 44.8
+    displayEndTime: 45.96
+    text: '<style="Subtitles_Person_RT">RT</style>: Try that again!'
+  - displayStartTime: 49.42
+    displayEndTime: 50.511
+    text: '<style="Subtitles_Person_RT">RT</style>: Hit the button.'
+  - displayStartTime: 55.035
+    displayEndTime: 60.6
+    text: '<style="Subtitles_Person_RT">RT</style>: Please! It''s all I''ve got in
+      life.'

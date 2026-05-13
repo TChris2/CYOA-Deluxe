@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Bullet Time Bounce
   vid: {fileID: 32900000, guid: 132703923cbd9da45896e121640833d7, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 896bc19844a3a7c4b832b9eae6d8feaf, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: d3c9b492af82da44089354778387de78, type: 3}
     popupTime: 21
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: Ganon
   thumbnail: {fileID: 21300000, guid: 2f2f8e6c1d0764545b55fb9ecf0a39c8, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 4e8a7764da52bfe40a390b36841879f5, type: 2}
   - {fileID: 11400000, guid: b621f7c95f837ce4189717afa71b122b, type: 2}

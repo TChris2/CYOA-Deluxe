@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Shield
   vid: {fileID: 32900000, guid: 4350e362787081e4087367709f081de5, type: 3}
   choiceState: 02000000
+  firstRunOnly: 0
   vidEndTime: 26.5
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: aae5eb29a856ed5498cec74ddd83010f, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

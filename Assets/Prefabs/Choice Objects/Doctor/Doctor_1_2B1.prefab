@@ -195,7 +195,6 @@ GameObject:
   - component: {fileID: 2374790729203285996}
   - component: {fileID: 5439246223847332498}
   - component: {fileID: 5557785048481979481}
-  - component: {fileID: 848336153666249820}
   m_Layer: 5
   m_Name: Doctor_1_2_1
   m_TagString: Choice Button
@@ -327,18 +326,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &848336153666249820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5173554480562397330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016c1e42ea153f54fab75b137b13fb7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RemoveChoice
 --- !u!1 &6581013392115018349
 GameObject:
   m_ObjectHideFlags: 0

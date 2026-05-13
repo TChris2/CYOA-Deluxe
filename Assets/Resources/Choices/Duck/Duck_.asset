@@ -16,19 +16,24 @@ MonoBehaviour:
   choice: Duck Time!
   vid: {fileID: 32900000, guid: 96189357ebea6c74c8caa95f72f210b0, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 254e6322f1e7fa64a9891e749ee3f94f, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: c38f38010472c6c499f893591ca95d52, type: 3}
     popupTime: 58
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 21300000, guid: 99a873ef6d0e7a2409b40f4ae7176ca0, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 86bb57fce0875e84f82749bc02f748ed, type: 2}
-  - {fileID: 11400000, guid: 7464394392f17e145a6a42714c27cb06, type: 2}
+  - {fileID: 11400000, guid: a6918ceb0c9199f4c9214ec798a49214, type: 2}
   achievements: []
   letterIDs: 
   weaponsUsed: []

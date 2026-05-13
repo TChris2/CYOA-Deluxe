@@ -1,6 +1,8 @@
 using UnityEngine;
 
-// Parent class of achievement scripts, holds general info and functions
+/// <summary>
+/// Parent class of achievement scripts, holds general info and functions
+/// </summary>
 public class Achievement : MonoBehaviour
 {
     [SerializeField]
@@ -8,7 +10,9 @@ public class Achievement : MonoBehaviour
     protected string achieveID;
     protected SaveManager sm;
 
-    // Gets general components
+    /// <summary>
+    /// Gets general components for achievements
+    /// </summary>
     protected void GetComponents()
     {
         sm = FindAnyObjectByType<SaveManager>();
@@ -17,7 +21,9 @@ public class Achievement : MonoBehaviour
         achieveID = achievementInfo.achieveID.Trim();
     }
 
-    // Unlocks achievement and adds it to the achievement popup queue
+    /// <summary>
+    /// Unlocks achievement and adds it to the achievement popup queue
+    /// </summary>
     protected void AchievementUnlock(AchievementInfo achievement, bool isPopup)
     {
         Debug.Log($"Achievement {achievement.achieveID} Unlocked!");

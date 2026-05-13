@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Enter Through The Door
   vid: {fileID: 32900000, guid: f0d92f2423823c742ad34cae8aef3720, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 97
   hasComplete: 0
+  subtitles: {fileID: 0}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

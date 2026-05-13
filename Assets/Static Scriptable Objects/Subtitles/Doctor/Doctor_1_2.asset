@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 3.8
+    displayEndTime: 5.901
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: What do you think
+      of my ...Tardis?'
+  - displayStartTime: 6.035
+    displayEndTime: 7.3
+    text: '<style="Subtitles_Person_RT">RT</style>: It''s Bigger!'
+  - displayStartTime: 7.75
+    displayEndTime: 9.301
+    text: '<style="Subtitles_Person_RT">RT</style>: ON THE INSIDE!'
+  - displayStartTime: 9.612
+    displayEndTime: 10.943
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: It is quite spectacular,
+      isn''t it?'
+  - displayStartTime: 10.943
+    displayEndTime: 13.35
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: All of time and space
+      at a moment''s notice!'
+  - displayStartTime: 13.35
+    displayEndTime: 14.441
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: I can travel there!'
+  - displayStartTime: 14.784
+    displayEndTime: 15.684
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: Wherever I so choose!'
+  - displayStartTime: 15.684
+    displayEndTime: 17.15
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: ...and I just happen
+      to like...'
+  - displayStartTime: 17.8
+    displayEndTime: 19.688
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>:  quarries just west
+      of London!'

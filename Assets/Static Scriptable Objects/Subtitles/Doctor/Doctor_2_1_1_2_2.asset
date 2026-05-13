@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_1_2_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.01
+    displayEndTime: 1.507
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: Well, why don''t
+      you come on inside?'
+  - displayStartTime: 8.001
+    displayEndTime: 9.268
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: What do you think
+      of my whales?'
+  - displayStartTime: 9.645
+    displayEndTime: 10.806
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: It''s quite spectacular,
+      isn''t it?'
+  - displayStartTime: 10.94
+    displayEndTime: 11.954
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: ALLONZY!'
+  - displayStartTime: 12.452
+    displayEndTime: 13.75
+    text: '<style="Subtitles_Person_RT">RT</style>: Stand back. Stand-I''ve got this!'
+  - displayStartTime: 13.75
+    displayEndTime: 14.671
+    text: '<style="Subtitles_Person_RT">RT</style>: Hello, I''m RTGame'
+  - displayStartTime: 27.43
+    displayEndTime: 28.913
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: Okay. Alright. That''s
+      it.'
+  - displayStartTime: 28.914
+    displayEndTime: 30.284
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: I''m gonna put on my
+      ass kicking boots!'

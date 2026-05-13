@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Go With Ivy
   vid: {fileID: 32900000, guid: 7bda316ea4c78044392c0cda28989d1b, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: d0eeeda4fd7622b44b8122dc4ea822e0, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 5c4b96a72b99f974b9f58402fda9eda1, type: 3}
     popupTime: 29.4
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Passageway
   thumbnail: {fileID: 21300000, guid: 88befb65636bfe443aa623fe60d70da0, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 60fd85fdd300f924b917f85876e30ed7, type: 2}
   achievements: []

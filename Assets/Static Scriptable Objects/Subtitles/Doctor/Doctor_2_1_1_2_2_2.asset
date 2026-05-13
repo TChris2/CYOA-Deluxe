@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_1_2_2_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.876
+    displayEndTime: 4.497
+    text: '???: We have to go back, dear viewer!'
+  - displayStartTime: 4.497
+    displayEndTime: 6.734
+    text: '???: But why did most people decide to chicken out at the last moment?'
+  - displayStartTime: 6.734
+    displayEndTime: 8.55
+    text: '???: They might have missed this...'
+  - displayStartTime: 8.55
+    displayEndTime: 10.426
+    text: '???: This is important.'
+  - displayStartTime: 10.426
+    displayEndTime: 12.426
+    text: '???: More important than you realize veiwer!'
+  - displayStartTime: 12.426
+    displayEndTime: 14.116
+    text: '???: Now, let''s continue like nothing happened.'
+  - displayStartTime: 16.211
+    displayEndTime: 17.529
+    text: '<style="Subtitles_Person_RT">RT</style>: The Tardis!'
+  - displayStartTime: 19.738
+    displayEndTime: 21.738
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: Oh, you wanna fight?'
+  - displayStartTime: 22.068
+    displayEndTime: 23.324
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: YOU WANNA FIGHT?!?'
+  - displayStartTime: 23.324
+    displayEndTime: 25.324
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: You don''t wanna
+      mess with me, you wanna fight?'
+  - displayStartTime: 26.014
+    displayEndTime: 28.014
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: Ok, alright. That''s
+      it.'
+  - displayStartTime: 29.027
+    displayEndTime: 30.717
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: I''m gonna put on
+      my ASS KICKING BOOTS!'
+  - displayStartTime: 31.508
+    displayEndTime: 32.144
+    text: '<style="Subtitles_Person_RT">RT</style>: What is-'
+  - displayStartTime: 33.493
+    displayEndTime: 35.183
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening right now?'
+  - displayStartTime: 35.974
+    displayEndTime: 37.974
+    text: '<style="Subtitles_Person_RT">RT</style>: Do-Do you want to explain this?'
+  - displayStartTime: 43.628
+    displayEndTime: 44.636
+    text: '<style="Subtitles_Person_RT">RT</style>: NO! NO! NO!'
+  - displayStartTime: 44.636
+    displayEndTime: 46.326
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m not playing anymore! I''m
+      not playing with you!'
+  - displayStartTime: 46.61
+    displayEndTime: 48.61
+    text: '<style="Subtitles_Person_RT">RT</style>: This is wrong! This is SICK!'
+  - displayStartTime: 48.61
+    displayEndTime: 50.35
+    text: '<style="Subtitles_Person_RT">RT</style>: Come back when you get a gamer
+      license!'

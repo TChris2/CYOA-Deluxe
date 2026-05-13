@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Race_2_2_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 6.427
+    displayEndTime: 9.62
+    text: <style="Subtitles_Format_Song">Can you see all of me?</style>
+  - displayStartTime: 9.62
+    displayEndTime: 12.786
+    text: <style="Subtitles_Format_Song">Walk into my mystery</style>
+  - displayStartTime: 12.786
+    displayEndTime: 17.271
+    text: <style="Subtitles_Format_Song">Baby step inside and hold on for dear life</style>
+  - displayStartTime: 20.261
+    displayEndTime: 20.761
+    text: <style="Subtitles_Format_Song">Do you</style>
+  - displayStartTime: 22.187
+    displayEndTime: 24.613
+    text: <style="Subtitles_Format_()">RT Screams</style>
+  - displayStartTime: 61.001
+    displayEndTime: 62.079
+    text: '<style="Subtitles_Person_RT">RT</style>: UARGH'

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Continue
   vid: {fileID: 32900000, guid: 42c7a7d5fbad47245bd5a1edf849d88d, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: a228950e7ac38e0479bc91cc4e8f03a9, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: d3c9b492af82da44089354778387de78, type: 3}
     popupTime: 21.3
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 4e8a7764da52bfe40a390b36841879f5, type: 2}
   - {fileID: 11400000, guid: b621f7c95f837ce4189717afa71b122b, type: 2}

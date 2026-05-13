@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: BOTW_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.01
+    displayEndTime: 1.95
+    text: '<style="Subtitles_Person_RT">RT</style>: This how you''re spending your
+      night?'
+  - displayStartTime: 5
+    displayEndTime: 5.75
+    text: '<style="Subtitles_Person_RT">RT</style>: Well fair play.'
+  - displayStartTime: 7.85
+    displayEndTime: 8.55
+    text: '<style="Subtitles_Person_RT">RT</style>: Ah.'
+  - displayStartTime: 10.3
+    displayEndTime: 12.65
+    text: '<style="Subtitles_Person_RT">RT</style>: Isolation is healthy and normal.'
+  - displayStartTime: 14.75
+    displayEndTime: 15.35
+    text: '<style="Subtitles_Person_RT">RT</style>: Over there?'

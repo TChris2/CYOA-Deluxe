@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_1_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.4
+    displayEndTime: 2.607
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: WHAT IS  WRONG WITH
+      YOU!'
+  - displayStartTime: 2.607
+    displayEndTime: 3.107
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: YOU-YOU'
+  - displayStartTime: 3.793
+    displayEndTime: 4.686
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: YOU PSYCHO!'
+  - displayStartTime: 6.001
+    displayEndTime: 7.115
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: YOU DEGENERATE'
+  - displayStartTime: 7.641
+    displayEndTime: 8.636
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: AT THE OTHER END
+      OF THAT CAMERA!'
+  - displayStartTime: 9.158
+    displayEndTime: 11
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: NOBODY WANTS TO BE
+      HERE!'
+  - displayStartTime: 11.782
+    displayEndTime: 13.32
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: WHEN YOU OR WILL
+      YOU PERISH?!?'
+  - displayStartTime: 14.172
+    displayEndTime: 15.697
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: JUST DIE ALREADY!'
+  - displayStartTime: 15.909
+    displayEndTime: 16.938
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: JUST DIE!'
+  - displayStartTime: 16.979
+    displayEndTime: 18.58
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: I AM NOT DOING THAT.'
+  - displayStartTime: 19.283
+    displayEndTime: 20.325
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: YOU CAN''T MAKE ME!'
+  - displayStartTime: 22.4
+    displayEndTime: 23.175
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: I DON''T CARE'
+  - displayStartTime: 24.7
+    displayEndTime: 25.2
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: NO.'
+  - displayStartTime: 26.419
+    displayEndTime: 27
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: NO!'

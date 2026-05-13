@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Jump Out of The Window
   vid: {fileID: 32900000, guid: b8bd9c0f9266bbc4c8e1a090c1bdf4a8, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 1dafc95635f2e9248871a1633b63fbfa, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 571cf71c6deb74b4aa039c240c501a88, type: 3}
     popupTime: 33.5
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Plaza
   thumbnail: {fileID: 21300000, guid: dcab98c17d0d6e749a7b2a6906e38b28, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: de546c78849208d4787eeac2af287111, type: 2}
   - {fileID: 11400000, guid: c5ebb1b9a4620ae438a08a45fbdeff49, type: 2}

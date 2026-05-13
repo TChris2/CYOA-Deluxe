@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_1_2_2_1_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.4
+    displayEndTime: 1.35
+    text: '<style="Subtitles_Person_RT">RT</style>: Dancin Birdie.'
+  - displayStartTime: 2.9
+    displayEndTime: 3.45
+    text: <style="Subtitles_Format_()">Gunshot</style>
+  - displayStartTime: 7.7
+    displayEndTime: 9.7
+    text: <style="Subtitles_Format_()">Explosion</style>
+  - displayStartTime: 12.9
+    displayEndTime: 14.1
+    text: '<style="Subtitles_Person_RT">RT</style>: And we need runnin okay.'
+  - displayStartTime: 15.7
+    displayEndTime: 17.2
+    text: '<style="Subtitles_Person_RT">RT</style>: Stand back, stand- I got this.'
+  - displayStartTime: 20.2
+    displayEndTime: 20.7
+    text: <style="Subtitles_Format_[]">Passageway Opens</style>
+  - displayStartTime: 21.6
+    displayEndTime: 22.15
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m leavin.'

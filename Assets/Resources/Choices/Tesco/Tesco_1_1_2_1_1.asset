@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Inspect The Wall?
   vid: {fileID: 32900000, guid: 60cd775326eeb9946abd64ca5c41211e, type: 3}
   choiceState: 0200000003000000
+  firstRunOnly: 0
   vidEndTime: 43.2
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: dd35f43393f2d034daefc2068338b56c, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

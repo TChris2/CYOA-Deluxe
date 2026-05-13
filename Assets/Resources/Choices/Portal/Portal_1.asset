@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Unity
   vid: {fileID: 32900000, guid: 5b9a36b5ddd62894088b478acf7b27a8, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 8919ce1cdb0aee44fb8cd06e60f555ee, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: deed110f6eedda64b9bcad0b0ffa74d9, type: 3}
     popupTime: 18
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 21300000, guid: 3fb7e3b23cbec0348a06d50fa0ffc4e1, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 1e533665d91436b41ae518688de9a55c, type: 2}
   - {fileID: 11400000, guid: 15bd67ff096fd9546bad9c5d477df1a0, type: 2}

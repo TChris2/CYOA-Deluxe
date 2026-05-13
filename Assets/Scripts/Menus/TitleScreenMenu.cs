@@ -5,6 +5,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
+// Functionality for the Title Screen menu
 public class TitleScreenMenu : MonoBehaviour
 {
     [Header("Main List Buttons")]

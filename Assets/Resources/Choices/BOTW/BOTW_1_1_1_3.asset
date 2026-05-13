@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Bizarre Looking Arrow
   vid: {fileID: 32900000, guid: 79d3cf4163d830c4c85c10d6efb3c12d, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 35
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 4a036a80775aa984a81a854040887135, type: 2}
   objs:
   - obj: {fileID: 7709538928818179221, guid: 4e3c496531e88b54981cd9b3d0d85fb3, type: 3}
     popupTime: 35.4
     isSkippable: 1
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices: []
   achievements: []
   letterIDs: 

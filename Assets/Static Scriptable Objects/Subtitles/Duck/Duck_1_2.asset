@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.199
+    displayEndTime: 2.75
+    text: '<style="Subtitles_Person_RT">RT</style>: There might be something in the
+      swamp, it might be worth checking.'
+  - displayStartTime: 2.75
+    displayEndTime: 5.7
+    text: '<style="Subtitles_Person_RT">RT</style>: There is also a completely different
+      path we just haven''t gone down.'
+  - displayStartTime: 27.15
+    displayEndTime: 29.55
+    text: 'GPS: In 500 meters turn right.'
+  - displayStartTime: 37
+    displayEndTime: 37.85
+    text: '<style="Subtitles_Person_RT">RT</style>: What is that?'
+  - displayStartTime: 39.4
+    displayEndTime: 40.8
+    text: '<style="Subtitles_Person_RT">RT</style>: There''s a lot of blood up here...'
+  - displayStartTime: 42.1
+    displayEndTime: 42.95
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t like that'
+  - displayStartTime: 46.4
+    displayEndTime: 47.65
+    text: Holy <style="Youtube"></style>

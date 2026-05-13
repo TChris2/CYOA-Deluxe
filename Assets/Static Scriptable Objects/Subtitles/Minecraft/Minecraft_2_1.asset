@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Minecraft_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.135
+    displayEndTime: 1.52
+    text: '<style="Subtitles_Person_RT">RT</style>: Uh, no.'
+  - displayStartTime: 8.601
+    displayEndTime: 11.435
+    text: '<style="Subtitles_Person_RT">RT</style>: Your uh... Your old man needs
+      to pick up some cigarettes as well, you know.'
+  - displayStartTime: 11.435
+    displayEndTime: 14.895
+    text: '<style="Subtitles_Person_RT">RT</style>: So I''ll be... I''ll be back
+      in just a few minutes.'
+  - displayStartTime: 15.441
+    displayEndTime: 16.838
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening over there?!'
+  - displayStartTime: 17.671
+    displayEndTime: 18.397
+    text: '<style="Subtitles_Person_RT">RT</style>: What i-'
+  - displayStartTime: 19.82
+    displayEndTime: 21.18
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh why is it coming closer, oh
+      GO-'
+  - displayStartTime: 21.18
+    displayEndTime: 22.22
+    text: '<style="Subtitles_Format_()">Rapidly approaching bee noises</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Oh why is it coming closer, oh GO-'
+  - displayStartTime: 23.1
+    displayEndTime: 23.781
+    text: '<style="Subtitles_Person_RT">RT</style>: Okay.'
+  - displayStartTime: 37.727
+    displayEndTime: 39.727
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t know what''s happening.'
+  - displayStartTime: 40.281
+    displayEndTime: 43.381
+    text: '<style="Subtitles_Person_RT">RT</style>: This is- this is where I live,
+      um... so come on, I''ll-'
+  - displayStartTime: 43.381
+    displayEndTime: 45
+    text: '<style="Subtitles_Person_RT">RT</style>: Yeah, I''ll sh- I''ll show you
+      about.'
+  - displayStartTime: 45.281
+    displayEndTime: 46.609
+    text: '<style="Subtitles_Person_RT">RT</style>: Hey gamers.'
+  - displayStartTime: 46.609
+    displayEndTime: 50.949
+    text: '<style="Subtitles_Person_RT">RT</style>: It''s me, your favorite game
+      developer... John Gamer.'
+  - displayStartTime: 51.775
+    displayEndTime: 55.489
+    text: '<style="Subtitles_Person_RT">RT</style>: We wanna change the way you experience
+      video games.'
+  - displayStartTime: 55.489
+    displayEndTime: 58.496
+    text: '<style="Subtitles_Person_RT">RT</style>: Which is why, we''re excited
+      to announce'
+  - displayStartTime: 60.001
+    displayEndTime: 60.501
+    text: '<style="Subtitles_Person_RT">RT</style>: our next exciting product.'
+  - displayStartTime: 60.501
+    displayEndTime: 61.908
+    text: '<style="Subtitles_Person_Droub">DroubGaming</style>: Who is this dude?
+
+      <style="Subtitles_Person_RT">RT</style>:
+      our next exciting product.'
+  - displayStartTime: 61.908
+    displayEndTime: 63.213
+    text: '<style="Subtitles_Person_Droub">DroubGaming</style>: I swear the president
+      was the one'
+  - displayStartTime: 63.213
+    displayEndTime: 63.898
+    text: '<style="Subtitles_Person_Droub">DroubGaming</style>: supposed to deliver
+      a speech today.
+
+      <style="Subtitles_Person_RT">RT</style>: Wow.'
+  - displayStartTime: 63.898
+    displayEndTime: 65
+    text: '<style="Subtitles_Person_Droub">DroubGaming</style>: supposed to deliver
+      a speech today.'
+  - displayStartTime: 65
+    displayEndTime: 66.265
+    text: '<style="Subtitles_Person_RT">RT</style>: Just look at it.'
+  - displayStartTime: 68.612
+    displayEndTime: 71.035
+    text: '<style="Subtitles_Person_WoodmanTK">WoodmanTK</style>: Okay, I''m here.
+      Now to deliver my speech.
+
+      <style="Subtitles_Person_RT">RT</style>: We
+      think this is what you, the gamer, want.'
+  - displayStartTime: 71.035
+    displayEndTime: 72.465
+    text: '<style="Subtitles_Person_RT">RT</style>: We think this is what you, the
+      gamer, want.'
+  - displayStartTime: 73.05
+    displayEndTime: 75.05
+    text: '<style="Subtitles_Person_RT">RT</style>: And we couldn''t be happier'
+  - displayStartTime: 75.702
+    displayEndTime: 76.264
+    text: '<style="Subtitles_Person_RT">RT</style>: to deliver it to you.'
+  - displayStartTime: 76.264
+    displayEndTime: 76.911
+    text: '<style="Subtitles_Person_WoodmanTK">WoodmanTK</style>: What the fu-
+
+      <style="Subtitles_Person_RT">RT</style>:
+      to deliver it to you.'

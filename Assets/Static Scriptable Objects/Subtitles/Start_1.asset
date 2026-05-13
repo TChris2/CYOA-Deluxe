@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Start_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 4.9
+    displayEndTime: 11.5
+    text: <Style="subtitles_Person_SubtitlesGuy">Subtitles guy here, I hope you enjoy
+      this collab!</style>
+  - displayStartTime: 18.581
+    displayEndTime: 20.131
+    text: '<style="Subtitles_Person_RT">RT</style>: I know where you live.'
+  - displayStartTime: 21.454
+    displayEndTime: 22.301
+    text: <style="Subtitles_Format_()">Engine Rev</style>
+  - displayStartTime: 35.428
+    displayEndTime: 36.258
+    text: <style="Subtitles_Format_()">Clock Breaks</style>
+  - displayStartTime: 52
+    displayEndTime: 56
+    text: <style="Subtitles_Person_SubtitlesGuy">Both me and Cab want to thank every
+      single editor, artist and clip provider for the help with this project... Thank
+      you!</style>
+  - displayStartTime: 64
+    displayEndTime: 68.5
+    text: '<style="Subtitles_Person_RT">RT</style>: Anywhere in time and space, and
+      we don''t kill.'
+  - displayStartTime: 70.4
+    displayEndTime: 71.8
+    text: '<style="Subtitles_Person_RT">RT</style>: And I don''t want to break that
+      rule.
+
+      <style="Subtitles_Person_SubtitlesGuy">Enjoy the show!</style>'

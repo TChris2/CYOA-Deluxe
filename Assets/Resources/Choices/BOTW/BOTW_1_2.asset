@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Steal Apple
   vid: {fileID: 32900000, guid: a0bb1907520184c44a8abcf5e57dee52, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: c252ecef3f1d0a846944f75d4bd3e94e, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 19c28a0bb343b214fadc253480e3fba5, type: 3}
     popupTime: 13
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Cliff
   thumbnail: {fileID: 21300000, guid: 49dd5bd52e2bad8418c5a8f3815c6075, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: c15a139a4934f2248b37f5dca192b88a, type: 2}
   achievements: []

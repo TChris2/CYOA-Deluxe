@@ -4,15 +4,15 @@ using System.Collections;
 // Script attached to Letter Circle Object as a means of reaching the GameManager script as a animation event
 public class FinaleStart : MonoBehaviour
 {
-    public GameManager gm;
+    public FinaleManager fm;
     void Reset()
     {
-        gm = FindAnyObjectByType<GameManager>();
+        fm = FindAnyObjectByType<FinaleManager>();
     }
 
     public IEnumerator StartFinale()
     {
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(gm.StartFinale());
+        yield return new WaitForSeconds(2.5f);
+        fm.StartFinale();
     }
 }

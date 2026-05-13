@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Minecraft_3
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.587
+    displayEndTime: 3.221
+    text: '<style="Subtitles_Person_RT">RT</style>: We need to build!'
+  - displayStartTime: 6.038
+    displayEndTime: 8
+    text: '<style="Subtitles_Person_RT">RT</style>: ...y''know, we''re gonna be moving
+      about a lot.'
+  - displayStartTime: 14.307
+    displayEndTime: 15.892
+    text: '<style="Subtitles_Person_RT">RT</style>: That''s fantastic!'
+  - displayStartTime: 16.543
+    displayEndTime: 18.543
+    text: '<style="Subtitles_Person_RT">RT</style>: Wow, I really gotta hand it to
+      ya.'
+  - displayStartTime: 18.952
+    displayEndTime: 22.128
+    text: '<style="Subtitles_Person_RT">RT</style>: That''s my boy! Oh, that''s my
+      boy!'
+  - displayStartTime: 22.128
+    displayEndTime: 24.128
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, I''m so proud of you!'
+  - displayStartTime: 26.512
+    displayEndTime: 27.647
+    text: '<style="Subtitles_Person_RT">RT</style>: No.'
+  - displayStartTime: 28.346
+    displayEndTime: 29.308
+    text: '<style="Subtitles_Person_RT">RT</style>: No.'
+  - displayStartTime: 35.689
+    displayEndTime: 38.312
+    text: '<style="Subtitles_Person_RT">RT</style>: Uh... Where is the spatula gone?'
+  - displayStartTime: 38.312
+    displayEndTime: 38.859
+    text: '<style="Subtitles_Person_RT">RT</style>: HEUAGH!'
+  - displayStartTime: 41.183
+    displayEndTime: 42
+    text: <style="Subtitles_Format_[]">Resurfaces</style>
+  - displayStartTime: 42
+    displayEndTime: 47.16
+    text: <style="Subtitles_Format_()">Various Cries of Panic</style>
+  - displayStartTime: 54.001
+    displayEndTime: 55.309
+    text: '<style="Subtitles_Person_RT">RT</style>: Let''s go, gamers!'
+  - displayStartTime: 58.631
+    displayEndTime: 59.835
+    text: '<style="Subtitles_Person_RT">RT</style>: What is this?'
+  - displayStartTime: 62.214
+    displayEndTime: 63.28
+    text: '<style="Subtitles_Person_RT">RT</style>: Yikes.'
+  - displayStartTime: 64.879
+    displayEndTime: 65.703
+    text: '<style="Subtitles_Person_RT">RT</style>: Have a good one.'
+  - displayStartTime: 75.358
+    displayEndTime: 78.673
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">Muffled</style>
+      And on Sunday, it''s gonna be a snow day.'
+  - displayStartTime: 78.674
+    displayEndTime: 82.127
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">Muffled</style>
+      And that''s the weather, with Rumble Tumble.'
+  - displayStartTime: 83.289
+    displayEndTime: 85.081
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">Muffled</style>
+      Get us out of here, get us out-'
+  - displayStartTime: 85.081
+    displayEndTime: 87.081
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">Muffled</style>
+      How close is the storm?!'
+  - displayStartTime: 87.081
+    displayEndTime: 89.081
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">Muffled</style>
+      How close is the sto- Get us-'
+  - displayStartTime: 96.624
+    displayEndTime: 98.624
+    text: '<style="Subtitles_Person_RT">RT</style>: My favorite sauce is water.'
+  - displayStartTime: 100.444
+    displayEndTime: 102
+    text: '<style="Subtitles_Person_RT">RT</style>: Sorry, that''s hard to do.'
+  - displayStartTime: 103.401
+    displayEndTime: 106.473
+    text: '<style="Subtitles_Person_RT">RT</style>: Remember, stay in school, and
+      drink...'
+  - displayStartTime: 107.76
+    displayEndTime: 109.76
+    text: '<style="Subtitles_Person_RT">RT</style>: ..."Potion Of Explosion"!'
+  - displayStartTime: 111.004
+    displayEndTime: 117.086
+    text: <style="Subtitles_Format_[]">He Drink</style>
+  - displayStartTime: 117.086
+    displayEndTime: 117.7
+    text: '<style="Subtitles_Person_RT">RT</style>: EUEAGGH-'
+  - displayStartTime: 118.565
+    displayEndTime: 120.323
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, I''m dancin'' now!'

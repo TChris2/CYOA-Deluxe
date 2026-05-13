@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: BOTW_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.2
+    displayEndTime: 0.8
+    text: <Style="subtitles_format_[]">Korok Punted</style>
+  - displayStartTime: 3.2
+    displayEndTime: 4.5
+    text: '<style="Subtitles_Person_RT">RT</style>: That''s how you kicked a football.'
+  - displayStartTime: 12.2
+    displayEndTime: 17.15
+    text: <Style="subtitles_format_[]">Old Man Rambling</style>
+  - displayStartTime: 17.93
+    displayEndTime: 21.1
+    text: <Style="subtitles_format_[]">The Face of a Sane Man</Style>

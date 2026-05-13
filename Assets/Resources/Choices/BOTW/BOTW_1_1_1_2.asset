@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Diamond Sword
   vid: {fileID: 32900000, guid: 45fe58be52e47b34d815c63972a951ed, type: 3}
   choiceState: 0000000002000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 232694dc54ffd8c40a25668492fefb12, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 22afd57c1096ca44696f315ac0f4f487, type: 3}
     popupTime: 5.37
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: You Died!
   thumbnail: {fileID: 21300000, guid: 521f159f75e9b6b408058554140bd0dd, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 938e1bf73697f1b44ae63668f897cfaf, type: 2}
   - {fileID: 11400000, guid: 5a267dd02818ee4448495f9d642c2060, type: 2}

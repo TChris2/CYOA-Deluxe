@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Murder The Cashier
   vid: {fileID: 32900000, guid: 09322980f96d0b842ad3f2fa980e6449, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 67a66736a7c82c941ad01fec375fba61, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: f48ff3c3f835a9540bf49efd45b6e72f, type: 3}
     popupTime: 22.2
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
-  thumbnail: {fileID: 21300000, guid: 5b491541635aaa043810a1178cd53e56, type: 3}
+  mapName: The Entryway
+  thumbnail: {fileID: 21300000, guid: dda198469fb29474190fd71efa21a62e, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 20d6cb6067c67fe408c9e8ce10cd8326, type: 2}
   - {fileID: 11400000, guid: c16d44a5804c6ca4280332e2579a6222, type: 2}

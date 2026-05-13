@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Observe Surroundings
   vid: {fileID: 32900000, guid: b198945421bffa946b8dd8c7d316c8dd, type: 3}
   choiceState: 0300000002000000
+  firstRunOnly: 0
   vidEndTime: 200
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 2179559fcf2cdf24ebb3cd9830f75645, type: 2}
   objs:
   - obj: {fileID: 7709538928818179221, guid: 7c13e242e4a9e5748bcacd481a5130fe, type: 3}
     popupTime: 200.7
     isSkippable: 1
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices: []
   achievements: []
   letterIDs: 

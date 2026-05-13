@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_3
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.469
+    displayEndTime: 1.778
+    text: '<style="Subtitles_Person_RT">RT</style>: Let''s get all the walking out
+      of the way.'
+  - displayStartTime: 2.552
+    displayEndTime: 3.06
+    text: <style="Subtitles_Format_[]">Car Door Opens</style>
+  - displayStartTime: 14.037
+    displayEndTime: 15.895
+    text: '???: Get a load of this guy!'
+  - displayStartTime: 15.895
+    displayEndTime: 17.053
+    text: '???: <style="Subtitles_Format_()">Laughs</style>'
+  - displayStartTime: 18.891
+    displayEndTime: 20.346
+    text: '???: What''s he doing?'
+  - displayStartTime: 20.346
+    displayEndTime: 21.365
+    text: '???: HEY!'
+  - displayStartTime: 30.04
+    displayEndTime: 30.55
+    text: <style="Subtitles_Format_[]">Gun Clicks</style>
+  - displayStartTime: 31.227
+    displayEndTime: 31.727
+    text: '???: Hey!'
+  - displayStartTime: 34.59
+    displayEndTime: 35.476
+    text: '<style="Subtitles_Person_RT">RT</style>: That was like a worrying ''hey''.'
+  - displayStartTime: 35.748
+    displayEndTime: 36.248
+    text: '<style="Subtitles_Person_RT">RT</style>: Hey!'

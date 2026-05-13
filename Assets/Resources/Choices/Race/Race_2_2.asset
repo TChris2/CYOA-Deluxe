@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Shoot Boone
   vid: {fileID: 32900000, guid: 682f9429093b6404480b8d3fe25bf30a, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 87272ab9dd8858d42bfef822191a6686, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: a5252e920af44cf4d80816adc04f8b0a, type: 3}
     popupTime: 26
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: Roll of The Dice
   thumbnail: {fileID: 21300000, guid: 6416bb3d64754b543a585712b07b1a08, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 2dd3464dcd09aef40a966babcca52562, type: 2}
   - {fileID: 11400000, guid: 2a077cadb74154349b3b162f0e0daad4, type: 2}

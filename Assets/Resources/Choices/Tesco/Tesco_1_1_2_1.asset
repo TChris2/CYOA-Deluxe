@@ -22,10 +22,13 @@ MonoBehaviour:
   - obj: {fileID: 2518979021591781705, guid: f29239c15826b8a4db2012387d6ba7f1, type: 3}
     popupTime: 9.4
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Back Aisle
   thumbnail: {fileID: 21300000, guid: e818a8b0ab1bee440a12a33b4d861c94, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 8c822c1b41bc32c41bdee2661c0a915c, type: 2}
   - {fileID: 11400000, guid: 79559c6ea10345f48915a6e74b58d453, type: 2}

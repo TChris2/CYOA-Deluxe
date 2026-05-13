@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Start_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.6
+    displayEndTime: 7.7
+    text: <i><style="Color_Red">He awaits...</style></i>
+  - displayStartTime: 10.709
+    displayEndTime: 11.542
+    text: <style="Subtitles_Format_()">Irish Man Waking Up Noises</style>
+  - displayStartTime: 15.6
+    displayEndTime: 20.4
+    text: '<style="Subtitles_Person_RT">RT</style>: Higher! Higher! Higher! HIGHER-'
+  - displayStartTime: 20.48
+    displayEndTime: 21.9
+    text: 'Narrator: <i>One Hour Later</i>'
+  - displayStartTime: 22.03
+    displayEndTime: 31.8
+    text: <style="Subtitles_Format_[]">Irish Man Laughing at the Suffering of Others</style>
+  - displayStartTime: 31.92
+    displayEndTime: 33.42
+    text: 'Narrator: <i>Two Hours Later</i>'
+  - displayStartTime: 33.72
+    displayEndTime: 37.2
+    text: '<style="Subtitles_Person_RT">RT</style>: This city is incredibly noisy
+      I can barely hear myself think-'
+  - displayStartTime: 37.24
+    displayEndTime: 39.8
+    text: '<style="Subtitles_Person_RT">RT</style>: JUST <style=YOUTUBE></style>
+      KEEP IT DOWN THERE!'
+  - displayStartTime: 39.9
+    displayEndTime: 41.23
+    text: 'Narrator: <i>Three Hours Later</i>'
+  - displayStartTime: 44
+    displayEndTime: 46.4
+    text: <style="Subtitles_Format_[]">Portal Manifests Into Existence</style>
+  - displayStartTime: 46.7
+    displayEndTime: 48
+    text: <style="Subtitles_Format_()">Bad Microphone</style>
+  - displayStartTime: 50
+    displayEndTime: 51
+    text: '<style="Subtitles_Person_RT">RT</style>: Whats That Over there?'
+  - displayStartTime: 52
+    displayEndTime: 52.3
+    text: '<style="Subtitles_Person_RT">RT</style>: <i>What?</i>'
+  - displayStartTime: 54.5
+    displayEndTime: 56.4
+    text: '<style="Subtitles_Person_RT">RT</style>: What is that? Hang on-'
+  - displayStartTime: 61.4
+    displayEndTime: 63.85
+    text: '<style="Subtitles_Person_RT">RT</style>: What is that over there?'
+  - displayStartTime: 67.3
+    displayEndTime: 68.8
+    text: '<style="Subtitles_Person_RT">RT</style>: What''s going on in there?'
+  - displayStartTime: 69.8
+    displayEndTime: 70.2
+    text: <style="Subtitles_Format_()">Confused Irish Man Noises</style>
+  - displayStartTime: 71.8
+    displayEndTime: 73.33
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening right now?'
+  - displayStartTime: 76.4
+    displayEndTime: 78
+    text: '<style="Subtitles_Person_RT">RT</style>: Do you want to explain this?'
+  - displayStartTime: 80.7
+    displayEndTime: 83.1
+    text: <style="Subtitles_Format_()">Confused Irish Man Noises</style>
+  - displayStartTime: 83.5
+    displayEndTime: 85.2
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t know what I''m watchin.'

@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Get The Hell Outta Here
   vid: {fileID: 32900000, guid: d650a1b0d973e2442bbf332218720a49, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 32
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: e1bbdc0def9569b43b21480d1cb36e35, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

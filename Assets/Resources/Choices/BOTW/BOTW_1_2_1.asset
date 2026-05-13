@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Bullet Time Bounce
   vid: {fileID: 32900000, guid: a9313a4ffa7323f46b2cc8dba1a3e4c9, type: 3}
   choiceState: 0200000003000000
+  firstRunOnly: 0
   vidEndTime: 35
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 0db1634aa0f6453409eba1ffa7d610eb, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

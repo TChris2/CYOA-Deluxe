@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-// Stores choice info
+/// <summary>
+/// Stores choice info
+/// </summary>
 [CreateAssetMenu(fileName = "ChoiceInfo", menuName = "Scriptable Objects/ChoiceInfo")]
 public class ChoiceInfo : ScriptableObject
 {
@@ -16,10 +18,14 @@ public class ChoiceInfo : ScriptableObject
     public VideoClip vid;
     [Tooltip("State of choice")]
     public List<ChoiceState> choiceState;
+    [Tooltip("If the choice only appears on the player's first run through a choice")]
+    public bool firstRunOnly;
     [Tooltip("Time when the retry menu pops up if the choice is a gameover or ending")]
     public float vidEndTime;
     [Tooltip("Whether the player has done the choice")]
     public bool hasComplete;
+    [Tooltip("Subtitles for the vid")]
+    public SubtitleInfo subtitles;
     [Tooltip("Objects spawned during the choice")]
     public List<ObjectInfo> objs;
     // Map menu info
@@ -28,6 +34,11 @@ public class ChoiceInfo : ScriptableObject
     public string mapName;
     [Tooltip("Screenshot of the video which will be displayed in the map menu")]
     public Sprite thumbnail;
+    [Tooltip("If the choice is on the map")]
+    public bool isOnMap;
+    // Stores next choices on the maps
+    [HideInInspector]
+    public List<ChoiceInfo> mapNextChoices;
     [Header("Stat Tracking")]
     [Tooltip("Ids of next choices the player can make from the current choice\nUsed to display completed choices in the map menu")]
     public List<ChoiceInfo> nextChoices;
@@ -41,18 +52,24 @@ public class ChoiceInfo : ScriptableObject
     [HideInInspector]
     public bool updateDisplay = true;
 
-    // Adds info to new instance of ChoiceInfo
+    /// <summary>
+    /// Adds info to new instance of ChoiceInfo
+    /// </summary>
     public void AddInfo(ChoiceInfo choiceInfo)
     {
         choiceID = choiceInfo.choiceID;
         choice = choiceInfo.choice;
         vid = choiceInfo.vid;
         choiceState = choiceInfo.choiceState;
+        firstRunOnly = choiceInfo.firstRunOnly;
         vidEndTime = choiceInfo.vidEndTime;
         hasComplete = choiceInfo.hasComplete;
+        subtitles = choiceInfo.subtitles;
         objs = choiceInfo.objs;
         mapName = choiceInfo.mapName;
         thumbnail = choiceInfo.thumbnail;
+        isOnMap = thumbnail != null;
+        mapNextChoices = new List<ChoiceInfo>();
         nextChoices = choiceInfo.nextChoices;
         achievements = choiceInfo.achievements;
         letterIDs = choiceInfo.letterIDs;
@@ -71,7 +88,9 @@ public class ChoiceInfo : ScriptableObject
     }
 }
 
-// Stores info on buttons spawned during the choice vid
+/// <summary>
+/// Stores info on objects spawned during the choice vid
+/// </summary>
 [System.Serializable]
 public class ObjectInfo
 {
@@ -89,13 +108,18 @@ public class ObjectInfo
     public float despawnTime;
 }
 
-// Simplified version of the class used to save the vital information to json
+/// <summary>
+/// Simplified version of the class used to save the vital information
+/// </summary>
 [System.Serializable]
 public class ChoiceSaveData
 {
     public string choiceID;
     public bool hasComplete;
 
+    /// <summary>
+    /// Adds info to new instance of ChoiceSaveData
+    /// </summary>
     public ChoiceSaveData(string choiceID, bool hasComplete)
     {
         this.choiceID = choiceID;

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: BOTW_1_1_1_3
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 16.7
+    displayEndTime: 17.6
+    text: '<style="Subtitles_Person_JimmyHere">JimmyHere</style>: You think your
+      tough?'
+  - displayStartTime: 17.65
+    displayEndTime: 19.4
+    text: <Style="subtitles_format_[]">Calamity Ganon Roars</Style>
+  - displayStartTime: 19.65
+    displayEndTime: 21.3
+    text: '<style="Subtitles_Person_JimmyHere">JimmyHere</style>: Imagine being as
+      tough as this.'
+  - displayStartTime: 21.35
+    displayEndTime: 21.8
+    text: '<style="Subtitles_Person_RT">RT</style>: Guilty.'
+  - displayStartTime: 22
+    displayEndTime: 23
+    text: '<style="Subtitles_Person_JimmyHere">JimmyHere</style>: ORA! ORA! ORA!
+      ORA! ORA! ORA! ORA! ORA!'
+  - displayStartTime: 23.2
+    displayEndTime: 23.5
+    text: '<style="Subtitles_Person_JimmyHere">JimmyHere</style>: <size=150%>O R
+      A !</size>'

@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Do Nothing
   vid: {fileID: 32900000, guid: 8b751ab6e9567884f841f0c7545cdcd8, type: 3}
   choiceState: 02000000
+  firstRunOnly: 0
   vidEndTime: 13.8
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 0bdec5855a3756849b053785b9fb6667, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

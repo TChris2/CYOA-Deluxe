@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Join Them
   vid: {fileID: 32900000, guid: 691dc3c77e86dd04dba19c24bf589559, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 75
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: b9212b4a7637ac04097d81179b55d6a9, type: 2}
   objs:
   - obj: {fileID: 7709538928818179221, guid: 9ffe3b0585199074d8a972e4f71ca3af, type: 3}
     popupTime: 91.8
     isSkippable: 1
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices: []
   achievements: []
   letterIDs: 

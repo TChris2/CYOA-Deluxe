@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Randomly changes the position of the star on the title screen menu
 public class StarWarp : StateMachineBehaviour
 {
     Transform star;

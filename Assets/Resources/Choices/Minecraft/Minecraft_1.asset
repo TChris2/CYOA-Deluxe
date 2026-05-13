@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Creative
   vid: {fileID: 32900000, guid: 088c6bb7c045c3a46913796c1c817c5d, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 45
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 302132a460a675c4eb33bae292273d4f, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

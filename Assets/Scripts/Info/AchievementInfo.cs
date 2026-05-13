@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Stores achievement info
+/// <summary>
+/// Stores achievement info
+/// </summary>
 [CreateAssetMenu(fileName = "AchievementInfo", menuName = "Scriptable Objects/AchievementInfo")]
 public class AchievementInfo : ScriptableObject
 {
@@ -26,7 +28,9 @@ public class AchievementInfo : ScriptableObject
     [HideInInspector]
     public bool updateDisplay = true;
 
-    // Adds info to new instance of AchievementInfo
+    /// <summary>
+    /// Adds info to new instance of AchievementInfo
+    /// </summary>
     public void AddInfo(AchievementInfo achievementInfo)
     {
         achieveID = achievementInfo.achieveID;
@@ -47,7 +51,9 @@ public class AchievementInfo : ScriptableObject
     }
 }
 
-// Simplified version of the class used to save the vital information to json
+/// <summary>
+/// Simplified version of the class used to save the vital information
+/// </summary>
 [System.Serializable]
 public class AchievementSaveData
 {
@@ -55,6 +61,9 @@ public class AchievementSaveData
     public AchievementState achieveState;
     public bool hasUnlocked;
 
+    /// <summary>
+    /// Adds info to new instance of AchievementSaveData
+    /// </summary>
     public AchievementSaveData(string achieveID, AchievementState achieveState, bool hasUnlocked)
     {
         this.achieveID = achieveID;

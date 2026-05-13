@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Minecraft_2_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.001
+    displayEndTime: 3.335
+    text: '<style="Subtitles_Person_RT">RT</style>: I am not doing that. You can''t
+      make me.'
+  - displayStartTime: 3.336
+    displayEndTime: 6.863
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t care. No. No.'
+  - displayStartTime: 13.204
+    displayEndTime: 15.441
+    text: '<style="Subtitles_Person_RT">RT</style>: Yeeeeeeeehaw!'
+  - displayStartTime: 17.299
+    displayEndTime: 19.149
+    text: '<style="Subtitles_Person_RT">RT</style>: What is that over there?'
+  - displayStartTime: 19.15
+    displayEndTime: 21.15
+    text: <style="Subtitles_Format_[]">The Spire looms in the distance</style>
+  - displayStartTime: 22.976
+    displayEndTime: 26.237
+    text: '<style="Subtitles_Person_RT">RT</style>: What''s going on there? What
+      is-'
+  - displayStartTime: 27.73
+    displayEndTime: 29.824
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening right now?'
+  - displayStartTime: 29.824
+    displayEndTime: 30.366
+    text: <style="Subtitles_Format_()">KA</style>
+  - displayStartTime: 30.366
+    displayEndTime: 32.28
+    text: <style="Subtitles_Format_()">BOOOOOOOOOOM</style>
+  - displayStartTime: 32.28
+    displayEndTime: 35.294
+    text: '<style="Subtitles_Person_RT">RT</style>: Yes! YES!'
+  - displayStartTime: 35.813
+    displayEndTime: 41.234
+    text: '<style="Subtitles_Person_RT">RT</style>: I can''t believe we found this.
+      Look at the purity, look at the pure craftsmanship in this.'
+  - displayStartTime: 42.264
+    displayEndTime: 47.979
+    text: '<style="Subtitles_Person_RT">RT</style>: THIS... is the product we''ve
+      been searching for. Goodness me.'
+  - displayStartTime: 49.772
+    displayEndTime: 51.185
+    text: '<style="Subtitles_Person_RT">RT</style>: You there!'
+  - displayStartTime: 51.864
+    displayEndTime: 58
+    text: '<style="Subtitles_Person_RT">RT</style>: We need to cook! And I''ve got
+      some delicious, fresh ingredients from my farm here. You''re in for a treat.'
+  - displayStartTime: 59.118
+    displayEndTime: 61.118
+    text: <style="Subtitles_Format_()">Yawn</style>
+  - displayStartTime: 62.975
+    displayEndTime: 66.323
+    text: <style="Subtitles_Format_()">Snoring</style>
+  - displayStartTime: 66.323
+    displayEndTime: 69.194
+    text: <style="Subtitles_Format_()">Sleeping Noises</style>

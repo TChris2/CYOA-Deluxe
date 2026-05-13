@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Leave Them To It
   vid: {fileID: 32900000, guid: 19505b6e06b992240a0525f647565d2f, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: e2951bd6c846e774c896ed7e51df8b4b, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: d622f5bd62846684ca649a68caedcaf1, type: 3}
     popupTime: 51
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: Traffic
   thumbnail: {fileID: 21300000, guid: bd020e4c62bba714c821414dcdaf8ecc, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 05a8eccb66c07964c8bd926968f0027f, type: 2}
   - {fileID: 11400000, guid: dc1e608aee8fb8847912d52d762765aa, type: 2}

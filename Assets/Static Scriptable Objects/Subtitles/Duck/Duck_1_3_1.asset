@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_3_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 4.614
+    displayEndTime: 6.3
+    text: '<style="Subtitles_Person_RT">RT</style>: Come on! We don''t have time,
+      we don''t have-'
+  - displayStartTime: 7.9
+    displayEndTime: 8.7
+    text: '<style="Subtitles_Person_RT">RT</style>: What is the drill!'
+  - displayStartTime: 8.95
+    displayEndTime: 9.45
+    text: '<style="Subtitles_Person_RT">RT</style>: What is the drill!'
+  - displayStartTime: 9.45
+    displayEndTime: 10.75
+    text: '<style="Subtitles_Person_RT">RT</style>: No I-I...'
+  - displayStartTime: 10.75
+    displayEndTime: 12.45
+    text: '<style="Subtitles_Person_RT">RT</style>: Who remembers the Escape points!'
+  - displayStartTime: 12.4
+    displayEndTime: 12.8
+    text: '<style="Subtitles_Person_RT">RT</style>: come on! oh-'
+  - displayStartTime: 16.195
+    displayEndTime: 17.45
+    text: '<style="Subtitles_Person_RT">RT</style>: Objection!'
+  - displayStartTime: 20.7
+    displayEndTime: 21.15
+    text: '<style="Subtitles_Person_RT">RT</style>: Hold it!'
+  - displayStartTime: 24.75
+    displayEndTime: 25.65
+    text: '<style="Subtitles_Person_RT">RT</style>: Stop right there!'
+  - displayStartTime: 48.688
+    displayEndTime: 55.1
+    text: <style="Subtitles_Format_()">Crying</style>
+  - displayStartTime: 56.7
+    displayEndTime: 70.669
+    text: <style="Subtitles_Format_()">Crying</style>

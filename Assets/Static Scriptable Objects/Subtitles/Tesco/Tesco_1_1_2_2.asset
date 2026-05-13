@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Tesco_1_1_2_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 48.5
+    displayEndTime: 55.997
+    text: '<Style="subtitles_Person_RT">RT</style>: Oh God the Flames are everywhere.
+      Oh God the Flames are everywhere I-I- I see a window.'
+  - displayStartTime: 58.147
+    displayEndTime: 60.8
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: How many <Style="YOUTUBE"></style>
+      hot dogs do I make, like seven?'
+  - displayStartTime: 60.8
+    displayEndTime: 64.829
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: And then-then-then nobody
+      eats them nobody eats the seven dogs.'
+  - displayStartTime: 66.546
+    displayEndTime: 68.799
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: You know, I''m going to
+      eat one.'
+  - displayStartTime: 71.07
+    displayEndTime: 74.529
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: Those are <Style="YOUTUBE"></style>
+      gross those are raw I don''t even know what I''m doing up here.'
+  - displayStartTime: 75.52
+    displayEndTime: 78.837
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: Those are- that was pretty
+      much raw that was a raw hot dog that I just ate.'
+  - displayStartTime: 80.28
+    displayEndTime: 81.2
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: I wish somebody else could
+      be a-'
+  - displayStartTime: 81.2
+    displayEndTime: 85.887
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: we shou- we should hire
+      someone to do this next time so I don''t just sit here and do this <Style="YOUTUBE"></style>
+      three hours.'
+  - displayStartTime: 88.32
+    displayEndTime: 90.84
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: Does anybody want dogs?'
+  - displayStartTime: 93.4
+    displayEndTime: 96
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: No one wants a dog?'
+  - displayStartTime: 99.28
+    displayEndTime: 102.3
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: Why did I make- why did
+      I put <Style="YOUTUBE"></style> seven on here?'
+  - displayStartTime: 102.3
+    displayEndTime: 104.5
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: Who''s going to eat them?'
+  - displayStartTime: 106.68
+    displayEndTime: 110.6
+    text: '<Style="subtitles_Person_Jerma">Jerma</style>: It''s so stupid, it''s
+      stupid.'

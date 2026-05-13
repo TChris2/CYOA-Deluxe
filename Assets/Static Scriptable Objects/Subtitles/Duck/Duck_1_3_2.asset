@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_3_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.82
+    displayEndTime: 4.5
+    text: '<style="Subtitles_Person_RT">RT</style>: AHHH!!
+
+      <style="Subtitles_Format_()">Cartoon
+      Running SFX</style>'
+  - displayStartTime: 11.032
+    displayEndTime: 11.6
+    text: '<style="Subtitles_Person_RT">RT</style>: I hate myself.'
+  - displayStartTime: 12.15
+    displayEndTime: 12.8
+    text: '<style="Subtitles_Person_RT">RT</style>: I hate myself.'
+  - displayStartTime: 13.2
+    displayEndTime: 15.3
+    text: '<style="Subtitles_Person_RT">RT</style>: I hate myself and I hate you.'
+  - displayStartTime: 16.22
+    displayEndTime: 17.15
+    text: 'Narrator: Meanwhile.'
+  - displayStartTime: 30.828
+    displayEndTime: 32.827
+    text: <style="Subtitles_Format_()">RT_fucking_dies.mp3</style>
+  - displayStartTime: 35.44
+    displayEndTime: 36.893
+    text: 'Passerby: Oh My God D:'

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: No
   vid: {fileID: 32900000, guid: dd710d838a044574fa1a539fd84331f3, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 32994e014d9ba6f42a6164a8000251d0, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 637b298e1a9ba5745a59a29f5908b945, type: 3}
     popupTime: 22.8
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Old Man
   thumbnail: {fileID: 21300000, guid: cf3efb7f7f5dbd545a943ca15f5e54a7, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: b960431c7fa30aa4b8b9b102f541399a, type: 2}
   - {fileID: 11400000, guid: fdb0b53c978fa2c45ae186349065b0fd, type: 2}

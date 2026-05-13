@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Grab Snacks and Leave?
   vid: {fileID: 32900000, guid: 433482b5677ade74d81d4b35869964bd, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 58.6
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 4f50fe39b80751c43a66b8da844f2638, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

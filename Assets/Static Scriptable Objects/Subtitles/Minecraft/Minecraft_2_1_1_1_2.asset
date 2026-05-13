@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Minecraft_2_1_1_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.582
+    displayEndTime: 1.407
+    text: '<style="Subtitles_Person_RT">RT</style>: No.'
+  - displayStartTime: 2
+    displayEndTime: 3.464
+    text: '<style="Subtitles_Person_RT">RT</style>: You can''t make me.'
+  - displayStartTime: 4.572
+    displayEndTime: 5.32
+    text: '<style="Subtitles_Person_RT">RT</style>: NO.'
+  - displayStartTime: 6.061
+    displayEndTime: 7.262
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t care.'
+  - displayStartTime: 7.68
+    displayEndTime: 9.397
+    text: '<style="Subtitles_Person_RT">RT</style>: I am NOT doing that.'
+  - displayStartTime: 9.664
+    displayEndTime: 11.664
+    text: '<style="Subtitles_Person_RT">RT</style>: Ugh... I don''t wanna do it...'
+  - displayStartTime: 11.872
+    displayEndTime: 13.135
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t wanna... I...'
+  - displayStartTime: 13.136
+    displayEndTime: 16.11
+    text: <style="Subtitles_Format_()">Terrified Noises</style>
+  - displayStartTime: 19.811
+    displayEndTime: 21.419
+    text: '<style="Subtitles_Person_RT">RT</style>: ...Um... Wha-?'
+  - displayStartTime: 21.592
+    displayEndTime: 23.64
+    text: <style="Subtitles_Format_[]">Realization</style>
+  - displayStartTime: 23.64
+    displayEndTime: 26.812
+    text: '<style="Subtitles_Person_RT">RT</style>: EUUUUUEAAAAAAAAAAAAAGH'

@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Walk On A Wet Floor?
   vid: {fileID: 32900000, guid: 60f2e3133f79d834c99ed6ecbec8c8d5, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 73
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 02d102318c5faf04f82e800052be2ce5, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Run Somewhere Else
   vid: {fileID: 32900000, guid: 50fb0f0a0e3ccda44bf1a61e99c45c87, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 27.6
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 430e5ff5389a41f49b083ab1d8bdd3dc, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Go Alone
   vid: {fileID: 32900000, guid: 76ecfe41ee136ce4a824101c8ab36e1d, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: d8e0a22aaf118e1468c4141603485d97, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 0a39c9de42cc0b84387d665bdd78b614, type: 3}
     popupTime: 44
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Fight
   thumbnail: {fileID: 21300000, guid: d58d7fee010ce24419905684f009ccdd, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 10f1c5655cdb7ec46a0a4ab33cecdf4e, type: 2}
   - {fileID: 11400000, guid: 7bbf165262292074bb523675dbc0bd5d, type: 2}

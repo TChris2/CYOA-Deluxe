@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Go Back To Traffic
   vid: {fileID: 32900000, guid: bf3ae3d9f52f63743889fe4b3e1106fb, type: 3}
   choiceState: 0200000003000000
+  firstRunOnly: 0
   vidEndTime: 37
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 8f3c09d95b6350d44bbd1779626c41d4, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

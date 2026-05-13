@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Stay Where You Are
   vid: {fileID: 0}
   choiceState: 020000000300000004000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 1c0b0fa6ba92db949992ce66b54a30e2, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

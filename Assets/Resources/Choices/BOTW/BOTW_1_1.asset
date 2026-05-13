@@ -16,19 +16,21 @@ MonoBehaviour:
   choice: Take Sword
   vid: {fileID: 32900000, guid: b6091a60b93503140ba0a10891cd8cf1, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 60221bce1b69fcc40809860c0518f4f7, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 688831b237956f747bca6574f4b10eec, type: 3}
     popupTime: 18
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Cliff
   thumbnail: {fileID: 21300000, guid: 7d34c6b9b8308774181e6a9a31566d58, type: 3}
-  nextChoiceIDs:
-  - BOTW_1_1_1
-  - BOTW_1_1_2
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 8474d02158ea9714fb5d40a566c4d026, type: 2}
   - {fileID: 11400000, guid: 4759fd1d5d3323a489c510c2601effba, type: 2}

@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 3.48
+    displayEndTime: 6
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh God, oh God, we got to get
+      out, we got to get out, come on, come on!'
+  - displayStartTime: 6
+    displayEndTime: 9.88
+    text: '<style="Subtitles_Person_RT">RT</style>: Come on we don''t have time,
+      we don''t have time-'
+  - displayStartTime: 9.88
+    displayEndTime: 10.55
+    text: '<style="Subtitles_Person_RT">RT</style>: I see a window!'
+  - displayStartTime: 10.65
+    displayEndTime: 11.7
+    text: '<style="Subtitles_Format_[]>Glass Breaking</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      AAGH!'
+  - displayStartTime: 12.92
+    displayEndTime: 17.214
+    text: <Style="subtitles_format_[]>Dramatic Rendition of Country Roads as the
+      Flames Consume Us All</Style>
+  - displayStartTime: 24.63
+    displayEndTime: 25.4
+    text: '<style="Subtitles_Person_RT">RT</style>: What is the drill?!'
+  - displayStartTime: 25.7
+    displayEndTime: 26.25
+    text: '<style="Subtitles_Person_RT">RT</style>: What is the drill-'
+  - displayStartTime: 26.25
+    displayEndTime: 27.4
+    text: <Style="subtitles_format_[]>Scared Irish Man Noises</Style>
+  - displayStartTime: 27.4
+    displayEndTime: 29.43
+    text: '<style="Subtitles_Person_RT">RT</style>: Who remembers the escape points
+      come on!'
+  - displayStartTime: 39.12
+    displayEndTime: 43.757
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh God the flames are everywhere!
+      oh God the flames are everywhere! I-I-'
+  - displayStartTime: 43.953
+    displayEndTime: 45.878
+    text: '<style="Subtitles_Person_RT">RT</style>: How do I fill this hole?!'
+  - displayStartTime: 47.836
+    displayEndTime: 48.75
+    text: '<style="Subtitles_Person_RT">RT</style>: How do I fill it?'
+  - displayStartTime: 49.25
+    displayEndTime: 50.25
+    text: I don't know how I fill it...
+  - displayStartTime: 51
+    displayEndTime: 52
+    text: <style="YOUTUBE"></style> what do I do?
+  - displayStartTime: 52
+    displayEndTime: 53.65
+    text: '<style="Subtitles_Person_RT">RT</style>: How do I- okay wait.'
+  - displayStartTime: 53.65
+    displayEndTime: 54.3
+    text: '<style="Subtitles_Person_RT">RT</style>: I can-I can...'
+  - displayStartTime: 54.7
+    displayEndTime: 55.455
+    text: '<style="Subtitles_Person_RT">RT</style>: ARGH!'
+  - displayStartTime: 59.875
+    displayEndTime: 61.4
+    text: '<style="Subtitles_Person_RT">Positive RT</style>: Don''t let your mind
+      hold you back.'
+  - displayStartTime: 61.91
+    displayEndTime: 64.189
+    text: '<style="Subtitles_Person_RT">Positive RT</style>: You can do this, I have
+      faith in you!'
+  - displayStartTime: 64.651
+    displayEndTime: 65.32
+    text: '<style="Subtitles_Person_RT">Negative RT</style>: C''mere.'
+  - displayStartTime: 66.945
+    displayEndTime: 68.55
+    text: '<style="Subtitles_Person_RT">Negative RT</style>: You can''t do this.'
+  - displayStartTime: 69.966
+    displayEndTime: 72.988
+    text: '<style="Subtitles_Person_RT">Negative RT</style>: You''re really out of
+      your depth with this.'
+  - displayStartTime: 74.45
+    displayEndTime: 79.149
+    text: '<style="Subtitles_Person_RT">Negative RT</style>: It''s best to just walk
+      away sometimes in life and you can''t handle this situation.'
+  - displayStartTime: 80
+    displayEndTime: 82.49
+    text: <Style="subtitles_format_[]>Wait I Thought This Was a Lighthearted Collab</Style>

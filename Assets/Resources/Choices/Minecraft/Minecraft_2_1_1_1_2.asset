@@ -13,19 +13,24 @@ MonoBehaviour:
   m_Name: Minecraft_2_1_1_1_2
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Minecraft_2_1_1_1_2
-  choice: Put On The Car Ears
+  choice: Put On The Cat Ears
   vid: {fileID: 32900000, guid: 95e14b4906df557498fceda666b43bb6, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 47
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 5c938d07a725f2b4ea101c3c42c35dba, type: 2}
   objs:
   - obj: {fileID: 7709538928818179221, guid: 5b7604ce12aa68241899da40264ab959, type: 3}
     popupTime: 47.52
     isSkippable: 1
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices: []
   achievements: []
   letterIDs: 

@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Functionality for the pause menu
+/// <summary>
+/// Functionality for the Pause menu
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
     [Header("Left Side")]
@@ -30,19 +32,26 @@ public class PauseMenu : MonoBehaviour
         InputMenu iMenu = FindAnyObjectByType<InputMenu>();
         StatsMenu statsMenuF = FindAnyObjectByType<StatsMenu>();
         SettingsMenu settingsMenuF = FindAnyObjectByType<SettingsMenu>();
+        GameManager gm = FindAnyObjectByType<GameManager>();
+        TransitionManager tm = FindAnyObjectByType<TransitionManager>();
 
         // Adds functions to the buttons
         // Back to Title Screen
         titleScreenBtn.onClick.AddListener(() => 
         { 
-            SceneManager.LoadScene("Title Screen"); 
-            // Resets vars when returning to title screen
-            Time.timeScale = 1; AudioListener.pause = false; iMenu.isPaused = false;
-            // Resets Skip Intro's value
+            // Skips Intro
             PlayerPrefs.SetInt("Skip Intro", 1); PlayerPrefs.Save();
+            tm.fadeDuration = .8f;
+            tm.onTransition += () => 
+            {
+                // Resets vars when returning to title screen
+                Time.timeScale = 1; AudioListener.pause = false; iMenu.isPaused = false;
+                tm.ChangeScene("Title Screen");
+            };
+            tm.FadeOut(FadeType.PlainBlack);
         });
         // Retry options
-        retryBtn.onClick.AddListener(() => { iMenu.Resume(); iMenu.gm.LoadPrevChoice(); });
+        retryBtn.onClick.AddListener(() => { iMenu.Resume(); gm.LoadPrevChoice(); });
         retryStartBtn.onClick.AddListener(() => mapMenuF.LoadChoiceMap("Retry_", false));
         // Map menu
         mapBtn.onClick.AddListener(() => mapMenuF.OpenMapMenu());

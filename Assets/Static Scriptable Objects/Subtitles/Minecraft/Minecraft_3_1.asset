@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Minecraft_3_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 4.427
+    displayEndTime: 6.116
+    text: '<style="Subtitles_Person_RT">RT</style>: <i>Woooaooaaoahh...!</i>'
+  - displayStartTime: 7.816
+    displayEndTime: 8.316
+    text: '<style="Subtitles_Person_RT">RT</style>: No!
+
+      <style="Subtitles_Format_[]">Music
+      Stops'
+  - displayStartTime: 9.209
+    displayEndTime: 10.154
+    text: <style="Subtitles_Format_[]">Different Music Starts</style>
+  - displayStartTime: 10.154
+    displayEndTime: 11.107
+    text: '<style="Subtitles_Person_RT">RT</style>: Yes!'
+  - displayStartTime: 17.254
+    displayEndTime: 24.334
+    text: <Style="subtitles_format_[]">He Dancin to the Awesome Tune</style>
+  - displayStartTime: 24.334
+    displayEndTime: 30.906
+    text: <Style="subtitles_format_[]">Crying Break</style>
+  - displayStartTime: 30.906
+    displayEndTime: 35.098
+    text: <Style="subtitles_format_[]">Back to Dancin</style>
+  - displayStartTime: 44.361
+    displayEndTime: 44.861
+    text: '<style="Subtitles_Person_RT">RT</style>: Baa!'
+  - displayStartTime: 45.356
+    displayEndTime: 46.894
+    text: <Style="subtitles_format_[]">The shiny Wooloo responds</style>
+  - displayStartTime: 47.31
+    displayEndTime: 47.865
+    text: '<style="Subtitles_Person_RT">RT</style>: There ya go.'
+  - displayStartTime: 49.32
+    displayEndTime: 50.67
+    text: '<style="Subtitles_Person_RT">RT</style>: Go, Pokeball!'
+  - displayStartTime: 60
+    displayEndTime: 60.628
+    text: <Style="subtitles_format_[]">Talking on the phone</style>
+  - displayStartTime: 60.628
+    displayEndTime: 62.465
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, I don''t believe this!
+
+      <Style="subtitles_format_[]">Talking
+      on the phone</style>'
+  - displayStartTime: 62.465
+    displayEndTime: 65.067
+    text: '<style="Subtitles_Person_RT">RT</style>: This is one of those crank call
+      numbers!
+
+      <Style="subtitles_format_[]">Talking on the phone</style>'
+  - displayStartTime: 65.067
+    displayEndTime: 66.269
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, you''re g-
+
+      <Style="subtitles_format_[]">Talking
+      on the phone</style>'
+  - displayStartTime: 66.269
+    displayEndTime: 68.91
+    text: '<style="Subtitles_Person_RT">RT</style>: You''re gonna be hearing from
+      my counsellor!
+
+      <Style="subtitles_format_[]">Talking on the phone</style>'
+  - displayStartTime: 68.91
+    displayEndTime: 70.866
+    text: '<style="Subtitles_Person_RT">RT</style>: Just die already!
+
+      <Style="subtitles_format_[]">Talking
+      on the phone</style>'
+  - displayStartTime: 70.866
+    displayEndTime: 73.521
+    text: <Style="subtitles_format_[]">Screaming on the Phone</style>
+  - displayStartTime: 74.001
+    displayEndTime: 75.047
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh my god!'
+  - displayStartTime: 75.047
+    displayEndTime: 78.051
+    text: '<style="Subtitles_Person_Jerma">Jerma</style>: I was trying to do this
+      joke where my hand comes all the way across and I ta-'
+  - displayStartTime: 78.051
+    displayEndTime: 79.365
+    text: '<Style="subtitles_format_[]">Gets Hit by the Phone</style>
+
+      <style="Subtitles_Person_Jerma">Jerma</style>:
+      Ow, my butthole!'
+  - displayStartTime: 79.365
+    displayEndTime: 80.717
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, sorry.'
+  - displayStartTime: 81.311
+    displayEndTime: 82.432
+    text: '<style="Subtitles_Person_RT">RT</style>: They''re dead.'
+  - displayStartTime: 88.607
+    displayEndTime: 96.596
+    text: <Style="subtitles_format_()">Music That Gets Progressively Louder</style>
+  - displayStartTime: 96.596
+    displayEndTime: 98.867
+    text: '<style="Subtitles_Person_RT">RT</style>: Jesus, the music! God, that ramped
+      up, didn''t it.'
+  - displayStartTime: 99.149
+    displayEndTime: 102.334
+    text: <Style="subtitles_format_()">Better Music</style>
+  - displayStartTime: 102.334
+    displayEndTime: 105.374
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, you didn''t- didn''t expect
+      me to have these moves, did you?'
+  - displayStartTime: 106.73
+    displayEndTime: 109.204
+    text: '<style="Subtitles_Person_RT">RT</style>: Didn''t expect me to be capable
+      of this?'
+  - displayStartTime: 114
+    displayEndTime: 116.675
+    text: '<Style="subtitles_format_()"><style="Color_Red">Warning</style>: Loud-ish
+      Noise Incoming</style>'
+  - displayStartTime: 116.675
+    displayEndTime: 118.675
+    text: <Style="subtitles_format_[]">Nuke Goes Off</style>
+  - displayStartTime: 120.147
+    displayEndTime: 121.063
+    text: '<style="Subtitles_Person_RT">RT</style>: What is-'
+  - displayStartTime: 121.824
+    displayEndTime: 123.824
+    text: '<style="Subtitles_Person_RT">RT</style>: What is happening over there?!'
+  - displayStartTime: 124.03
+    displayEndTime: 124.743
+    text: '<style="Subtitles_Person_RT">RT</style>: What i-'
+  - displayStartTime: 126.181
+    displayEndTime: 128.926
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh, why''s it coming closer,
+      oh GOD-'

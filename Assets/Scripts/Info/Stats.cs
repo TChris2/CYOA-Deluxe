@@ -4,7 +4,9 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 
-// Store player stats
+/// <summary>
+/// Store player stats
+/// </summary>
 [System.Serializable]
 public class Stats
 {
@@ -24,7 +26,9 @@ public class Stats
     HashSet<string> skipChoiceIDs = new HashSet<string> { "Start_", "Retry_", "Tesco_1_1_1_1_1_1Alt", "Tesco_1_1_1_1_1_1_1Alt", 
         "BOTW_1_1_1_2_1", "BOTW_1_1_2_1_1", "BOTW_1_1_1_2_2" };
     
-    // Resets to default values
+    /// <summary>
+    /// Resets stats when the save data is reset
+    /// </summary>
     public void Reset()
     {
         gameMode = "The King of Drift";
@@ -35,7 +39,9 @@ public class Stats
         playTime = 0;
     }
 
-    // Gets the amount of completed choices
+    /// <summary>
+    /// Gets the amount of completed choices
+    /// </summary>
     public (int, int) ChoicesCompleted(Dictionary<string, ChoiceInfo> choiceDict)
     {
         int completed = 0;
@@ -55,7 +61,9 @@ public class Stats
         return (completed, total);
     }
 
-    // Gets the amount of completed achievements
+    /// <summary>
+    /// Gets the amount of completed achievements
+    /// </summary>
     public int AchievementsCompleted(Dictionary<string, AchievementInfo> achieveDict)
     {
         int completed = 0;
@@ -69,7 +77,9 @@ public class Stats
         return completed;
     }
 
-    // Gets the amount of completed endings
+    /// <summary>
+    /// Gets the amount of completed endings
+    /// </summary>
     public (int, int) EndingsCompleted(Dictionary<string, ChoiceInfo> choiceDict)
     {
         int completed = 0;
@@ -89,7 +99,9 @@ public class Stats
         return (completed, total);
     }
 
-    // Gets the amount of completed fails
+    /// <summary>
+    /// Gets the amount of completed fail choices
+    /// </summary>
     public (int, int) FailsCompleted(Dictionary<string, ChoiceInfo> choiceDict)
     {
         int completed = 0;
@@ -109,7 +121,9 @@ public class Stats
         return (completed, total);
     }
 
-    // Gets completion percentage
+    /// <summary>
+    /// Gets completion percentage
+    /// </summary>
     public float Completion(Dictionary<string, ChoiceInfo> choiceDict, Dictionary<string, AchievementInfo> achieveDict)
     {
         int choicesCompleted, b;
@@ -123,7 +137,9 @@ public class Stats
         return Mathf.Floor(((float)completed / total) * 100);
     }
 
-    // Displays all stats
+    /// <summary>
+    /// Displays all stats
+    /// </summary>
     public void DisplayStatsAll(List<TMP_Text> statsText, SaveManager sm)
     {
         int choicesCompleted, choicesCompletedTotal, endingsCompleted, endingsCompletedTotal;
@@ -150,7 +166,9 @@ public class Stats
         statsText[9].text = $"{time.TotalHours:00}:{time.Minutes:00}:{time.Seconds:00}";
     }
 
-    // Displays short version of stats
+    /// <summary>
+    /// Displays short version of stats
+    /// </summary>
     public void DisplayStatsShort(List<TMP_Text> statsText, SaveManager sm)
     {
         int choicesCompleted, choicesCompletedTotal, endingsCompleted, endingsCompletedTotal;

@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Stasis
   vid: {fileID: 32900000, guid: 2b794132d44aad4418f688131676db21, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 35e14bf08b92c284ca03b69c62f1f029, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 85404adf236d2284aa10fe614acf911a, type: 3}
     popupTime: 22.5
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: Ganon
   thumbnail: {fileID: 21300000, guid: 9f9528503cbf8524c9994ce1fb6f50cc, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 4e8a7764da52bfe40a390b36841879f5, type: 2}
   - {fileID: 11400000, guid: fea2caa06fe926a46b95353eb2d6a826, type: 2}

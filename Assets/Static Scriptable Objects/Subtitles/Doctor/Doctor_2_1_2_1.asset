@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 5.88
+    displayEndTime: 7.486
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m so confused...'
+  - displayStartTime: 7.486
+    displayEndTime: 13.138
+    text: "<Style=\"subtitles_format_()\">A Deep, Distorted Bell Rings Out</Style>\r\n<Style=\"subtitles_format_()\">It\u2019s
+      a Sound That Drills into Your Mind</Style>"
+  - displayStartTime: 14.931
+    displayEndTime: 16.696
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m not real!'
+  - displayStartTime: 18.629
+    displayEndTime: 20.349
+    text: '<style="Subtitles_Person_RT">RT</style>: None of this is real!'
+  - displayStartTime: 20.349
+    displayEndTime: 21.249
+    text: '<style="Subtitles_Person_RT">RT</style>: This is- I-'
+  - displayStartTime: 21.963
+    displayEndTime: 22.932
+    text: '<style="Subtitles_Person_RT">RT</style>: I- I Am-'
+  - displayStartTime: 22.932
+    displayEndTime: 25.046
+    text: '<style="Subtitles_Person_RT">RT</style>: You''re just watching a guy on
+      the internet right now!'
+  - displayStartTime: 25.278
+    displayEndTime: 26.854
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t actually exist!'
+  - displayStartTime: 26.854
+    displayEndTime: 28.854
+    text: '<style="Subtitles_Person_RT">RT</style>: Yeah look at me, look at my ragdoll
+      physics.'
+  - displayStartTime: 29.413
+    displayEndTime: 30.686
+    text: '<style="Subtitles_Person_RT">RT</style>: None of this is real!'
+  - displayStartTime: 35.733
+    displayEndTime: 37.339
+    text: '<style="Subtitles_Person_RT">RT</style>: ...What is real anyway?'
+  - displayStartTime: 45.549
+    displayEndTime: 51.368
+    text: <Style="subtitles_format_()">Alarm Clock Sounds</Style>
+  - displayStartTime: 51.368
+    displayEndTime: 53.368
+    text: '<style="Subtitles_Person_RT">RT</style>: Okay.'
+  - displayStartTime: 53.368
+    displayEndTime: 54.35
+    text: '<style="Subtitles_Person_RT">RT</style>: Whoo!'
+  - displayStartTime: 55.672
+    displayEndTime: 58.104
+    text: '<style="Subtitles_Person_RT">RT</style>: <Style="subtitles_format_()">Thinking</Style>
+      There was one genius suggestion there.'
+  - displayStartTime: 58.104
+    displayEndTime: 60.218
+    text: '<style="Subtitles_Person_RT">RT</style>: <Style="subtitles_format_()">Thinking</Style>
+      Later on down the timeline...'
+  - displayStartTime: 60.218
+    displayEndTime: 62.349
+    text: '<style="Subtitles_Person_RT">RT</style>: <Style="subtitles_format_()">Thinking</Style>
+      Yeah- So, that''s the plan- That''s why we''re doing this.'
+  - displayStartTime: 65.161
+    displayEndTime: 66.896
+    text: '<style="Subtitles_Person_RT">RT</style>: Have you not seen Airplane?'
+  - displayStartTime: 76.561
+    displayEndTime: 78.561
+    text: '<style="Subtitles_Person_RT">RT</style>: I am NOT doing that!'
+  - displayStartTime: 83.687
+    displayEndTime: 84.588
+    text: '<style="Subtitles_Person_RT">RT</style>: Upstairs,'
+  - displayStartTime: 84.588
+    displayEndTime: 85.46
+    text: '<style="Subtitles_Person_RT">RT</style>: Upstairs, in a pub,'
+  - displayStartTime: 85.46
+    displayEndTime: 86.414
+    text: '<style="Subtitles_Person_RT">RT</style>: Upstairs, in a pub, in Dublin...'
+  - displayStartTime: 90.201
+    displayEndTime: 92
+    text: '<style="Subtitles_Person_RT">RT</style>: ...Do you wanna explain this?'
+  - displayStartTime: 92
+    displayEndTime: 94.084
+    text: '<style="Subtitles_Person_RT">RT</style>: It was the 4th of November, 2015...'
+  - displayStartTime: 96.795
+    displayEndTime: 97.477
+    text: '<style="Subtitles_Person_RT">RT</style>: ARGH!'
+  - displayStartTime: 98.881
+    displayEndTime: 100
+    text: '<style="Subtitles_Person_RT">RT</style>: 200cc...'
+  - displayStartTime: 101.601
+    displayEndTime: 102.72
+    text: '<style="Subtitles_Person_RT">RT</style>: ...A comedy classic!'
+  - displayStartTime: 103.126
+    displayEndTime: 104.262
+    text: '<style="Subtitles_Person_RT">RT</style>: Not just a drift pleb...'
+  - displayStartTime: 105.752
+    displayEndTime: 106.252
+    text: '<style="Subtitles_Person_RT">RT</style>: ARGH-'
+  - displayStartTime: 107.936
+    displayEndTime: 109.315
+    text: '<style="Subtitles_Person_RT">RT</style>: DRIFT KING!'
+  - displayStartTime: 110.059
+    displayEndTime: 110.6
+    text: <Style="subtitles_format_[]">Clock Breaks</Style>
+  - displayStartTime: 110.6
+    displayEndTime: 112.85
+    text: '<style="Subtitles_Person_RT">RT</style>: AND YOU''LL NEVER OVERPASS ME!'
+  - displayStartTime: 113.764
+    displayEndTime: 114.514
+    text: '<style="Subtitles_Person_RT">RT</style>: HUARGH!'
+  - displayStartTime: 114.514
+    displayEndTime: 116.598
+    text: <Style="subtitles_format_()">Radiant Choir</Style>
+  - displayStartTime: 116.598
+    displayEndTime: 117.295
+    text: '<Style="subtitles_format_()">Radiant Choir</Style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Ah...'
+  - displayStartTime: 117.295
+    displayEndTime: 118.469
+    text: '<Style="subtitles_format_()">Radiant Choir</Style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Ah... Fuck me.'
+  - displayStartTime: 118.469
+    displayEndTime: 120.454
+    text: <Style="subtitles_format_()">Radiant Choir</Style>
+  - displayStartTime: 144.082
+    displayEndTime: 147.719
+    text: '???: He has failed... Yet again.'
+  - displayStartTime: 147.719
+    displayEndTime: 150.106
+    text: '???: His 10th time trying this...'
+  - displayStartTime: 151.242
+    displayEndTime: 153.242
+    text: '???: But I know what to do...'
+  - displayStartTime: 153.643
+    displayEndTime: 154.544
+    text: '???: You there!'
+  - displayStartTime: 154.544
+    displayEndTime: 156.324
+    text: '???: The person playing this.'
+  - displayStartTime: 156.324
+    displayEndTime: 160.037
+    text: '???: Do Not. Tell. Him.'
+  - displayStartTime: 160.629
+    displayEndTime: 162.629
+    text: '???: He''s currently busy with one of the other routes...'
+  - displayStartTime: 163.259
+    displayEndTime: 166.835
+    text: '???: We have to use this oppurtunity while we can...'
+  - displayStartTime: 166.835
+    displayEndTime: 168.471
+    text: '???: The Drift King...'
+  - displayStartTime: 168.471
+    displayEndTime: 169.251
+    text: '???: Must'
+  - displayStartTime: 169.251
+    displayEndTime: 170.236
+    text: '???: Must break'
+  - displayStartTime: 170.236
+    displayEndTime: 172.16
+    text: '???: Must break free.'
+  - displayStartTime: 172.16
+    displayEndTime: 174.16
+    text: '???: His 50th time trying this...'
+  - displayStartTime: 175.185
+    displayEndTime: 177.693
+    text: '???: His 500th time trying this...'
+  - displayStartTime: 178.499
+    displayEndTime: 180.795
+    text: '???: 100,000 tries.'
+  - displayStartTime: 180.795
+    displayEndTime: 182.795
+    text: '???: Nearly a million tries.'
+  - displayStartTime: 182.795
+    displayEndTime: 184.795
+    text: '???: 1 billion tries.'
+  - displayStartTime: 184.795
+    displayEndTime: 186.795
+    text: '???: 2 billion tries...!'
+  - displayStartTime: 188.553
+    displayEndTime: 192.031
+    text: '???: You must think that''s a hell of a lot of tries.'
+  - displayStartTime: 193.125
+    displayEndTime: 195.125
+    text: '???: Personally...'
+  - displayStartTime: 195.125
+    displayEndTime: 197.129
+    text: '???: I think that''s a hell of a bird.'

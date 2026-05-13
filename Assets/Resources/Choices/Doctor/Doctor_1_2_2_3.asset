@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Sonic Screwdriver
   vid: {fileID: 32900000, guid: a8e8510153e5d7241943e8300082257a, type: 3}
   choiceState: 02000000
+  firstRunOnly: 0
   vidEndTime: 34.4
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 6db9d86d0ea84974790c2e8e73540f01, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Outside_
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0
+    displayEndTime: 1.4
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m not doing that.'
+  - displayStartTime: 2.6
+    displayEndTime: 3.7
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m not doing that.'
+  - displayStartTime: 4.56
+    displayEndTime: 11.242
+    text: '<style="Subtitles_Person_RT">RT</style>: I am not doing that! You can''t
+      make me! I don''t care!'
+  - displayStartTime: 11.242
+    displayEndTime: 13.339
+    text: <style="Subtitles_Format_[]">Picks Up Car Keys</style>
+  - displayStartTime: 13.339
+    displayEndTime: 14.435
+    text: <style="Subtitles_Format_[]">Door closes</style>
+  - displayStartTime: 14.435
+    displayEndTime: 17
+    text: <style="Subtitles_Format_[]">Footsteps</style>
+  - displayStartTime: 20.075
+    displayEndTime: 22
+    text: '<style="Subtitles_Person_RT">RT</style>: What''s this?'
+  - displayStartTime: 22
+    displayEndTime: 24.682
+    text: <style="Subtitles_Format_[]">Footsteps</style>
+  - displayStartTime: 25.2
+    displayEndTime: 27.15
+    text: '<style="Subtitles_Person_RT">RT</style>: "Duck Pond, work in progress."'
+  - displayStartTime: 27.15
+    displayEndTime: 29.16
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh bless you that''s so sweet.'
+  - displayStartTime: 30.12
+    displayEndTime: 34.976
+    text: '<style="Subtitles_Person_RT">RT</style>: Wow. That''s all I can say, wow!'
+  - displayStartTime: 34.976
+    displayEndTime: 36.103
+    text: '<style="Subtitles_Person_RT">RT</style>: I have to go.'
+  - displayStartTime: 36.87
+    displayEndTime: 40.736
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">Thinking</style>
+      I''ll take a potato chip, and eat it!'
+  - displayStartTime: 41.373
+    displayEndTime: 42.137
+    text: '[MGS Alert Sound]'
+  - displayStartTime: 42.691
+    displayEndTime: 48.631
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">It
+      has to be salt and vinegar, either Walkers or Tayto and it HAS to be those
+      brands.</style>'
+  - displayStartTime: 48.631
+    displayEndTime: 51.773
+    text: '<style="Subtitles_Person_RT">RT</style>: <style="Subtitles_Format_()">If
+      it''s a different brand, no I am not interested.</style>'
+  - displayStartTime: 52.011
+    displayEndTime: 54.011
+    text: '<style="Subtitles_Person_RT">RT</style>: Welp, I''m hungry'
+  - displayStartTime: 55.684
+    displayEndTime: 56.3
+    text: <style="Subtitles_Format_[]">Car Door Closes</style>
+  - displayStartTime: 56.3
+    displayEndTime: 58.411
+    text: <style="Subtitles_Format_[]">Engine Starts</style>
+  - displayStartTime: 58.411
+    displayEndTime: 60.947
+    text: '<style="Subtitles_Person_RT">RT</style>: We can have a look at this while
+      we''re going here.'
+  - displayStartTime: 60.947
+    displayEndTime: 64.011
+    text: '<style="Subtitles_Person_RT">RT</style>: Where am I in the map? Hang on..'

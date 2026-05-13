@@ -16,16 +16,21 @@ MonoBehaviour:
   choice: Steal The Tardis
   vid: {fileID: 32900000, guid: f27cbf327655cd943ab1dc57e904effa, type: 3}
   choiceState: 00000000
+  firstRunOnly: 0
   vidEndTime: 0
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 25064e9d68d6d624f82b78f4014f4f80, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 67d4dedb307f2b84d9e660123168e41d, type: 3}
     popupTime: 52
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  mapName: 
+  mapName: The Tardis
   thumbnail: {fileID: 21300000, guid: 039fb36da0959a649abe369c9bdac762, type: 3}
+  isOnMap: 0
+  mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 2445aacb89a3b194c8d11ff10d1550d1, type: 2}
   - {fileID: 11400000, guid: 2c9829c597aa44a4db84acb96744cfe4, type: 2}

@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Stasis
   vid: {fileID: 32900000, guid: 7db9749945dd4fc4e885c0fd071e9f40, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 37
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: f6bcba19aaa6f7047986449932b391df, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed:
   - Diamond Sword

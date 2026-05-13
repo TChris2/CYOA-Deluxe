@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Trust Dan's Plan
   vid: {fileID: 32900000, guid: 9f7ddf5c68819cb48838d039a86e9c85, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 63
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 3249b20e54408d54ea1d99c1b817e196, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

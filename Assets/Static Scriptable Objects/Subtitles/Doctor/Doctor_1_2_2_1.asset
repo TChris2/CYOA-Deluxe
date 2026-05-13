@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_1_2_2_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.7
+    displayEndTime: 2.897
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t <style="YOUTUBE"></style>
+      know!
+
+      <style="Subtitles_Format_[]">Actually He Knows lol</style>'
+  - displayStartTime: 5.334
+    displayEndTime: 6.449
+    text: '<style="Subtitles_Person_RT">RT</style>: I am something of a professional.'
+  - displayStartTime: 7.65
+    displayEndTime: 10.05
+    text: <style="Subtitles_Format_()"><style="Subtitles_Person_RT">RT</style> &
+      <style="Subtitles_Person_Doctor">The Doctor</style> Screaming</style>
+  - displayStartTime: 10.776
+    displayEndTime: 11.404
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: UUUAGH!'
+  - displayStartTime: 27.267
+    displayEndTime: 27.767
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Hello?'
+  - displayStartTime: 28.433
+    displayEndTime: 30.101
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_Ivy">Ivy</style>:
+      Oh, is it playtime now?'
+  - displayStartTime: 30.101
+    displayEndTime: 31.267
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Hello, I am The Doctor!'
+  - displayStartTime: 32.203
+    displayEndTime: 33.531
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      THE Drift King!'
+  - displayStartTime: 33.729
+    displayEndTime: 34.229
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      You wanna fight?'
+  - displayStartTime: 34.976
+    displayEndTime: 35.476
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Okay,'
+  - displayStartTime: 35.674
+    displayEndTime: 36.174
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      alright,'
+  - displayStartTime: 36.174
+    displayEndTime: 36.674
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      that''s it,'
+  - displayStartTime: 38.05
+    displayEndTime: 39.192
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      I''M GONNA PUT ON MY ASS KICKING BOOTS!'
+  - displayStartTime: 39.435
+    displayEndTime: 39.935
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      I''m The Doctor!'
+  - displayStartTime: 40.259
+    displayEndTime: 40.759
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      and all of you,'
+  - displayStartTime: 41.101
+    displayEndTime: 42.285
+    text: '<style="Subtitles_Format_[]">Flashback</style>
+
+      <style="Subtitles_Person_RT">RT</style>:
+      are ALREADY DEAD!'
+  - displayStartTime: 46.766
+    displayEndTime: 50.221
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: Look at me, cause
+      I am talking!'
+  - displayStartTime: 51.492
+    displayEndTime: 52.43
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: ...and don''t kill!'
+  - displayStartTime: 52.889
+    displayEndTime: 53.389
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: Ugh!'
+  - displayStartTime: 53.803
+    displayEndTime: 54.456
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: Call an ambulance!'
+  - displayStartTime: 54.798
+    displayEndTime: 55.298
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: ...but not for me!'
+  - displayStartTime: 55.901
+    displayEndTime: 57.591
+    text: <style="Subtitles_Format_()">Gunshot Noises</style>
+  - displayStartTime: 62.556
+    displayEndTime: 65.898
+    text: '<style="Subtitles_Format_[]">Braydon: A little behind the scenes here.
+      I actually animated everything in google slides for this collab! Crazy, right?</style>'
+  - displayStartTime: 66
+    displayEndTime: 66.5
+    text: '<style="Subtitles_Format_[]">Braydon: jk</style>'
+  - displayStartTime: 75.788
+    displayEndTime: 77.87
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: NONO! NONO! NO!'
+  - displayStartTime: 81.792
+    displayEndTime: 82.292
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: AH!'
+  - displayStartTime: 82.841
+    displayEndTime: 83.394
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: Augh!'
+  - displayStartTime: 85.215
+    displayEndTime: 86.721
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: I don''t want to go...'
+  - displayStartTime: 93.594
+    displayEndTime: 94.094
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: Ok.'
+  - displayStartTime: 95.821
+    displayEndTime: 97.761
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: UAAAAAAAAAAA'
+  - displayStartTime: 97.761
+    displayEndTime: 101.364
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+  - displayStartTime: 104.601
+    displayEndTime: 109.14
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: UAAAAAAAAAA'
+  - displayStartTime: 109.14
+    displayEndTime: 119.384
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+  - displayStartTime: 124.673
+    displayEndTime: 128.928
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: UAAAAAAAAAAAGH!'
+  - displayStartTime: 128.928
+    displayEndTime: 133.321
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: UUUUAAAAAGGGGHHH!'
+  - displayStartTime: 136.812
+    displayEndTime: 138.207
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: Oh, I feel a lot better,
+      actually!'
+  - displayStartTime: 144.192
+    displayEndTime: 147.181
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: Ah, new teeth! I''ve
+      always wanted an appendix!'
+  - displayStartTime: 150.001
+    displayEndTime: 151.867
+    text: '<style="Subtitles_Person_RT">RT (Timelord)</style>: Oh, I still have this
+      GUN!'

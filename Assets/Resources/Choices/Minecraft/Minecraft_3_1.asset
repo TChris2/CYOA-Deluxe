@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Keep Exploring
   vid: {fileID: 32900000, guid: 8b4c2348980d8314eb20a03140113370, type: 3}
   choiceState: 0200000003000000
+  firstRunOnly: 0
   vidEndTime: 136
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 18dff37e7cb067a46bc6495d07d5b6ce, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed:
   - Bomb

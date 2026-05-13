@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_1_2_2_1_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.1
+    displayEndTime: 1.45
+    text: '<style="Subtitles_Person_RT">RT</style>: Hey.'
+  - displayStartTime: 1.7
+    displayEndTime: 2.4
+    text: '<style="Subtitles_Person_RT">RT</style>: Its going to be okay.'
+  - displayStartTime: 3.7
+    displayEndTime: 6.1
+    text: '<style="Subtitles_Person_RT">RT</style>: You got this and I believe you.'
+  - displayStartTime: 6.55
+    displayEndTime: 9.55
+    text: '<style="Subtitles_Person_RT">RT</style>: You have the power you need to
+      see this through.'
+  - displayStartTime: 12.1
+    displayEndTime: 12.5
+    text: <style="Subtitles_Format_()">Gunshot</style>
+  - displayStartTime: 16.5
+    displayEndTime: 18.5
+    text: <style="Subtitles_Format_()">Explosion</style>
+  - displayStartTime: 22
+    displayEndTime: 23.15
+    text: '<style="Subtitles_Person_RT">RT</style>: And we need runnin okay.'
+  - displayStartTime: 24.8
+    displayEndTime: 26.35
+    text: '<style="Subtitles_Person_RT">RT</style>: Stand back, stand- I got this.'
+  - displayStartTime: 29.25
+    displayEndTime: 29.8
+    text: <style="Subtitles_Format_[]">Passageway Opens</style>
+  - displayStartTime: 30.6
+    displayEndTime: 31.2
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m leavin.'

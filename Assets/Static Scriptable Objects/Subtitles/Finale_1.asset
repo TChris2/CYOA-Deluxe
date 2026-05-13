@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Finale_1
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 33.56
+    displayEndTime: 39.45
+    text: '???: HAHAHAHAHAHAHAHAHAHAHA'
+  - displayStartTime: 39.79
+    displayEndTime: 43.5
+    text: '???: Ah... just as planned.'
+  - displayStartTime: 44.073
+    displayEndTime: 46.65
+    text: '<style="Subtitles_Person_Door">Door</style>: Ever since I entered Daniels
+      life,'
+  - displayStartTime: 46.65
+    displayEndTime: 52.2
+    text: '<size=95%><style="Subtitles_Person_Door">Door</style>: I''ve gotten a
+      front row seat to any and all choices he could ever make,</size>'
+  - displayStartTime: 52.2
+    displayEndTime: 62.75
+    text: '<style="Subtitles_Person_Door">Door</style>: and they''re all here in
+      these easily repeatable segments for me to watch and enjoy for all of eternity.'
+  - displayStartTime: 62.75
+    displayEndTime: 68.4
+    text: '<size=95%><style="Subtitles_Person_Door">Door</style>: And as my power
+      grows I''ll soon be able to enter the lives of others...</size>'
+  - displayStartTime: 68.627
+    displayEndTime: 71.574
+    text: '<style="Subtitles_Person_Door">Door</style>: STARTING WITH DANIEL''S FRIENDS!'
+  - displayStartTime: 71.574
+    displayEndTime: 72.666
+    text: <style="Subtitles_Format_[]">Cakejumpscare</style>
+  - displayStartTime: 73.327
+    displayEndTime: 75.327
+    text: '<style="Subtitles_Person_Door">Door</style>: and then their friends are
+      next,'
+  - displayStartTime: 75.595
+    displayEndTime: 77.772
+    text: '<style="Subtitles_Person_Door">Door</style>: and then their friends,'
+  - displayStartTime: 77.785
+    displayEndTime: 83.25
+    text: '<style="Subtitles_Person_Door">Door</style>: and soon, I will be observing
+      the choices that ANY CREATURE COULD EVER MAKE,'
+  - displayStartTime: 83.35
+    displayEndTime: 85.292
+    text: '<style="Subtitles_Person_Door">Door</style>: ON THIS ENTIRE PLANET!'
+  - displayStartTime: 85.75
+    displayEndTime: 91.4
+    text: '<style="Subtitles_Person_Door">Door</style>: HAHAHAHAHAHAHAHAHAHAHA
+
+      HAHAHAHAHAHAHAHAHAHAHAHAHA'
+  - displayStartTime: 92
+    displayEndTime: 96.35
+    text: '<style="Subtitles_Person_Door">Door</style>: but first why don''t we rewatch
+      the TF2 Crocket ending.'
+  - displayStartTime: 96.35
+    displayEndTime: 99.05
+    text: '<style="Subtitles_Person_Door">Door</style>: I do love myself some good
+      Gibs.'
+  - displayStartTime: 99.45
+    displayEndTime: 103.416
+    text: '<style="Subtitles_Person_Door">Door</style>: Oooh, or him being an absolute
+      psychopath in Breath of The Wild.'
+  - displayStartTime: 103.416
+    displayEndTime: 105.8
+    text: '<style="Subtitles_Person_Door">Door</style>: Oh that one''s a classic...'
+  - displayStartTime: 106.4
+    displayEndTime: 110.25
+    text: '<style="Subtitles_Person_Door">Door</style>: And you also really like
+      the one way searching for the duck pond,'
+  - displayStartTime: 110.44
+    displayEndTime: 111.92
+    text: '<style="Subtitles_Person_Door">Door</style>: especially how it ends-'
+  - displayStartTime: 112.04
+    displayEndTime: 113.7
+    text: '<style="Subtitles_Person_RT">RT</style>: We don''t take kindly to those
+      fighting words.'
+  - displayStartTime: 113.7
+    displayEndTime: 114.571
+    text: '<style="Subtitles_Person_Door">Door</style>: WHAT?!'
+  - displayStartTime: 115.2
+    displayEndTime: 117.55
+    text: '<style="Subtitles_Person_RT">RT</style>: That''s it, I''m gonna put on
+      my-'
+  - displayStartTime: 117.55
+    displayEndTime: 119.732
+    text: <style="Subtitles_Format_[]">Gets Absolutely Fucking Destroyed</style>
+  - displayStartTime: 121.285
+    displayEndTime: 124.621
+    text: <style="Subtitles_Format_[]">DOOR CLONE JUTSU</style>
+  - displayStartTime: 148.95
+    displayEndTime: 150.9
+    text: '<style="Subtitles_Person_Door">Door</style>: Now I don''t know how you
+      got here,'
+  - displayStartTime: 151.1
+    displayEndTime: 153.35
+    text: '<style="Subtitles_Person_Door">Door</style>: and quite frankly I don''t
+      care.'
+  - displayStartTime: 154
+    displayEndTime: 156.703
+    text: '<style="Subtitles_Person_Door">Door</style>: You won''t live long enough
+      to tell me.'
+  - displayStartTime: 159.95
+    displayEndTime: 161.7
+    text: '<style="Subtitles_Person_RT">RT</style>: UUAAGGHH'
+  - displayStartTime: 163.05
+    displayEndTime: 166.1
+    text: '<style="Subtitles_Person_Door">Door</style>: Hahahahahaha'
+  - displayStartTime: 166.48
+    displayEndTime: 170.35
+    text: '<style="Subtitles_Person_Door">Door</style>: I can do this all day.'
+  - displayStartTime: 170.6
+    displayEndTime: 174.3
+    text: '<style="Subtitles_Person_Door">Door</style>: I''d suggest you just give
+      up and die already.'
+  - displayStartTime: 184.538
+    displayEndTime: 187.441
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: That''s my boy, oh
+      that''s my boy.'
+  - displayStartTime: 187.707
+    displayEndTime: 190.083
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: Quite proud of that
+      one I- wow.'
+  - displayStartTime: 190.904
+    displayEndTime: 193.55
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: I- Really- I''m a
+      bit out of my depth here.'
+  - displayStartTime: 193.55
+    displayEndTime: 195.35
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: I-I don''t know what''s
+      going on.'
+  - displayStartTime: 196.15
+    displayEndTime: 198.65
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: I-I-I- don''t know
+      how you want me to help,'
+  - displayStartTime: 199.2
+    displayEndTime: 201.6
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: um yeah no you-you
+      go,'
+  - displayStartTime: 201.9
+    displayEndTime: 203.65
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: you go, you go, you
+      go,'
+  - displayStartTime: 203.65
+    displayEndTime: 205.85
+    text: '<style="Subtitles_Person_RT">RT''s Memories</style>: you-you got this,
+      you got this.'
+  - displayStartTime: 215
+    displayEndTime: 216.7
+    text: '<style="Subtitles_Person_RT">RT</style>: This let me show you the dance
+      of my people.'
+  - displayStartTime: 220.951
+    displayEndTime: 222.35
+    text: '<style="Subtitles_Person_RT">RT</style>: You didn''t expect me to have
+      these moves did ya?'
+  - displayStartTime: 224.1
+    displayEndTime: 227.154
+    text: '<style="Subtitles_Person_RT">RT</style>: Didn''t expect me TO BE CAPABLE
+      OF THIS-'
+  - displayStartTime: 227.937
+    displayEndTime: 229.35
+    text: '<style="Subtitles_Person_Door">Door</style>: What?! What do you-'
+  - displayStartTime: 231.55
+    displayEndTime: 233.75
+    text: '<style="Subtitles_Person_RT">Minecraft RT</style>: I''m gonna put on my
+      ass kicking boots.'
+  - displayStartTime: 242.549
+    displayEndTime: 243.85
+    text: '<style="Subtitles_Person_TF2Red">Soldier</style>: Come here pumpkin.'
+  - displayStartTime: 248.05
+    displayEndTime: 250.6
+    text: '<style="Subtitles_Person_TF2Red">Soldier</style>: This American boot just
+      kicked your ass back to Russia!'
+  - displayStartTime: 256.885
+    displayEndTime: 261.55
+    text: <style="Subtitles_Format_[]">DOOR LOOK OUT OH NO HES GOT AIRPODS OH NO-</style>
+  - displayStartTime: 282.8
+    displayEndTime: 286.2
+    text: 'Announcer: THREE, TWO, ONE, GO!'
+  - displayStartTime: 292.85
+    displayEndTime: 295.5
+    text: 'Narrator: When Stanley came to a set of two open doors-'
+  - displayStartTime: 299.4
+    displayEndTime: 301.15
+    text: '<style="Subtitles_Person_RT">Gamer RT</style>: Almost got me with that
+      shell but not quite!'
+  - displayStartTime: 302.2
+    displayEndTime: 305.95
+    text: '<style="Subtitles_Person_RT">Gamer RT</style>: YOU, SHALL NOT, PASS!'
+  - displayStartTime: 307.4
+    displayEndTime: 307.9
+    text: '<style="Complete">Gold RT</style>: No, I''m-'
+  - displayStartTime: 310.619
+    displayEndTime: 311.1
+    text: '<style="Complete">Gold RT</style>: I''m not going to-'
+  - displayStartTime: 319.35
+    displayEndTime: 320.8
+    text: '<style="Subtitles_Person_Door">Door</style>: HAHAHAHAHA-'
+  - displayStartTime: 321.17
+    displayEndTime: 323.14
+    text: 'Announcer: Here comes a new challenger!'
+  - displayStartTime: 323.356
+    displayEndTime: 325.1
+    text: <style="Subtitles_Format_[]">Thought the watermark was just for credits
+      huh?</style>
+  - displayStartTime: 325.55
+    displayEndTime: 327.2
+    text: 'Narrator: It was at this moment, that he knew.'
+  - displayStartTime: 345.1
+    displayEndTime: 346.15
+    text: '<style="Subtitles_Person_Door">Door</style>: THAT IS IT.'
+  - displayStartTime: 351.6
+    displayEndTime: 353.8
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh what is going on up there?'
+  - displayStartTime: 356.8
+    displayEndTime: 358.25
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m gonna put on my ass kicking
+      boots.'
+  - displayStartTime: 358.55
+    displayEndTime: 360.85
+    text: <style="Subtitles_Format_[]">Crumpet & Cupcake Scared</style>
+  - displayStartTime: 362.55
+    displayEndTime: 364.7
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh you are going to regret this
+      day!'
+  - displayStartTime: 372.439
+    displayEndTime: 373.55
+    text: '<style="Subtitles_Person_RT">RT</style>: AAAAAA-'
+  - displayStartTime: 388.4
+    displayEndTime: 389.55
+    text: '<style="Subtitles_Person_RT">RT</style>: I feel a lot better actually.'
+  - displayStartTime: 402
+    displayEndTime: 403.2
+    text: '<style="Subtitles_Person_RT">RT</style>: Call an ambulance...'
+  - displayStartTime: 404.308
+    displayEndTime: 405.35
+    text: '<style="Subtitles_Person_RT">RT</style>: But not for me.'
+  - displayStartTime: 409.5
+    displayEndTime: 412.6
+    text: '<style="Subtitles_Person_Door">Door</style>: AAAAAAAA-'
+  - displayStartTime: 431.4
+    displayEndTime: 434.55
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh this one''s, actually let-let
+      me just close the door for this one.'
+  - displayStartTime: 434.55
+    displayEndTime: 437.15
+    text: '<style="Subtitles_Person_RT">RT</style>: Yeah this one, you don''t need
+      to see this.'
+  - displayStartTime: 450.25
+    displayEndTime: 452
+    text: <style="Subtitles_Format_[]"><style="Subtitles_Person_Trainerchris">Hey
+      Trainerchris here, Main developer of CYOA Deluxe</style></style>
+  - displayStartTime: 452
+    displayEndTime: 458
+    text: <size=90%><style="Subtitles_Format_[]"><style="Subtitles_Person_Trainerchris">If
+      you want to see the Deluxe credits you can check em out on the Title Screen</style></style></size>

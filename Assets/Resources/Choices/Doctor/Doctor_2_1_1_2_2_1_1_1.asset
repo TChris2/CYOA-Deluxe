@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Go Through The Passage
   vid: {fileID: 32900000, guid: cf8ac038b6799ce43908d4bb559a39d6, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 34.5
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: d8eabfa8ffcf9d448a4fb034d7b1ae06, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

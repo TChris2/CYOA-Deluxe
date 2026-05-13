@@ -16,13 +16,17 @@ MonoBehaviour:
   choice: Move Into This Town!
   vid: {fileID: 32900000, guid: 0a56b2a535e5a034097f23d64f09fc6c, type: 3}
   choiceState: 03000000
+  firstRunOnly: 0
   vidEndTime: 47.5
   hasComplete: 0
+  subtitles: {fileID: 11400000, guid: 51f9bf9230f8aad43be0d4745b5159ee, type: 2}
   objs: []
   mapName: 
   thumbnail: {fileID: 0}
-  nextChoiceIDs: []
-  achieveIDs: []
+  isOnMap: 0
+  mapNextChoices: []
+  nextChoices: []
+  achievements: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

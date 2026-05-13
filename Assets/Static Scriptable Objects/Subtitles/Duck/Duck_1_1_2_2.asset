@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Duck_1_1_2_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 0.84
+    displayEndTime: 2.95
+    text: '<style="Subtitles_Person_RT">Positive RT</style>: Don''t let your mind
+      hold you back!'
+  - displayStartTime: 3.55
+    displayEndTime: 6
+    text: '<style="Subtitles_Person_RT">Positive RT</style>: You can do this, I have
+      faith in you.'
+  - displayStartTime: 7.273
+    displayEndTime: 10.147
+    text: '<style="Subtitles_Person_RT">RT</style>: I could be the most magical man
+      you ever see today.'
+  - displayStartTime: 10.982
+    displayEndTime: 12.25
+    text: '<style="Subtitles_Person_RT">RT</style>: I can perform magic.'
+  - displayStartTime: 13.05
+    displayEndTime: 15.224
+    text: '<style="Subtitles_Person_RT">RT</style>: You want to see a magic trick?'
+  - displayStartTime: 16.372
+    displayEndTime: 17.696
+    text: '<style="Subtitles_Person_RT">RT</style>: Watch me disappear!'
+  - displayStartTime: 19.401
+    displayEndTime: 20.045
+    text: <style="Subtitles_Format_[]">Mario Jump</style>
+  - displayStartTime: 21.36
+    displayEndTime: 21.86
+    text: <style="Subtitles_Format_()">Irish Fall SFX</style>
+  - displayStartTime: 25.44
+    displayEndTime: 27.574
+    text: '<style="Subtitles_Person_RT">RT</style>: Let me just take the helm here.'
+  - displayStartTime: 27.574
+    displayEndTime: 30.197
+    text: '<style="Subtitles_Person_RT">RT</style>: You want to fight?! You don''t
+      want to mess with me.'
+  - displayStartTime: 30.615
+    displayEndTime: 32.906
+    text: <style="Subtitles_Format_()">Stones Crunching</style>
+  - displayStartTime: 44.536
+    displayEndTime: 45.723
+    text: '<style="Subtitles_Person_RT">RT</style>: Augh!'
+  - displayStartTime: 46.13
+    displayEndTime: 46.955
+    text: <style="Subtitles_Format_()">Magical Woosh</style>
+  - displayStartTime: 47.82
+    displayEndTime: 48.52
+    text: '<style="Subtitles_Format_()">Crumbling Rocks</style> '
+  - displayStartTime: 48.52
+    displayEndTime: 51.443
+    text: <style="Subtitles_Format_[]">Door Sliding</style>
+  - displayStartTime: 52.16
+    displayEndTime: 54.55
+    text: <style="Subtitles_Format_()">Angelic Choir ft. Duck Sounds</style>
+  - displayStartTime: 54.55
+    displayEndTime: 55.65
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh my God.'
+  - displayStartTime: 56.55
+    displayEndTime: 58.429
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh my God it''s here!'
+  - displayStartTime: 59.68
+    displayEndTime: 62.491
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh I can''t believe this!'
+  - displayStartTime: 66
+    displayEndTime: 68.021
+    text: '<style="Subtitles_Person_RT">RT</style>: You''ve really done something
+      here.'
+  - displayStartTime: 69.065
+    displayEndTime: 70.939
+    text: '<style="Subtitles_Person_RT">RT</style>: This is incredible'
+  - displayStartTime: 72.44
+    displayEndTime: 76.596
+    text: '<style="Subtitles_Person_RT">RT</style>: This is for you! This is for
+      you.'
+  - displayStartTime: 76.874
+    displayEndTime: 78.874
+    text: '<style="Subtitles_Person_RT">RT</style>: You''ve earned this!'
+  - displayStartTime: 79.68
+    displayEndTime: 86.604
+    text: <Style="subtitles_format_()">Several Seconds of Uninterrupted Happy Duck
+      Noises</Style>
+  - displayStartTime: 89.527
+    displayEndTime: 91.045
+    text: '<style="Subtitles_Person_RT">RT</style>: It''s okay.'
+  - displayStartTime: 93.446
+    displayEndTime: 98.644
+    text: <Style="subtitles_format_[]">This Man Is Unbothered. In His Element</Style>
+  - displayStartTime: 108.491
+    displayEndTime: 111.134
+    text: <Style="subtitles_format_()">Laughs</style>
+  - displayStartTime: 111.134
+    displayEndTime: 111.808
+    text: <Style="subtitles_format_[]">Goose jumpscare (non-canonical death)</style>
+  - displayStartTime: 112
+    displayEndTime: 116.36
+    text: <Style="subtitles_format_()">Final Fantasy Vll Victory Music</Style>

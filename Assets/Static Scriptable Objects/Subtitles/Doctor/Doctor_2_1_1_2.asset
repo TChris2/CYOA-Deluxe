@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 8.486
+    displayEndTime: 9.65
+    text: '???: I''m not a magician!'
+  - displayStartTime: 9.751
+    displayEndTime: 10.848
+    text: '???: I could be a magician!'
+  - displayStartTime: 10.848
+    displayEndTime: 11.348
+    text: '???: I Could Be A Magician!'
+  - displayStartTime: 12.237
+    displayEndTime: 14.237
+    text: '<style="Subtitles_Person_RT">RT</style>: What''s going on there?
+
+      ???:
+      I could be the most magical man you ever'
+  - displayStartTime: 14.237
+    displayEndTime: 14.737
+    text: '???: ...see today!'
+  - displayStartTime: 15.916
+    displayEndTime: 17.066
+    text: '???: I could perform magic!'
+  - displayStartTime: 17.713
+    displayEndTime: 19.713
+    text: '???: You-You wanna see a magic trick?'
+  - displayStartTime: 20.862
+    displayEndTime: 22.382
+    text: '???: Watch me dissapear'
+  - displayStartTime: 23.717
+    displayEndTime: 24.325
+    text: '???: buh-bye!'
+  - displayStartTime: 33.809
+    displayEndTime: 34.309
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: Hello?
+
+      <style="Subtitles_Person_RT">RT</style>:
+      Doctor.'
+  - displayStartTime: 34.711
+    displayEndTime: 36.322
+    text: '<style="Subtitles_Person_RT">RT</style>: What do you want me to do here?'
+  - displayStartTime: 36.554
+    displayEndTime: 37.739
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: Well, why don''t
+      you come on inside?'

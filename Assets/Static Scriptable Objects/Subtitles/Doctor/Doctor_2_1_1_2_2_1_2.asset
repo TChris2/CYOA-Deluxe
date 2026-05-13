@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2839b613ffeef64a8bd98f9b04038b7, type: 3}
+  m_Name: Doctor_2_1_1_2_2_1_2
+  m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
+  subtitleEntries:
+  - displayStartTime: 1.889
+    displayEndTime: 3.109
+    text: '<style="Subtitles_Person_RT">RT</style>: No, no, no.'
+  - displayStartTime: 3.109
+    displayEndTime: 3.957
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m not playing anymore.'
+  - displayStartTime: 3.957
+    displayEndTime: 4.778
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m not playing with you.'
+  - displayStartTime: 4.778
+    displayEndTime: 6.56
+    text: '<style="Subtitles_Person_RT">RT</style>: This is wrong, this is sick.'
+  - displayStartTime: 6.941
+    displayEndTime: 8.822
+    text: '<style="Subtitles_Person_RT">RT</style>: No I''m leaving I''m leaving
+      I''m done.'
+  - displayStartTime: 10.668
+    displayEndTime: 13.703
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh! you wanna fight? you wanna
+      fight?'
+  - displayStartTime: 14.044
+    displayEndTime: 15.47
+    text: '<style="Subtitles_Person_RT">RT</style>: You don''t want to mess with
+      me...'
+  - displayStartTime: 15.48
+    displayEndTime: 16.78
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: Some of you are mean!'
+  - displayStartTime: 16.88
+    displayEndTime: 18.79
+    text: '<style="Subtitles_Person_RT">RT</style>: Okay all right that''s it'
+  - displayStartTime: 20.03
+    displayEndTime: 21
+    text: '<style="Subtitles_Person_RT">RT</style>: I''m going to put on my ass kicking
+      bo-'
+  - displayStartTime: 21
+    displayEndTime: 21.543
+    text: '<style="Subtitles_Person_RT">RT</style>: AHHH-'
+  - displayStartTime: 21.543
+    displayEndTime: 23.275
+    text: <style="Subtitles_Format_[]">GET NUKED</style>
+  - displayStartTime: 23.275
+    displayEndTime: 24.46
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: I''m something of a
+      professional...'
+  - displayStartTime: 26
+    displayEndTime: 27.665
+    text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: I''m something... OF
+      A DRIFT-'
+  - displayStartTime: 27.665
+    displayEndTime: 28.669
+    text: <style="Subtitles_Format_[]">GUNSHOT</style>
+  - displayStartTime: 33.407
+    displayEndTime: 34.841
+    text: '<style="Subtitles_Person_RT">RT</style>: Just die already!'
+  - displayStartTime: 35.136
+    displayEndTime: 36.19
+    text: '<style="Subtitles_Person_RT">RT</style>: Just die!'
+  - displayStartTime: 37.71
+    displayEndTime: 39.495
+    text: '<style="Subtitles_Person_RT">RT</style>: Nobody wants to be here!'
+  - displayStartTime: 40.713
+    displayEndTime: 42.19
+    text: "<style=\"Subtitles_Person_RT\">RT</style>: When it\xB4ll be when you perish?"
