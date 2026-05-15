@@ -33,7 +33,8 @@ MonoBehaviour:
   mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: b1f0ff7f945b0fa438c355272ec9c99f, type: 2}
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: 248b69b65fe3ba44b9d2d93fef760e60, type: 2}
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

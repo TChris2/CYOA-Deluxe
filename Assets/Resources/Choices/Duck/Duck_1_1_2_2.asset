@@ -27,6 +27,12 @@ MonoBehaviour:
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
+  - obj: {fileID: 2518979021591781705, guid: dd45cc40671535e498d87fc1690c3dd0, type: 3}
+    popupTime: 116.5
+    isSkippable: 1
+    subsequentRunsOnly: 0
+    childPopupDelay: 0
+    despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
   isOnMap: 0

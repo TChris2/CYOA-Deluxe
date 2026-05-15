@@ -17,5 +17,5 @@ MonoBehaviour:
   achieveState: 0
   hasUnlocked: 0
   description: You know what you did
-  icon: {fileID: 21300000, guid: 79c848b731649634ead23a8a1c60e2b8, type: 3}
+  icon: {fileID: 1918800803301824203, guid: d2602a8016c9d6f4ba60af62623abf39, type: 3}
   updateDisplay: 1

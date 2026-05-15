@@ -23,7 +23,7 @@ public class AchievementDoctor_1 : Achievement
     {
         yield return new WaitForSeconds(closeGameDelay);
 
-        AchievementUnlock(achievement, false);
+        AchievementUnlock(achievement);
 
         Application.Quit();
     }

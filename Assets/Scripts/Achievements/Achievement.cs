@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Parent class of achievement scripts, holds general info and functions
@@ -22,9 +24,29 @@ public class Achievement : MonoBehaviour
     }
 
     /// <summary>
+    /// Waits until the child object is popped up on screen in GameManager
+    /// </summary>
+    protected IEnumerator AchievePopupDelay(AchievementInfo achievement)
+    {
+        // Gets remaining scripts
+        GameObject child = transform.GetChild(0).gameObject;
+
+        if (!child)
+            Debug.LogError("Error, child object does not exist");
+
+        yield return null;
+
+        while (!child.activeSelf)
+            yield return null;
+
+        AchievementUnlock(achievement);
+        StartCoroutine(sm.achievePopup.AchievePopup(achievement));
+    }
+
+    /// <summary>
     /// Unlocks achievement and adds it to the achievement popup queue
     /// </summary>
-    protected void AchievementUnlock(AchievementInfo achievement, bool isPopup)
+    protected void AchievementUnlock(AchievementInfo achievement)
     {
         Debug.Log($"Achievement {achievement.achieveID} Unlocked!");
         // Marked the achievement as unlocked
@@ -33,8 +55,5 @@ public class Achievement : MonoBehaviour
         achievement.updateDisplay = true;
         // Changes the achievement's state from Locked or Hidden to Shown
         achievement.achieveState = AchievementState.Shown;
-        // Tells the game whether to display the achievement popup on screen
-        if (isPopup)
-            StartCoroutine(sm.achievePopup.AchievePopup(achievement));
     }
 }

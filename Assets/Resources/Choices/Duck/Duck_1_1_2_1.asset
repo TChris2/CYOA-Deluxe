@@ -26,7 +26,8 @@ MonoBehaviour:
   isOnMap: 0
   mapNextChoices: []
   nextChoices: []
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: 78d8662c0dc615549a9a87e2eddf4aea, type: 2}
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

@@ -22,8 +22,8 @@ MonoBehaviour:
   subtitles: {fileID: 11400000, guid: d9886ed8aaf3d844d87f0f873c34a48b, type: 2}
   objs:
   - obj: {fileID: 2518979021591781705, guid: 923d94563eb0dff4a814277a7dbf93fe, type: 3}
-    popupTime: 0
-    isSkippable: 0
+    popupTime: 12.4
+    isSkippable: 1
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0

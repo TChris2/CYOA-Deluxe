@@ -6,10 +6,8 @@ using System.Collections.Generic;
 public class CompletionAchievements : Achievement
 {
     [SerializeField]
+    [Tooltip("Choices which have to be completed to unlock the achievement")]
     private List<ChoiceInfo> choices = new List<ChoiceInfo>();
-    [SerializeField]
-    [Range(0f,20f)]
-    private float popupOffset = 10f;
 
     void Start()
     {
@@ -52,20 +50,5 @@ public class CompletionAchievements : Achievement
 
         // Debug.Log($"Player has completed all choices for the achievement {achievement.achieveID}");
         return true;
-    }
-
-    // Waits until the user gets to the ending of the vid
-    private IEnumerator AchievePopupDelay(AchievementInfo achievement)
-    {
-        // Gets remaining scripts
-        GameManager gm = FindAnyObjectByType<GameManager>();
-
-        while (gm.videoPlayer.time < gm.currentChoice.vidEndTime - popupOffset)
-        {
-            // Debug.Log(videoPlay.time);
-            yield return null;
-        }
-
-        AchievementUnlock(achievement, true);
     }
 }

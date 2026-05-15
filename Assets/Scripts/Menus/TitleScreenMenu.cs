@@ -73,7 +73,7 @@ public class TitleScreenMenu : MonoBehaviour
         creditsBtn.onClick.AddListener(() => OpenCreditsMenu());
         statsBtn.onClick.AddListener(() => statsMenuF.OpenStatsMenu());
         deleteSaveBtn.onClick.AddListener(() => { OpenConfirmMenu(confirmMenu, "Delete Save Data?"); 
-            yesAction += () => { sm.LoadSOData(); iMenu.CloseMenu(); }; });
+            yesAction += () => { sm.LoadSOData(); PlayerPrefs.DeleteAll(); iMenu.CloseMenu(); }; });
         settingsBtn.onClick.AddListener(() => settingsMenuF.OpenSettingsMenu());
         // Confirm Menu
         yesBtn.onClick.AddListener(() => yesAction?.Invoke());

@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
                         AchievementInfo achievement = sm.achieveDict[achievementInfo.achieveID];
                         if (!achievement.hasUnlocked && achievement.achieveState == AchievementState.Locked)
                         {
-                            achievement.achieveState = AchievementState.Hidden;
+                            achievement.achieveState = AchievementState.Shown;
                             achievement.updateDisplay = true;
                         }
                     }

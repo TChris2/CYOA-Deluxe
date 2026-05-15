@@ -17,5 +17,5 @@ MonoBehaviour:
   achieveState: 2
   hasUnlocked: 0
   description: Complete one ending
-  icon: {fileID: 21300000, guid: 79c848b731649634ead23a8a1c60e2b8, type: 3}
+  icon: {fileID: -1872216394, guid: 6c3673c5e369d064d8c6989e2564fe22, type: 3}
   updateDisplay: 1

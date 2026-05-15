@@ -42,7 +42,7 @@ public class AchievementTesco_1 : Achievement
             // If the player meets the conditions for the achievement
             if (PlayerPrefs.GetInt("Achievement - Tesco Loop", 0) >= 9)
             {
-                AchievementUnlock(sm.achieveDict[achieveID], true);
+                StartCoroutine(AchievePopupDelay(sm.achieveDict[achieveID]));
             }
         }
     }

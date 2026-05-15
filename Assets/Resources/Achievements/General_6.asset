@@ -17,5 +17,5 @@ MonoBehaviour:
   achieveState: 0
   hasUnlocked: 0
   description: Complete The Finale
-  icon: {fileID: 21300000, guid: 79c848b731649634ead23a8a1c60e2b8, type: 3}
+  icon: {fileID: -1311768507, guid: 6c3673c5e369d064d8c6989e2564fe22, type: 3}
   updateDisplay: 1

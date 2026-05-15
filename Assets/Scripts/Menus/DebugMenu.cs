@@ -22,7 +22,7 @@ public class DebugMenu : MonoBehaviour
         // Saves info to json
         SaveBtn.onClick.AddListener(() => sm.SaveData());
         // Resets back to default info
-        LoadSOBtn.onClick.AddListener(() => { sm.LoadSOData(); gm.ResetLocalVars(); });
+        LoadSOBtn.onClick.AddListener(() => { sm.LoadSOData(); gm.ResetLocalVars(); PlayerPrefs.DeleteAll(); });
         // Loads save data from memory
         LoadJSONBtn.onClick.AddListener(() => AttemptJSONLoad(sm));
     }

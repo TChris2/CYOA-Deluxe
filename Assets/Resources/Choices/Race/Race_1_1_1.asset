@@ -20,7 +20,13 @@ MonoBehaviour:
   vidEndTime: 63
   hasComplete: 0
   subtitles: {fileID: 11400000, guid: 3249b20e54408d54ea1d99c1b817e196, type: 2}
-  objs: []
+  objs:
+  - obj: {fileID: 2518979021591781705, guid: 108bd4b3e7de4104f972ac588c82a95f, type: 3}
+    popupTime: 63
+    isSkippable: 1
+    subsequentRunsOnly: 0
+    childPopupDelay: 0
+    despawnTime: 0
   mapName: 
   thumbnail: {fileID: 0}
   isOnMap: 0

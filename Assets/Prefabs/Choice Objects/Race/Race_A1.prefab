@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1512876745680337656}
   - component: {fileID: 2140922061002102653}
   m_Layer: 5
-  m_Name: BOTW_A1
+  m_Name: Race_A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,6 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e71d660d919474fa7f9e5badc21e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CompletionAchievements
-  achievementInfo: {fileID: 11400000, guid: 99253ea4154c31a43b3f8ee780252556, type: 2}
+  achievementInfo: {fileID: 11400000, guid: cdf9cb65cba30a64698e44c2d2ecae1f, type: 2}
   choices:
-  - {fileID: 11400000, guid: 1013cf36c13a2c7449cf6fc375a41af3, type: 2}
+  - {fileID: 11400000, guid: 5ed91710ec0a0db459177f84e956a6bd, type: 2}

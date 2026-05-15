@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b342e538e7cfcba49a1095495c11695d, type: 3}
-  m_Name: BOTW_1
+  m_Name: Race_1
   m_EditorClassIdentifier: Assembly-CSharp::AchievementInfo
-  achieveID: BOTW_1
-  achievement: OH BABY A TRIPLE!!!
+  achieveID: Race_1
+  achievement: "Did You Know\u2026"
   achieveState: 0
   hasUnlocked: 0
-  description: Parry the guardian blast
-  icon: {fileID: 21300000, guid: 77f2c40480564f3428ef24ebc6f8462f, type: 3}
+  description: Get first place in the race
+  icon: {fileID: 21300000, guid: c6daee900177b4f4eaf83be1175f2c62, type: 3}
   updateDisplay: 1

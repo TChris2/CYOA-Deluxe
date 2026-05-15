@@ -26,7 +26,8 @@ MonoBehaviour:
   isOnMap: 0
   mapNextChoices: []
   nextChoices: []
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: cdf9cb65cba30a64698e44c2d2ecae1f, type: 2}
   letterIDs: 
   weaponsUsed:
   - Bullet Bill

@@ -523,15 +523,14 @@ public class MapMenu : MonoBehaviour
         if (wyaIconStorage)
         {
             // Debug.Log("Changing wya icon's position");
-            wyaIconStorage.transform.position = new Vector2(targetBtn.transform.position.x, targetBtn.transform.position.y + 57.5f);
-            // Sets as parent of target so it does not show up in both menus
-            wyaIconStorage.transform.SetParent(targetBtn.transform, true);
+            wyaIconStorage.transform.SetParent(targetBtn.transform, false);
+            PositionWyaIcon(targetBtn);
         }
         else
         {
             // Debug.Log("Spawning wya icon");
-            wyaIconStorage = Instantiate(wyaIcon, new Vector2(targetBtn.transform.position.x, targetBtn.transform.position.y + 57.5f),
-                Quaternion.identity, targetBtn.transform);       
+            wyaIconStorage = Instantiate(wyaIcon, targetBtn.transform);
+            PositionWyaIcon(targetBtn);      
         }
         
         // Displays the current choice
@@ -539,6 +538,20 @@ public class MapMenu : MonoBehaviour
 
         // Opens route map where the player is currently
         OpenRouteMap(mapChoice.choiceID);
+    }
+
+    /// <summary>
+    /// Positions the icon
+    /// </summary>
+    void PositionWyaIcon(Button targetBtn)
+    {
+        // Gets components
+        RectTransform btnRect = targetBtn.GetComponent<RectTransform>();
+        RectTransform iconRect = wyaIconStorage.GetComponent<RectTransform>();
+
+        wyaIconStorage.transform.SetParent(targetBtn.transform, false);
+        // Sets the new position
+        iconRect.anchoredPosition = new Vector2(0f, btnRect.rect.height / 2f + 40.5f);
     }
 
     /// <summary>
