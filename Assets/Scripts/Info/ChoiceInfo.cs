@@ -12,30 +12,33 @@ public class ChoiceInfo : ScriptableObject
     [Header("Choice Info")]
     [Tooltip("Id for the choice")]
     public string choiceID;
-    [Tooltip("Choice")]
+    [Tooltip("Selected Choice")]
     public string choice;
-    [Tooltip("Vid associated with choice")]
-    public VideoClip vid;
-    [Tooltip("State of choice")]
-    public List<ChoiceState> choiceState;
-    [Tooltip("If the choice only appears on the player's first run through a choice")]
-    public bool firstRunOnly;
-    [Tooltip("Time when the retry menu pops up if the choice is a gameover or ending")]
-    public float vidEndTime;
     [Tooltip("Whether the player has done the choice")]
     public bool hasComplete;
+    [Tooltip("If the choice only appears on the player's first run through a choice")]
+    public bool firstRunOnly;
+    [Tooltip("State of choice")]
+    public List<ChoiceState> choiceState;
+    [Tooltip("Vid associated with choice")]
+    [Header("Vid Info")]
+    public VideoClip vid;
     [Tooltip("Subtitles for the vid")]
     public SubtitleInfo subtitles;
+    [Tooltip("Time when the retry menu pops up if the choice is a gameover or ending")]
+    public float vidEndTime;
     [Tooltip("Objects spawned during the choice")]
     public List<ObjectInfo> objs;
     // Map menu info
     [Header("Map Menu")]
+    [Tooltip("If the choice is on the map")]
+    public bool isOnMap;
     [Tooltip("Name of the choice displayed in the map menu\nDefaults to the choice string if left empty")]
     public string mapName;
     [Tooltip("Screenshot of the video which will be displayed in the map menu")]
     public Sprite thumbnail;
-    [Tooltip("If the choice is on the map")]
-    public bool isOnMap;
+    [Tooltip("When on the map menu you want your choice to shown as on a different one")]
+    public ChoiceInfo mapDisplayChoice;
     // Stores next choices on the maps
     [HideInInspector]
     public List<ChoiceInfo> mapNextChoices;
@@ -44,6 +47,7 @@ public class ChoiceInfo : ScriptableObject
     public List<ChoiceInfo> nextChoices;
     [Tooltip("Ids of achievements related to the choice\nCounts toward choice completion when displayed in the map menu")]
     public List<AchievementInfo> achievements;
+    public List<AchievementInfo> achievementHints;
     [Tooltip("Ids of letters related to the choice\nCounts toward choice completion when displayed in the map menu")]
     public List<LetterID> letterIDs;
     [Tooltip("Ids of weapons used during the choice")]
@@ -59,32 +63,35 @@ public class ChoiceInfo : ScriptableObject
     {
         choiceID = choiceInfo.choiceID;
         choice = choiceInfo.choice;
-        vid = choiceInfo.vid;
-        choiceState = choiceInfo.choiceState;
-        firstRunOnly = choiceInfo.firstRunOnly;
-        vidEndTime = choiceInfo.vidEndTime;
         hasComplete = choiceInfo.hasComplete;
+        firstRunOnly = choiceInfo.firstRunOnly;
+        choiceState = choiceInfo.choiceState;
+        vid = choiceInfo.vid;
         subtitles = choiceInfo.subtitles;
+        vidEndTime = choiceInfo.vidEndTime;
         objs = choiceInfo.objs;
         mapName = choiceInfo.mapName;
         thumbnail = choiceInfo.thumbnail;
         isOnMap = thumbnail != null;
+        mapDisplayChoice = choiceInfo.mapDisplayChoice;
         mapNextChoices = new List<ChoiceInfo>();
         nextChoices = choiceInfo.nextChoices;
         achievements = choiceInfo.achievements;
+        achievementHints = choiceInfo.achievementHints;
         letterIDs = choiceInfo.letterIDs;
         weaponsUsed = choiceInfo.weaponsUsed;
+        updateDisplay = choiceInfo.updateDisplay;
     }
 
     // Trims strings of empty space    
     void OnValidate()
     {
-        choiceID.Trim();
-        choice.Trim();
-        mapName.Trim();
+        choiceID = choiceID.Trim();
+        choice = choice.Trim();
+        mapName = mapName.Trim();
         if (weaponsUsed.Count != 0)
             for (int i = 0; i < weaponsUsed.Count; i++)
-                weaponsUsed[i].Trim();
+                weaponsUsed[i] = weaponsUsed[i].Trim();
     }
 }
 

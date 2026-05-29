@@ -62,7 +62,7 @@ MonoBehaviour:
       HAHAHAHAHAHAHAHAHAHAHAHAHA'
   - displayStartTime: 92
     displayEndTime: 96.35
-    text: '<style="Subtitles_Person_Door">Door</style>: but first why don''t we rewatch
+    text: '<style="Subtitles_Person_Door">Door</style>: But first why don''t we rewatch
       the TF2 Crocket ending.'
   - displayStartTime: 96.35
     displayEndTime: 99.05
@@ -186,8 +186,17 @@ MonoBehaviour:
     displayEndTime: 261.55
     text: <style="Subtitles_Format_[]">DOOR LOOK OUT OH NO HES GOT AIRPODS OH NO-</style>
   - displayStartTime: 282.8
-    displayEndTime: 286.2
-    text: 'Announcer: THREE, TWO, ONE, GO!'
+    displayEndTime: 283.8
+    text: 'Announcer: THREE!'
+  - displayStartTime: 283.8
+    displayEndTime: 284.75
+    text: 'Announcer: TWO!'
+  - displayStartTime: 284.75
+    displayEndTime: 285.8
+    text: 'Announcer: ONE!'
+  - displayStartTime: 285.8
+    displayEndTime: 286.62
+    text: 'Announcer: GO!'
   - displayStartTime: 292.85
     displayEndTime: 295.5
     text: 'Narrator: When Stanley came to a set of two open doors-'

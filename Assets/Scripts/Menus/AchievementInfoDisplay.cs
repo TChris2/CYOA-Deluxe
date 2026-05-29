@@ -8,21 +8,31 @@ using UnityEngine.UI;
 public class AchievementInfoDisplay : MonoBehaviour
 {
     [Header("Achievement UI")]
-    public Image popupIcon;
     [SerializeField]
-    private TMP_Text popupLabel;
+    private Image icon;
     [SerializeField]
-    private TMP_Text popupDesc;
-    public Sprite LockedIcon;
+    private TMP_Text label;
+    [SerializeField]
+    private Image labelLine;
+    [SerializeField]
+    private TMP_Text desc;
 
     /// <summary>
     /// Displays achievement info
     /// </summary>
-    public void DisplayInfo(Sprite icon, string achievement, string description)
+    public void DisplayInfo(Sprite inputIcon, string inputAchievement, string inputDescription)
     {
-        // Debug.Log("Displaying Info");
-        popupIcon.sprite = icon;
-        popupLabel.text = achievement;
-        popupDesc.text = description;
+        // Debug.Log("AchievementInfoDisplay: Displaying Info");
+        icon.sprite = inputIcon;
+        label.text = inputAchievement;
+        desc.text = inputDescription;
+    }
+
+    public void UpdateColor(Color iconColor, Color textColor)
+    {
+        icon.color = iconColor;
+        label.color = textColor;
+        labelLine.color = textColor;
+        desc.color = textColor;   
     }
 }

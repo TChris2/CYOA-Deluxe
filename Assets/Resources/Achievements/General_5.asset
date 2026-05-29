@@ -18,4 +18,7 @@ MonoBehaviour:
   hasUnlocked: 0
   description: Do every choice
   icon: {fileID: -81815285, guid: 6c3673c5e369d064d8c6989e2564fe22, type: 3}
+  isDisplayed: 1
+  popupTime: 2
+  customPopupTime: 0
   updateDisplay: 1

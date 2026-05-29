@@ -23,7 +23,7 @@ public class SaveManager : MonoBehaviour
     // Current player stats
     public Stats stats;
     [HideInInspector]
-    public AchievementPopup achievePopup;
+    public AchievementManager am;
 
     void Awake()
     {
@@ -40,6 +40,7 @@ public class SaveManager : MonoBehaviour
         // Saves instance
         instance = this;
         DontDestroyOnLoad(gameObject);
+        am = GetComponent<AchievementManager>();
         
         // Adds filepaths to json files
         filePaths.Add(Path.Combine(Application.persistentDataPath, "SaveData.json"));
@@ -63,8 +64,6 @@ public class SaveManager : MonoBehaviour
         // Loads data from JSON files if it already exists
         else
             LoadJSONData();
-
-        achievePopup = FindAnyObjectByType<AchievementPopup>();
     }
 
     /// <summary>
@@ -72,7 +71,7 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     public void LoadSOData()
     {
-        // Debug.Log("Loading SO Data");
+        // Debug.Log("SaveManager: Loading SO Data");
         // Clears dictionaries per each load
         choiceDict.Clear();
         achieveDict.Clear();
@@ -100,7 +99,7 @@ public class SaveManager : MonoBehaviour
             // Checks for duplicate ids
             if (choiceDict.ContainsKey(choice.choiceID))
             {
-                Debug.LogWarning($"Duplicate ChoiceID detected, {choice.choiceID} in {choice.choice}");
+                Debug.LogWarning($"SaveManager: Duplicate ChoiceID detected, {choice.choiceID} in {choice.choice}");
                 continue;
             }
 
@@ -120,7 +119,7 @@ public class SaveManager : MonoBehaviour
             // Checks for duplicate ids
             if (achieveDict.ContainsKey(achievement.achieveID))
             {
-                Debug.LogWarning($"Duplicate AchieveID detected, {achievement.achieveID} in {achievement.achievement}");
+                Debug.LogWarning($"SaveManager: Duplicate AchieveID detected, {achievement.achieveID} in {achievement.achievement}");
                 continue;
             }
 
@@ -140,7 +139,7 @@ public class SaveManager : MonoBehaviour
             // Checks for duplicate ids
             if (letterDict.ContainsKey(letter.letterID))
             {
-                Debug.LogWarning($"Duplicate LetterID detected, {letter.letterID} in {letter.letter}");
+                Debug.LogWarning($"SaveManager: Duplicate LetterID detected, {letter.letterID} in {letter.letter}");
                 continue;
             }
 
@@ -156,7 +155,7 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     public void LoadJSONData()
     {
-        // Debug.Log("Loading Choice JSON Data");
+        // Debug.Log("SaveManager: Loading Choice JSON Data");
         // Clears dictionaries per each load
         choiceDict.Clear();
         achieveDict.Clear();
@@ -180,7 +179,7 @@ public class SaveManager : MonoBehaviour
             }
             else
             {
-                // Debug.LogWarning($"ChoiceID {entry.choiceID} not found in ScriptableObjects!");
+                // Debug.LogWarning($"SaveManager: ChoiceID {entry.choiceID} not found in ScriptableObjects!");
             }
         }
 
@@ -194,7 +193,7 @@ public class SaveManager : MonoBehaviour
             }
             else
             {
-                // Debug.LogWarning($"AchieveID {entry.achieveID} not found in ScriptableObjects!");
+                // Debug.LogWarning($"SaveManager: AchieveID {entry.achieveID} not found in ScriptableObjects!");
             }
         }
 
@@ -207,7 +206,7 @@ public class SaveManager : MonoBehaviour
             }
             else
             {
-                // Debug.LogWarning($"LetterID {kvp.Value.letterID} not found in ScriptableObjects!");
+                // Debug.LogWarning($"SaveManager: LetterID {kvp.Value.letterID} not found in ScriptableObjects!");
             }
         }
 
@@ -241,7 +240,7 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(filePaths[0], json);
     }
 
-    private void OnApplicationQuit()
+    private void OnDisable()
     {
         if (instance == this)
             SaveData();

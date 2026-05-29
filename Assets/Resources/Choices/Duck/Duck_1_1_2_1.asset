@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Duck_1_1_2_1
   choice: Turn Back
-  vid: {fileID: 32900000, guid: 9880b385fb5da9f43bc71ff0f005002a, type: 3}
-  choiceState: 0200000003000000
-  firstRunOnly: 0
-  vidEndTime: 68
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 0200000003000000
+  vid: {fileID: 32900000, guid: 9880b385fb5da9f43bc71ff0f005002a, type: 3}
   subtitles: {fileID: 11400000, guid: 69dca0c988911684081ad51f1c74752f, type: 2}
+  vidEndTime: 68
   objs: []
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices: []
-  achievements:
+  achievements: []
+  achievementHints:
   - {fileID: 11400000, guid: 78d8662c0dc615549a9a87e2eddf4aea, type: 2}
   letterIDs: 
   weaponsUsed: []

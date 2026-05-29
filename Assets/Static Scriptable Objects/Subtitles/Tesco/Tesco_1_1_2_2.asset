@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SubtitleInfo
   subtitleEntries:
   - displayStartTime: 48.5
-    displayEndTime: 55.997
-    text: '<Style="subtitles_Person_RT">RT</style>: Oh God the Flames are everywhere.
-      Oh God the Flames are everywhere I-I- I see a window.'
+    displayEndTime: 49.8
+    text: '<Style="subtitles_Person_RT">RT</style>: Oh God the flames are everywhere.'
+  - displayStartTime: 49.8
+    displayEndTime: 53.5
+    text: '<Style="subtitles_Person_RT">RT</style>: Oh God the flames are everywhere
+      I-I-'
+  - displayStartTime: 53.5
+    displayEndTime: 54.3
+    text: '<Style="subtitles_Person_RT">RT</style>: I see a window!'
   - displayStartTime: 58.147
     displayEndTime: 60.8
     text: '<Style="subtitles_Person_Jerma">Jerma</style>: How many <Style="YOUTUBE"></style>

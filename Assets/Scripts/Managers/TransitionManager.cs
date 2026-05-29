@@ -119,7 +119,7 @@ public class TransitionManager : MonoBehaviour
 
         float elaspedTime = 0f;
 
-        // Debug.Log($"fadeStartDelay {fadeStartDelay}");
+        // Debug.Log($"TransitionManager: fadeStartDelay {fadeStartDelay}");
 
         float lerpedAmt = Mathf.Lerp(startAmt, targetAmt, (elaspedTime / fadeDuration));
         _material.SetFloat(_fadeAmt, lerpedAmt);
@@ -132,13 +132,13 @@ public class TransitionManager : MonoBehaviour
 
             lerpedAmt = Mathf.Lerp(startAmt, targetAmt, (elaspedTime / fadeDuration));
             _material.SetFloat(_fadeAmt, lerpedAmt);
-            // Debug.Log($"elaspedTime {elaspedTime} lerpedAmt {lerpedAmt}");
+            // Debug.Log($"TransitionManager: elaspedTime {elaspedTime} lerpedAmt {lerpedAmt}");
             yield return null;
         }
 
         _material.SetFloat(_fadeAmt, targetAmt);
 
-        // Debug.Log($"actionDelay {actionDelay}");
+        // Debug.Log($"TransitionManager: actionDelay {actionDelay}");
 
         if (actionDelay > 0)
             yield return new WaitForSecondsRealtime(actionDelay);

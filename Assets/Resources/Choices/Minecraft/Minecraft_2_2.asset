@@ -14,25 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Minecraft_2_2
   choice: Move Into This Town!
-  vid: {fileID: 32900000, guid: 0a56b2a535e5a034097f23d64f09fc6c, type: 3}
-  choiceState: 03000000
-  firstRunOnly: 0
-  vidEndTime: 47.5
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 03000000
+  vid: {fileID: 32900000, guid: 0a56b2a535e5a034097f23d64f09fc6c, type: 3}
   subtitles: {fileID: 11400000, guid: 51f9bf9230f8aad43be0d4745b5159ee, type: 2}
-  objs:
-  - obj: {fileID: 2518979021591781705, guid: 1e4ed45bff7cc194b859bd0e739a13ca, type: 3}
-    popupTime: 47.5
-    isSkippable: 1
-    subsequentRunsOnly: 0
-    childPopupDelay: 0
-    despawnTime: 0
+  vidEndTime: 47.5
+  objs: []
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices: []
   achievements:
+  - {fileID: 11400000, guid: b1774a2cb6b3f9148ba3727cde65ea2a, type: 2}
+  achievementHints:
   - {fileID: 11400000, guid: b1774a2cb6b3f9148ba3727cde65ea2a, type: 2}
   letterIDs: 
   weaponsUsed: []

@@ -180,10 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfea3d3edd1933438fecb946f13ceb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementPopup
-  popupIcon: {fileID: 780286006216615607}
-  popupLabel: {fileID: 3472957136288089111}
-  popupDesc: {fileID: 569435122689234859}
-  LockedIcon: {fileID: 21300000, guid: 2682d1e2f77315f42a66a5c7897bc9b2, type: 3}
+  icon: {fileID: 780286006216615607}
+  label: {fileID: 3472957136288089111}
+  labelLine: {fileID: 0}
+  desc: {fileID: 569435122689234859}
   achieveQueue: []
 --- !u!95 &1806567064455765187
 Animator:
@@ -696,6 +696,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2697966526895691063}
+  - {fileID: 3150549876064011604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4385785251474297678
@@ -717,7 +718,7 @@ MonoBehaviour:
     mostUsedMove: Thunderbolt
     deaths: 0
     playTime: 0
-  achievePopup: {fileID: 0}
+  am: {fileID: 0}
 --- !u!114 &8350452560146525233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,7 +1130,7 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
@@ -1217,7 +1218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 79c848b731649634ead23a8a1c60e2b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a837d9ca3b0c904a8ca39e55632ba4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1672,6 +1673,76 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1219127421917930694, guid: d07f5ac10780d4e4fac144f07e342ec4, type: 3}
   m_PrefabInstance: {fileID: 1692584856847053867}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4293906579487805069
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8576911501277024573}
+    m_Modifications:
+    - target: {fileID: 324750878300970095, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_Name
+      value: Achievement Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329574677121619305, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: m_Name
+      value: Achievements
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589383393359906331, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+      propertyPath: achievePopup
+      value: 
+      objectReference: {fileID: 2824559369505733010}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+--- !u!4 &3150549876064011604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1165875002237979609, guid: 00d27b7e0dc1c394ebedfd9ac75f0bbf, type: 3}
+  m_PrefabInstance: {fileID: 4293906579487805069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6190679876041415095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1814,7 +1885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2824341613449037367, guid: b8fb4ea959912194f8bdf2ec917d21e2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -1080
       objectReference: {fileID: 0}
     - target: {fileID: 2824341613449037367, guid: b8fb4ea959912194f8bdf2ec917d21e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

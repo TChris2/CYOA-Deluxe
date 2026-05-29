@@ -27,11 +27,11 @@ MonoBehaviour:
     text: '<style="Subtitles_Person_RT">RT</style>: This is wrong, this is sick.'
   - displayStartTime: 6.941
     displayEndTime: 8.822
-    text: '<style="Subtitles_Person_RT">RT</style>: No I''m leaving I''m leaving
+    text: '<style="Subtitles_Person_RT">RT</style>: No I''m leaving, I''m leaving
       I''m done.'
   - displayStartTime: 10.668
     displayEndTime: 13.703
-    text: '<style="Subtitles_Person_RT">RT</style>: Oh! you wanna fight? you wanna
+    text: '<style="Subtitles_Person_RT">RT</style>: Oh! you wanna fight? You wanna
       fight?'
   - displayStartTime: 14.044
     displayEndTime: 15.47
@@ -42,7 +42,7 @@ MonoBehaviour:
     text: '<style="Subtitles_Person_EvilRT">Evil RT</style>: Some of you are mean!'
   - displayStartTime: 16.88
     displayEndTime: 18.79
-    text: '<style="Subtitles_Person_RT">RT</style>: Okay all right that''s it'
+    text: '<style="Subtitles_Person_RT">RT</style>: Okay all right that''s it,'
   - displayStartTime: 20.03
     displayEndTime: 21
     text: '<style="Subtitles_Person_RT">RT</style>: I''m going to put on my ass kicking

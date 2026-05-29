@@ -14,12 +14,15 @@ public class GameManager : MonoBehaviour
     [Header("Main Game")]
     // Video player
     public VideoPlayer videoPlayer;
+    [Tooltip("Checks to see if the videoplayer should be paused atm")]
+    public bool pauseVideoPlayer;
     // Displays current choice
     public ChoiceInfo currentChoice;
     // Store prev choice id
     public string prevChoice;
     // Determines when the game can be paused in normal gameplay
     public bool canBePaused;
+    public bool vidFinished;
     // Skipping in vids
     [SerializeField]
     public Animator fadeTextAni;
@@ -39,7 +42,7 @@ public class GameManager : MonoBehaviour
     InputMenu iMenu;
     SaveManager sm;
     TransitionManager tm;
-    
+    AchievementManager am;
     FinaleManager fm;
     SubtitlesManager subtitlesManager;
     MapMenu mapMenuF;
@@ -62,9 +65,11 @@ public class GameManager : MonoBehaviour
         iMenu = FindAnyObjectByType<InputMenu>();
         mapMenuF = FindAnyObjectByType<MapMenu>();
         subtitlesManager = FindAnyObjectByType<SubtitlesManager>();
+        am = FindAnyObjectByType<AchievementManager>();
         fm = GetComponent<FinaleManager>();
         videoPlayer.prepareCompleted += PlayVid;
         videoPlayer.prepareCompleted += LoadVidInfo;
+        videoPlayer.loopPointReached += OnVidFinished;
 
         // Loads current choice id
         string id = PlayerPrefs.GetString("Current ChoiceID", "Start_");
@@ -86,6 +91,7 @@ public class GameManager : MonoBehaviour
     public void ResetLocalVars()
     {
         fm.ResetFinaleVars();
+        am.ClearPopupQueues();
     }
 
     /// <summary>
@@ -93,13 +99,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadPrevChoice()
     {
-        // Debug.Log($"LoadPrevChoice - prevChoice {prevChoice.ToString()}"); 
+        // Debug.Log($"GameManager: LoadPrevChoice - prevChoice {prevChoice.ToString()}"); 
         if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed))
         {
             if (prevChoice == null)
             {
                 prevChoice = "Start_";
-                Debug.LogError("Error, prevChoice is null, defaulting to Start_");
+                Debug.LogError("GameManager: Error, prevChoice is null, defaulting to Start_");
             }
 
             LoadChoice(prevChoice.ToString());
@@ -118,23 +124,23 @@ public class GameManager : MonoBehaviour
 
         canBePaused = false;
 
-        Debug.Log($"Loading Choice {id}");
+        Debug.Log($"GameManager: Loading Choice {id}");
 
         // Stores prev choice, only stores prev choice in normal gameplay
         if (!isDebugSkipping && currentChoice != null)
             prevChoice = currentChoice.choiceID;
 
-        // Debug.Log($"PrevChoice {prevChoice.ToString()}"); 
+        // Debug.Log($"GameManager: PrevChoice {prevChoice.ToString()}"); 
 
         // Disables at start of choice
         choiceVisable = false;
 
-        // For debugging if retry menu is still open
-        iMenu.CloseRetryMenu();
-
         // Stops vids
         videoPlayer.Stop();
 
+        // Closes retry menu if it is still open
+        if (iMenu.isRetryMenu)
+            videoPlayer.prepareCompleted += CloseRetryMenu;
         // Closes the map menu when the vid is ready
         if (mapMenuF.inMapMenu)
             videoPlayer.prepareCompleted += CloseMapMenu;
@@ -153,16 +159,21 @@ public class GameManager : MonoBehaviour
 
                 if (sm.choiceDict.TryGetValue(prevChoiceID, out ChoiceInfo prevChoice))
                 {
-                    Debug.Log($"Current choice {currentChoice.choiceID} is a reference, loading {prevChoice.choiceID} instead");
+                    Debug.Log($"GameManager: Current choice {currentChoice.choiceID} is a reference, loading {prevChoice.choiceID} instead");
                     currentChoice = prevChoice;
                 }
                 else
                 {
-                    Debug.Log($"Error previous choice of reference choice {currentChoice.choiceID} does not exist");
+                    Debug.Log($"GameManager: Error previous choice of reference choice {currentChoice.choiceID} does not exist");
                 }
             }
 
             currentChoice.hasComplete = true;
+            if (currentChoice.mapDisplayChoice && !sm.choiceDict[currentChoice.mapDisplayChoice.choiceID].hasComplete)
+            {
+                Debug.Log($"GameManager: {currentChoice.choiceID} has {currentChoice.mapDisplayChoice.choiceID} as it's map display choice, marking {currentChoice.mapDisplayChoice.choiceID} as completed");
+                sm.choiceDict[currentChoice.mapDisplayChoice.choiceID].hasComplete = true;
+            }
 
             if (currentChoice.choiceID == "Finale_")
             {
@@ -172,36 +183,51 @@ public class GameManager : MonoBehaviour
 
             if (!currentChoice.vid)
             {
-                Debug.Log("No video detected");
+                Debug.Log("GameManager: No video detected");
             }
 
             // Vid subtitles
             subtitlesManager.currentEntry = null;
             subtitlesManager.currentSubtitles = currentChoice.subtitles;
 
-            // If the choice contains any achieveIDs to see if has to update its achieveState
+            // If the choice contains any achievemnts which have to do their logic
             if (currentChoice.achievements.Count > 0)
             {
-                foreach (AchievementInfo achievementInfo in currentChoice.achievements)
+                foreach (AchievementInfo achievement in currentChoice.achievements)
+                {
+                    Debug.Log($"GameManager: Checking achievement {achievement.achieveID}");
+                    am.CheckAchievement(achievement.achieveID);
+                }
+            }
+            else
+            {
+                // Debug.Log($"GameManager: No achievements found for ChoiceID {currentChoice.choiceID} in LoadChoice()");
+            }
+
+            // If the choice contains any achievement hints to see if has to update an achievement's achieveState
+            if (currentChoice.achievementHints.Count > 0)
+            {
+                foreach (AchievementInfo achievementInfo in currentChoice.achievementHints)
                 {
                     if (sm.achieveDict.ContainsKey(achievementInfo.achieveID))
                     {
                         AchievementInfo achievement = sm.achieveDict[achievementInfo.achieveID];
                         if (!achievement.hasUnlocked && achievement.achieveState == AchievementState.Locked)
                         {
+                            Debug.Log($"GameManager: Achievement hint activated for {achievement.achieveID}");
                             achievement.achieveState = AchievementState.Shown;
                             achievement.updateDisplay = true;
                         }
                     }
                     else
                     {
-                        // Debug.Log($"AchieveID {id} not found in system in LoadChoice()");
+                        // Debug.Log($"GameManager: AchieveID {id} not found in system in LoadChoice()");
                     }
                 }
             }
             else
             {
-                // Debug.Log($"No achievements found for ChoiceID {currentChoice.choiceID} in LoadChoice()");
+                // Debug.Log($"GameManager: No achievement hints found for ChoiceID {currentChoice.choiceID} in LoadChoice()");
             }
 
             // If the choice contains any weapon stat tracking
@@ -215,14 +241,14 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        // Debug.Log($"Weapon {id} not found in system in LoadChoice(), creating new entry");
+                        // Debug.Log($"GameManager: Weapon {id} not found in system in LoadChoice(), creating new entry");
                         sm.stats.weaponDict.Add(weapon, 1);
                     }
                 }
             }
             else
             {
-                // Debug.Log($"No achievements found for ChoiceID {currentChoice.choiceID} in LoadChoice()");
+                // Debug.Log($"GameManager: No weapons found for ChoiceID {currentChoice.choiceID} in LoadChoice()");
             }
 
             // Skips to first choice if enabled
@@ -237,7 +263,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"ID - {id} - not found in the system when checking in LoadChoice()");
+            Debug.Log($"GameManager: ID - {id} - not found in the system when checking in LoadChoice()");
             LoadChoice("Start_");
         }
     }
@@ -247,7 +273,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadVidInfo(VideoPlayer vp)
     {
-        // Debug.Log("LoadVidInfo");
+        // Debug.Log("GameManager: LoadVidInfo");
         // Clears any coroutines from the previous choice
         ClearPreviousInfo();
 
@@ -258,7 +284,7 @@ public class GameManager : MonoBehaviour
         // The choice has any objects
         if (currentChoice.objs != null)
         {
-            // Debug.Log($"Loading {currentChoice.choice}'s objects");
+            // Debug.Log($"GameManager: Loading {currentChoice.choice}'s objects");
             // Starts a coroutine for each object
             foreach (ObjectInfo obj in currentChoice.objs)
             {
@@ -268,13 +294,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnVidFinished(VideoPlayer vp)
+    {
+        vidFinished = true;
+    }
+
     /// <summary>
     /// Plays video when the vid is ready
     /// </summary>
     public void PlayVid(VideoPlayer vp)
     {
-        // Debug.Log("Playing vid");
+        // Debug.Log("GameManager: Playing vid");
+        pauseVideoPlayer = false;
+        vidFinished = false;
         vp.Play();
+    }
+
+    /// <summary>
+    /// Closes the retry menu when the vid is ready
+    /// </summary>
+    void CloseRetryMenu(VideoPlayer vp)
+    {
+        // Debug.Log("GameManager: Closing Retry menu");
+        iMenu.CloseRetryMenu();
+        vp.prepareCompleted -= CloseRetryMenu;
     }
 
     /// <summary>
@@ -282,7 +325,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void CloseMapMenu(VideoPlayer vp)
     {
-        // Debug.Log("Closing Map menu");
+        // Debug.Log("GameManager: Closing Map menu");
         iMenu.CloseMenu();
         vp.prepareCompleted -= CloseMapMenu;
     }
@@ -315,18 +358,18 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private IEnumerator RetryMenuPopup(float timestamp)
     {
-        // Debug.Log($"Retry menu will popup in {timestamp}s");
+        // Debug.Log($"GameManager: Retry menu will popup in {timestamp}s");
 
         while (videoPlayer.time < timestamp)
         {
-            // Debug.Log(videoPlayer.time);
+            // Debug.Log($"GameManager: {videoPlayer.time}");
             yield return null;
         }
 
         // Counts deaths if choice has ChoiceState GameOver
         if (currentChoice.choiceState.Contains(ChoiceState.GameOver))
         {
-            Debug.Log($"Death Detected in {currentChoice.choiceID}");
+            Debug.Log($"GameManager: Death Detected in {currentChoice.choiceID}");
             sm.stats.deaths += 1;
         } 
 
@@ -337,79 +380,21 @@ public class GameManager : MonoBehaviour
                 referenceChoice.hasComplete = true;
                 if (referenceChoice.choiceState.Contains(ChoiceState.GameOver))
                 {
-                    // Debug.Log($"Death Detected in reference choice {referenceChoice.choiceID}");
+                    // Debug.Log($"GameManager: Death Detected in reference choice {referenceChoice.choiceID}");
                     sm.stats.deaths += 1;
                 }
             }
             else
             {
-                // Debug.Log($"No reference choice detected in {currentChoice.choiceID}");
+                // Debug.Log($"GameManager: No reference choice detected in {currentChoice.choiceID}");
             }
         }
 
-        GeneralAchievementsCheck();
+        am.GeneralAchievementsCheck();
+        am.LoadEndingAchievePopups();
 
-        // Debug.Log("Opening retry menu");
+        // Debug.Log("GameManager: Opening Retry Menu");
         iMenu.OpenRetryMenu();
-    }
-
-    #endregion
-    #region General Achievement Logic
-
-    /// <summary>
-    /// Checks if the player has met any of the requirements for the general achievements
-    /// </summary>
-    public void GeneralAchievementsCheck()
-    {
-        // Debug.Log("General Achievements Check");
-        int completed, total;
-
-        CheckAchievement("General_1", () => sm.stats.deaths > 0);
-        CheckAchievement("General_2", () => {
-            (completed, total) = sm.stats.FailsCompleted(sm.choiceDict);
-            return completed == total;
-        });
-        CheckAchievement("General_3", () => {
-            (completed, total) = sm.stats.EndingsCompleted(sm.choiceDict);
-            return completed > 0;
-        });
-        CheckAchievement("General_4", () => {
-            (completed, total) = sm.stats.EndingsCompleted(sm.choiceDict);
-            return completed == total;
-        });
-        CheckAchievement("General_5", () => {
-            (completed, total) = sm.stats.ChoicesCompleted(sm.choiceDict);
-            return completed == total;
-        });
-        CheckAchievement("General_7", () => 
-            sm.stats.Completion(sm.choiceDict, sm.achieveDict) >= 100
-        );
-    }
-
-    /// <summary>
-    /// Checks if condition for the general achievement has been met
-    /// </summary>
-    public void CheckAchievement(string id, Func<bool> condition)
-    {
-        if (sm.achieveDict.TryGetValue(id, out AchievementInfo achievement) 
-            && !achievement.hasUnlocked && condition())
-                AchievementUnlock(achievement);
-    }   
-    
-    /// <summary>
-    /// Unlocks achievement and adds it to the achievement popup queue
-    /// </summary>
-    void AchievementUnlock(AchievementInfo achievement)
-    {
-        Debug.Log($"Achievement {achievement.achieveID} Unlocked!");
-        // Marked the achievement as unlocked
-        achievement.hasUnlocked = true;
-        // Tells the game that it needs to update its display in the achievements menu
-        achievement.updateDisplay = true;
-        // Changes the achievement's state from Locked or Hidden to Shown
-        achievement.achieveState = AchievementState.Shown;
-        
-        StartCoroutine(sm.achievePopup.AchievePopup(achievement));
     }
 
     #endregion
@@ -420,7 +405,14 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public IEnumerator SpawnObject(ObjectInfo obj)
     {
-        // Debug.Log("In object spawn coroutine");
+        // Debug.Log("GameManager: In object spawn coroutine");
+
+        // Skips spawning the object if they only appear in subsequent runs
+        if (obj.subsequentRunsOnly && !sm.achieveDict["General_3"].hasUnlocked)
+        {
+            Debug.LogWarning("GameManager: Object only appears in subsequent runs, skipping spawning object");
+            yield break;
+        }
 
         // Spawns object
         GameObject gameObj = Instantiate(obj.obj, objHolder);
@@ -428,15 +420,7 @@ public class GameManager : MonoBehaviour
         // Disables every object in the parent spawned object
         foreach (Transform child in gameObj.transform)
         {
-            // Deletes objects if they only appear in subsequent runs
-            if (obj.subsequentRunsOnly && !sm.achieveDict["General_3"].hasUnlocked)
-            {
-                // Debug.Log("Object only appears in subsequent runs, deleting object");
-                Destroy(gameObj);
-                yield break;
-            }
-
-            // Debug.Log($"{child.name} {child.tag}");
+            // Debug.Log($"GameManager: {child.name} {child.tag}");
             // Adds function to the buttons
             switch (child.tag)
             {
@@ -448,7 +432,7 @@ public class GameManager : MonoBehaviour
                     // Only checks objects with potential of being an id
                     if (objName.Contains("_"))
                     {
-                        // Debug.Log($"{objName} {(sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))}");
+                        // Debug.Log($"GameManager: {objName} {(sm.choiceDict.TryGetValue(choiceID, out ChoiceInfo choice))}");
                         if (sm.choiceDict.ContainsKey(objName))
                         {
                             string choiceIDString = objName;
@@ -460,7 +444,7 @@ public class GameManager : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log($"ID - {objName} - not found in the system when checking in SpawnObject()");
+                            Debug.Log($"GameManager: ID - {objName} - not found in the system when checking in SpawnObject()");
                         }
                     }
                     break;
@@ -475,24 +459,24 @@ public class GameManager : MonoBehaviour
                         // Deletes object if it has already obtained
                         if (letter.hasObtained)
                         {
-                            Debug.Log($"LetterID {letter.letterID} - {letter.letter} has already been obtained, deleting object");
+                            Debug.Log($"GameManager: LetterID {letter.letterID} - {letter.letter} has already been obtained, deleting object");
                             Destroy(gameObj);
                             yield break;
                         }
                         // Adds functionality unlock screen functionality
                         else
                         {
-                            // Debug.Log($"Adding LetterID {letter.letterID} - {letter.letter}");
+                            // Debug.Log($"GameManager: Adding LetterID {letter.letterID} - {letter.letter}");
                             secretBtn.onClick.AddListener(() => 
                             {
-                                fm.SecretButton(letter);
                                 Destroy(gameObj);
+                                fm.SecretButton(letter);
                             });   
                         }
                     }
                     else
                     {
-                        Debug.Log($"LetterID {secretBtn.name} not in system");
+                        Debug.Log($"GameManager: LetterID {secretBtn.name} not in system");
                     }
                     break;
             }
@@ -503,7 +487,7 @@ public class GameManager : MonoBehaviour
         // Spawns the button after the video reaches it specific timestamp
         while (videoPlayer.time < obj.popupTime)
         {
-            // Debug.Log(videoPlayer.time);
+            // Debug.Log($"GameManager: {videoPlayer.time}");
             yield return null;
         }
 
@@ -525,7 +509,8 @@ public class GameManager : MonoBehaviour
                     if (!currentChoice.choiceState.Contains(ChoiceState.ChoiceTimed))
                         canBePaused = true;
 
-                    GeneralAchievementsCheck();
+                    am.GeneralAchievementsCheck();
+                    am.LoadChoiceAchievePopups();
                 }
             }
 
@@ -545,7 +530,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Debug.Log($"Time excedded at {videoPlayer.time}, deleting object");
+            // Debug.Log($"GameManager: Time excedded at {videoPlayer.time}, deleting object");
             Destroy(gameObj);
         }
     }
@@ -598,20 +583,20 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Skip()
     {
-        // Debug.Log("Skip()");
-        // Debug.Log($"Skip - !iMenu.isPaused {!iMenu.isPaused} && videoPlayer.isPlaying {videoPlayer.isPlaying} && !choiceVisable {!choiceVisable} && currentChoice.choiceState == ChoiceState.Choice {currentChoice.choiceState}");
+        // Debug.Log("GameManager: Skip()");
+        // Debug.Log($"GameManager: Skip - !iMenu.isPaused {!iMenu.isPaused} && videoPlayer.isPlaying {videoPlayer.isPlaying} && !choiceVisable {!choiceVisable} && currentChoice.choiceState == ChoiceState.Choice {currentChoice.choiceState}");
         if (!iMenu.isPaused && !fm.isFinale && videoPlayer.isPlaying && !choiceVisable && currentChoice.choiceState.Contains(ChoiceState.Choice))
         {
             // If the skip text is not visable on screen
             if (skipText.color.a == 0)
             {
-                // Debug.Log($"Skip - Text Popup");
+                // Debug.Log($"GameManager: Skip - Text Popup");
                 fadeTextAni.Play("Fade In");
             }
             // Skips if the player presses the skip button while the text is onscreen
             else
             {
-                // Debug.Log($"Skip - SkipVidTime");
+                // Debug.Log($"GameManager: Skip - SkipVidTime");
                 SkipVidTime(GetSkipTime(currentChoice));
             }
         }
@@ -622,7 +607,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     float GetSkipTime(ChoiceInfo choice)
     {
-        // Debug.Log("GetSkipTime()");
+        // Debug.Log("GameManager: GetSkipTime()");
         float choiceTime = float.PositiveInfinity;
 
         // Finds the first non skippable object in the vid
@@ -633,7 +618,7 @@ public class GameManager : MonoBehaviour
                 if (obj.popupTime < choiceTime)
                 {
                     choiceTime = obj.popupTime;
-                    // Debug.Log($"Skip - choiceTime {choiceTime}");
+                    // Debug.Log($"GameManager: Skip - choiceTime {choiceTime}");
                 }
             }
         }
@@ -647,11 +632,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SkipVidTime(float timestamp)
     {
-        // Debug.Log("SkipVidTime()");
+        // Debug.Log("GameManager: SkipVidTime()");
         // Sets the bool to false after each use
         isSkipping = false;
 
-        // Debug.Log("Skipping time in vid");
+        // Debug.Log("GameManager: Skipping time in vid");
 
         // Disables text
         fadeTextAni.Play("Invisible Text");
@@ -684,8 +669,25 @@ public class GameManager : MonoBehaviour
         // If the skip text is visable on screen when selection is made
         if (skipText.color.a != 0)
         {
-            // Debug.Log($"Skip - Text Popup");
+            // Debug.Log($"GameManager: Skip - Text Popup");
             fadeTextAni.Play("Invisible Text");
+        }
+    }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        // Catches issue where the vid gets frozen
+        if (!hasFocus)
+        {
+            videoPlayer.Pause();
+        }
+        else
+        {
+            if (!vidFinished && !videoPlayer.isPlaying && !pauseVideoPlayer)
+            {
+                // Debug.Log("GameManager: Resuming vid");
+                videoPlayer.Play();
+            }
         }
     }
     

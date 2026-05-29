@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Race_1_1_1
   choice: Trust Dan's Plan
-  vid: {fileID: 32900000, guid: 9f7ddf5c68819cb48838d039a86e9c85, type: 3}
-  choiceState: 03000000
-  firstRunOnly: 0
-  vidEndTime: 63
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 03000000
+  vid: {fileID: 32900000, guid: 9f7ddf5c68819cb48838d039a86e9c85, type: 3}
   subtitles: {fileID: 11400000, guid: 3249b20e54408d54ea1d99c1b817e196, type: 2}
+  vidEndTime: 63
   objs:
   - obj: {fileID: 2518979021591781705, guid: 108bd4b3e7de4104f972ac588c82a95f, type: 3}
     popupTime: 63
@@ -27,12 +27,14 @@ MonoBehaviour:
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices: []
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: cdf9cb65cba30a64698e44c2d2ecae1f, type: 2}
+  achievementHints: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

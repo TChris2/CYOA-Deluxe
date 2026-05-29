@@ -18,4 +18,8 @@ MonoBehaviour:
   hasUnlocked: 0
   description: Do all possible loop backs to Evil RT
   icon: {fileID: -1774474754, guid: d2602a8016c9d6f4ba60af62623abf39, type: 3}
+  isDisplayed: 1
+  popupTime: 00000000
+  customPopupTime: 0
+  isPoppedup: 0
   updateDisplay: 1

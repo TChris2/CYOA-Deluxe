@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Doctor_1_2_1
   choice: The Spire
-  vid: {fileID: 32900000, guid: d61af69908a255d4fb4d7480f13f69d9, type: 3}
-  choiceState: 00000000
-  firstRunOnly: 1
-  vidEndTime: 0
   hasComplete: 0
+  firstRunOnly: 1
+  choiceState: 00000000
+  vid: {fileID: 32900000, guid: d61af69908a255d4fb4d7480f13f69d9, type: 3}
   subtitles: {fileID: 11400000, guid: 585f5103fbc23b74596edf348af9af0c, type: 2}
+  vidEndTime: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: 9f388703b0a320548939753d0c41c74c, type: 3}
     popupTime: 0
@@ -27,13 +27,15 @@ MonoBehaviour:
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices:
   - {fileID: 0}
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: 5d230c29c6cad3242b3a614001c9fa18, type: 2}
+  achievementHints: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

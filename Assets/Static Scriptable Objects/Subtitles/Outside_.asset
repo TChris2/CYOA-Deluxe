@@ -20,9 +20,14 @@ MonoBehaviour:
     displayEndTime: 3.7
     text: '<style="Subtitles_Person_RT">RT</style>: I''m not doing that.'
   - displayStartTime: 4.56
+    displayEndTime: 6.2
+    text: '<style="Subtitles_Person_RT">RT</style>: I am not doing that!'
+  - displayStartTime: 7.05
+    displayEndTime: 8.4
+    text: '<style="Subtitles_Person_RT">RT</style>: You can''t make me!'
+  - displayStartTime: 10.05
     displayEndTime: 11.242
-    text: '<style="Subtitles_Person_RT">RT</style>: I am not doing that! You can''t
-      make me! I don''t care!'
+    text: '<style="Subtitles_Person_RT">RT</style>: I don''t care!'
   - displayStartTime: 11.242
     displayEndTime: 13.339
     text: <style="Subtitles_Format_[]">Picks Up Car Keys</style>

@@ -77,7 +77,7 @@ public class InputManager : MonoBehaviour
         // Title Screen
         if (scene.name == "Title Screen")
         {
-            // Debug.Log("Enabling Title Screen Action Map");
+            // Debug.Log("InputManager: Enabling Title Screen Action Map");
 
             // Disables previous action map
             gameActions.Disable();
@@ -96,7 +96,7 @@ public class InputManager : MonoBehaviour
         // Main Game
         else if (scene.name == "Main Game")
         {
-            // Debug.Log("Enabling Main Game Action Map");
+            // Debug.Log("InputManager: Enabling Main Game Action Map");
 
             // Disables previous action map
             titleScreenActions.Disable();
@@ -107,6 +107,7 @@ public class InputManager : MonoBehaviour
             iMenu.pMenuF = FindAnyObjectByType<PauseMenu>();
             iMenu.dMenu = GameObject.Find("Debug Menu").GetComponent<CanvasGroup>();
             iMenu.pMenu = GameObject.Find("Pause Menu").GetComponent<CanvasGroup>();
+            iMenu.pMenuAni = iMenu.pMenu.GetComponent<Animator>();
 
             // Enables or disables debug based on whether debug was already enabled
             iMenu.DebugMenu();

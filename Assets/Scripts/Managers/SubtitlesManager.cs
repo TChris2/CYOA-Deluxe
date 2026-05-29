@@ -19,17 +19,19 @@ public class SubtitlesManager : MonoBehaviour
     private VideoPlayer videoPlayer;
     public SubtitleInfo currentSubtitles;
     public SubtitleEntry currentEntry;
+    GameManager gm;
     
     void Start()
     {
         subtitlesCg = GetComponent<CanvasGroup>();
         subtitlesRect = subtitlesLayout.GetComponent<RectTransform>();
+        gm = FindAnyObjectByType<GameManager>();
     }
 
     void FixedUpdate()   
     {
         // Skips doing subtitle logic if not enabled, the vid is done, or if there are not subtitles for the vid
-        if (!subtitlesEnabled || !videoPlayer.isPlaying || currentSubtitles == null || currentSubtitles.subtitleEntries.Count == 0) 
+        if (!subtitlesEnabled || (gm != null && gm.vidFinished) || currentSubtitles == null || currentSubtitles.subtitleEntries.Count == 0) 
         { 
             if (subtitlesCg.alpha != 0)
             {

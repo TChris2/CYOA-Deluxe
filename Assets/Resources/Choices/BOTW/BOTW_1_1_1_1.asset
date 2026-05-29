@@ -13,20 +13,21 @@ MonoBehaviour:
   m_Name: BOTW_1_1_1_1
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: BOTW_1_1_1_1
-  choice: "Pok\xE9Balls"
-  vid: {fileID: 32900000, guid: 31f7fd8d239a78840afd13b44fd722fe, type: 3}
-  choiceState: 03000000
-  firstRunOnly: 0
-  vidEndTime: 34
+  choice: "Pok\xE9Ball"
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 03000000
+  vid: {fileID: 32900000, guid: 31f7fd8d239a78840afd13b44fd722fe, type: 3}
   subtitles: {fileID: 11400000, guid: 21d5811c21ac546448ade8de9e65ab02, type: 2}
+  vidEndTime: 34
   objs: []
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices: []
   achievements: []
+  achievementHints: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

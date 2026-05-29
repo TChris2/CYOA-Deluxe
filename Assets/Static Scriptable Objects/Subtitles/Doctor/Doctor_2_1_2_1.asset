@@ -125,14 +125,14 @@ MonoBehaviour:
     displayEndTime: 117.295
     text: '<Style="subtitles_format_()">Radiant Choir</Style>
 
-      <style="Subtitles_Person_RT">RT</style>:
-      Ah...'
+      <style="Subtitles_Person_EvilRT">Evil
+      RT</style>: Ah...'
   - displayStartTime: 117.295
     displayEndTime: 118.469
     text: '<Style="subtitles_format_()">Radiant Choir</Style>
 
-      <style="Subtitles_Person_RT">RT</style>:
-      Ah... Fuck me.'
+      <style="Subtitles_Person_EvilRT">Evil
+      RT</style>: Fuck me.'
   - displayStartTime: 118.469
     displayEndTime: 120.454
     text: <Style="subtitles_format_()">Radiant Choir</Style>

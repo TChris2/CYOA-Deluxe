@@ -1,10 +1,27 @@
-using ScrutableObjects.UnityEditor;
 using UnityEditor;
 using UnityEngine;
 
-// Enables direct access to the properties of the ScriptableObject references in the editor
-[CustomPropertyDrawer(typeof(AchievementInfo), true)]
-public class AchievementInfoEditor : ScrutableObjectDrawer
+[CustomEditor(typeof(AchievementInfo))]
+public class AchievementInfoEditor : Editor
 {
+    public override void OnInspectorGUI()
+    {
+        AchievementInfo achievement = target as AchievementInfo;
+        serializedObject.Update();
 
+        DrawPropertiesExcluding(serializedObject, "popupTime", "customPopupTime");
+
+        if (achievement.isDisplayed)
+        {
+            SerializedProperty popupTime = serializedObject.FindProperty("popupTime");
+            EditorGUILayout.PropertyField(popupTime);
+
+            if (achievement.popupTime == PopupTime.Custom)
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("customPopupTime"));
+            }
+        }
+
+        serializedObject.ApplyModifiedProperties();
+    }
 }

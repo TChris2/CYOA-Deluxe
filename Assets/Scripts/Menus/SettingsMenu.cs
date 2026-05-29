@@ -124,17 +124,6 @@ public class SettingsMenu : MonoBehaviour
         Screen.SetResolution(width, height, false);
     }
 
-    // Saves setting values
-    private void OnDisable()
-    {
-        // Saves prefs
-        PlayerPrefs.SetFloat("Volume", volSlider.value);
-        PlayerPrefs.SetInt("Full Screen", Screen.fullScreen ? 1 : 0);
-        PlayerPrefs.SetInt("Resolution Option", resDropdown.value);
-        PlayerPrefs.SetInt("Subtitles", subtitlesToggle ? 1 : 0);
-        PlayerPrefs.Save();
-    }
-
     // Open settings menu
     public void OpenSettingsMenu()
     {
@@ -201,5 +190,16 @@ public class SettingsMenu : MonoBehaviour
     {
         foreach (CanvasScaler canvasScaler in canvasScalers)
             canvasScaler.matchWidthOrHeight = scale;
+    }
+
+    // Saves setting values
+    private void OnDisable()
+    {
+        // Saves prefs
+        PlayerPrefs.SetFloat("Volume", volSlider.value);
+        PlayerPrefs.SetInt("Full Screen", Screen.fullScreen ? 1 : 0);
+        PlayerPrefs.SetInt("Resolution Option", resDropdown.value);
+        PlayerPrefs.SetInt("Subtitles", subtitlesToggle.isOn ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }

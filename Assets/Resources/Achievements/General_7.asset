@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: General_7
   m_EditorClassIdentifier: Assembly-CSharp::AchievementInfo
   achieveID: General_7
-  achievement: 100%
+  achievement: ABSOLUTE CYOA
   achieveState: 2
   hasUnlocked: 0
   description: 100% the game
   icon: {fileID: 996023868, guid: 6c3673c5e369d064d8c6989e2564fe22, type: 3}
+  isDisplayed: 1
+  popupTime: 2
+  customPopupTime: 0
   updateDisplay: 1

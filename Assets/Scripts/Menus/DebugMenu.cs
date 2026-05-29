@@ -35,7 +35,7 @@ public class DebugMenu : MonoBehaviour
         {
             if (!File.Exists(path))
             {
-                // Debug.Log("ERROR, Not all filepaths exist, aborting loading JSON data");
+                // Debug.LogWarning("DebugMenu: Error, Not all filepaths exist, aborting loading JSON data");
                 return;
             }
         }

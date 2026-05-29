@@ -16,7 +16,8 @@ public class FinaleManager : MonoBehaviour
     private CanvasGroup finaleUnlockScreen;
     // Stores letters
     [SerializeField]
-    private GameObject letterIconsGroup;
+    private GameObject bobbingLetters;
+    CanvasGroup bobbingLettersCg;
     Animator[] letterIcons;
     // Plays finale transition
     [SerializeField]
@@ -49,6 +50,7 @@ public class FinaleManager : MonoBehaviour
     // Scripts
     SaveManager sm;
     GameManager gm;
+    AchievementManager am;
     SubtitlesManager subtitlesManager;
     InputMenu iMenu;
     VideoPlayer videoPlayer;
@@ -57,6 +59,7 @@ public class FinaleManager : MonoBehaviour
     void Awake()
     {
         gm = GetComponent<GameManager>();
+        am = FindAnyObjectByType<AchievementManager>();
         finaleUnlockVpCg = finaleUnlockVp.GetComponent<CanvasGroup>();
         subtitlesManager = FindAnyObjectByType<SubtitlesManager>();
 
@@ -68,6 +71,7 @@ public class FinaleManager : MonoBehaviour
     {
         sm = FindAnyObjectByType<SaveManager>();
         iMenu = FindAnyObjectByType<InputMenu>();
+        bobbingLettersCg = bobbingLetters.GetComponent<CanvasGroup>();
     }
 
     /// <summary>
@@ -98,7 +102,7 @@ public class FinaleManager : MonoBehaviour
         finaleUnlockVp.prepareCompleted += FinaleUnlockScreenEnter;
         finaleUnlockVp.loopPointReached += DisplayFinaleUnlockScreen;
 
-        Debug.Log($"{letter.letter}");
+        Debug.Log($"FinaleManager: Letter unlocked {letter.letter}");
         finaleUnlockVp.Prepare();
     }
 
@@ -112,10 +116,12 @@ public class FinaleManager : MonoBehaviour
     {   
         // Pauses the current video
         videoPlayer.Pause();
+        gm.pauseVideoPlayer = true;
 
-        Debug.Log("FinaleUnlockScreenTransition");
+        Debug.Log("FinaleManager: FinaleUnlockScreenTransition");
 
         // Activates the screen
+        bobbingLettersCg.alpha = 0;
         finaleUnlockVpCg.alpha = 1;
         finaleUnlockScreen.alpha = 1;
         finaleUnlockScreen.blocksRaycasts = true;
@@ -128,6 +134,7 @@ public class FinaleManager : MonoBehaviour
     /// </summary>    
     void FinaleUnlockScreenExit(VideoPlayer vp)
     {   
+        bobbingLettersCg.alpha = 0;
         finaleUnlockVpCg.alpha = 1;
     }
 
@@ -140,15 +147,17 @@ public class FinaleManager : MonoBehaviour
 
         // Gets letter icons
         if (letterIcons == null)
-            letterIcons = letterIconsGroup.GetComponentsInChildren<Animator>(true);
+            letterIcons = bobbingLetters.GetComponentsInChildren<Animator>(true);
 
-        // Reactivates the icon group if the group object has been deactviated if the player has reset is save progress
-        if (letterCount != sm.letterDict.Count && !letterIconsGroup.activeSelf)
-            letterIconsGroup.SetActive(true);
+        // Reactivates the icon group if the group object has been deactviated if the player has reset their save progress
+        if (letterCount != sm.letterDict.Count && !bobbingLetters.activeSelf)
+        {
+            bobbingLetters.SetActive(true);
+        }
 
         foreach (Animator letterIcon in letterIcons)
         {
-            // Debug.Log(letterIcon.name);
+            // Debug.Log($"FinaleManager: {letterIcon.name}");
 
             GameObject letterParticles = letterIcon.transform.Find("Particles").gameObject;
 
@@ -165,7 +174,7 @@ public class FinaleManager : MonoBehaviour
                 // Enables the letter if it has already been obtained without entry animation
                 if (letter.hasObtained)
                 {
-                    // Debug.Log($"LetterID {letter.letterID} - {letter.letter} has already been obtained, activating object");
+                    // Debug.Log($"FinaleManager: LetterID {letter.letterID} - {letter.letter} has already been obtained, activating object");
                     letterIcon.gameObject.SetActive(true);
                     letterParticles.SetActive(false);
 
@@ -176,7 +185,7 @@ public class FinaleManager : MonoBehaviour
                 // Disables letter icon if it has not already been obtained
                 else
                 {
-                    // Debug.Log($"LetterID {letter.letterID} - {letter.letter} has not been obtained, deactivating object");
+                    // Debug.Log($"FinaleManager: LetterID {letter.letterID} - {letter.letter} has not been obtained, deactivating object");
                     letterIcon.gameObject.SetActive(false); 
                 }
             }
@@ -190,6 +199,7 @@ public class FinaleManager : MonoBehaviour
     /// </summary>
     void DisplayFinaleUnlockScreen(VideoPlayer vp)
     {
+        bobbingLettersCg.alpha = 1;
         finaleUnlockVpCg.alpha = 0;
         StartCoroutine(FinaleUnlockScreen());
     }
@@ -199,7 +209,7 @@ public class FinaleManager : MonoBehaviour
     /// </summary>
     IEnumerator FinaleUnlockScreen()
     {
-        Debug.Log($"Opening Finale unlock screen with letter {currentUnlockedLetter.letterID} - {currentUnlockedLetter.letter}");
+        Debug.Log($"FinaleManager: Opening Finale unlock screen with letter {currentUnlockedLetter.letterID} - {currentUnlockedLetter.letter}");
 
         // Removes previous listeners
         finaleUnlockVp.prepareCompleted -= FinaleUnlockScreenEnter;
@@ -212,8 +222,8 @@ public class FinaleManager : MonoBehaviour
         }
 
         // Activates the newly unlocked letter
-        yield return new WaitForSeconds(1.5f);
-        // Debug.Log("Enabling Object");
+        yield return new WaitForSeconds(1.25f);
+        // Debug.Log("FinaleManager: Enabling Object");
 
         currentUnlockedLetterIcon.SetActive(true); 
         currentUnlockedLetterParticles.SetActive(true);
@@ -225,13 +235,13 @@ public class FinaleManager : MonoBehaviour
         // If the player has not collected every letter
         if (letterCount < sm.letterDict.Count)
         {
-            StartCoroutine(TextPopIn($"<size=280>{sm.letterDict.Count - letterCount} Remain", .3f));
+            StartCoroutine(TextPopIn($"<size=280>{sm.letterDict.Count - letterCount} Remain", .2f));
 
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(5.5f);
 
             StartCoroutine(TextPopIn($"<size=200><i>The Finale Awaits", .05f));
 
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(3.8f);
 
             finaleUnlockVp.prepareCompleted += FinaleUnlockScreenExit;
             finaleUnlockVp.loopPointReached += CloseFinaleUnlockScreen;
@@ -249,7 +259,7 @@ public class FinaleManager : MonoBehaviour
 
             // Gets letter icons
             if (letterIcons == null)
-                letterIcons = letterIconsGroup.GetComponentsInChildren<Animator>(true);
+                letterIcons = bobbingLetters.GetComponentsInChildren<Animator>(true);
 
             foreach (Animator letterIcon in letterIcons)
                 letterIcon.Play("Letter Glow");
@@ -268,7 +278,7 @@ public class FinaleManager : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
 
             // Disables main group of letters
-            letterIconsGroup.SetActive(false);
+            bobbingLetters.SetActive(false);
 
             // Plays finale unlocking animation
             finaleTransition.SetActive(true);
@@ -295,7 +305,10 @@ public class FinaleManager : MonoBehaviour
 
         // Plays the remaining video if it has not already finished
         if (videoPlayer.time < videoPlayer.length - .2f)
+        {
             videoPlayer.Play();
+            gm.pauseVideoPlayer = false;
+        }
     }
 
     /// <summary>
@@ -330,7 +343,7 @@ public class FinaleManager : MonoBehaviour
     /// </summary>
     public void StartFinale()
     {
-        // Debug.Log("Finale Started");
+        // Debug.Log("FinaleManager: Finale Started");
         videoPlayer.Stop();
 
         // If the user is in a retry menu when it starts
@@ -381,12 +394,14 @@ public class FinaleManager : MonoBehaviour
     /// </summary>
     IEnumerator ShowFinaleStats()
     {
-        // Debug.Log("Show Stats");
+        // Debug.Log("FinaleManager: Show Stats");
         // Marks the finale as complete
-        gm.GeneralAchievementsCheck();
+        am.GeneralAchievementsCheck();
 
         // Popups achievement for beating the finale
-        gm.CheckAchievement("General_6", () => true);
+        am.CheckAchievement("General_6");
+
+        am.LoadAllAchievePopups();
 
         // Displays stats
         sm.stats.DisplayStatsAll(statsText, sm);
@@ -413,7 +428,7 @@ public class FinaleManager : MonoBehaviour
     /// </summary>
     IEnumerator PlayPostCredits()
     {
-        // Debug.Log("Playing Post Credits");
+        // Debug.Log("FinaleManager: Playing Post Credits");
         yield return new WaitForSeconds(3f);
         statsAudioSource.Stop();
         videoPlayer.clip = finaleVids[1];
@@ -430,7 +445,7 @@ public class FinaleManager : MonoBehaviour
     /// </summary>
     void ReturnToTitleScreen(VideoPlayer vp)
     {
-        // Debug.Log("Returning to title screen");
+        // Debug.Log("FinaleManager: Returning to Title Screen");
         SceneManager.LoadScene("Title Screen");
         // Resets Skip Intro's value
         PlayerPrefs.SetInt("Skip Intro", 1); 

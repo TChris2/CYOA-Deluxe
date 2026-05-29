@@ -18,4 +18,7 @@ MonoBehaviour:
   hasUnlocked: 0
   description: Complete The Finale
   icon: {fileID: -1311768507, guid: 6c3673c5e369d064d8c6989e2564fe22, type: 3}
+  isDisplayed: 1
+  popupTime: 1
+  customPopupTime: 0
   updateDisplay: 1

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Doctor_2_1_1_1
   choice: Go Left
-  vid: {fileID: 32900000, guid: c7c700c5d3de8574fbdeca8cf00e1921, type: 3}
-  choiceState: 00000000
-  firstRunOnly: 0
-  vidEndTime: 0
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 00000000
+  vid: {fileID: 32900000, guid: c7c700c5d3de8574fbdeca8cf00e1921, type: 3}
   subtitles: {fileID: 11400000, guid: 5a7f5ada5f7ea5d4b8cfef359c01525f, type: 2}
+  vidEndTime: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: 4dfda3841a459e74d9e2a8d9ebe6cae0, type: 3}
     popupTime: 23.1
@@ -27,13 +27,16 @@ MonoBehaviour:
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
+  mapDisplayChoice: {fileID: 11400000, guid: 2445aacb89a3b194c8d11ff10d1550d1, type: 2}
   mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: b1f0ff7f945b0fa438c355272ec9c99f, type: 2}
   achievements:
+  - {fileID: 11400000, guid: 248b69b65fe3ba44b9d2d93fef760e60, type: 2}
+  achievementHints:
   - {fileID: 11400000, guid: 248b69b65fe3ba44b9d2d93fef760e60, type: 2}
   letterIDs: 
   weaponsUsed: []

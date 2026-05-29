@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Doctor_2_1
   choice: Try To Fix This
-  vid: {fileID: 32900000, guid: d9cb73ac2afa67c468cfcb94d85786a1, type: 3}
-  choiceState: 00000000
-  firstRunOnly: 0
-  vidEndTime: 0
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 00000000
+  vid: {fileID: 32900000, guid: d9cb73ac2afa67c468cfcb94d85786a1, type: 3}
   subtitles: {fileID: 11400000, guid: 283a0f708445f594089894858631b3aa, type: 2}
+  vidEndTime: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: 4dfda3841a459e74d9e2a8d9ebe6cae0, type: 3}
     popupTime: 51
@@ -27,15 +27,15 @@ MonoBehaviour:
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
+  isOnMap: 0
   mapName: Evil RT
   thumbnail: {fileID: 21300000, guid: f8dd983327137a241b3a8f968c533b81, type: 3}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: b1f0ff7f945b0fa438c355272ec9c99f, type: 2}
   - {fileID: 11400000, guid: fe4ffb5280e66b84a844d2470c55f1ed, type: 2}
-  achievements:
-  - {fileID: 11400000, guid: 248b69b65fe3ba44b9d2d93fef760e60, type: 2}
+  achievements: []
+  achievementHints: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

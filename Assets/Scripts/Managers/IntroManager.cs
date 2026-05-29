@@ -63,27 +63,27 @@ public class IntroManager : MonoBehaviour
     void PlayVid(VideoPlayer vp)
     {
         vidCover.enabled = false;
-        // Debug.Log("Playing vid");
+        // Debug.Log("InputMenu: Playing vid");
         vp.Play();
     }
 
     // Skips the intro
     public void Skip()
     {
-        // Debug.Log("Skip()");
-        // Debug.Log($"videoPlay.isPlaying {videoPlay.isPlaying}");
+        // Debug.Log("InputMenu: Skip()");
+        // Debug.Log($"InputMenu: videoPlay.isPlaying {videoPlay.isPlaying}");
         if (isSkippable && videoPlay.isPlaying && videoPlay.time < skipTime)
         {
             // If the skip text is visable on screen
             if (skipText.color.a == 0)
             {
-                // Debug.Log($"Skip - Text Popup");
+                // Debug.Log($"InputMenu: Skip - Text Popup");
                 fadeTextAni.Play("Fade In");
             }
             // Skips if the player presses the skip button while the text is onscreen
             else
             {
-                // Debug.Log($"Skip - SkipVidTime");
+                // Debug.Log($"InputMenu: Skip - SkipVidTime");
                 SkipVidTime(skipTime);
             }
         }
@@ -115,7 +115,7 @@ public class IntroManager : MonoBehaviour
     // Skips to the selected timestamp in the vid
     void SkipVidTime(float timestamp)
     {
-        // Debug.Log("Skipping time in vid");
+        // Debug.Log("InputMenu: Skipping time in vid");
 
         // Disables text
         fadeTextAni.Play("Invisible Text");

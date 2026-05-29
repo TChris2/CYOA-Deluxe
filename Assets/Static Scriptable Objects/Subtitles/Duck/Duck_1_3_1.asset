@@ -28,7 +28,7 @@ MonoBehaviour:
     text: '<style="Subtitles_Person_RT">RT</style>: No I-I...'
   - displayStartTime: 10.75
     displayEndTime: 12.45
-    text: '<style="Subtitles_Person_RT">RT</style>: Who remembers the Escape points!'
+    text: '<style="Subtitles_Person_RT">RT</style>: Who remembers the escape points!'
   - displayStartTime: 12.4
     displayEndTime: 12.8
     text: '<style="Subtitles_Person_RT">RT</style>: come on! oh-'

@@ -47,15 +47,48 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "26d7426a-517d-4fab-ad7f-9b098ff9010d",
-                    "path": "<Keyboard>/f1",
+                    "name": "Two Modifiers",
+                    "id": "cfe30aa5-e5c6-4024-9e74-eef28ec012e5",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "79ccf9ff-f5a3-4b68-b771-f4d239623dc9",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Debug",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "fa2febe6-9645-4401-af85-44b74dfe9d49",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "8066d3e5-03fd-45e2-a199-d555636b36a2",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -115,15 +148,48 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "0b3ecf86-5a0a-4900-83eb-777f266d242a",
-                    "path": "<Keyboard>/f1",
+                    "name": "Two Modifiers",
+                    "id": "89ff26b3-f2ea-4987-b9cc-19fa258a7193",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug Menu",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "fd9a0998-ee27-480b-9960-60b3066d50da",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Debug Menu",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "664e3a80-e840-46ae-a091-9fe392f30404",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "3aeba3e0-24b5-4153-a035-b1d941db28dd",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

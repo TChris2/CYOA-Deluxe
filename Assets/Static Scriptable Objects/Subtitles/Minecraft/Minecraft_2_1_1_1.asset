@@ -82,7 +82,7 @@ MonoBehaviour:
     text: '<style="Subtitles_Person_RT">RT</style>: AH! NO!'
   - displayStartTime: 73.158
     displayEndTime: 73.658
-    text: '<style="Subtitles_Person_RT">RT</style>: (wait for it...)'
+    text: <style="Subtitles_Format_[]">Wait For It...</style>
   - displayStartTime: 79.032
     displayEndTime: 80.556
     text: <style="Subtitles_Format_()">Mysterious Noise</style>

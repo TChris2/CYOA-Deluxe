@@ -14,20 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Tesco_1_1_1_1_1_1Alt
   choice: Go Further?
-  vid: {fileID: 32900000, guid: 86bedd6956571f742b4c8507df81dc97, type: 3}
-  choiceState: 00000000
-  vidEndTime: 0
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 00000000
+  vid: {fileID: 32900000, guid: 86bedd6956571f742b4c8507df81dc97, type: 3}
+  subtitles: {fileID: 0}
+  vidEndTime: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: 1500935c49e724149b34adcc83a7b43e, type: 3}
     popupTime: 9
     isSkippable: 0
+    subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
+  mapNextChoices: []
   nextChoices: []
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: e6a044ee720190d408166e6aa4979526, type: 2}
+  achievementHints: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

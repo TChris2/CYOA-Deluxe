@@ -42,7 +42,7 @@ MonoBehaviour:
     text: '<style="Subtitles_Person_RT">RT</style>: Baa!'
   - displayStartTime: 45.356
     displayEndTime: 46.894
-    text: <Style="subtitles_format_[]">The shiny Wooloo responds</style>
+    text: <Style="subtitles_format_[]">The Shiny Wooloo Responds</style>
   - displayStartTime: 47.31
     displayEndTime: 47.865
     text: '<style="Subtitles_Person_RT">RT</style>: There ya go.'
@@ -54,34 +54,34 @@ MonoBehaviour:
     text: <Style="subtitles_format_[]">Talking on the phone</style>
   - displayStartTime: 60.628
     displayEndTime: 62.465
-    text: '<style="Subtitles_Person_RT">RT</style>: Oh, I don''t believe this!
+    text: '<Style="subtitles_format_[]">Talking on the phone</style>
 
-      <Style="subtitles_format_[]">Talking
-      on the phone</style>'
+      <style="Subtitles_Person_RT">RT</style>:
+      Oh, I don''t believe this!'
   - displayStartTime: 62.465
     displayEndTime: 65.067
-    text: '<style="Subtitles_Person_RT">RT</style>: This is one of those crank call
-      numbers!
+    text: '<Style="subtitles_format_[]">Talking on the phone</style>
 
-      <Style="subtitles_format_[]">Talking on the phone</style>'
+      <style="Subtitles_Person_RT">RT</style>:
+      This is one of those crank call numbers!'
   - displayStartTime: 65.067
     displayEndTime: 66.269
-    text: '<style="Subtitles_Person_RT">RT</style>: Oh, you''re g-
+    text: '<Style="subtitles_format_[]">Talking on the Phone</Style>
 
-      <Style="subtitles_format_[]">Talking
-      on the phone</style>'
+      <style="Subtitles_Person_RT">RT</style>:
+      Oh, you''re g-'
   - displayStartTime: 66.269
     displayEndTime: 68.91
-    text: '<style="Subtitles_Person_RT">RT</style>: You''re gonna be hearing from
-      my counsellor!
+    text: '<Style="subtitles_format_[]">Talking on the Phone</Style>
 
-      <Style="subtitles_format_[]">Talking on the phone</style>'
+      <style="Subtitles_Person_RT">RT</style>:
+      You''re gonna be hearing from my counsellor!'
   - displayStartTime: 68.91
     displayEndTime: 70.866
-    text: '<style="Subtitles_Person_RT">RT</style>: Just die already!
+    text: '<Style="subtitles_format_[]">Talking on the Phone</Style>
 
-      <Style="subtitles_format_[]">Talking
-      on the phone</style>'
+      <style="Subtitles_Person_RT">RT</style>:
+      Just die already!'
   - displayStartTime: 70.866
     displayEndTime: 73.521
     text: <Style="subtitles_format_[]">Screaming on the Phone</style>

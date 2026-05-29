@@ -10,12 +10,12 @@ public class SpawnGlobal : MonoBehaviour
     {
         if (!SaveManager.instance)
         {
-            // Debug.Log("SaveManager not found, spawning Global Objects");
+            // Debug.Log("SpawnGlobal: SaveManager not found, spawning Global Objects");
             Instantiate(GlobalObjects);
         }
         else
         {
-            // Debug.Log("SaveManager found, not spawning Global Objects");
+            // Debug.Log("SpawnGlobal: SaveManager found, not spawning Global Objects");
         }
     }
 }

@@ -171,7 +171,7 @@ MonoBehaviour:
     m_ClosingTagArray: 
   - m_Name: DriftKing
     m_HashCode: 1257161318
-    m_OpeningDefinition: <color=#FFBC2A><i>
-    m_ClosingDefinition: </i></color>
-    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000004600000046000000420000004300000032000000410000003e0000003c000000690000003e000000
-    m_ClosingTagArray: 3c0000002f000000690000003e0000003c0000002f000000630000006f0000006c0000006f000000720000003e000000
+    m_OpeningDefinition: 
+    m_ClosingDefinition: 
+    m_OpeningTagArray: 
+    m_ClosingTagArray: 

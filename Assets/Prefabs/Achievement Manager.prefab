@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &324750878300970095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165875002237979609}
+  - component: {fileID: 4589383393359906331}
+  m_Layer: 0
+  m_Name: Achievement Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1165875002237979609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324750878300970095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8627464595750529157}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4589383393359906331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324750878300970095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dbcf4d8960352449d72a8c62c69a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementManager
+  generalAchievements:
+  - {fileID: 11400000, guid: 3b0151e03ad7515449c6668dc95eba86, type: 2}
+  - {fileID: 11400000, guid: 98dccb2dfcddbf5478d3222192acd624, type: 2}
+  - {fileID: 11400000, guid: 22a8249cc6b232f47ba97142d510496a, type: 2}
+  - {fileID: 11400000, guid: 49fbcae346b72c84eb529aee7d73f677, type: 2}
+  - {fileID: 11400000, guid: de48fc61b7e73c7499e7a4285fec56ae, type: 2}
+  - {fileID: 11400000, guid: e4a87ce85fc632f42ba08f89752511c3, type: 2}
+  choicePopupQueue: []
+  endingPopupQueue: []
+  achievePopup: {fileID: 0}
+  sm: {fileID: 0}
+--- !u!1 &4329574677121619305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8627464595750529157}
+  - component: {fileID: 807102728810408684}
+  - component: {fileID: 6031452431210398247}
+  - component: {fileID: 5491543598695214332}
+  m_Layer: 0
+  m_Name: Achievements
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8627464595750529157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329574677121619305}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1165875002237979609}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &807102728810408684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329574677121619305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e71d660d919474fa7f9e5badc21e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompletionAchievements
+  achievementList:
+  - achievement: {fileID: 11400000, guid: 99253ea4154c31a43b3f8ee780252556, type: 2}
+    choices:
+    - {fileID: 11400000, guid: 1013cf36c13a2c7449cf6fc375a41af3, type: 2}
+    achieveID: 
+  - achievement: {fileID: 11400000, guid: 5d230c29c6cad3242b3a614001c9fa18, type: 2}
+    choices:
+    - {fileID: 11400000, guid: dc3328a7f11aec24b9890b19ecfd9ca5, type: 2}
+    achieveID: 
+  - achievement: {fileID: 11400000, guid: 248b69b65fe3ba44b9d2d93fef760e60, type: 2}
+    choices:
+    - {fileID: 11400000, guid: de546c78849208d4787eeac2af287111, type: 2}
+    - {fileID: 11400000, guid: 705a3da57fb348846aa7e33966a27308, type: 2}
+    - {fileID: 11400000, guid: 237ef99cb120b574ab137abebfaa70a9, type: 2}
+    achieveID: 
+  - achievement: {fileID: 11400000, guid: 78d8662c0dc615549a9a87e2eddf4aea, type: 2}
+    choices:
+    - {fileID: 11400000, guid: 088ae8942c088b34db3f6aff21f9dd32, type: 2}
+    achieveID: 
+  - achievement: {fileID: 11400000, guid: cdf9cb65cba30a64698e44c2d2ecae1f, type: 2}
+    choices:
+    - {fileID: 11400000, guid: 5ed91710ec0a0db459177f84e956a6bd, type: 2}
+    achieveID: 
+--- !u!114 &6031452431210398247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329574677121619305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a2296a8749221429146468e3b92ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementMinecraft_1
+  achievement: {fileID: 11400000, guid: b1774a2cb6b3f9148ba3727cde65ea2a, type: 2}
+--- !u!114 &5491543598695214332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329574677121619305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d355c0c6003d7514199f5c40f61cbe2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementTesco_1
+  achievement: {fileID: 11400000, guid: e6a044ee720190d408166e6aa4979526, type: 2}

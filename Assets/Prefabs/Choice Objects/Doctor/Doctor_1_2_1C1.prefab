@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1512876745680337656}
   - component: {fileID: 2060456282918698052}
   m_Layer: 5
-  m_Name: Doctor_A1
+  m_Name: Doctor_1_2_1C1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,5 +48,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63392cb0625bc47489fb1907383cc124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementDoctor_1
-  achievementInfo: {fileID: 11400000, guid: 5d230c29c6cad3242b3a614001c9fa18, type: 2}
-  closeGameDelay: 33.5
+  closeGameTime: 33.5

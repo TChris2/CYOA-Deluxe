@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Race_2_2_2
   choice: Roll For Luck!
-  vid: {fileID: 32900000, guid: 35ed7542b4d31ea4ebafdbbab74f1b86, type: 3}
-  choiceState: 0200000003000000
-  firstRunOnly: 0
-  vidEndTime: 65
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 0200000003000000
+  vid: {fileID: 32900000, guid: 35ed7542b4d31ea4ebafdbbab74f1b86, type: 3}
   subtitles: {fileID: 11400000, guid: 2fdc932391b711c4c998c9ae26c9bd58, type: 2}
+  vidEndTime: 65
   objs: []
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices: []
-  achievements:
+  achievements: []
+  achievementHints:
   - {fileID: 11400000, guid: cdf9cb65cba30a64698e44c2d2ecae1f, type: 2}
   letterIDs: 
   weaponsUsed:

@@ -358,9 +358,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Button
   videoPlayer: {fileID: 2127053777}
+  pauseVideoPlayer: 0
   currentChoice: {fileID: 0}
   prevChoice: Portal_
   canBePaused: 0
+  vidFinished: 0
   fadeTextAni: {fileID: 6072281}
   skipText: {fileID: 6072280}
   objHolder: {fileID: 1076986128}
@@ -406,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FinaleManager
   unlockScreenOpened: 0
   finaleUnlockScreen: {fileID: 1039176411}
-  letterIconsGroup: {fileID: 1022909507}
+  bobbingLetters: {fileID: 1022909507}
   finaleTransition: {fileID: 1950396515}
   finaleUnlockLabel: {fileID: 1068104432}
   finaleUnlockVp: {fileID: 133685355}
@@ -3965,6 +3967,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 69cbccdd782d0be4c994c21bfd202bb1, type: 2}
+    - target: {fileID: 4380549890321117152, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5881233664971079130, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4045,6 +4051,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7933898557311734169, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8030191922322405016, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4063,6 +4073,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8603113969271155203, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950618498115183390, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950618498115183390, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950618498115183390, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950618498115183390, guid: fe5f2a3206173ab4d9c2a1637d4a994c, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6641,7 +6667,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824719234}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f9a6357eb7e41414d8a74a350e2934d1, type: 2}
   m_CullingMode: 0
@@ -7627,6 +7653,7 @@ GameObject:
   - component: {fileID: 1022909508}
   - component: {fileID: 1022909510}
   - component: {fileID: 1022909509}
+  - component: {fileID: 1022909511}
   m_Layer: 5
   m_Name: Bobbing Letters
   m_TagString: Untagged
@@ -7704,6 +7731,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &1022909511
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022909507}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1039176407
 GameObject:
   m_ObjectHideFlags: 0

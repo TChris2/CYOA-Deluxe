@@ -11,6 +11,8 @@ public class AchievementMenu : MonoBehaviour
     [SerializeField]
     private Transform achieveContents;
     [SerializeField]
+    private Sprite LockedIcon;
+    [SerializeField]
     private GameObject achievementDisplay;
     // Determines the order of achievements
     [SerializeField]
@@ -19,6 +21,7 @@ public class AchievementMenu : MonoBehaviour
     // Scripts
     SaveManager sm;
     InputMenu iMenu;
+    AchievementInfoDisplay[] achieveDisplays;
     
     void Start()
     {
@@ -36,7 +39,7 @@ public class AchievementMenu : MonoBehaviour
     {
         if (achieveOrder.Count != sm.achieveDict.Count)
         {
-            Debug.LogError("Error, achieveOrder & achieveDict lengths are not equal");
+            Debug.LogError("AchievementMenu: Error, achieveOrder & achieveDict lengths are not equal");
         }
 
         // Instantiates each achievement into the menu
@@ -53,10 +56,11 @@ public class AchievementMenu : MonoBehaviour
     // Updates achievement displays depending on the progress the player has made
     void UpdateAchievements()
     {
-        // Debug.Log("Updating Achievements");
+        // Debug.Log("AchievementMenu: Updating Achievements");
 
         // Gets all the achievement displays in the menu
-        AchievementInfoDisplay[] achieveDisplays = achieveContents.GetComponentsInChildren<AchievementInfoDisplay>();
+        if (achieveDisplays == null)
+            achieveDisplays = achieveContents.GetComponentsInChildren<AchievementInfoDisplay>();
 
         // Checks each display
         foreach (AchievementInfoDisplay achieveDisplay in achieveDisplays)
@@ -67,55 +71,60 @@ public class AchievementMenu : MonoBehaviour
                 // Only updates the display when achievement needs to be updated or when the override is enabled
                 if (achievement.updateDisplay || iMenu.completeOverride)
                 {
-                    // Debug.Log($"Updating Achievement {achievement.achieveID}");
+                    // Debug.Log($"AchievementMenu: Updating Achievement {achievement.achieveID}");
 
-                    // If the override is enabled it will display the achievement at full completion
-                    if (iMenu.completeOverride)
-                    {
-                        achieveDisplay.DisplayInfo(achievement.icon, achievement.achievement, achievement.description);
-                        achieveDisplay.popupIcon.color = Color.HSVToRGB(0, 0, 1);
-                        // Allows game to update the achievement back to its proper status
-                        achievement.updateDisplay = true;
-                    }
+                    // Defaults for displaying achievement info
+                    float iconGrayscale = 1;
+                    float textGrayscale = 1;
+                    Sprite inputIcon = achievement.icon; 
+                    string inputAchievement = achievement.achievement;
+                    string inputDescription = achievement.description;
+
                     // Normal updating procedure
-                    else
+                    if (!iMenu.completeOverride)
                     {
-                        // Debug.Log(achievement.achieveState);
+                        // Debug.Log($"AchievementMenu: {achievement.achieveState}");
 
                         // Checks the achievement's state to see how much info should be displayed
                         switch (achievement.achieveState)
                         {
                             // Player cannot see any info about the achievement
                             case AchievementState.Locked:
-                                achieveDisplay.DisplayInfo(achieveDisplay.LockedIcon, "???", " ");
-                                achieveDisplay.popupIcon.color = Color.HSVToRGB(0, 0, 1);
+                                inputIcon = LockedIcon; 
+                                inputAchievement = "???";
+                                inputDescription = " ";
                                 break;
                             // Player can see the unlock conditions for the achievement but not its icon
                             case AchievementState.Hidden:
-                                achieveDisplay.DisplayInfo(achieveDisplay.LockedIcon, achievement.achievement, achievement.description);
-                                achieveDisplay.popupIcon.color = Color.HSVToRGB(0, 0, 1);
+                                inputIcon = LockedIcon; 
                                 break;
                             // Player can fully see the achievement
                             case AchievementState.Shown:
-                                achieveDisplay.DisplayInfo(achievement.icon, achievement.achievement, achievement.description);
-                                achieveDisplay.popupIcon.color = Color.HSVToRGB(0, 0, .5f);
+                                // If the player has not unlocked the achievement
+                                if (!achievement.hasUnlocked)
+                                {
+                                    iconGrayscale = .35f;
+                                    textGrayscale = .35f;
+                                }
                                 break;
-                        }
-
-                        // If the player has unlocked the achievement
-                        if (achievement.hasUnlocked)
-                        {
-                            achieveDisplay.popupIcon.color = Color.HSVToRGB(0, 0, 1);
                         }
 
                         // Tells the game the display does not need to be updated atm
                         achievement.updateDisplay = false;
                     }
+                    // Reverts the achievement back to its previous status if the achievement has not yet been completed
+                    else if (!achievement.hasUnlocked)
+                    {
+                        achievement.updateDisplay = true;
+                    }
+
+                    achieveDisplay.DisplayInfo(inputIcon, inputAchievement, inputDescription);
+                    achieveDisplay.UpdateColor(Color.HSVToRGB(0, 0, iconGrayscale), Color.HSVToRGB(0, 0, textGrayscale));
                 }
             }
             else
             {
-                Debug.Log($"AchieveID - {achieveDisplay.gameObject.name} - not found in the system when checking in UpdateachievementBtns()");
+                Debug.Log($"AchievementMenu: AchieveID - {achieveDisplay.gameObject.name} - not found in the system when checking in UpdateachievementBtns()");
             }
         }
     }

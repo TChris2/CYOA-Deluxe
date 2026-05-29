@@ -30,7 +30,7 @@ MonoBehaviour:
   - displayStartTime: 10.034
     displayEndTime: 12.034
     text: '<style="Subtitles_Person_Doctor">The Doctor</style>: -use it for whatever...
-      use it for whatever'
+      use it for whatever.'
   - displayStartTime: 12.38
     displayEndTime: 13.556
     text: '<style="Subtitles_Person_RT">RT</style>: Give us a good spin!'

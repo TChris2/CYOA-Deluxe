@@ -50,7 +50,7 @@ MonoBehaviour:
     text: <style="Subtitles_Format_()">Bad Microphone</style>
   - displayStartTime: 50
     displayEndTime: 51
-    text: '<style="Subtitles_Person_RT">RT</style>: Whats That Over there?'
+    text: '<style="Subtitles_Person_RT">RT</style>: Whats that over there?'
   - displayStartTime: 52
     displayEndTime: 52.3
     text: '<style="Subtitles_Person_RT">RT</style>: <i>What?</i>'

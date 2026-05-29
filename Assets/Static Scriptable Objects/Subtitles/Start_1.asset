@@ -31,7 +31,7 @@ MonoBehaviour:
     text: <style="Subtitles_Person_SubtitlesGuy">Both me and Cab want to thank every
       single editor, artist and clip provider for the help with this project... Thank
       you!</style>
-  - displayStartTime: 64
+  - displayStartTime: 64.6
     displayEndTime: 68.5
     text: '<style="Subtitles_Person_RT">RT</style>: Anywhere in time and space, and
       we don''t kill.'

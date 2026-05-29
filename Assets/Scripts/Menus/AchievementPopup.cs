@@ -21,23 +21,30 @@ public class AchievementPopup : AchievementInfoDisplay
     /// <summary>
     /// Pops the achievement popup onscreen
     /// </summary>
-    public IEnumerator AchievePopup(AchievementInfo achievement)
+    public void AchievePopup()
     {
-        // Adds achievement to the queue
-        achieveQueue.Add(achievement);
-
-        // Waits until the queue is clear before playing the popup for the achievement
-        while (achievement.achieveID != achieveQueue[0].achieveID)
+        if (achieveQueue.Count == 0)
         {
-            yield return null;
+            // Debug.Log("AchievementPopup: Achievement queue is empty");
+            return;
         }
 
-        yield return new WaitForSeconds(1f);
+        Debug.Log($"AchievementPopup: Popping up {achieveQueue[0].achieveID}");
 
         // Displays achievement info
-        DisplayInfo(achievement.icon, achievement.achievement, achievement.description);
+        DisplayInfo(achieveQueue[0].icon, achieveQueue[0].achievement, achieveQueue[0].description);
 
         popupAni.Play("Popup");
+    }
+
+    /// <summary>
+    /// Adds achievement to popup queue
+    /// </summary>
+    public void PopupQueue(AchievementInfo achievement)
+    {
+        Debug.Log($"AchievementPopup: Adding {achievement.achieveID} to popup queue");
+
+        achieveQueue.Add(achievement);
     }
     
     // Removes current item from the queue
@@ -45,5 +52,9 @@ public class AchievementPopup : AchievementInfoDisplay
     public void RemoveFromQueue()
     {
         achieveQueue.Remove(achieveQueue[0]);
+
+        // Popups the next achievement if there is still more in the queue
+        if (achieveQueue.Count != 0)
+            AchievePopup();
     }
 }

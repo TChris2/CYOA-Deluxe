@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: BOTW_1_1_1_2_2
   choice: Respawn
-  vid: {fileID: 32900000, guid: be2364c00ba181443b7e440c0d6aa796, type: 3}
-  choiceState: 00000000
-  firstRunOnly: 0
-  vidEndTime: 0
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 00000000
+  vid: {fileID: 32900000, guid: be2364c00ba181443b7e440c0d6aa796, type: 3}
   subtitles: {fileID: 11400000, guid: 0929e5ce8b87ae749a66b0a20fd7b572, type: 2}
+  vidEndTime: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: 0a9025b6b66da6146888d1031d55da7a, type: 3}
     popupTime: 36
@@ -27,15 +27,17 @@ MonoBehaviour:
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
+  mapDisplayChoice: {fileID: 11400000, guid: 684d0c618335f784a98cb7be37394d23, type: 2}
   mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 043e26227e3e6624a904ea2f15e447fa, type: 2}
   - {fileID: 11400000, guid: 2643d31e309cb2042915ee49f89ab443, type: 2}
   - {fileID: 11400000, guid: a18795b54c907e5499c6b25d943957e9, type: 2}
   achievements: []
+  achievementHints: []
   letterIDs: 
   weaponsUsed: []
   updateDisplay: 1

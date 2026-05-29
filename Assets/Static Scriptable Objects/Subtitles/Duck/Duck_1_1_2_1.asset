@@ -65,7 +65,7 @@ MonoBehaviour:
     text: <style="Subtitles_Format_()>Roaring in the Distance</style>
   - displayStartTime: 59.36
     displayEndTime: 67.3
-    text: <style="Subtitles_Format_()>Sonic Mania Game Over music</style>
+    text: <style="Subtitles_Format_()>Sonic Mania Game Over Music</style>
   - displayStartTime: 68.4
     displayEndTime: 70.358
     text: '<style="Subtitles_Person_RT">RT</style>: Don''t let your mind hold you
@@ -73,7 +73,7 @@ MonoBehaviour:
   - displayStartTime: 70.358
     displayEndTime: 72.948
     text: '<style="Subtitles_Person_RT">RT</style>: You can do this, I have faith
-      in you'
+      in you.'
   - displayStartTime: 73.429
     displayEndTime: 74.968
     text: '<style="Subtitles_Person_RT">RT</style>: You just gotta believe...'

@@ -19,7 +19,7 @@ MonoBehaviour:
       on flight 404 airlines.'
   - displayStartTime: 5.9
     displayEndTime: 7.6
-    text: <Style="subtitles_format_[]">Oh my</style>
+    text: <Style="subtitles_format_[]">Oh My</style>
   - displayStartTime: 8.45
     displayEndTime: 9.95
     text: '<style="Subtitles_Person_RT">RT</style>: A mild bit of turbulence today.'

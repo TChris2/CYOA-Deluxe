@@ -303,10 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa0c038f3150ff418741c574bfc7a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementInfoDisplay
-  popupIcon: {fileID: 6894376448102347534}
-  popupLabel: {fileID: 1628954213682439761}
-  popupDesc: {fileID: 1957172943274500867}
-  LockedIcon: {fileID: 21300000, guid: 2682d1e2f77315f42a66a5c7897bc9b2, type: 3}
+  icon: {fileID: 6894376448102347534}
+  label: {fileID: 1628954213682439761}
+  labelLine: {fileID: 7939340143166493555}
+  desc: {fileID: 1957172943274500867}
 --- !u!1 &7233054277740740151
 GameObject:
   m_ObjectHideFlags: 0

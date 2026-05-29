@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Doctor_2_1_1_2_2_2
   choice: No
-  vid: {fileID: 32900000, guid: 24af1132e7a302e49af4c58139f74382, type: 3}
-  choiceState: 00000000
-  firstRunOnly: 0
-  vidEndTime: 0
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 00000000
+  vid: {fileID: 32900000, guid: 24af1132e7a302e49af4c58139f74382, type: 3}
   subtitles: {fileID: 11400000, guid: 6966db0d0db0756409a5e4f60a5bdef0, type: 2}
+  vidEndTime: 0
   objs:
   - obj: {fileID: 2518979021591781705, guid: 4dfda3841a459e74d9e2a8d9ebe6cae0, type: 3}
     popupTime: 46.5
@@ -27,19 +27,16 @@ MonoBehaviour:
     subsequentRunsOnly: 0
     childPopupDelay: 0
     despawnTime: 0
-  - obj: {fileID: 2518979021591781705, guid: 39a1bdb31c88cb547ae3aced2e955e0a, type: 3}
-    popupTime: 46.5
-    isSkippable: 1
-    subsequentRunsOnly: 0
-    childPopupDelay: 0
-    despawnTime: 0
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
+  mapDisplayChoice: {fileID: 11400000, guid: 2445aacb89a3b194c8d11ff10d1550d1, type: 2}
   mapNextChoices: []
   nextChoices:
   - {fileID: 11400000, guid: 2445aacb89a3b194c8d11ff10d1550d1, type: 2}
   achievements:
+  - {fileID: 11400000, guid: 248b69b65fe3ba44b9d2d93fef760e60, type: 2}
+  achievementHints:
   - {fileID: 11400000, guid: 248b69b65fe3ba44b9d2d93fef760e60, type: 2}
   letterIDs: 
   weaponsUsed: []

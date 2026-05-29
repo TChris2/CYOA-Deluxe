@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchieveMenuFunction
   achieveContents: {fileID: 2424957310184047487}
+  LockedIcon: {fileID: 21300000, guid: 2682d1e2f77315f42a66a5c7897bc9b2, type: 3}
   achievementDisplay: {fileID: 6990351008973199426, guid: 5ec3b054ec7b9024aac53e81fce6beec, type: 3}
   achieveOrder:
   - {fileID: 11400000, guid: 3b0151e03ad7515449c6668dc95eba86, type: 2}

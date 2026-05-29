@@ -47,7 +47,7 @@ MonoBehaviour:
     text: <size=150%>B I G G E R</size>
   - displayStartTime: 29.335
     displayEndTime: 30.55
-    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: On the inside!'
+    text: '<style="Subtitles_Person_Doctor">The Doctor</style>: on the inside!'
   - displayStartTime: 30.55
     displayEndTime: 32.206
     text: '<style="Subtitles_Person_RT">RT</style>: We got some of that already...'

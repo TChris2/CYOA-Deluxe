@@ -64,6 +64,7 @@ public class MapMenu : MonoBehaviour
     public bool inMapMenu;
     // Checks to see if the map is ready to be interacted with
     bool isMapReady;
+    Button[] mapBtns;
 
     void Start()
     {
@@ -129,7 +130,8 @@ public class MapMenu : MonoBehaviour
     void AddMapBtnFunctions()
     {
         // Gets all the choice buttons on the map
-        Button[] mapBtns = gameObject.GetComponentsInChildren<Button>();
+        if (mapBtns == null)
+            mapBtns = gameObject.GetComponentsInChildren<Button>();
 
         #if DEBUG_MakeConnections
             Vector2 startPos, endPos;
@@ -182,7 +184,7 @@ public class MapMenu : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log($"ID - {btn.gameObject.name} - not found in the system when checking in AddMapBtnFunctions()");
+                    Debug.Log($"MapMenu: ID - {btn.gameObject.name} - not found in the system when checking in AddMapBtnFunctions()");
                 }
             }
         }
@@ -235,7 +237,8 @@ public class MapMenu : MonoBehaviour
     void UpdateMapBtns()
     {
         // Gets all the choice buttons on the map
-        Button[] mapBtns = mapContents.GetComponentsInChildren<Button>(true);
+        if (mapBtns == null)
+            mapBtns = mapContents.GetComponentsInChildren<Button>(true);
 
         foreach (Button btn in mapBtns)
         {
@@ -247,7 +250,7 @@ public class MapMenu : MonoBehaviour
                     // Skips updating the choice map btn if the player has already 100% the choice
                     if (!choice.updateDisplay)
                     {
-                        // Debug.Log($"ChoiceID {choice.choiceID} is fully complete, skipping updating map btn");
+                        // Debug.Log($"MapMenu: ChoiceID {choice.choiceID} is fully complete, skipping updating map btn");
                         continue;
                     }
 
@@ -304,7 +307,7 @@ public class MapMenu : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log($"ID - {btn.gameObject.name} - not found in the system when checking in UpdateMapBtns()");
+                    Debug.Log($"MapMenu: ID - {btn.gameObject.name} - not found in the system when checking in UpdateMapBtns()");
                 }
             }
         }
@@ -317,7 +320,7 @@ public class MapMenu : MonoBehaviour
     /// </summary>
     (bool, int) CheckChoiceCompletion(ChoiceInfo choice)
     {
-        // Debug.Log($"Checking Choice {choice.choiceID}");
+        // Debug.Log($"MapMenu: Checking Choice {choice.choiceID}");
 
         int completedChoices = 0;
 
@@ -326,37 +329,14 @@ public class MapMenu : MonoBehaviour
         {
             if (sm.choiceDict.ContainsKey(choiceInfo.choiceID))
             {  
-                // Debug.Log($"Next Choice {nextChoice.choiceID} {nextChoice.hasComplete}");
+                // Debug.Log($"MapMenu: Next Choice {nextChoice.choiceID} {nextChoice.hasComplete}");
                 if (sm.choiceDict[choiceInfo.choiceID].hasComplete)
                     completedChoices += 1;
             }
             else
             {
-                Debug.Log($"ID - {choiceInfo.choiceID} - not found in the system when checking in CheckChoiceCompletion() for choice {choice.choiceID}");
+                Debug.Log($"MapMenu: ID - {choiceInfo.choiceID} - not found in the system when checking in CheckChoiceCompletion() for choice {choice.choiceID}");
             }
-        }
-
-        // Checks whether the player has completed all the achievements tied to that choice
-        bool achieveComplete = true;
-        if (choice.achievements.Count > 0)
-        {
-            foreach (AchievementInfo achievementInfo in choice.achievements)
-            {
-                if (sm.achieveDict.ContainsKey(achievementInfo.achieveID))
-                {   
-                    // Marks it false if the player has not completed all the achievements
-                    if (!sm.achieveDict[achievementInfo.achieveID].hasUnlocked)
-                        achieveComplete = false;
-                }
-                else
-                {
-                    // Debug.Log($"AchieveID {id} not found in system in CheckChoiceCompletion()");
-                }
-            }
-        }
-        else
-        {
-            // Debug.Log($"No achievements found for ChoiceID {choice.choiceID} in CheckChoiceCompletion()");
         }
 
         // Checks whether the player has collected all the letters tied to that choice
@@ -373,17 +353,17 @@ public class MapMenu : MonoBehaviour
                 }
                 else
                 {
-                    // Debug.Log($"LetterID {id} not found in system in CheckChoiceCompletion()");
+                    // Debug.Log($"MapMenu: LetterID {id} not found in system in CheckChoiceCompletion()");
                 }
             }
         }
         else
         {
-            // Debug.Log($"No letters found for ChoiceID {choice.choiceID} in CheckChoiceCompletion()");
+            // Debug.Log($"MapMenu: No letters found for ChoiceID {choice.choiceID} in CheckChoiceCompletion()");
         }
 
         // If the player has completed all the next choices it returns true, alongside the total of completed choices
-        return (completedChoices == choice.nextChoices.Count && achieveComplete && letterComplete, completedChoices);
+        return (completedChoices == choice.nextChoices.Count && letterComplete, completedChoices);
     }
 
     /// <summary>
@@ -391,8 +371,8 @@ public class MapMenu : MonoBehaviour
     /// </summary>
     void DisplayChoiceInfo(ChoiceInfo choice, Color color)
     {
-        // Debug.Log($"Displaying choice {choice.choiceID}");
-        // if (choice.mapName != "") {Debug.Log($"Map name {choice.mapName}");}
+        // Debug.Log($"MapMenu: Displaying choice {choice.choiceID}");
+        // if (choice.mapName != "") {Debug.Log($"MapMenu: Map name {choice.mapName}");}
 
         // Displays the choice's map name, if the field is blank it defaults to the choice's choice field
         choiceLabel.text = choice.mapName != "" ? choice.mapName : choice.choice;
@@ -468,8 +448,16 @@ public class MapMenu : MonoBehaviour
                 break;
         }
 
+        // If the choice is to be displayed as another on the Map Menu
+        if (gm != null && gm.currentChoice.mapDisplayChoice != null)
+        {
+            Debug.Log($"Map Menu: Choice {gm.currentChoice.choiceID} to be displayed as {gm.currentChoice.mapDisplayChoice.choiceID} on the Map Menu");
+            choiceID = gm.currentChoice.mapDisplayChoice.choiceID;
+        }
+
         // Gets position of the new wyaIcon
-        Button[] mapBtns = mapContents.GetComponentsInChildren<Button>(true);
+        if (mapBtns == null)
+            mapBtns = mapContents.GetComponentsInChildren<Button>(true);
         Button targetBtn = null;
         ChoiceInfo mapChoice = null;
 
@@ -496,7 +484,7 @@ public class MapMenu : MonoBehaviour
                 
                 while (!targetBtn && !mapChoice)
                 {
-                    // Debug.Log($"prevChoice {prevChoice}");
+                    // Debug.Log($"MapMenu: prevChoice {prevChoice}");
 
                     if (parts.Length == 2)
                         prevChoice = $"{prevChoice}_";
@@ -510,7 +498,7 @@ public class MapMenu : MonoBehaviour
                         if (mapChoice)
                             break;
                         else
-                            Debug.Log($"ID - {prevChoice} - not found in the system when checking in OpenMapMenu()");
+                            Debug.Log($"MapMenu: ID - {prevChoice} - not found in the system when checking in OpenMapMenu()");
                     }
 
                     parts = prevChoice.Split('_');
@@ -522,13 +510,13 @@ public class MapMenu : MonoBehaviour
         // Places or spawns wyaIcon at target position
         if (wyaIconStorage)
         {
-            // Debug.Log("Changing wya icon's position");
+            // Debug.Log("MapMenu: Changing wya icon's position");
             wyaIconStorage.transform.SetParent(targetBtn.transform, false);
             PositionWyaIcon(targetBtn);
         }
         else
         {
-            // Debug.Log("Spawning wya icon");
+            // Debug.Log("MapMenu: Spawning wya icon");
             wyaIconStorage = Instantiate(wyaIcon, targetBtn.transform);
             PositionWyaIcon(targetBtn);      
         }

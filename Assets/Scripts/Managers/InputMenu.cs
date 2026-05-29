@@ -12,11 +12,13 @@ public class InputMenu : MonoBehaviour
     [HideInInspector]
     public CanvasGroup pMenu;
     [HideInInspector]
+    public Animator pMenuAni;
+    [HideInInspector]
     public CanvasGroup dMenu;
     // Tracks when the game is paused
     public bool isPaused;
     // Tracks when the retry menu is open
-    bool isRetryMenu;
+    public bool isRetryMenu;
     // Scripts
     MapMenu mapMenuF;
     [HideInInspector]
@@ -42,7 +44,7 @@ public class InputMenu : MonoBehaviour
     public void DebugMenu()
     {
         // string state = completeOverride ? "Enabling" : "Disabling";
-        // Debug.Log($"{state} Debug Menu {completeOverride}");
+        // Debug.Log($"InputMenu: {state} Debug Menu {completeOverride}");
 
         if (completeOverride)
         {
@@ -65,7 +67,7 @@ public class InputMenu : MonoBehaviour
         if (!isRetryMenu)
         {
             isPaused = pMenu.alpha == 1 ? true : false;
-            // Debug.Log($"{isPaused} {gm.canBePaused} {!gm.isFinale} {completeOverride}");
+            // Debug.Log($"InputMenu: {isPaused} {gm.canBePaused} {!gm.isFinale} {completeOverride}");
 
             // Pauses the game and opens the pause menu
             if (!isPaused && (gm.canBePaused && !fm.isFinale || completeOverride))
@@ -88,7 +90,7 @@ public class InputMenu : MonoBehaviour
     {
         gm.fadeTextAni.Play("Invisible Text");
         
-        // Debug.Log("Pausing game");
+        // Debug.Log("InputMenu: Pausing game");
         isPaused = true;
         Time.timeScale = 0;
         AudioListener.pause = true;
@@ -103,7 +105,7 @@ public class InputMenu : MonoBehaviour
     /// </summary>
     public void ResumeCheck()
     {
-        // Debug.Log("Resume Check");
+        // Debug.Log("InputMenu: Resume Check");
         // Closes the menu player is in currently
         if (openMenus.Count > 1 || smallMenu != null)
             CloseMenu();
@@ -119,7 +121,7 @@ public class InputMenu : MonoBehaviour
     /// </summary>
     public void Resume()
     {
-        // Debug.Log("Resuming game");
+        // Debug.Log("InputMenu: Resuming game");
 
         // Closes remaining menus
         CloseAllMenus();
@@ -134,7 +136,7 @@ public class InputMenu : MonoBehaviour
     /// </summary>
     public void CloseAllMenus()
     {
-        // Debug.Log("Closing all menus");
+        // Debug.Log("InputMenu: Closing all menus");
         CloseSmallMenu();
 
         int menuTotal;
@@ -146,6 +148,15 @@ public class InputMenu : MonoBehaviour
         else
         {
             menuTotal = openMenus.Count;
+        }
+
+        if (isRetryMenu)
+        {
+            Debug.Log("Closing Retry Menu");
+            pMenuAni.enabled = true;
+            pMenuAni.Play($"Close Retry Menu");
+            openMenus.Remove(pMenu);
+            menuTotal -= 1;
         }
 
         for (int i = menuTotal - 1; i >= 0; i--)
@@ -170,11 +181,11 @@ public class InputMenu : MonoBehaviour
 
         if (openMenus.Count == 0 || SceneManager.GetActiveScene().name == "Title Screen" && openMenus.Count == 1)
         {
-            // Debug.Log($"Closing menus in {SceneManager.GetActiveScene().name} is currently unnecessary");
+            // Debug.Log($"InputMenu: Closing menus in {SceneManager.GetActiveScene().name} is currently unnecessary");
             return;
         }
 
-        // Debug.Log($"Closing {openMenus[openMenus.Count - 1].name}");
+        // Debug.Log($"InputMenu: Closing {openMenus[openMenus.Count - 1].name}");
 
         // Renables previous menu
         if (openMenus.Count >= 2)
@@ -191,7 +202,8 @@ public class InputMenu : MonoBehaviour
     public void OpenRetryMenu()
     {
         isRetryMenu = true;
-        pMenu.GetComponent<Animator>().Play("Open Retry Menu", 0, 0);
+        pMenuAni.enabled = true;
+        pMenuAni.Play("Open Retry Menu", 0, 0);
         openMenus.Add(pMenu);
     }
 
@@ -207,7 +219,7 @@ public class InputMenu : MonoBehaviour
             
             if (menu.GetComponent<Animator>().HasState(0, Animator.StringToHash($"{animation} Menu")))
             {
-                // Debug.Log($"Playing {animation} Menu Animation");
+                // Debug.Log($"InputMenu: Playing {animation} Menu Animation");
                 menu.GetComponent<Animator>().enabled = true;
                 menu.GetComponent<Animator>().Play($"{animation} Menu");
             }
@@ -229,7 +241,7 @@ public class InputMenu : MonoBehaviour
             return;
         if (smallMenu.interactable)
         {
-            // Debug.Log("Closing Small Menu");
+            // Debug.Log("InputMenu: Closing Small Menu");
             smallMenu.transform.SetAsFirstSibling();
             MenuOpenClose(smallMenu, false);
             smallMenu = null;

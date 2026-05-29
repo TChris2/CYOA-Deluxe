@@ -22,10 +22,10 @@ MonoBehaviour:
   - displayStartTime: 5.9
     displayEndTime: 8.1
     text: '<style="Subtitles_Person_RT">RT</style>: Okay Mareep, use Thunderbolt!'
-  - displayStartTime: 10.6
-    displayEndTime: 11.6
+  - displayStartTime: 8.3
+    displayEndTime: 11
     text: <Style="subtitles_format_[]">Mareep used Thunderbolt</style>
-  - displayStartTime: 11.6
+  - displayStartTime: 11
     displayEndTime: 13
     text: <Style="subtitles_format_[]">It was supereffective!</style>
   - displayStartTime: 45.2

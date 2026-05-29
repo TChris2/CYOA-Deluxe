@@ -124,16 +124,16 @@ public class Stats
     /// <summary>
     /// Gets completion percentage
     /// </summary>
-    public float Completion(Dictionary<string, ChoiceInfo> choiceDict, Dictionary<string, AchievementInfo> achieveDict)
+    public float Completion(Dictionary<string, ChoiceInfo> choiceDict)
     {
         int choicesCompleted, b;
 
         (choicesCompleted, b) = ChoicesCompleted(choiceDict);
         // Adds the completed choices and achievements together
-        int completed = choicesCompleted + AchievementsCompleted(achieveDict);
-        // Debug.Log($"Choices Completed {choicesCompleted}, Total Choices {choiceDict.Count}, Choices Skipped {skipChoiceIDs.Count}");
+        int completed = choicesCompleted;
+        // Debug.Log($"Stats: Choices Completed {choicesCompleted}, Total Choices {choiceDict.Count}, Choices Skipped {skipChoiceIDs.Count}");
         // Adds the total of choices and achievements, subtracts the skipChoiceIDs from the choice total
-        int total = choiceDict.Count - skipChoiceIDs.Count + achieveDict.Count;
+        int total = choiceDict.Count - skipChoiceIDs.Count;
         return Mathf.Floor(((float)completed / total) * 100);
     }
 
@@ -160,7 +160,7 @@ public class Stats
         (endingsCompleted, endingsCompletedTotal) = EndingsCompleted(sm.choiceDict);
         statsText[7].text = $"{endingsCompleted}/{endingsCompletedTotal}";
         // Gets completion percentage
-        statsText[8].text = $"{Completion(sm.choiceDict, sm.achieveDict)}%";
+        statsText[8].text = $"{Completion(sm.choiceDict)}%";
         // Converts play time to hour:minute:second format
         TimeSpan time = TimeSpan.FromSeconds(sm.stats.playTime);
         statsText[9].text = $"{time.TotalHours:00}:{time.Minutes:00}:{time.Seconds:00}";
@@ -181,7 +181,7 @@ public class Stats
         (endingsCompleted, endingsCompletedTotal) = EndingsCompleted(sm.choiceDict);
         statsText[2].text = $"{endingsCompleted}/{endingsCompletedTotal}";
         // Gets completion percentage
-        statsText[3].text = $"{Completion(sm.choiceDict, sm.achieveDict)}%";
+        statsText[3].text = $"{Completion(sm.choiceDict)}%";
         // Converts play time to hour:minute:second format
         TimeSpan time = TimeSpan.FromSeconds(sm.stats.playTime);
         statsText[4].text = $"{time.TotalHours:00}:{time.Minutes:00}:{time.Seconds:00}";

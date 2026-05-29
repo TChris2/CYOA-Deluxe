@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceInfoSO
   choiceID: Race_2_2_1
   choice: Try Your Luck!
-  vid: {fileID: 32900000, guid: dfbf01d42f753e3479f25d3e5a75e52c, type: 3}
-  choiceState: 03000000
-  firstRunOnly: 0
-  vidEndTime: 39
   hasComplete: 0
+  firstRunOnly: 0
+  choiceState: 03000000
+  vid: {fileID: 32900000, guid: dfbf01d42f753e3479f25d3e5a75e52c, type: 3}
   subtitles: {fileID: 11400000, guid: 4e1356b28d8f0cf42848144b991b9f55, type: 2}
+  vidEndTime: 39
   objs: []
+  isOnMap: 0
   mapName: 
   thumbnail: {fileID: 0}
-  isOnMap: 0
   mapNextChoices: []
   nextChoices: []
-  achievements:
+  achievements: []
+  achievementHints:
   - {fileID: 11400000, guid: cdf9cb65cba30a64698e44c2d2ecae1f, type: 2}
   letterIDs: 
   weaponsUsed:

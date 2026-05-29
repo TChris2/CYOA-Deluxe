@@ -66,7 +66,7 @@ MonoBehaviour:
     text: <Style="subtitles_format_[]>Suspenseful Music While You Contemplate Your
       Own Mortality</Style>
   - displayStartTime: 76.24
-    displayEndTime: 78.159
+    displayEndTime: 80
     text: <Style="subtitles_format_[]>Why Have You Waited This Long You Fool</Style>
   - displayStartTime: 82.302
     displayEndTime: 86.666
@@ -89,7 +89,7 @@ MonoBehaviour:
     text: <Style="subtitles_format_[]>BOOM</Style>
   - displayStartTime: 99.1
     displayEndTime: 103
-    text: <Style="subtitles_format_()>Wrong Answer Horn from the Price Is Right</Style>
+    text: <Style="subtitles_format_()>Wrong Answer Horn from The Price Is Right</Style>
   - displayStartTime: 105.35
     displayEndTime: 106.15
     text: '<style="Subtitles_Person_RT">RT</style>: You''re too late!'

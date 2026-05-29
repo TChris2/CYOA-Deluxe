@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 /// <summary>
 /// Parent class of achievement scripts, holds general info and functions
@@ -8,52 +9,26 @@ using System.Collections.Generic;
 public class Achievement : MonoBehaviour
 {
     [SerializeField]
-    protected AchievementInfo achievementInfo;
+    protected AchievementInfo achievement;
     protected string achieveID;
-    protected SaveManager sm;
+    protected AchievementManager am;
 
     /// <summary>
     /// Gets general components for achievements
     /// </summary>
     protected void GetComponents()
     {
-        sm = FindAnyObjectByType<SaveManager>();
+        am = GetComponentInParent<AchievementManager>();
 
         // Trims string in case of empty space
-        achieveID = achievementInfo.achieveID.Trim();
+        achieveID = achievement.achieveID.Trim();
     }
 
     /// <summary>
-    /// Waits until the child object is popped up on screen in GameManager
+    /// Intializes the achievement
     /// </summary>
-    protected IEnumerator AchievePopupDelay(AchievementInfo achievement)
+    protected void InitializeAchievement(Func<bool> achieveLogic)
     {
-        // Gets remaining scripts
-        GameObject child = transform.GetChild(0).gameObject;
-
-        if (!child)
-            Debug.LogError("Error, child object does not exist");
-
-        yield return null;
-
-        while (!child.activeSelf)
-            yield return null;
-
-        AchievementUnlock(achievement);
-        StartCoroutine(sm.achievePopup.AchievePopup(achievement));
-    }
-
-    /// <summary>
-    /// Unlocks achievement and adds it to the achievement popup queue
-    /// </summary>
-    protected void AchievementUnlock(AchievementInfo achievement)
-    {
-        Debug.Log($"Achievement {achievement.achieveID} Unlocked!");
-        // Marked the achievement as unlocked
-        achievement.hasUnlocked = true;
-        // Tells the game that it needs to update its display in the achievements menu
-        achievement.updateDisplay = true;
-        // Changes the achievement's state from Locked or Hidden to Shown
-        achievement.achieveState = AchievementState.Shown;
+        am.AddAchievementLogic(achieveID, achieveLogic);
     }
 }

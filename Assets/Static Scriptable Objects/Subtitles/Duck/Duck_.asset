@@ -73,10 +73,7 @@ MonoBehaviour:
     text: <style="Subtitles_Format_[]>Loud Car Noises</style>
   - displayStartTime: 31.695
     displayEndTime: 32.8
-    text: '<style="Subtitles_Person_RT">RT</style>: "Which character is this?"
-
-      <style="Subtitles_Person_RT">RT</style>:
-      Have yous not seen Airplane!?'
+    text: '<style="Subtitles_Person_RT">RT</style>: "Which character is this?"'
   - displayStartTime: 32.8
     displayEndTime: 34.5
     text: '<style="Subtitles_Person_RT">RT</style>: Have yous not seen Airplane!?'
